@@ -16,7 +16,7 @@ public class GrabRotation : MonoBehaviour
     public string targetTag = "Interactable";  // Assurez-vous que vos objets interactifs ont ce tag
     private bool isControllerRotating = false;  // Flag pour savoir si on doit ignorer la rotation du contrôleur
     private bool isRotatingY = true;  // Détermine si on fait la rotation sur l'axe Y ou Z
-    private float grabDelay = 15f;  // Durée en secondes pendant laquelle les mouvements du contrôleur sont bloqués
+    private float grabDelay = 60f;  // Durée en secondes pendant laquelle les mouvements du contrôleur sont bloqués
     private float rotationTimer = 0f;  // Timer pour suivre combien de temps la rotation a duré
 
     void Start()

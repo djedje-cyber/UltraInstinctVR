@@ -16,7 +16,7 @@ public class TeleportAtObject : MonoBehaviour
     public float teleportDelay = 2f;
 
     // Chemin du fichier contenant les positions
-    public string filePath = "Assets/scripts/positions.txt";
+    public string filePath = "Assets/Scripts/CoveredObjects/FoundObject.txt";
 
     // Start is called before the first frame update
     void Start()

@@ -4,7 +4,7 @@ using UnityEngine;
 public class SizeScene : MonoBehaviour
 {
     public int teleportCount = 100; // Nombre de téléportations
-    public float outOfBoundsMultiplier = 1.5f; // Distance pour être hors de la scène
+    public float outOfBoundsMultiplier = 15f; // Distance pour être hors de la scène
     public float delayBetweenTeleports = 0.1f; // Délai optionnel entre les téléportations
 
     private Bounds sceneBounds;
@@ -46,6 +46,5 @@ public class SizeScene : MonoBehaviour
         Vector3 newPosition = sceneBounds.center + randomDirection * distance;
 
         transform.position = newPosition;
-        Debug.Log("Téléportation en dehors : " + newPosition);
     }
 }
