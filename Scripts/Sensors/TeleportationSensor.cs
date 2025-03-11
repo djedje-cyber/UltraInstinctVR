@@ -36,7 +36,6 @@ public class TeleportationSensor : AInUnityStepSensor
     {
         // Vérification à chaque étape de Unity si une téléportation a eu lieu
         Vector3 currentPosition = GetPlayerPosition();
-        Debug.Log("coucou");
         // Vérification si la position a changé au-delà d'un certain seuil
         if (Vector3.Distance(currentPosition, lastPosition) > teleportDistanceThreshold)
         {
@@ -52,7 +51,6 @@ public class TeleportationSensor : AInUnityStepSensor
     // Méthode pour obtenir la position actuelle du joueur dans l'environnement Unity
     private Vector3 GetPlayerPosition()
     {
-        Debug.Log("Hello");
         // Exemple de récupération de la position de la caméra (l'avatar du joueur)
         // Vous pouvez ajuster cette logique selon la façon dont votre système de téléportation fonctionne dans Unity.
         return Camera.main.transform.position; 

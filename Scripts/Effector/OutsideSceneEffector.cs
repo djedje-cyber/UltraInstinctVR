@@ -16,7 +16,7 @@ public class OutsideSceneEffector : AUnityEffector
 
     private Vector3 lastPosition;
     private Bounds sceneBounds; // Nouvelle variable pour stocker les limites de la scène
-
+    private SizeScene sizeScene;
 
      private void CalculateSceneBounds()
     {
@@ -27,9 +27,6 @@ public class OutsideSceneEffector : AUnityEffector
             sceneBounds.Encapsulate(renderer.bounds);
         }
 
-        Debug.Log("Taille de la scène : " + sceneBounds.size);
-        Debug.Log("Centre de la scène : " + sceneBounds.center);
-        Debug.Log("Taille X:" + sceneBounds.size.x);
     }
 
 
@@ -44,27 +41,37 @@ public class OutsideSceneEffector : AUnityEffector
 
     public override void SafeReset()
     {
-        // Détecter automatiquement les limites de la scène
-        CalculateSceneBounds();
 
-        // Initialiser la position du joueur
-        lastPosition = GetPlayerPosition();
+        sizeScene = Object.FindObjectOfType<SizeScene>(); // Recherche le composant dans la scène
+
+        if (sizeScene == null)
+        {
+            Debug.LogError("SizeScene introuvable dans la scène !");
+            return;
+        }
+
+        Debug.Log("Effector - Taille de la scène récupérée : " + sizeScene.sceneBounds.size);
+
+            // Initialiser la position du joueur
+            lastPosition = GetPlayerPosition();
     }
 
     public override void SafeEffectorUpdate()
     {
         Vector3 currentPosition = GetPlayerPosition();
+        Debug.Log("Xareus Current Position : " + currentPosition);       
 
-        if(CurrentPosition.x > sceneBounds.size.x | CurrentPosition.y > sceneBounds.size.y | CurrentPosition.z > sceneBounds.size.z) {
+        if(currentPosition.x > sceneBounds.size.x | currentPosition.y > sceneBounds.size.y | currentPosition.z > sceneBounds.size.z) {
 
-        Debug.Log("Xareus Current Position : " + currentPosition.x);       
-
+            Debug.LogError("Failed - A player cannot teleport outside the scene");
+        }
     }
 
-    private Vector3 GetPlayerPosition()
+    private  Vector3 GetPlayerPosition()
     {
         return Camera.main.transform.position;
     }
+
 
 
 }

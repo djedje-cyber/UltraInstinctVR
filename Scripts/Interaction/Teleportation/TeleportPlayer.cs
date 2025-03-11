@@ -1,11 +1,20 @@
 using System.Collections;
 using UnityEngine;
 
+
 public class TeleportPlayer : MonoBehaviour
 {
     public int teleportCount = 1000; // Nombre de téléportations
     public Vector2 teleportRange = new Vector2(10f, 10f); // Zone de téléportation (X, Z)
     public float delayBetweenTeleports = 0.1f; // Délai entre chaque téléportation (optionnel)
+
+    public IEnumerator Execute()
+    {
+        // Implementation of the Execute method
+        Debug.Log("Executing TeleportAtObject script...");
+        yield return null;
+    }
+
 
     private void Start()
     {
@@ -29,3 +38,4 @@ public class TeleportPlayer : MonoBehaviour
         transform.position = newPosition;
     }
 }
+

@@ -1,31 +1,57 @@
 using System.Collections;
 using UnityEngine;
 
+
+
+
+
 public class SizeScene : MonoBehaviour
 {
     public int teleportCount = 100; // Nombre de téléportations
-    public float outOfBoundsMultiplier = 15f; // Distance pour être hors de la scène
+    public float outOfBoundsMultiplier = 1000; // Distance pour être hors de la scène
     public float delayBetweenTeleports = 0.1f; // Délai optionnel entre les téléportations
 
-    private Bounds sceneBounds;
+    public Bounds sceneBounds;
+
+
+    public IEnumerator Execute()
+    {
+        // Implementation of the Execute method
+        Debug.Log("Executing SizeScene script...");
+        yield return null;
+    }
+
+
+
 
     void Start()
     {
-        CalculateSceneBounds();
+        // Diffère le calcul des limites de la scène jusqu'à la fin du frame
+        StartCoroutine(DelayCalculateSceneBounds());
         StartCoroutine(TeleportOutOfBounds());
+    }
+
+
+    private IEnumerator DelayCalculateSceneBounds()
+    {
+        // Attends la fin du frame pour être sûr que tous les objets sont initialisés
+        yield return new WaitForEndOfFrame();
+
+        // Maintenant on peut calculer les limites de la scène après que tout soit initialisé
+        CalculateSceneBounds();
     }
 
     private void CalculateSceneBounds()
     {
         sceneBounds = new Bounds(Vector3.zero, Vector3.zero);
 
-        foreach (Renderer renderer in FindObjectsOfType<Renderer>())
+        Renderer[] renderers = FindObjectsOfType<Renderer>();
+
+        foreach (Renderer renderer in renderers)
         {
             sceneBounds.Encapsulate(renderer.bounds);
         }
 
-        Debug.Log("Taille de la scène : " + sceneBounds.size);
-        Debug.Log("Centre de la scène : " + sceneBounds.center);
     }
 
     private IEnumerator TeleportOutOfBounds()
@@ -47,4 +73,6 @@ public class SizeScene : MonoBehaviour
 
         transform.position = newPosition;
     }
+
+
 }
