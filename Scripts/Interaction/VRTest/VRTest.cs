@@ -76,7 +76,6 @@ public class VRTest : MonoBehaviour
 
         // Initialisation du timer
         lastInteractionTime = Time.time;
-        StartCoroutine(CheckTimeout());
 
         Initialize();
     }
@@ -140,43 +139,55 @@ public class VRTest : MonoBehaviour
         }
     }
 
-    void FixedUpdate()
+void FixedUpdate()
+{
+    if (!isRunning) return; // Arrêter l'exécution du script si isRunning est false
+
+    if (clickStay)
     {
-        if (clickStay)
+        passed += Time.deltaTime;
+        if (passed > clickStayLength)
         {
-            passed = passed + Time.deltaTime;
-            if (passed > clickStayLength)
-            {
-                clickStay = false;
-                passed = 0.0f;
-            }
-        }
-        else
-        {
-            transform.position = Vector3.MoveTowards(transform.position, dest, moveStep * 0.02f);
-            Quaternion q = Quaternion.RotateTowards(transform.rotation, destrotate, turnStep * 0.02f);
-            transform.rotation = q;
-
-            if (transform.position == dest && transform.rotation == destrotate)
-            {
-                destrotate = Turn();
-                dest = Move();
-                Trigger();
-            }
-        }
-
-        // Mise à jour du temps écoulé
-        timeElapsed = Time.time - lastInteractionTime;
-
-        // Affichage du taux d'objets trouvés toutes les 'reportInterval' secondes
-        if (timeElapsed >= reportInterval)
-        {
-            float objectsPerMinute = (objectsFound / timeElapsed) * 60f; // Calcul du taux par minute
-            Debug.Log($"Taux d'objets trouvés : {objectsPerMinute:F2} objets/minute.");
-			objectsFound=0;
-            lastInteractionTime = Time.time; // Réinitialisation du temps pour le prochain calcul
+            clickStay = false;
+            passed = 0.0f;
         }
     }
+    else
+    {
+        transform.position = Vector3.MoveTowards(transform.position, dest, moveStep * 0.02f);
+        Quaternion q = Quaternion.RotateTowards(transform.rotation, destrotate, turnStep * 0.02f);
+        transform.rotation = q;
+
+        if (transform.position == dest && transform.rotation == destrotate)
+        {
+            destrotate = Turn();
+            dest = Move();
+            Trigger();
+        }
+    }
+
+    // Mise à jour du temps écoulé
+    timeElapsed = Time.time - lastInteractionTime;
+
+    // Vérification du taux d'objets trouvés
+    if (timeElapsed >= reportInterval)
+    {
+        float objectsPerMinute = (objectsFound / timeElapsed) * 60f; // Calcul du taux par minute
+        Debug.Log($"Taux d'objets trouvés : {objectsPerMinute:F2} objets/minute.");
+
+        // Si le taux tombe à 0, stopper uniquement ce script
+        if (objectsPerMinute == 0)
+        {
+            Debug.Log("Le taux d'objets trouvés est tombé à 0. Arrêt du script.");
+            isRunning = false;
+        }
+
+        // Réinitialisation pour le prochain calcul
+        objectsFound = 0;
+        lastInteractionTime = Time.time;
+    }
+}
+
 
     public virtual Vector3 Move()
     {
@@ -273,29 +284,7 @@ public class VRTest : MonoBehaviour
         clickStay = true;
     }
 
-    private IEnumerator CheckTimeout()
-    {
-        while (isRunning)
-        {
-            if (Time.time - lastInteractionTime > timeoutDuration)
-            {
-                Debug.Log("Aucun nouvel objet trouvé depuis 15 minutes, arrêt du jeu.");
-                StopGame();
-                yield break; // Arrête la coroutine
-            }
-            yield return new WaitForSeconds(5f); // Vérifie toutes les 5 secondes
-        }
-    }
 
-    private void StopGame()
-    {
-        isRunning = false;
-        #if UNITY_EDITOR
-        UnityEditor.EditorApplication.isPlaying = false;
-        #else
-        Application.Quit();
-        #endif
-    }
 
     protected class ControlInfo
     {

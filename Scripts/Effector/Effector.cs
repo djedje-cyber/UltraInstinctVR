@@ -8,7 +8,7 @@ public class TeleportationEffector : AUnityEffector
 {
     // Exemple de paramètre de configuration
     [ConfigurationParameter("Teleport Distance Threshold", Necessity.Required)]
-    protected float teleportDistanceThreshold = 1.0f;
+    protected float teleportDistanceThreshold = 2.0f;
 
     private Vector3 lastPosition;
 
@@ -26,12 +26,15 @@ public class TeleportationEffector : AUnityEffector
     {
 
         Vector3 currentPosition = GetPlayerPosition();
-
-        // Si la distance entre la dernière position et la position actuelle dépasse un seuil, on peut considérer cela comme une téléportation
+        Debug.Log("TestGenerated - Teleportation");
         if (Vector3.Distance(currentPosition, lastPosition) > teleportDistanceThreshold)
         {
-            Debug.Log("Oracle Covered - Teleportation");
+            Debug.Log("ORACLE CanTeleport - TestPassed - Teleportation successfully done at " + currentPosition );
             lastPosition = currentPosition;  // Mettre à jour la position du joueur
+        }
+        else
+        {
+            Debug.LogError("ORACLE CanTeleport - Failed - Teleportation couldn't be done at " + currentPosition);
         }
     }
 
@@ -42,7 +45,3 @@ public class TeleportationEffector : AUnityEffector
         return Camera.main.transform.position;
     }
 }
-
-
-
-

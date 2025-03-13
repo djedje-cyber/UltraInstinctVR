@@ -21,13 +21,6 @@ public class TeleportAtObject : MonoBehaviour
         public string filePath = "Assets/Scripts/CoveredObjects/FoundObject.txt";
 
 
-        public IEnumerator Execute()
-        {
-            // Implementation of the Execute method
-            Debug.Log("Executing TeleportAtObject script...");
-            yield return null;
-        }
-
 
         void Start()
         {
@@ -106,16 +99,14 @@ public class TeleportAtObject : MonoBehaviour
             }
     }
 
-        // Coroutine pour se téléporter à la prochaine position
         private IEnumerator TeleportToNextPosition()
         {
             // Tant qu'il y a des positions à atteindre
             while (currentPositionIndex < positions.Count)
             {
-                // Se téléporter à la position actuelle
                 transform.position = positions[currentPositionIndex];
 
-                // Afficher dans la console la position de téléportation
+                
                 //Debug.Log("Téléportation à la position : " + positions[currentPositionIndex]);
 
                 // Attendre avant de se téléporter à la suivante

@@ -41,17 +41,27 @@ public class InObjectSceneEffector : AUnityEffector
 
         //Tolerance in position
         float tolerance = 4f;
-        
+        Debug.Log("TestGenerated - InObjectSceneTeleportation");
+        bool flag = true;
         foreach (Vector3 coveredPosition in coveredObjectPositions)
         {
             float distance = Vector3.Distance(currentPosition, coveredPosition);
-
             // Si la distance entre la position actuelle du joueur et la position couverte est inférieure à la tolérance
             if (distance < tolerance)
             {
-                Debug.LogError("Failed - Teleportation to covered object detected: " + coveredPosition);
+                Debug.LogError("ORACLE InObjectScene - TestFailed - Teleportation into covered object detected: " + coveredPosition);
+                flag = false;
+                break;
             }
+    
         }
+
+
+        if(flag==true){
+            Debug.Log("ORACLE InObjectScene - TestPassed - No teleportation into covered object detected"+ currentPosition);
+        }
+        flag=true;
+
     }
 
 
@@ -107,7 +117,6 @@ public class InObjectSceneEffector : AUnityEffector
                     }
                 }
 
-                Debug.Log("Positions lues depuis le fichier : " + coveredObjectPositions.Count);
             }
             else
             {

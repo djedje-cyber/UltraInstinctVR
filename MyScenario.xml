@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<scenario xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" id="MyScenario" label="MyScenario" version="5.12.0.0" xmlns="http://www.insa-rennes.fr/Xareus.Scenarios">
+  <extendedInfo>
+    <unityEditor xmlns="">
+      <version>1.2</version>
+    </unityEditor>
+  </extendedInfo>
+  <contextInit classname="Xareus.Unity.DefaultUnityContextInit,Xareus.Unity.Librairies" />
+  <sequence xsi:type="SafePetriNet" id="Root" label="Root">
+    <extendedInfo>
+      <unityEditor xmlns="">
+        <comments />
+        <sections />
+        <viewData x="129.4151" y="76.70621" zoom="1" />
+      </unityEditor>
+    </extendedInfo>
+    <sequence xsi:type="Place" id="Place_0" label="Place_0">
+      <extendedInfo>
+        <unityEditor xmlns="">
+          <position x="642" y="74" />
+        </unityEditor>
+      </extendedInfo>
+    </sequence>
+    <sequence xsi:type="Place" id="Place_1" label="Place_1">
+      <extendedInfo>
+        <unityEditor xmlns="">
+          <position x="618" y="358" />
+        </unityEditor>
+      </extendedInfo>
+    </sequence>
+    <transition id="Transition_0" label="Transition_0">
+      <extendedInfo>
+        <unityEditor xmlns="">
+          <position x="645" y="217" />
+        </unityEditor>
+      </extendedInfo>
+      <event id="Transition_0" label="Transition_0">
+        <sensorCheck classname="Xareus.Scenarios.Boolean.BooleanSensor,Xareus.Scenarios.Extra">
+          <param value="False" type="System.Boolean,mscorlib" name="Operand 1" />
+          <param value="True" type="System.Boolean,mscorlib" name="Operand 2" />
+          <param value="EQUAL" type="Xareus.Scenarios.Boolean.BooleanSensor+ComparisonOperator,Xareus.Scenarios.Extra" name="Operator" />
+        </sensorCheck>
+      </event>
+      <upstreamSequence idref="Place_0" />
+      <downstreamSequence idref="Place_1" />
+    </transition>
+    <transition id="Transition_1" label="Transition_1">
+      <extendedInfo>
+        <unityEditor xmlns="">
+          <position x="421" y="256" />
+        </unityEditor>
+      </extendedInfo>
+      <event id="Transition_1" label="Transition_1">
+        <sensorCheck classname="Xareus.Scenarios.Boolean.BooleanSensor,Xareus.Scenarios.Extra">
+          <param value="False" type="System.Boolean,mscorlib" name="Operand 1" />
+          <param value="False" type="System.Boolean,mscorlib" name="Operand 2" />
+          <param value="EQUAL" type="Xareus.Scenarios.Boolean.BooleanSensor+ComparisonOperator,Xareus.Scenarios.Extra" name="Operator" />
+        </sensorCheck>
+      </event>
+      <upstreamSequence idref="Place_1" />
+      <downstreamSequence idref="Place_0" />
+    </transition>
+  </sequence>
+</scenario>

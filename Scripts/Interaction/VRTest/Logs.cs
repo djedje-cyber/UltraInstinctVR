@@ -18,17 +18,24 @@ public class LogToFile : MonoBehaviour
             Directory.CreateDirectory(directoryPath);
         }
 
-        // Vérifier si le fichier existe, sinon le créer
-        if (!File.Exists(logFilePath))
+        // Si le fichier existe déjà, on le vide pour commencer une nouvelle session
+        if (File.Exists(logFilePath))
         {
+            File.WriteAllText(logFilePath, string.Empty);  // Vide le fichier
+        }
+        else
+        {
+            // Si le fichier n'existe pas, on le crée avec un message initial
             using (StreamWriter writer = File.CreateText(logFilePath))
             {
                 writer.WriteLine("=== Nouvelle Session ===");
             }
         }
-        else
+
+        // Ajouter une nouvelle entrée au début du fichier
+        using (StreamWriter writer = new StreamWriter(logFilePath, true))
         {
-            File.AppendAllText(logFilePath, "\n=== Nouvelle Session ===\n");
+            writer.WriteLine("\n=== Nouvelle Session ===");
         }
 
         // Écouter les logs de la console

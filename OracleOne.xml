@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<scenario xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" id="MyScenario" label="MyScenario" version="5.12.0.0" xmlns="http://www.insa-rennes.fr/Xareus.Scenarios">
+  <extendedInfo>
+    <unityEditor xmlns="">
+      <version>1.2</version>
+    </unityEditor>
+  </extendedInfo>
+  <sequence xsi:type="SafePetriNet" id="Root" label="Root">
+    <extendedInfo>
+      <unityEditor xmlns="">
+        <comments />
+        <sections />
+        <viewData x="0" y="0" zoom="1" />
+      </unityEditor>
+    </extendedInfo>
+    <sequence xsi:type="Place" id="Place_0" label="Place_0">
+      <extendedInfo>
+        <unityEditor xmlns="">
+          <position x="497" y="115" />
+        </unityEditor>
+      </extendedInfo>
+    </sequence>
+    <sequence xsi:type="Place" id="Place_2" label="Place_2">
+      <extendedInfo>
+        <unityEditor xmlns="">
+          <position x="489" y="414" />
+        </unityEditor>
+      </extendedInfo>
+    </sequence>
+    <transition id="Transition_0" label="Transition_0">
+      <extendedInfo>
+        <unityEditor xmlns="">
+          <position x="488" y="289" />
+        </unityEditor>
+      </extendedInfo>
+      <event id="Transition_0" label="Transition_0">
+        <sensorCheck classname="TeleportationSensor,Assembly-CSharp">
+          <param value="1" type="System.Single,mscorlib" name="Teleport Distance Threshold" />
+        </sensorCheck>
+        <effectorUpdate classname="TeleportationEffector,Assembly-CSharp">
+          <param value="1" type="System.Single,mscorlib" name="Teleport Distance Threshold" />
+        </effectorUpdate>
+      </event>
+      <upstreamSequence idref="Place_0" />
+      <downstreamSequence idref="Place_2" />
+    </transition>
+    <initialSequence idref="Place_0" />
+    <finalSequence idref="Place_2" />
+  </sequence>
+</scenario>

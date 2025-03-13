@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="utf-8"?>
+<scenario xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" id="MyScenario" label="MyScenario" version="5.12.0.0" xmlns="http://www.insa-rennes.fr/Xareus.Scenarios">
+  <extendedInfo>
+    <unityEditor xmlns="">
+      <version>1.2</version>
+    </unityEditor>
+  </extendedInfo>
+  <sequence xsi:type="SafePetriNet" id="Root" label="Root">
+    <extendedInfo>
+      <unityEditor xmlns="">
+        <comments />
+        <sections />
+        <viewData x="138.024414" y="60.95189" zoom="0.759999931" />
+      </unityEditor>
+    </extendedInfo>
+    <sequence xsi:type="Place" id="Place_0" label="Place_0">
+      <extendedInfo>
+        <unityEditor xmlns="">
+          <position x="321.020569" y="34.2738266" />
+        </unityEditor>
+      </extendedInfo>
+    </sequence>
+    <sequence xsi:type="Place" id="Place_1" label="Place_1">
+      <extendedInfo>
+        <unityEditor xmlns="">
+          <position x="300" y="300" />
+        </unityEditor>
+      </extendedInfo>
+    </sequence>
+    <sequence xsi:type="Place" id="Place_2" label="Place_2">
+      <extendedInfo>
+        <unityEditor xmlns="">
+          <position x="989.4416" y="105.326447" />
+        </unityEditor>
+      </extendedInfo>
+    </sequence>
+    <sequence xsi:type="Place" id="Place_3" label="Place_3">
+      <extendedInfo>
+        <unityEditor xmlns="">
+          <position x="931.5469" y="393.484375" />
+        </unityEditor>
+      </extendedInfo>
+    </sequence>
+    <sequence xsi:type="Place" id="Place_4" label="Place_4">
+      <extendedInfo>
+        <unityEditor xmlns="">
+          <position x="509.1784" y="425.0633" />
+        </unityEditor>
+      </extendedInfo>
+    </sequence>
+    <sequence xsi:type="Place" id="Place_5" label="Place_5">
+      <extendedInfo>
+        <unityEditor xmlns="">
+          <position x="485.4944" y="746.115967" />
+        </unityEditor>
+      </extendedInfo>
+    </sequence>
+    <transition id="Transition_0" label="Transition_0">
+      <extendedInfo>
+        <unityEditor xmlns="">
+          <position x="169.704651" y="172.431732" />
+        </unityEditor>
+      </extendedInfo>
+      <event id="Transition_0" label="Transition_0" />
+      <upstreamSequence idref="Place_1" />
+      <downstreamSequence idref="Place_0" />
+    </transition>
+    <transition id="Transition_1" label="Transition_1">
+      <extendedInfo>
+        <unityEditor xmlns="">
+          <position x="435.494263" y="177.694916" />
+        </unityEditor>
+      </extendedInfo>
+      <event id="Transition_1" label="Transition_1">
+        <sensorCheck classname="TeleportationSensor,Assembly-CSharp">
+          <param value="1" type="System.Single,mscorlib" name="Teleport Distance Threshold" />
+        </sensorCheck>
+        <effectorUpdate classname="TeleportationEffector,Assembly-CSharp">
+          <param value="1" type="System.Single,mscorlib" name="Teleport Distance Threshold" />
+        </effectorUpdate>
+      </event>
+      <upstreamSequence idref="Place_0" />
+      <downstreamSequence idref="Place_1" />
+    </transition>
+    <transition id="Transition_2" label="Transition_2">
+      <extendedInfo>
+        <unityEditor xmlns="">
+          <position x="799.968" y="257.958069" />
+        </unityEditor>
+      </extendedInfo>
+      <event id="Transition_2" label="Transition_2" />
+      <upstreamSequence idref="Place_3" />
+      <downstreamSequence idref="Place_2" />
+    </transition>
+    <transition id="Transition_3" label="Transition_3">
+      <extendedInfo>
+        <unityEditor xmlns="">
+          <position x="1152.59961" y="254.010681" />
+        </unityEditor>
+      </extendedInfo>
+      <event id="Transition_3" label="Transition_3">
+        <sensorCheck classname="TeleportationSensor,Assembly-CSharp">
+          <param value="1" type="System.Single,mscorlib" name="Teleport Distance Threshold" />
+        </sensorCheck>
+        <effectorUpdate classname="OutsideSceneEffector,Assembly-CSharp">
+          <param value="1" type="System.Single,mscorlib" name="Teleport Distance Threshold" />
+        </effectorUpdate>
+      </event>
+      <upstreamSequence idref="Place_2" />
+      <downstreamSequence idref="Place_3" />
+    </transition>
+    <transition id="Transition_4" label="Transition_4">
+      <extendedInfo>
+        <unityEditor xmlns="">
+          <position x="730.23114" y="572.431763" />
+        </unityEditor>
+      </extendedInfo>
+      <event id="Transition_4" label="Transition_4">
+        <sensorCheck classname="TeleportationSensor,Assembly-CSharp">
+          <param value="1" type="System.Single,mscorlib" name="Teleport Distance Threshold" />
+        </sensorCheck>
+        <effectorUpdate classname="InObjectSceneEffector,Assembly-CSharp">
+          <param value="1" type="System.Single,mscorlib" name="Teleport Distance Threshold" />
+        </effectorUpdate>
+      </event>
+      <upstreamSequence idref="Place_4" />
+      <downstreamSequence idref="Place_5" />
+    </transition>
+    <transition id="Transition_5" label="Transition_5">
+      <extendedInfo>
+        <unityEditor xmlns="">
+          <position x="351.2837" y="582.958069" />
+        </unityEditor>
+      </extendedInfo>
+      <event id="Transition_5" label="Transition_5" />
+      <upstreamSequence idref="Place_5" />
+      <downstreamSequence idref="Place_4" />
+    </transition>
+    <initialSequence idref="Place_0">
+      <tokenInit classname="Xareus.Scenarios.TokenInit.EmptyTokenInit,Xareus.Scenarios" />
+    </initialSequence>
+    <initialSequence idref="Place_2">
+      <tokenInit classname="Xareus.Scenarios.TokenInit.EmptyTokenInit,Xareus.Scenarios" />
+    </initialSequence>
+    <initialSequence idref="Place_4">
+      <tokenInit classname="Xareus.Scenarios.TokenInit.EmptyTokenInit,Xareus.Scenarios" />
+    </initialSequence>
+    <finalSequence idref="Place_1" />
+    <finalSequence idref="Place_3" />
+    <finalSequence idref="Place_5" />
+  </sequence>
+</scenario>

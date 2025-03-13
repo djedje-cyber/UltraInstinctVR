@@ -3,15 +3,14 @@ using Xareus.Scenarios.Utilities;
 using Xareus.Scenarios.Unity;
 using UnityEngine;
 using System.Collections.Generic;
-
+using System;
 [FunctionDescription("A Teleportation Detection Sensor")]
 public class TeleportationSensor : AInUnityStepSensor
 {
     // Clé pour l'ajouter dans le contexte d'événement
     [EventContextEntry()]
-    public static readonly string TELEPORT_KEY = "teleport_position";
+    public static readonly string TELEPORT_KEY = "TeleportPosition";
 
-    // Le paramètre de configuration
     [ConfigurationParameter("Teleport Distance Threshold", Necessity.Required)]
     protected float teleportDistanceThreshold = 1.0f;
 
@@ -34,25 +33,25 @@ public class TeleportationSensor : AInUnityStepSensor
 
     public override Result UnityStepSensorCheck()
     {
-        // Vérification à chaque étape de Unity si une téléportation a eu lieu
         Vector3 currentPosition = GetPlayerPosition();
-        // Vérification si la position a changé au-delà d'un certain seuil
         if (Vector3.Distance(currentPosition, lastPosition) > teleportDistanceThreshold)
         {
+
+            //Assign eventContext
+            string teleportKey = $"{TELEPORT_KEY}_{Guid.NewGuid()}";
+
             // Détecter une téléportation
-            eventContext.Add(TELEPORT_KEY, currentPosition.ToString());
-            lastPosition = currentPosition;  // Mettre à jour la dernière position
+            eventContext.Add(teleportKey, currentPosition.ToString());
+            lastPosition = currentPosition; 
             return new Result(true, eventContext);
         }
 
         return new Result(false, eventContext);
     }
 
-    // Méthode pour obtenir la position actuelle du joueur dans l'environnement Unity
     private Vector3 GetPlayerPosition()
     {
-        // Exemple de récupération de la position de la caméra (l'avatar du joueur)
-        // Vous pouvez ajuster cette logique selon la façon dont votre système de téléportation fonctionne dans Unity.
+
         return Camera.main.transform.position; 
     }
 }
