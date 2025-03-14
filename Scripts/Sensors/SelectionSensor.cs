@@ -5,47 +5,59 @@ using UnityEngine;
 using System.Collections.Generic;
 using System;
 
-[FunctionDescription("An Object Selection Detection Sensor")]
-public class ObjectSelectionSensor : AInUnityStepSensor
+[FunctionDescription("A Teleportation Detection Sensor")]
+public class SelectionSensor : AInUnityStepSensor
 {
-    // Clé pour ajouter l'objet sélectionné dans le contexte d'événement
+    // Clé pour l'ajouter dans le contexte d'événement
     [EventContextEntry()]
-    public static readonly string SELECTED_OBJECT_KEY = "SelectedObject";
+    public static readonly string TELEPORT_KEY = "TeleportPosition";
 
+    [ConfigurationParameter("Teleport Distance Threshold", Necessity.Required)]
+    protected float teleportDistanceThreshold = 1.0f;
+
+    // Le cube à surveiller
+    [ConfigurationParameter("Cube to observe", Necessity.Required)]
+    protected GameObject cube;
+
+    private Vector3 lastPosition;
     private SimpleDictionary eventContext = new SimpleDictionary();
-    private string lastSelectedObject = "";
 
-    public ObjectSelectionSensor(Xareus.Scenarios.Event @event,
-        Dictionary<string, Xareus.Scenarios.Parameter> nameValueListMap,
-        IContext externalContext,
-        IContext scenarioContext,
+    public SelectionSensor(Xareus.Scenarios.Event @event,
+        Dictionary<string, Xareus.Scenarios.Parameter> nameValueListMap, // Corriger le type ici
+        IContext externalContext, 
+        IContext scenarioContext, 
         IContext sequenceContext)
         : base(@event, nameValueListMap, externalContext, scenarioContext, sequenceContext)
     { }
 
     public override void SafeReset()
     {
-        // Réinitialiser le contexte d'événement
-        eventContext.Clear();
-        lastSelectedObject = "";
+
+        Debug.Log("Cube position: " + cube.transform.position);
+
+        lastPosition = GetPlayerPosition();
     }
 
     public override Result UnityStepSensorCheck()
     {
-        if (!string.IsNullOrEmpty(lastSelectedObject))
+        Vector3 currentPosition = GetPlayerPosition();  // Utilise la position du cube
+
+        if (Vector3.Distance(currentPosition, lastPosition) > teleportDistanceThreshold)
         {
-            string selectedObjectKey = $"{SELECTED_OBJECT_KEY}_{Guid.NewGuid()}";
-            eventContext[selectedObjectKey] = lastSelectedObject;
-            lastSelectedObject = ""; // Reset après enregistrement
-            return new Result(true, eventContext);
+            // Créer une clé unique pour l'événement de téléportation
+            string teleportKey = $"{TELEPORT_KEY}_{Guid.NewGuid()}";
+
+            // Ajouter l'événement de téléportation dans le contexte
+            eventContext.Add(teleportKey, currentPosition.ToString());
+            lastPosition = currentPosition; // Mettre à jour la position du cube
+            return new Result(true, eventContext);  // Retourne un résultat positif avec les données de l'événement
         }
-        
-        return new Result(false, eventContext);
+
+        return new Result(false, eventContext);  // Retourne un résultat négatif si pas de téléportation
     }
 
-    // Méthode pour détecter une sélection via collision
-    private void OnTriggerEnter(Collider other)
+    private Vector3 GetPlayerPosition()
     {
-        lastSelectedObject = other.gameObject.name;
+        return cube.transform.position;
     }
 }

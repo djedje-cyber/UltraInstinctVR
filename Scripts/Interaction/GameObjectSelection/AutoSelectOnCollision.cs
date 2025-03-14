@@ -6,36 +6,29 @@ using System.Collections;
 using System.Collections.Generic;
 using System.IO;
 
-
-public class AutoSelectOnCollision : MonoBehaviour
+public class AutoSelectWithVirtualHand : MonoBehaviour
 {
-
-
+    private GameObject virtualHand; // La main virtuelle (boule)
+    
     // Liste des positions à atteindre
     private List<Vector3> positions = new List<Vector3>();
+    private int currentPositionIndex = 0; // Index actuel pour le déplacement
 
-    // Index actuel de la position où l'objet doit se téléporter
-    private int currentPositionIndex = 0;
-
-    // Temps d'attente entre chaque téléportation (en secondes)
-    public float teleportDelay = 2f;
-
-    // Chemin du fichier contenant les positions
-    public string filePath = "Assets/Scripts/CoveredObjects/FoundObject.txt";
-
-
-
+    public float teleportDelay = 2f; // Temps entre chaque téléportation
+    public string filePath = "Assets/Scripts/CoveredObjects/FoundObject.txt"; // Fichier des positions
 
     private UnityEngine.XR.Interaction.Toolkit.Interactors.XRDirectInteractor interactor;
     public XRInteractionManager interactionManager;
 
     void Start()
     {
+        // Utiliser le gameObject actuel comme main virtuelle
+        virtualHand = gameObject; // Le gameObject auquel le script est attaché
 
         // Lire les positions depuis le fichier
         ReadPositionsFromFile();
 
-        // Commencer la téléportation si des positions ont été lues
+        // Lancer la téléportation si des positions sont trouvées
         if (positions.Count > 0)
         {
             StartCoroutine(TeleportToNextPosition());
@@ -44,125 +37,108 @@ public class AutoSelectOnCollision : MonoBehaviour
         {
             Debug.LogWarning("Aucune position trouvée dans le fichier.");
         }
-        
 
-
-
-        interactor = GetComponent<UnityEngine.XR.Interaction.Toolkit.Interactors.XRDirectInteractor>();
+        // Récupérer le XRDirectInteractor du gameObject actuel
+        interactor = virtualHand.GetComponent<UnityEngine.XR.Interaction.Toolkit.Interactors.XRDirectInteractor>();
         if (interactor == null)
         {
-            Debug.LogError("❌ XRDirectInteractor non trouvé sur " + gameObject.name);
+            Debug.LogError("❌ XRDirectInteractor non trouvé sur la main virtuelle !");
         }
     }
 
-
-
-
-
+    // Lire les positions depuis le fichier
     private void ReadPositionsFromFile()
     {
-            if (File.Exists(filePath))
+        if (File.Exists(filePath))
+        {
+            string[] lines = File.ReadAllLines(filePath);
+            string pattern = @"\(([^)]+)\)"; // Regex pour extraire les coordonnées
+
+            foreach (string line in lines)
             {
-                string[] lines = File.ReadAllLines(filePath);
-
-                // Expression régulière pour capturer les valeurs entre parenthèses
-                string pattern = @"\(([^)]+)\)";
-
-                foreach (string line in lines)
+                Match match = Regex.Match(line, pattern);
+                if (match.Success)
                 {
-                    // Chercher les coordonnées entre parenthèses
-                    Match match = Regex.Match(line, pattern);
+                    string[] coordinates = match.Groups[1].Value.Split(',');
 
-                    if (match.Success)
+                    if (coordinates.Length == 3)
                     {
-                        string positionData = match.Groups[1].Value; // Récupérer le contenu entre parenthèses
-                        string[] coordinates = positionData.Split(',');
-
-                        if (coordinates.Length == 3)
+                        try
                         {
-                            try
-                            {
-                                // Nettoyer les espaces avant et après chaque valeur de coordonnées
-                                string xStr = coordinates[0].Trim();
-                                string yStr = coordinates[1].Trim();
-                                string zStr = coordinates[2].Trim();
-                                float x = float.Parse(xStr, CultureInfo.InvariantCulture.NumberFormat);
-                                float y = float.Parse(yStr, CultureInfo.InvariantCulture.NumberFormat);
-                                float z = float.Parse(zStr, CultureInfo.InvariantCulture.NumberFormat);
+                            float x = float.Parse(coordinates[0].Trim(), CultureInfo.InvariantCulture);
+                            float y = float.Parse(coordinates[1].Trim(), CultureInfo.InvariantCulture);
+                            float z = float.Parse(coordinates[2].Trim(), CultureInfo.InvariantCulture);
 
-
-                                // Ajouter la position à la liste
-                                positions.Add(new Vector3(x, y, z));
-                    
-                            }
-                            catch (System.Exception e)
-                            {
-                                Debug.LogError("Erreur lors de la lecture des coordonnées à la ligne : " + line + "\n" + e.Message);
-                            }
+                            positions.Add(new Vector3(x, y, z));
                         }
-                        else
+                        catch (System.Exception e)
                         {
-                            Debug.LogWarning("La ligne ne contient pas 3 coordonnées : " + line);
+                            Debug.LogError("Erreur lors de la lecture des coordonnées : " + e.Message);
                         }
-                    }
-                    else
-                    {
-                        Debug.LogWarning("Pas de coordonnées entre parenthèses trouvées à la ligne : " + line);
                     }
                 }
+            }
+            Debug.Log("Positions chargées : " + positions.Count);
+        }
+        else
+        {
+            Debug.LogError("Fichier non trouvé : " + filePath);
+        }
+    }
 
-                Debug.Log("Positions lues depuis le fichier : " + positions.Count);
+    // Déplacement de la main virtuelle vers les positions
+    private IEnumerator TeleportToNextPosition()
+    {
+        while (currentPositionIndex < positions.Count)
+        {
+            virtualHand.transform.position = positions[currentPositionIndex];
+
+            yield return new WaitForSeconds(teleportDelay);
+            currentPositionIndex++;
+        }
+        Debug.Log("Toutes les positions ont été atteintes !");
+    }
+
+    // Sélection automatique des objets au contact
+    private void OnTriggerEnter(Collider other)
+    {
+        // Vérifier si l'objet qui entre en collision a un collider (pour détecter la présence de n'importe quel objet)
+        if (other != null)
+        {
+            // Debug pour indiquer que l'objet a été sélectionné
+            Debug.Log("✋ Sélection automatique de : " + other.name);
+
+            // Utiliser l'InteractionManager pour sélectionner l'objet via l'interacteur
+            if (interactor != null && interactionManager != null)
+            {
+                // Sélectionner l'objet avec l'XRDirectInteractor (pas de condition spécifique ici)
+                interactionManager.SelectEnter((UnityEngine.XR.Interaction.Toolkit.Interactors.IXRSelectInteractor)interactor, other.GetComponent<UnityEngine.XR.Interaction.Toolkit.Interactables.IXRSelectInteractable>());
             }
             else
             {
-                Debug.LogError("Le fichier de positions n'existe pas à l'emplacement : " + filePath);
+                Debug.LogWarning("❌ L'interacteur ou l'InteractionManager n'est pas assigné !");
             }
-    }
-
-
-        private IEnumerator TeleportToNextPosition()
-        {
-            // Tant qu'il y a des positions à atteindre
-            while (currentPositionIndex < positions.Count)
-            {
-                transform.position = positions[currentPositionIndex];
-
-                
-                //Debug.Log("Téléportation à la position : " + positions[currentPositionIndex]);
-
-                // Attendre avant de se téléporter à la suivante
-                yield return new WaitForSeconds(teleportDelay);
-
-                // Passer à la prochaine position
-                currentPositionIndex++;
-            }
-
-            // Message lorsque toutes les positions ont été atteintes
-            Debug.Log("Toutes les positions ont été atteintes !");
-        }
-
-
-
-
-    private void OnTriggerEnter(Collider other)
-    {
-        UnityEngine.XR.Interaction.Toolkit.Interactables.IXRSelectInteractable interactable = other.GetComponent<UnityEngine.XR.Interaction.Toolkit.Interactables.IXRSelectInteractable>();
-
-        if (interactable != null)
-        {
-            Debug.Log("✋ Sélection automatique de : " + other.name);
-            interactionManager.SelectEnter(interactor, interactable);
         }
     }
 
     private void OnTriggerExit(Collider other)
     {
-        UnityEngine.XR.Interaction.Toolkit.Interactables.IXRSelectInteractable interactable = other.GetComponent<UnityEngine.XR.Interaction.Toolkit.Interactables.IXRSelectInteractable>();
-
-        if (interactable != null)
+        // Vérifier si l'objet qui sort de la collision a un collider
+        if (other != null)
         {
+            // Debug pour indiquer que l'objet a été désélectionné
             Debug.Log("🛑 Désélection automatique de : " + other.name);
-            interactionManager.SelectExit(interactor, interactable);
+
+            // Utiliser l'InteractionManager pour désélectionner l'objet via l'interacteur
+            if (interactor != null && interactionManager != null)
+            {
+                // Désélectionner l'objet avec l'XRDirectInteractor (pas de condition spécifique ici)
+                interactionManager.SelectExit((UnityEngine.XR.Interaction.Toolkit.Interactors.IXRSelectInteractor)interactor, other.GetComponent<UnityEngine.XR.Interaction.Toolkit.Interactables.IXRSelectInteractable>());
+            }
+            else
+            {
+                Debug.LogWarning("❌ L'interacteur ou l'InteractionManager n'est pas assigné !");
+            }
         }
     }
 }
