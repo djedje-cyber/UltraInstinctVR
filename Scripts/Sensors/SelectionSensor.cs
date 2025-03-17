@@ -5,7 +5,7 @@ using UnityEngine;
 using System.Collections.Generic;
 using System;
 
-[FunctionDescription("A Teleportation Detection Sensor")]
+[FunctionDescription("A Teleportation Detection Sensor at precise object position")]
 public class SelectionSensor : AInUnityStepSensor
 {
     // Clé pour l'ajouter dans le contexte d'événement

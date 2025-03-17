@@ -1,69 +1,20 @@
 
 === Nouvelle Session ===
-[14/03/2025 17:27:00] Log: [UnitySingleton] An instance of Hybrid.Tools.UnityThreadExecute is needed in the scene, so '(singleton) Hybrid.Tools.UnityThreadExecute (UnityEngine.GameObject)' was created with DontDestroyOnLoad.
-[14/03/2025 17:27:00] Log: [UnitySingleton] An instance of Hybrid.Tools.SeparateThread is needed in the scene, so '(singleton) Hybrid.Tools.SeparateThread (UnityEngine.GameObject)' was created with DontDestroyOnLoad.
-[14/03/2025 17:27:01] Log: UFSevenNetworkManager will parse the command line connect to the specified remote server
+[17/03/2025 16:59:15] Log: [UnitySingleton] An instance of Hybrid.Tools.UnityThreadExecute is needed in the scene, so '(singleton) Hybrid.Tools.UnityThreadExecute (UnityEngine.GameObject)' was created with DontDestroyOnLoad.
+[17/03/2025 16:59:15] Log: [UnitySingleton] An instance of Hybrid.Tools.SeparateThread is needed in the scene, so '(singleton) Hybrid.Tools.SeparateThread (UnityEngine.GameObject)' was created with DontDestroyOnLoad.
+[17/03/2025 16:59:15] Log: UFSevenNetworkManager will parse the command line connect to the specified remote server
 	 Use --sevenserverremoteadress (or -ssra) "address[:remoteport]" to connect to the given remote server (default remoteport : 7777)
-[14/03/2025 17:27:01] Log: Positions chargées : 8
-[14/03/2025 17:27:01] Warning: Hand Tracking Subsystem not found or not running, can't subscribe to hand tracking status. Enable that feature in the OpenXR project settings and ensure OpenXR is enabled as the plug-in provider. This component will reattempt getting a reference to the subsystem each frame.
-[14/03/2025 17:27:02] Log: Cube position: (-0.73, 1.22, -2.33)
-[14/03/2025 17:27:05] Log: ✋ Sélection automatique de : Header Interactable
-[14/03/2025 17:27:05] Warning: ❌ L'interacteur ou l'InteractionManager n'est pas assigné !
-[14/03/2025 17:27:05] Log: TestGenerated - Teleportation
-[14/03/2025 17:27:05] Error: Selection not ok: Aucun objet sélectionné.
-UnityEngine.Debug:LogError (object)
-ObjectSelectionEffector:DetectCollisionSelection () (at Assets/Scripts/Effector/ObjectSelectionEffector.cs:56)
-ObjectSelectionEffector:SafeEffectorUpdate () (at Assets/Scripts/Effector/ObjectSelectionEffector.cs:34)
-Xareus.Scenarios.Unity.AUnityEffector/<>c__DisplayClass4_0:<EffectorUpdate>b__0 ()
-Hybrid.Tools.UnityThreadExecute:InvokeActions (Hybrid.Tools.UnityThreadExecute/UnityExecutionStep) (at ./Library/PackageCache/fr.inria.unity.tools@e703c5f47c89/Scripts/UnityThreadExecute.cs:286)
-Hybrid.Tools.UnityThreadExecute:LateUpdate () (at ./Library/PackageCache/fr.inria.unity.tools@e703c5f47c89/Scripts/UnityThreadExecute.cs:257)
+[17/03/2025 16:59:16] Log: Positions chargées : 9
+[17/03/2025 16:59:16] Warning: Hand Tracking Subsystem not found or not running, can't subscribe to hand tracking status. Enable that feature in the OpenXR project settings and ensure OpenXR is enabled as the plug-in provider. This component will reattempt getting a reference to the subsystem each frame.
+[17/03/2025 16:59:20] Log: ✋ Sélection automatique de : Header Interactable
+[17/03/2025 16:59:20] Warning: ❌ L'interacteur ou l'InteractionManager n'est pas assigné !
+[17/03/2025 16:59:30] Log: ✋ Sélection automatique de : Spatial Panel Manipulator Model
+[17/03/2025 16:59:30] Warning: ❌ L'interacteur ou l'InteractionManager n'est pas assigné !
+[17/03/2025 16:59:32] Log: ✋ Sélection automatique de : Sphere Interactable
+[17/03/2025 16:59:32] Warning: ❌ L'interacteur ou l'InteractionManager n'est pas assigné !
+[17/03/2025 16:59:36] Log: Toutes les positions ont été atteintes !
+[17/03/2025 17:08:37] Warning: Assets\Scripts\Interaction\VRTest\VRSmart.cs(13,22): warning CS0114: 'VRSmart.Initialize()' hides inherited member 'VRTest.Initialize()'. To make the current member override that implementation, add the override keyword. Otherwise add the new keyword.
+[17/03/2025 17:08:37] Error: Assets\Scripts\Effector\MoveObjectToOriginEffector.cs(26,9): error CS0246: The type or namespace name 'Dictionary<,>' could not be found (are you missing a using directive or an assembly reference?)
 
-[14/03/2025 17:27:05] Log: Selection ok: Cube sélectionné
-[14/03/2025 17:27:05] Log: Cube position: (-0.57, 1.62, -2.32)
-[14/03/2025 17:27:07] Log: TestGenerated - Teleportation
-[14/03/2025 17:27:07] Error: Selection not ok: Aucun objet sélectionné.
-UnityEngine.Debug:LogError (object)
-ObjectSelectionEffector:DetectCollisionSelection () (at Assets/Scripts/Effector/ObjectSelectionEffector.cs:56)
-ObjectSelectionEffector:SafeEffectorUpdate () (at Assets/Scripts/Effector/ObjectSelectionEffector.cs:34)
-Xareus.Scenarios.Unity.AUnityEffector/<>c__DisplayClass4_0:<EffectorUpdate>b__0 ()
-Hybrid.Tools.UnityThreadExecute:InvokeActions (Hybrid.Tools.UnityThreadExecute/UnityExecutionStep) (at ./Library/PackageCache/fr.inria.unity.tools@e703c5f47c89/Scripts/UnityThreadExecute.cs:286)
-Hybrid.Tools.UnityThreadExecute:LateUpdate () (at ./Library/PackageCache/fr.inria.unity.tools@e703c5f47c89/Scripts/UnityThreadExecute.cs:257)
+[17/03/2025 17:08:37] Error: Assets\Scripts\Effector\MoveObjectToOriginEffector.cs(26,28): error CS0246: The type or namespace name 'List<>' could not be found (are you missing a using directive or an assembly reference?)
 
-[14/03/2025 17:27:07] Error: Selection not ok: Aucun objet sélectionné.
-UnityEngine.Debug:LogError (object)
-ObjectSelectionEffector:DetectCollisionSelection () (at Assets/Scripts/Effector/ObjectSelectionEffector.cs:56)
-ObjectSelectionEffector:SafeEffectorUpdate () (at Assets/Scripts/Effector/ObjectSelectionEffector.cs:34)
-Xareus.Scenarios.Unity.AUnityEffector/<>c__DisplayClass4_0:<EffectorUpdate>b__0 ()
-Hybrid.Tools.UnityThreadExecute:InvokeActions (Hybrid.Tools.UnityThreadExecute/UnityExecutionStep) (at ./Library/PackageCache/fr.inria.unity.tools@e703c5f47c89/Scripts/UnityThreadExecute.cs:286)
-Hybrid.Tools.UnityThreadExecute:LateUpdate () (at ./Library/PackageCache/fr.inria.unity.tools@e703c5f47c89/Scripts/UnityThreadExecute.cs:257)
-
-[14/03/2025 17:27:07] Log: Selection ok: Cube sélectionné
-[14/03/2025 17:27:07] Log: Cube position: (2.80, 1.04, -0.61)
-[14/03/2025 17:27:07] Log: 🛑 Désélection automatique de : Header Interactable
-[14/03/2025 17:27:07] Warning: ❌ L'interacteur ou l'InteractionManager n'est pas assigné !
-[14/03/2025 17:27:09] Log: TestGenerated - Teleportation
-[14/03/2025 17:27:09] Log: Selection ok: Cube sélectionné
-[14/03/2025 17:27:09] Log: Cube position: (2.81, 1.19, -0.48)
-[14/03/2025 17:27:11] Log: TestGenerated - Teleportation
-[14/03/2025 17:27:11] Log: Selection ok: Cube sélectionné
-[14/03/2025 17:27:11] Log: Cube position: (-0.57, 1.35, -2.32)
-[14/03/2025 17:27:13] Log: TestGenerated - Teleportation
-[14/03/2025 17:27:13] Error: Selection not ok: Aucun objet sélectionné.
-UnityEngine.Debug:LogError (object)
-ObjectSelectionEffector:DetectCollisionSelection () (at Assets/Scripts/Effector/ObjectSelectionEffector.cs:56)
-ObjectSelectionEffector:SafeEffectorUpdate () (at Assets/Scripts/Effector/ObjectSelectionEffector.cs:34)
-Xareus.Scenarios.Unity.AUnityEffector/<>c__DisplayClass4_0:<EffectorUpdate>b__0 ()
-Hybrid.Tools.UnityThreadExecute:InvokeActions (Hybrid.Tools.UnityThreadExecute/UnityExecutionStep) (at ./Library/PackageCache/fr.inria.unity.tools@e703c5f47c89/Scripts/UnityThreadExecute.cs:286)
-Hybrid.Tools.UnityThreadExecute:LateUpdate () (at ./Library/PackageCache/fr.inria.unity.tools@e703c5f47c89/Scripts/UnityThreadExecute.cs:257)
-
-[14/03/2025 17:27:13] Log: Selection ok: Cube sélectionné
-[14/03/2025 17:27:13] Log: Cube position: (-0.57, 1.48, -2.33)
-[14/03/2025 17:27:15] Log: TestGenerated - Teleportation
-[14/03/2025 17:27:15] Log: Selection ok: Cube sélectionné
-[14/03/2025 17:27:15] Log: Cube position: (0.44, 1.12, -1.83)
-[14/03/2025 17:27:17] Log: ✋ Sélection automatique de : Sphere Interactable
-[14/03/2025 17:27:17] Warning: ❌ L'interacteur ou l'InteractionManager n'est pas assigné !
-[14/03/2025 17:27:17] Log: TestGenerated - Teleportation
-[14/03/2025 17:27:17] Log: Selection ok: Cube sélectionné
-[14/03/2025 17:27:17] Log: Cube position: (-1.20, 0.62, -1.74)
-[14/03/2025 17:27:19] Log: Toutes les positions ont été atteintes !

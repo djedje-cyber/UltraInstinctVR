@@ -3,6 +3,7 @@ using Xareus.Scenarios.Utilities;
 using Xareus.Scenarios.Unity;
 using UnityEngine;
 using System.Collections.Generic;
+using UnityEngine.XR.Interaction.Toolkit;
 
 [FunctionDescription("Object Selection Detection Effect")]
 public class ObjectSelectionEffector : AUnityEffector
@@ -14,6 +15,13 @@ public class ObjectSelectionEffector : AUnityEffector
     // La distance de détection
     [ConfigurationParameter("Selection Distance Threshold", Necessity.Required)]
     protected float selectionDistanceThreshold = 0.1f; // Distance à partir de laquelle on considère la sélection
+
+    [ConfigurationParameter("Interactor", Necessity.Required)]
+
+    private UnityEngine.XR.Interaction.Toolkit.Interactors.XRDirectInteractor interactor;
+    
+    [ConfigurationParameter("Interaction Manager", Necessity.Required)]
+    public XRInteractionManager interactionManager;
 
     // Variables pour vérifier la dernière position
     private Vector3 lastPosition;
@@ -30,37 +38,51 @@ public class ObjectSelectionEffector : AUnityEffector
     // Méthode appelée à chaque frame pour vérifier les collisions avec le cube
     public override void SafeEffectorUpdate()
     {
-        // Vérifier si le cube a été sélectionné par collision
+        Debug.Log("TestGenerated - Object Selection");
         DetectCollisionSelection();
     }
 
-    // Méthode pour détecter la sélection par collision
-    private void DetectCollisionSelection()
-    {
-        Collider[] hitColliders = Physics.OverlapSphere(cube.transform.position, selectionDistanceThreshold);      
-        Debug.Log("TestGenerated - Teleportation");
+private void DetectCollisionSelection()
+{
+    Collider[] hitColliders = Physics.OverlapSphere(cube.transform.position, selectionDistanceThreshold);
 
-        if (hitColliders.Length > 0)
+    bool objectSelected = false;
+
+    foreach (var hitCollider in hitColliders)
+    {
+        if (hitCollider != null)
         {
-            foreach (var hitCollider in hitColliders)
+
+            if (interactor != null && interactionManager != null)
             {
-                // Si l'objet en collision est le cube, afficher "Selection ok"
-                if (hitCollider.gameObject == cube)
+                var interactable = hitCollider.GetComponent<UnityEngine.XR.Interaction.Toolkit.Interactables.IXRSelectInteractable>();
+
+                if (interactable != null)
                 {
-                    Debug.Log("ORACLE ObjectSelection - TestPassed - Selection ok");
-                    return; // La sélection a eu lieu, on arrête la boucle
+                    // Si l'objet est détecté, et il n'est pas déjà sélectionné
+                    if (!objectSelected)
+                    {
+                        interactionManager.SelectEnter(interactor, interactable);
+                        objectSelected = true; // Marque que l'objet est sélectionné
+                        interactionManager.SelectExit(interactor,interactable);
+                        break;
+
+                    }
                 }
-                 else
-                {
-                    // Si aucun objet en collision n'est le cube, afficher "Selection not ok"
-                    Debug.LogError("ORACLE ObjectSelection - Failed - Selection not ok");
-                }                
+
             }
         }
-        else
-        {
-            // Si aucun objet en collision n'est le cube, afficher "Selection not ok"
-            Debug.LogError("ORACLE ObjectSelection - Failed - Selection not ok");
-        }
+
     }
+    if(objectSelected)
+    {
+        Debug.Log("ORACLE CanSelect - TestPassed - Object selected successfully at " + cube.transform.position);
+    }
+    else
+    {
+        Debug.LogError("ORACLE CanSelect - TestFailed - Object couldn't be selected at " + cube.transform.position);
+    }
+
+}
+
 }
