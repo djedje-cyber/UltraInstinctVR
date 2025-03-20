@@ -118,7 +118,7 @@ public class SelectAndMoveToOrigin : MonoBehaviour
             }
             else
             {
-                Debug.LogWarning("❌ L'interacteur ou l'InteractionManager n'est pas assigné !");
+                Debug.LogError("❌ L'interacteur ou l'InteractionManager n'est pas assigné !");
             }
         }
     }

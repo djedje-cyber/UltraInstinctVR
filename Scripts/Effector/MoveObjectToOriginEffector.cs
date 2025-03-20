@@ -1,13 +1,12 @@
-    using Xareus.Scenarios.Context;
+using Xareus.Scenarios.Context;
 using Xareus.Scenarios.Utilities;
-using Xareus.Scenarios.Variables;
 using Xareus.Scenarios.Unity;
+using System.Collections.Generic;
 using UnityEngine;
-using System.Collections;
 using UnityEngine.XR.Interaction.Toolkit;
 
 [FunctionDescription("Effector to move an object to origin and manage its selection")]
-public class SelectAndMoveToOriginEffector : AUnityEffector
+public class MoveObjectToOriginEffector : AUnityEffector
 {
     [ConfigurationParameter("Object to Move", Necessity.Required)]
     private GameObject virtualHand;
@@ -15,99 +14,101 @@ public class SelectAndMoveToOriginEffector : AUnityEffector
     [ConfigurationParameter("Teleport Delay", Necessity.Optional)]
     public float teleportDelay = 2f;
 
-    [ContextVariable("Result", "Indicates the result of the operation")]
-    protected ContextVariable<string> result;
-
     private UnityEngine.XR.Interaction.Toolkit.Interactors.XRDirectInteractor interactor;
     private XRInteractionManager interactionManager;
     private UnityEngine.XR.Interaction.Toolkit.Interactables.XRGrabInteractable currentInteractable;
 
-    public SelectAndMoveToOriginEffector(Xareus.Scenarios.Event @event, 
-        Dictionary<string, List<string>> nameValueListMap, 
-        IContext externalContext, 
-        IContext scenarioContext, 
-        IContext sequenceContext, 
-        IContext eventContext) 
+    public MoveObjectToOriginEffector(Xareus.Scenarios.Event @event,
+        Dictionary<string, Xareus.Scenarios.Parameter> nameValueListMap,
+        IContext externalContext,
+        IContext scenarioContext,
+        IContext sequenceContext,
+        IContext eventContext)
         : base(@event, nameValueListMap, externalContext, scenarioContext, sequenceContext, eventContext)
     { }
 
     public override void SafeReset()
     {
-        // Reset any variables if necessary (no reset logic here for now)
+        // Optionally reset something if needed
     }
 
     public override void SafeEffectorUpdate()
     {
-        // Handling selection and teleportation
-        if (virtualHand != null)
-        {
-            interactor = virtualHand.GetComponent<UnityEngine.XR.Interaction.Toolkit.Interactors.XRDirectInteractor>();
-            interactionManager = virtualHand.GetComponent<XRInteractionManager>();
+       
 
-            if (interactor == null || interactionManager == null)
+        if (virtualHand == null)
+        {
+            Debug.LogError(" ORACLE MoveObjectToOrigin - TestFailed - virtualHand is not assigned!");
+            return;
+        }
+
+        if (!virtualHand.TryGetComponent(out interactor))
+        {
+            Debug.LogError("ORACLE MoveObjectToOrigin - TestFailed - XRDirectInteractor component missing on virtualHand!");
+            return;
+        }
+
+        if (!virtualHand.TryGetComponent(out interactionManager))
+        {
+            Debug.LogError("ORACLE MoveObjectToOrigin - TestFailed - XRInteractionManager component missing on virtualHand!");
+            return;
+        }
+
+        // Récupérer tous les objets interactables SAUF le virtualHand
+        var interactables = Object.FindObjectsOfType<UnityEngine.XR.Interaction.Toolkit.Interactables.XRGrabInteractable>();
+        bool movedAnyObject = false;
+
+        foreach (var interactable in interactables)
+        {
+
+            Debug.Log("ORACLE MoveObjectToOrigin - TestGenerated");
+
+            if (interactable.gameObject == virtualHand)
+                continue; // On ignore le virtualHand lui-même
+
+            // Vérifier si l'objet est déjà sélectionné (ajouter un contrôle pour éviter plusieurs sélections)
+            if (interactable.isSelected)
             {
-                result.Value = "Failed";
-                Debug.LogError("❌ L'interacteur ou l'InteractionManager n'est pas assigné !");
-                return;
+                continue;  // Si l'objet est déjà sélectionné, on passe à l'objet suivant
             }
 
-            // For now, let's assume we have a valid interactable object in range.
-            // You can add logic here to select and interact with a specific object.
-            // Assuming you already have the interactable object.
+            // Sélectionner et déplacer l'objet (uniquement si non sélectionné)
+            interactionManager.SelectEnter((UnityEngine.XR.Interaction.Toolkit.Interactors.IXRSelectInteractor)interactor, 
+                                           (UnityEngine.XR.Interaction.Toolkit.Interactables.IXRSelectInteractable)interactable);
+            interactor.StartManualInteraction((UnityEngine.XR.Interaction.Toolkit.Interactables.IXRSelectInteractable)interactable);
 
-            var interactable = virtualHand.GetComponent<UnityEngine.XR.Interaction.Toolkit.Interactables.XRGrabInteractable>(); 
 
-            if (interactable != null)
+            // Déplacement de l'objet à l'origine
+            interactable.transform.position = Vector3.zero;
+
+            // Vérification du déplacement
+            if (Vector3.Distance(interactable.transform.position, Vector3.zero) < 0.01f)
             {
-                // Simulating the interaction for this example
-                interactionManager.SelectEnter((UnityEngine.XR.Interaction.Toolkit.Interactors.IXRSelectInteractor)interactor, (UnityEngine.XR.Interaction.Toolkit.Interactables.IXRSelectInteractable)interactable);
-                interactor.StartManualInteraction((UnityEngine.XR.Interaction.Toolkit.Interactables.IXRSelectInteractable)interactable);
-
-                currentInteractable = interactable;
-                StartCoroutine(TeleportAndUnselect());
+                Debug.Log($" ORACLE MoveObjectToOrigin - TestPassed - {interactable.name} a été déplacé à l'origine.");
+                movedAnyObject = true;
             }
             else
             {
-                result.Value = "Failed";
-                Debug.LogWarning("⚠️ Aucune interaction valide avec l'objet.");
-                return;
+                Debug.LogError($" ORACLE MoveObjectToOrigin - TestFailed - {interactable.name} n'a pas bougé !");
             }
-        }
-    }
 
-    private IEnumerator TeleportAndUnselect()
-    {
-        // Teleportation to (0, 0, 0)
-        yield return new WaitForSeconds(teleportDelay);
-
-        if (currentInteractable != null)
-        {
-            // Déplacer l'objet à l'origine
-            currentInteractable.transform.position = Vector3.zero;
-            Debug.Log("🚀 Objet téléporté au point (0,0,0) : " + currentInteractable.name);
-
-            // Vérifier si le déplacement a bien eu lieu
-            if (currentInteractable.transform.position == Vector3.zero)
+            // Désélectionner après déplacement
+            if (interactor.hasSelection && interactable.isSelected)
             {
-                Debug.Log("ok");
-                result.Value = "Success";
+                interactor.EndManualInteraction();
+                interactionManager.SelectExit((UnityEngine.XR.Interaction.Toolkit.Interactors.IXRSelectInteractor)interactor, 
+                                              (UnityEngine.XR.Interaction.Toolkit.Interactables.IXRSelectInteractable)interactable);
+               
             }
             else
             {
-                Debug.Log("failed");
-                result.Value = "Failed";
+                Debug.LogError($" ORACLE MoveObjectToOrigin - TestFailed - {interactable.name} n'était pas sélectionné.");
             }
-
-            // Relâcher l'objet
-            interactor.EndManualInteraction();
-            interactionManager.SelectExit((UnityEngine.XR.Interaction.Toolkit.Interactors.IXRSelectInteractor)interactor, (UnityEngine.XR.Interaction.Toolkit.Interactables.IXRSelectInteractable)currentInteractable);
-            Debug.Log("🛑 Objet désélectionné : " + currentInteractable.name);
-            currentInteractable = null;
         }
-        else
+
+        if (!movedAnyObject)
         {
-            result.Value = "Failed";
-            Debug.LogWarning("⚠️ Aucun objet à déplacer.");
+            Debug.LogError("ORACLE MoveObjectToOrigin - TestFailed - Aucun objet n'a été déplacé !");
         }
     }
 }

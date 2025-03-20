@@ -1,20 +1,58 @@
 
 === Nouvelle Session ===
-[17/03/2025 16:59:15] Log: [UnitySingleton] An instance of Hybrid.Tools.UnityThreadExecute is needed in the scene, so '(singleton) Hybrid.Tools.UnityThreadExecute (UnityEngine.GameObject)' was created with DontDestroyOnLoad.
-[17/03/2025 16:59:15] Log: [UnitySingleton] An instance of Hybrid.Tools.SeparateThread is needed in the scene, so '(singleton) Hybrid.Tools.SeparateThread (UnityEngine.GameObject)' was created with DontDestroyOnLoad.
-[17/03/2025 16:59:15] Log: UFSevenNetworkManager will parse the command line connect to the specified remote server
+[20/03/2025 17:32:01] Log: [UnitySingleton] An instance of Hybrid.Tools.UnityThreadExecute is needed in the scene, so '(singleton) Hybrid.Tools.UnityThreadExecute (UnityEngine.GameObject)' was created with DontDestroyOnLoad.
+[20/03/2025 17:32:01] Log: [UnitySingleton] An instance of Hybrid.Tools.SeparateThread is needed in the scene, so '(singleton) Hybrid.Tools.SeparateThread (UnityEngine.GameObject)' was created with DontDestroyOnLoad.
+[20/03/2025 17:32:02] Log: UFSevenNetworkManager will parse the command line connect to the specified remote server
 	 Use --sevenserverremoteadress (or -ssra) "address[:remoteport]" to connect to the given remote server (default remoteport : 7777)
-[17/03/2025 16:59:16] Log: Positions chargées : 9
-[17/03/2025 16:59:16] Warning: Hand Tracking Subsystem not found or not running, can't subscribe to hand tracking status. Enable that feature in the OpenXR project settings and ensure OpenXR is enabled as the plug-in provider. This component will reattempt getting a reference to the subsystem each frame.
-[17/03/2025 16:59:20] Log: ✋ Sélection automatique de : Header Interactable
-[17/03/2025 16:59:20] Warning: ❌ L'interacteur ou l'InteractionManager n'est pas assigné !
-[17/03/2025 16:59:30] Log: ✋ Sélection automatique de : Spatial Panel Manipulator Model
-[17/03/2025 16:59:30] Warning: ❌ L'interacteur ou l'InteractionManager n'est pas assigné !
-[17/03/2025 16:59:32] Log: ✋ Sélection automatique de : Sphere Interactable
-[17/03/2025 16:59:32] Warning: ❌ L'interacteur ou l'InteractionManager n'est pas assigné !
-[17/03/2025 16:59:36] Log: Toutes les positions ont été atteintes !
-[17/03/2025 17:08:37] Warning: Assets\Scripts\Interaction\VRTest\VRSmart.cs(13,22): warning CS0114: 'VRSmart.Initialize()' hides inherited member 'VRTest.Initialize()'. To make the current member override that implementation, add the override keyword. Otherwise add the new keyword.
-[17/03/2025 17:08:37] Error: Assets\Scripts\Effector\MoveObjectToOriginEffector.cs(26,9): error CS0246: The type or namespace name 'Dictionary<,>' could not be found (are you missing a using directive or an assembly reference?)
-
-[17/03/2025 17:08:37] Error: Assets\Scripts\Effector\MoveObjectToOriginEffector.cs(26,28): error CS0246: The type or namespace name 'List<>' could not be found (are you missing a using directive or an assembly reference?)
-
+[20/03/2025 17:32:02] Warning: Hand Tracking Subsystem not found or not running, can't subscribe to hand tracking status. Enable that feature in the OpenXR project settings and ensure OpenXR is enabled as the plug-in provider. This component will reattempt getting a reference to the subsystem each frame.
+[20/03/2025 17:32:02] Log: Cube position: (-3.37, 0.28, 0.01)
+[20/03/2025 17:32:05] Log: ORACLE MoveObjectToOrigin - TestGenerated
+[20/03/2025 17:32:05] Log:  ORACLE MoveObjectToOrigin - TestPassed - Torus Interactable a été déplacé à l'origine.
+[20/03/2025 17:32:05] Assert: An Interactor received a Select Exit event for an Interactable that it was not selecting.
+[20/03/2025 17:32:05] Assert: An Interactable received a Select Exit event for an Interactor that was not selecting it.
+[20/03/2025 17:32:05] Log: ORACLE MoveObjectToOrigin - TestGenerated
+[20/03/2025 17:32:05] Log:  ORACLE MoveObjectToOrigin - TestPassed - Arch_Interactable a été déplacé à l'origine.
+[20/03/2025 17:32:05] Assert: An Interactor received a Select Exit event for an Interactable that it was not selecting.
+[20/03/2025 17:32:05] Assert: An Interactable received a Select Exit event for an Interactor that was not selecting it.
+[20/03/2025 17:32:05] Log: ORACLE MoveObjectToOrigin - TestGenerated
+[20/03/2025 17:32:05] Log:  ORACLE MoveObjectToOrigin - TestPassed - Tapered Interactable a été déplacé à l'origine.
+[20/03/2025 17:32:05] Assert: An Interactor received a Select Exit event for an Interactable that it was not selecting.
+[20/03/2025 17:32:05] Assert: An Interactable received a Select Exit event for an Interactor that was not selecting it.
+[20/03/2025 17:32:05] Log: ORACLE MoveObjectToOrigin - TestGenerated
+[20/03/2025 17:32:05] Log: ORACLE MoveObjectToOrigin - TestGenerated
+[20/03/2025 17:32:05] Log:  ORACLE MoveObjectToOrigin - TestPassed - Tapered Interactable a été déplacé à l'origine.
+[20/03/2025 17:32:05] Assert: An Interactor received a Select Exit event for an Interactable that it was not selecting.
+[20/03/2025 17:32:05] Assert: An Interactable received a Select Exit event for an Interactor that was not selecting it.
+[20/03/2025 17:32:05] Log: ORACLE MoveObjectToOrigin - TestGenerated
+[20/03/2025 17:32:05] Log:  ORACLE MoveObjectToOrigin - TestPassed - Cube Interactable a été déplacé à l'origine.
+[20/03/2025 17:32:05] Assert: An Interactor received a Select Exit event for an Interactable that it was not selecting.
+[20/03/2025 17:32:05] Assert: An Interactable received a Select Exit event for an Interactor that was not selecting it.
+[20/03/2025 17:32:05] Log: ORACLE MoveObjectToOrigin - TestGenerated
+[20/03/2025 17:32:05] Log:  ORACLE MoveObjectToOrigin - TestPassed - Blaster a été déplacé à l'origine.
+[20/03/2025 17:32:05] Assert: An Interactor received a Select Exit event for an Interactable that it was not selecting.
+[20/03/2025 17:32:05] Assert: An Interactable received a Select Exit event for an Interactor that was not selecting it.
+[20/03/2025 17:32:05] Log: ORACLE MoveObjectToOrigin - TestGenerated
+[20/03/2025 17:32:05] Log:  ORACLE MoveObjectToOrigin - TestPassed - Sphere Interactable a été déplacé à l'origine.
+[20/03/2025 17:32:05] Assert: An Interactor received a Select Exit event for an Interactable that it was not selecting.
+[20/03/2025 17:32:05] Assert: An Interactable received a Select Exit event for an Interactor that was not selecting it.
+[20/03/2025 17:32:05] Log: ORACLE MoveObjectToOrigin - TestGenerated
+[20/03/2025 17:32:05] Log:  ORACLE MoveObjectToOrigin - TestPassed - Cylinder Interactable a été déplacé à l'origine.
+[20/03/2025 17:32:05] Assert: An Interactor received a Select Exit event for an Interactable that it was not selecting.
+[20/03/2025 17:32:05] Assert: An Interactable received a Select Exit event for an Interactor that was not selecting it.
+[20/03/2025 17:32:05] Log: ORACLE MoveObjectToOrigin - TestGenerated
+[20/03/2025 17:32:05] Log:  ORACLE MoveObjectToOrigin - TestPassed - Spatial Panel Manipulator Model a été déplacé à l'origine.
+[20/03/2025 17:32:05] Assert: An Interactor received a Select Exit event for an Interactable that it was not selecting.
+[20/03/2025 17:32:05] Assert: An Interactable received a Select Exit event for an Interactor that was not selecting it.
+[20/03/2025 17:32:05] Log: ORACLE MoveObjectToOrigin - TestGenerated
+[20/03/2025 17:32:05] Log:  ORACLE MoveObjectToOrigin - TestPassed - Spatial Panel Manipulator UI Examples a été déplacé à l'origine.
+[20/03/2025 17:32:05] Assert: An Interactor received a Select Exit event for an Interactable that it was not selecting.
+[20/03/2025 17:32:05] Assert: An Interactable received a Select Exit event for an Interactor that was not selecting it.
+[20/03/2025 17:32:05] Log: ORACLE MoveObjectToOrigin - TestGenerated
+[20/03/2025 17:32:05] Log:  ORACLE MoveObjectToOrigin - TestPassed - Maradona a été déplacé à l'origine.
+[20/03/2025 17:32:05] Assert: An Interactor received a Select Exit event for an Interactable that it was not selecting.
+[20/03/2025 17:32:05] Assert: An Interactable received a Select Exit event for an Interactor that was not selecting it.
+[20/03/2025 17:32:05] Log: ORACLE MoveObjectToOrigin - TestGenerated
+[20/03/2025 17:32:05] Log:  ORACLE MoveObjectToOrigin - TestPassed - Totem2 Variant a été déplacé à l'origine.
+[20/03/2025 17:32:05] Assert: An Interactor received a Select Exit event for an Interactable that it was not selecting.
+[20/03/2025 17:32:05] Assert: An Interactable received a Select Exit event for an Interactor that was not selecting it.
+[20/03/2025 17:32:06] Log: Cube position: (8.12, 0.28, 1.73)
