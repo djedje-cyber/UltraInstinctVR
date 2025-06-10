@@ -1,5 +1,8 @@
 # UltraInstinctVR
 
+Important note : We will need a Xareus license to install the framework.
+For more information about the license : [Xareus quickstart](https://xareus.insa-rennes.fr/tutorials/quickstart.html)
+
 ## What is UltraInstinctVR?
 
 **UltraInstinctVR** is a VR interaction testing framework that simulates interactions in a VR application and verifies that actions (oracles) are correctly executed throughout the scenario engine **Xareus**.
@@ -14,6 +17,17 @@ It is compatible with any C# application and can be delivered as a Unity package
 **References**: [Xareus Official Site](https://xareus.insa-rennes.fr/?tabs=air)
 
 ---
+
+
+## How to install and run UltraInstinctVR?
+- Import the package
+- Import Zeno 3 into the gameObjects hierachy
+- Assign the good gameobject to the Xareus scenario repsenting the oracle as petri-nets
+- Launch the unity scene and wait the test suite to be terminated
+
+---
+
+
 
 ## What is an Interaction in VR?
 
@@ -99,10 +113,12 @@ Unlike traditional assertions at the end of test cases, oracles in VR are contin
 | **Karin**    | Reads logs and generates an HTML test report. |
 
 
-## How to run UltraInstinctVR
-- Import the package
-- Import Zeno 3 into the gameObjects hierachy
+## How to install and run UltraInstinctVR
+- Import the package by drag and drop in the project tab
+- Import the Zeno3 prefab into the gameObjects hierachy
 - Assign the good gameobject to the Xareus scenario repsenting the oracle as petri-nets
+   - open the xareus scenario
+   - Assign the gameObject to both the sensor and effector
 - Launch the unity scene and wait the test suite to be terminated
 
 
