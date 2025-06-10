@@ -1,9 +1,0 @@
-Boolean Toggle:(-0.73, 1.22, -2.33)
-MinMax Slider:(-0.57, 1.62, -2.32)
-Slider:(2.80, 1.04, -0.61)
-Video Player:(2.81, 1.19, -0.48)
-Dropdown:(-0.57, 1.35, -2.32)
-Text Poke Button:(-0.57, 1.48, -2.33)
-Text Poke Button Special:(0.44, 1.12, -1.83)
-Sphere Interactable:(-1.196,0.62,-1.743)
-failedObject:(10.00,10.00,10.00);

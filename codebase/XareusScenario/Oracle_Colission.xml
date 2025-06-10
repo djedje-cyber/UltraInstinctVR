@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<scenario xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" id="MyScenario" label="MyScenario" version="5.12.0.0" xmlns="http://www.insa-rennes.fr/Xareus.Scenarios">
+  <extendedInfo>
+    <unityEditor xmlns="">
+      <version>1.2</version>
+    </unityEditor>
+  </extendedInfo>
+  <sequence xsi:type="SafePetriNet" id="Root" label="Root">
+    <extendedInfo>
+      <unityEditor xmlns="">
+        <comments />
+        <sections />
+        <viewData x="0" y="0" zoom="1" />
+      </unityEditor>
+    </extendedInfo>
+    <sequence xsi:type="Place" id="Place_0" label="Place_0">
+      <extendedInfo>
+        <unityEditor xmlns="">
+          <position x="330" y="67" />
+        </unityEditor>
+      </extendedInfo>
+    </sequence>
+    <sequence xsi:type="Place" id="Place_1" label="Place_1">
+      <extendedInfo>
+        <unityEditor xmlns="">
+          <position x="307" y="286" />
+        </unityEditor>
+      </extendedInfo>
+    </sequence>
+    <transition id="Transition_0" label="Transition_0">
+      <extendedInfo>
+        <unityEditor xmlns="">
+          <position x="467" y="186" />
+        </unityEditor>
+      </extendedInfo>
+      <event id="Transition_0" label="Transition_0">
+        <sensorCheck classname="SelectionSensor,Assembly-CSharp">
+          <param value="0.5" type="System.Single,mscorlib" name="Teleport Distance Threshold" />
+          <param type="UnityEngine.GameObject,UnityEngine.CoreModule" name="Cube to observe">
+            <param value="8504f0dd-6785-4b4b-8182-482466dd17ce" type="System.Guid,mscorlib" name="UFID" />
+          </param>
+        </sensorCheck>
+        <effectorUpdate classname="CollisionEffector,Assembly-CSharp">
+          <param type="UnityEngine.GameObject,UnityEngine.CoreModule" name="Cube">
+            <param value="8504f0dd-6785-4b4b-8182-482466dd17ce" type="System.Guid,mscorlib" name="UFID" />
+          </param>
+          <param value="0" type="System.Single,mscorlib" name="Collision Detection Radius" />
+        </effectorUpdate>
+      </event>
+      <upstreamSequence idref="Place_0" />
+      <downstreamSequence idref="Place_1" />
+    </transition>
+    <transition id="Transition_1" label="Transition_1">
+      <extendedInfo>
+        <unityEditor xmlns="">
+          <position x="205" y="187" />
+        </unityEditor>
+      </extendedInfo>
+      <event id="Transition_1" label="Transition_1" />
+      <upstreamSequence idref="Place_1" />
+      <downstreamSequence idref="Place_0" />
+    </transition>
+    <initialSequence idref="Place_0">
+      <tokenInit classname="Xareus.Scenarios.TokenInit.EmptyTokenInit,Xareus.Scenarios" />
+    </initialSequence>
+    <finalSequence idref="Place_1" />
+  </sequence>
+</scenario>

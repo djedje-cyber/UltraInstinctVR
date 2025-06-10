@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<scenario xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" id="MyScenario" label="MyScenario" version="5.12.0.0" xmlns="http://www.insa-rennes.fr/Xareus.Scenarios">
+  <extendedInfo>
+    <unityEditor xmlns="">
+      <version>1.2</version>
+    </unityEditor>
+  </extendedInfo>
+  <sequence xsi:type="SafePetriNet" id="Root" label="Root">
+    <extendedInfo>
+      <unityEditor xmlns="">
+        <comments />
+        <sections />
+        <viewData x="0" y="0" zoom="1" />
+      </unityEditor>
+    </extendedInfo>
+    <sequence xsi:type="Place" id="Place_0" label="Place_0">
+      <extendedInfo>
+        <unityEditor xmlns="">
+          <position x="360" y="71" />
+        </unityEditor>
+      </extendedInfo>
+    </sequence>
+    <sequence xsi:type="Place" id="Place_2" label="Place_2">
+      <extendedInfo>
+        <unityEditor xmlns="">
+          <position x="284" y="354" />
+        </unityEditor>
+      </extendedInfo>
+    </sequence>
+    <transition id="Transition_0" label="Transition_0">
+      <extendedInfo>
+        <unityEditor xmlns="">
+          <position x="555" y="210.5" />
+        </unityEditor>
+      </extendedInfo>
+      <event id="Transition_0" label="Transition_0">
+        <sensorCheck classname="SelectionSensor,Assembly-CSharp">
+          <param value="0" type="System.Single,mscorlib" name="Teleport Distance Threshold" />
+          <param type="UnityEngine.GameObject,UnityEngine.CoreModule" name="Cube">
+            <param value="2653e9c3-35a6-492a-ab69-1d9a2e6ffe9d" type="System.Guid,mscorlib" name="UFID" />
+          </param>
+          <param type="UnityEngine.GameObject,UnityEngine.CoreModule" name="Cube to observe">
+            <param value="2653e9c3-35a6-492a-ab69-1d9a2e6ffe9d" type="System.Guid,mscorlib" name="UFID" />
+          </param>
+        </sensorCheck>
+        <effectorUpdate classname="ObjectSelectionEffector,Assembly-CSharp">
+          <param type="UnityEngine.GameObject,UnityEngine.CoreModule" name="Cube">
+            <param value="2653e9c3-35a6-492a-ab69-1d9a2e6ffe9d" type="System.Guid,mscorlib" name="UFID" />
+          </param>
+          <param value="0" type="System.Single,mscorlib" name="TeleportThreshold" />
+          <param value="0" type="System.Single,mscorlib" name="Teleport Distance Threshold" />
+          <param value="0.5" type="System.Single,mscorlib" name="Selection Distance Threshold" />
+          <param type="UnityEngine.XR.Interaction.Toolkit.Interactors.XRDirectInteractor,Unity.XR.Interaction.Toolkit" name="Interactor">
+            <param value="5c7e5b90-0d59-48a9-8c9a-acfa0e3fe0ec" type="System.Guid,mscorlib" name="UFID" />
+          </param>
+          <param type="UnityEngine.XR.Interaction.Toolkit.XRInteractionManager,Unity.XR.Interaction.Toolkit" name="Interaction Manager">
+            <param value="cf2a9412-04fd-4acf-bdfc-aab6e6c94e90" type="System.Guid,mscorlib" name="UFID" />
+          </param>
+        </effectorUpdate>
+      </event>
+      <upstreamSequence idref="Place_0" />
+      <downstreamSequence idref="Place_2" />
+    </transition>
+    <transition id="Transition_2" label="Transition_2">
+      <extendedInfo>
+        <unityEditor xmlns="">
+          <position x="223.5" y="215.5" />
+        </unityEditor>
+      </extendedInfo>
+      <event id="Transition_2" label="Transition_2" />
+      <upstreamSequence idref="Place_2" />
+      <downstreamSequence idref="Place_0" />
+    </transition>
+    <initialSequence idref="Place_0">
+      <tokenInit classname="Xareus.Scenarios.TokenInit.EmptyTokenInit,Xareus.Scenarios" />
+    </initialSequence>
+    <finalSequence idref="Place_2" />
+  </sequence>
+</scenario>
