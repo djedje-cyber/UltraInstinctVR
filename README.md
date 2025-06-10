@@ -15,4 +15,7 @@ The second *codebase* contains C# script to generate interactions,verify oracles
 We strongly recomand to use the **Unity Package** to install **UltraInstinctVR**
 
 
+It also contains video demo under the file **demo.zip**
+
+
 
