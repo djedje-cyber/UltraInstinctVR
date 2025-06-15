@@ -2,7 +2,7 @@
 
 ## What is UltraInstinctVR?
 
-**UltraInstinctVR** is a VR interaction testing framework that simulates interactions in a VR application and verifies that actions (oracles) are correctly executed throughout the scenario engine **Xareus**.
+**UltraInstinctVR** is a Unity VR interaction testing framework that simulates interactions in a VR application and verifies that actions (oracles) are correctly executed throughout the scenario engine **Xareus**.
 
 ---
 
