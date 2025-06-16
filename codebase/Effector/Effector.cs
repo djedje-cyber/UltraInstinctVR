@@ -6,7 +6,6 @@ using System.Collections.Generic;
 
 public class TeleportationEffector : AUnityEffector
 {
-    // Exemple de paramètre de configuration
     [ConfigurationParameter("Teleport Distance Threshold", Necessity.Required)]
     protected float teleportDistanceThreshold = 2.0f;
 
@@ -24,7 +23,7 @@ public class TeleportationEffector : AUnityEffector
         : base(@event, nameValueListMap, externalContext, scenarioContext, sequenceContext, anotherContext) 
     { }
 
-    // Implémentation de la méthode SafeEffectorUpdate (obligatoire)
+
     public override void SafeEffectorUpdate()
     {
 
@@ -44,7 +43,6 @@ public class TeleportationEffector : AUnityEffector
     // Méthode pour obtenir la position actuelle du joueur
     private Vector3 GetPlayerPosition()
     {
-        // Exemple de récupération de la position de la caméra (l'avatar du joueur)
         return gameObjectToObserve.transform.position;
     }
 }
