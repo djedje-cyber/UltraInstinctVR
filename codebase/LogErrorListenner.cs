@@ -71,7 +71,6 @@ public class LogErrorListener : MonoBehaviour
                 errorTriggered = true;
                 Debug.LogError("15 erreurs détectées.");
 
-                // 🔴 1. Stopper le script LogToFile s’il est présent
                 LogToFile logToFile = GetComponent<LogToFile>();
                 if (logToFile != null)
                 {
@@ -79,11 +78,9 @@ public class LogErrorListener : MonoBehaviour
                     Debug.Log("Script LogToFile désactivé.");
                 }
 
-                // 🔵 2. Génération du rapport CSV
                 Debug.Log("Génération du rapport CSV...");
                 AnalyzeLogs(isTimeout: false);
 
-                // 🔵 3. Lancement du délai avant fermeture
                 StartCoroutine(QuitAfterDelay(0f));
             }
         }
