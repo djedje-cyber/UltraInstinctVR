@@ -10,6 +10,9 @@ CodeBase/Build/
 CodeBase/Builds/
 CodeBase/UserSettings/
 CodeBase/Logs/
+CodeBase/Assets/Scripts/TESTREPLAY/
+CodeBase/Assets/result/
+CodeBase/obj/Debug/
 
 # Ensure Cache & GI data isn't tracked
 MemoryCaptures/
