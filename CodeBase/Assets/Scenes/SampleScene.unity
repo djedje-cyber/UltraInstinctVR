@@ -1706,7 +1706,15 @@ PrefabInstance:
     - target: {fileID: 5966853726598549314, guid: 215c413031aef414895775e307868878, type: 3}
       propertyPath: 'childrenPrefabs.Array.data[0]'
       value: 
-      objectReference: {fileID: 217447826}
+      objectReference: {fileID: 217447824}
+    - target: {fileID: 5966853726598549314, guid: 215c413031aef414895775e307868878, type: 3}
+      propertyPath: 'childrenPrefabs.Array.data[1]'
+      value: 
+      objectReference: {fileID: 217447825}
+    - target: {fileID: 5966853726598549314, guid: 215c413031aef414895775e307868878, type: 3}
+      propertyPath: 'childrenPrefabs.Array.data[2]'
+      value: 
+      objectReference: {fileID: 217447825}
     - target: {fileID: 8145115545789104209, guid: 215c413031aef414895775e307868878, type: 3}
       propertyPath: teleportCount
       value: 5

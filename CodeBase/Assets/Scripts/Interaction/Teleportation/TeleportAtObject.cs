@@ -7,116 +7,106 @@ using System.Globalization;
 
 
 public class TeleportAtObject : MonoBehaviour
+{
+    // List of positions to reach
+    private List<Vector3> positions = new List<Vector3>();
+
+    // Current index of the position where the object should teleport
+    private int currentPositionIndex = 0;
+
+    // Waiting time between each teleportation (in seconds)
+    public float teleportDelay = 2f;
+    public string filePath = "Assets/Scripts/CoveredObjects/FoundObject.txt";
+
+
+
+    void Start()
     {
-        // Liste des positions à atteindre
-        private List<Vector3> positions = new List<Vector3>();
+        // Read positions from the file
+        ReadPositionsFromFile();
 
-        // Index actuel de la position où l'objet doit se téléporter
-        private int currentPositionIndex = 0;
-
-        // Temps d'attente entre chaque téléportation (en secondes)
-        public float teleportDelay = 2f;
-        public string filePath = "Assets/Scripts/CoveredObjects/FoundObject.txt";
-
-
-
-        void Start()
+        // Start teleporting if any positions were loaded
+        if (positions.Count > 0)
         {
-            // Lire les positions depuis le fichier
-            ReadPositionsFromFile();
-
-            // Commencer la téléportation si des positions ont été lues
-            if (positions.Count > 0)
-            {
-                StartCoroutine(TeleportToNextPosition());
-            }
-            else
-            {
-                Debug.LogWarning("Aucune position trouvée dans le fichier.");
-            }
+            StartCoroutine(TeleportToNextPosition());
         }
-
-        // Lire les positions à partir du fichier texte
-    private void ReadPositionsFromFile()
+        else
         {
-            if (File.Exists(filePath))
-            {
-                string[] lines = File.ReadAllLines(filePath);
-
-                // Expression régulière pour capturer les valeurs entre parenthèses
-                string pattern = @"\(([^)]+)\)";
-
-                foreach (string line in lines)
-                {
-                    // Chercher les coordonnées entre parenthèses
-                    Match match = Regex.Match(line, pattern);
-
-                    if (match.Success)
-                    {
-                        string positionData = match.Groups[1].Value; // Récupérer le contenu entre parenthèses
-                        string[] coordinates = positionData.Split(',');
-
-                        if (coordinates.Length == 3)
-                        {
-                            try
-                            {
-                                // Nettoyer les espaces avant et après chaque valeur de coordonnées
-                                string xStr = coordinates[0].Trim();
-                                string yStr = coordinates[1].Trim();
-                                string zStr = coordinates[2].Trim();
-                                float x = float.Parse(xStr, CultureInfo.InvariantCulture.NumberFormat);
-                                float y = float.Parse(yStr, CultureInfo.InvariantCulture.NumberFormat);
-                                float z = float.Parse(zStr, CultureInfo.InvariantCulture.NumberFormat);
-
-
-                                // Ajouter la position à la liste
-                                positions.Add(new Vector3(x, y, z));
-                    
-                            }
-                            catch (System.Exception e)
-                            {
-                                Debug.LogError("Erreur lors de la lecture des coordonnées à la ligne : " + line + "\n" + e.Message);
-                            }
-                        }
-                        else
-                        {
-                            Debug.LogWarning("La ligne ne contient pas 3 coordonnées : " + line);
-                        }
-                    }
-                    else
-                    {
-                        Debug.LogWarning("Pas de coordonnées entre parenthèses trouvées à la ligne : " + line);
-                    }
-                }
-
-                Debug.Log("Positions lues depuis le fichier : " + positions.Count);
-            }
-            else
-            {
-                Debug.LogError("Le fichier de positions n'existe pas à l'emplacement : " + filePath);
-            }
+            Debug.LogWarning("No positions found in the file.");
+        }
     }
 
-        private IEnumerator TeleportToNextPosition()
+    // Read positions from the text file
+    private void ReadPositionsFromFile()
+    {
+        if (!File.Exists(filePath))
         {
-            // Tant qu'il y a des positions à atteindre
-            while (currentPositionIndex < positions.Count)
-            {
-                transform.position = positions[currentPositionIndex];
-
-                
-                //Debug.Log("Téléportation à la position : " + positions[currentPositionIndex]);
-
-                // Attendre avant de se téléporter à la suivante
-                yield return new WaitForSeconds(teleportDelay);
-
-                // Passer à la prochaine position
-                currentPositionIndex++;
-            }
-
-            // Message lorsque toutes les positions ont été atteintes
-            Debug.Log("Toutes les positions ont été atteintes !");
+            Debug.LogError("Position file does not exist at path: " + filePath);
+            return;
         }
+
+        string[] lines = File.ReadAllLines(filePath);
+        string pattern = @"\(([^)]+)\)";
+
+        foreach (string line in lines)
+        {
+            ProcessLine(line, pattern);
+        }
+
+        Debug.Log("Positions read from file: " + positions.Count);
+    }
+
+    private void ProcessLine(string line, string pattern)
+    {
+        Match match = Regex.Match(line, pattern);
+        if (!match.Success)
+        {
+            Debug.LogWarning("No coordinates found in parentheses on line: " + line);
+            return;
+        }
+
+        string[] coordinates = match.Groups[1].Value.Split(',');
+        if (coordinates.Length != 3)
+        {
+            Debug.LogWarning("Line does not contain 3 coordinates: " + line);
+            return;
+        }
+
+        TryAddPosition(coordinates, line);
+    }
+
+    private void TryAddPosition(string[] coordinates, string line)
+    {
+        try
+        {
+            float x = float.Parse(coordinates[0].Trim(), CultureInfo.InvariantCulture.NumberFormat);
+            float y = float.Parse(coordinates[1].Trim(), CultureInfo.InvariantCulture.NumberFormat);
+            float z = float.Parse(coordinates[2].Trim(), CultureInfo.InvariantCulture.NumberFormat);
+
+            positions.Add(new Vector3(x, y, z));
+        }
+        catch (System.Exception e)
+        {
+            Debug.LogError("Error reading coordinates on line: " + line + "\n" + e.Message);
+        }
+    }
+
+
+    private IEnumerator TeleportToNextPosition()
+    {
+        // While there are still positions to reach
+        while (currentPositionIndex < positions.Count)
+        {
+            transform.position = positions[currentPositionIndex];
+
+            // Wait before teleporting to the next one
+            yield return new WaitForSeconds(teleportDelay);
+
+            // Move to the next position
+            currentPositionIndex++;
+        }
+
+        // All positions reached
+        Debug.Log("All positions have been reached!");
+    }
 }
-
-

@@ -7,11 +7,11 @@ using System.Collections.Generic;
 [FunctionDescription("Collision Detection Effect")]
 public class CollisionEffector : AUnityEffector
 {
-    // Cube à surveiller pour la détection de collision
+    // Cube to monitor for collision detection
     [ConfigurationParameter("Cube", Necessity.Required)]
     protected GameObject cube;
 
-    // Distance de détection pour la collision
+    // Detection radius for collision
     [ConfigurationParameter("Collision Detection Radius", Necessity.Required)]
     protected float collisionDetectionRadius = 0.5f;
 
@@ -24,46 +24,44 @@ public class CollisionEffector : AUnityEffector
         : base(@event, nameValueListMap, externalContext, scenarioContext, sequenceContext, eventContext)
     { }
 
-    // Méthode appelée à chaque frame pour vérifier les collisions
+    // Method called every frame to check for collisions
     public override void SafeEffectorUpdate()
     {
         Debug.Log("TestGenerated - CollisionDetection");
         DetectCollision();
     }
 
-
     private void DetectCollision()
     {
-        // Détecter tous les colliders dans une sphère autour du cube
+        // Detect all colliders within a sphere around the cube
         Collider[] hitColliders = Physics.OverlapSphere(cube.transform.position, collisionDetectionRadius);
 
-        // Si des objets sont en collision avec l'objet "cube"
+        // If objects are colliding with the "cube" object
         if (hitColliders.Length > 0)
         {
             foreach (var hitCollider in hitColliders)
             {
-                // Vérifie que l'objet détecté n'est pas le même que le cube
+                // Check that the detected object is not the cube itself
                 if (hitCollider != null && hitCollider.gameObject != cube)
                 {
-                    // Détection de collision avec un autre objet (excluant le cube lui-même)
-                    Debug.Log("ORACLE CollisionDetection - TestPassed - Collision successfully done with " 
-                            + hitCollider.name + " at : " + cube.transform.position);
-                    
-                    // Retourner pour sortir de la boucle une fois la collision traitée
+                    // Collision detected with another object (excluding the cube itself)
+                    Debug.Log("ORACLE CollisionDetection - TestPassed - Collision successfully done with "
+                            + hitCollider.name + " at: " + cube.transform.position);
+
+                    // Return to exit the loop once the collision has been handled
                     return;
                 }
             }
 
-            // Si aucune collision valide n'a été trouvée, afficher un message d'échec
-            Debug.LogError("ORACLE CollisionDetection - TestFailed - No valid collision detected at : " 
+            // If no valid collision was found, display a failure message
+            Debug.LogError("ORACLE CollisionDetection - TestFailed - No valid collision detected at: "
                         + cube.transform.position);
         }
         else
         {
-            // Aucune collision détectée
-            Debug.LogError("ORACLE CollisionDetection - TestFailed - No collision detected at : " 
+            // No collision detected
+            Debug.LogError("ORACLE CollisionDetection - TestFailed - No collision detected at: "
                         + cube.transform.position);
         }
     }
-
 }
