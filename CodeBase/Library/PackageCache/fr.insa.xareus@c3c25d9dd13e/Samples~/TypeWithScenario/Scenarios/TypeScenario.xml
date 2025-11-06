@@ -1,0 +1,277 @@
+<?xml version="1.0" encoding="utf-8"?>
+<scenario xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" id="TypeScenario" label="MyScenario" version="5.16.0.0" xmlns="http://www.insa-rennes.fr/Xareus.Scenarios">
+  <extendedInfo>
+    <unityEditor xmlns="">
+      <version>1.2</version>
+      <editorConfiguration showPriority="True" />
+    </unityEditor>
+  </extendedInfo>
+  <sequence xsi:type="SafePetriNet" id="Root" label="Root">
+    <extendedInfo>
+      <unityEditor xmlns="">
+        <viewData x="-116" y="156" zoom="1" />
+        <comments>
+          <comment>
+            <value>&lt;comment id="Comment_0" label="Initialization" text="Assign a random value to the limit" height="150" width="500" color="#1295B280" isFolded="true"&gt;&lt;position x="198" y="-34" /&gt;&lt;/comment&gt;</value>
+            <value>&lt;comment id="Comment_1" label="Display" text="Display current state in console" height="150" width="500" color="#1295B280" isFolded="true"&gt;&lt;position x="197" y="271" /&gt;&lt;/comment&gt;</value>
+            <value>&lt;comment id="Comment_1_1" label="End" text="Display in console. &amp;#xA;We cannot access the &amp;quot;Limit&amp;quot; value&amp;#xA;because it's tied to a method with a &amp;#xA;parameter and no return value" height="150" width="500" color="#1295B280" isFolded="true"&gt;&lt;position x="192" y="448" /&gt;&lt;/comment&gt;</value>
+          </comment>
+        </comments>
+        <sections>
+          <section>
+            <value>&lt;section id="Section_0" label="Wait for Counter &amp;gt; Limit" height="444" width="180" color="#FFBD0080"&gt;&lt;position x="607" y="11" /&gt;&lt;/section&gt;</value>
+          </section>
+        </sections>
+      </unityEditor>
+    </extendedInfo>
+    <sequence xsi:type="Place" id="Place_0" label="Start">
+      <extendedInfo>
+        <unityEditor xmlns="">
+          <position x="500" y="-100" />
+        </unityEditor>
+      </extendedInfo>
+    </sequence>
+    <sequence xsi:type="Place" id="Place_1" label="Place_1">
+      <extendedInfo>
+        <unityEditor xmlns="">
+          <position x="500" y="400" />
+        </unityEditor>
+      </extendedInfo>
+    </sequence>
+    <sequence xsi:type="Place" id="Place_2" label="Loop">
+      <extendedInfo>
+        <unityEditor xmlns="">
+          <position x="700" y="200" />
+        </unityEditor>
+      </extendedInfo>
+    </sequence>
+    <sequence xsi:type="Place" id="Place_3" label="Place_3">
+      <extendedInfo>
+        <unityEditor xmlns="">
+          <position x="500" y="100" />
+        </unityEditor>
+      </extendedInfo>
+    </sequence>
+    <sequence xsi:type="Place" id="Place_4" label="End">
+      <extendedInfo>
+        <unityEditor xmlns="">
+          <position x="500" y="600" />
+        </unityEditor>
+      </extendedInfo>
+    </sequence>
+    <transition id="Transition_0" label="Display Status">
+      <extendedInfo>
+        <unityEditor xmlns="">
+          <position x="500" y="300" />
+        </unityEditor>
+      </extendedInfo>
+      <event id="Transition_0" label="Display Status">
+        <effectorUpdate classname="Xareus.Scenarios.Unity.LogEffector,Xareus.Unity.Libraries">
+          <extendedInfo>
+            <unityEditor xmlns="">
+              <editBox type="Xareus.Unity.Editor.Scenarios.UI.DefaultEditBox,Xareus.Unity.Editor" />
+            </unityEditor>
+          </extendedInfo>
+          <param value="Log" type="UnityEngine.LogType,UnityEngine.CoreModule" name="Log Type">
+            <extendedInfo>
+              <unityEditor xmlns="">
+                <field type="Xareus.Unity.Editor.Scenarios.UI.Fields.EnumField`1[[UnityEngine.LogType,UnityEngine.CoreModule]],Xareus.Unity.Editor" />
+              </unityEditor>
+            </extendedInfo>
+          </param>
+          <param type="System.Collections.Generic.List`1[[System.Object,mscorlib]],mscorlib" name="Strings">
+            <extendedInfo>
+              <unityEditor xmlns="">
+                <field type="Xareus.Unity.Editor.Scenarios.UI.Group.CollectionGroup`1[[System.Object,mscorlib]],Xareus.Unity.Editor" />
+              </unityEditor>
+            </extendedInfo>
+            <param value="XUObject ID: " type="System.String,mscorlib" name="elem0">
+              <extendedInfo>
+                <unityEditor xmlns="">
+                  <field type="Xareus.Unity.Editor.Scenarios.UI.Fields.AdaptiveField,Xareus.Unity.Editor" />
+                </unityEditor>
+              </extendedInfo>
+            </param>
+            <param value="$(ExternalContext.XUObject)" type="Xareus.Scenarios.Variables.Variable,Xareus.Scenarios" name="elem1">
+              <extendedInfo>
+                <unityEditor xmlns="">
+                  <field type="Xareus.Unity.Editor.Scenarios.UI.Fields.VariableField,Xareus.Unity.Editor" />
+                </unityEditor>
+              </extendedInfo>
+            </param>
+            <param value="   Counter: " type="System.String,mscorlib" name="elem2">
+              <extendedInfo>
+                <unityEditor xmlns="">
+                  <field type="Xareus.Unity.Editor.Scenarios.UI.Fields.AdaptiveField,Xareus.Unity.Editor" />
+                </unityEditor>
+              </extendedInfo>
+            </param>
+            <param value="$(ExternalContext.Counter)" type="Xareus.Scenarios.Variables.Variable,Xareus.Scenarios" name="elem3">
+              <extendedInfo>
+                <unityEditor xmlns="">
+                  <field type="Xareus.Unity.Editor.Scenarios.UI.Fields.VariableField,Xareus.Unity.Editor" />
+                </unityEditor>
+              </extendedInfo>
+            </param>
+          </param>
+        </effectorUpdate>
+      </event>
+      <upstreamSequence idref="Place_3" />
+      <downstreamSequence idref="Place_1" />
+    </transition>
+    <transition id="Transition_1" label="Check Status" priority="1">
+      <extendedInfo>
+        <unityEditor xmlns="">
+          <position x="700" y="400" />
+        </unityEditor>
+      </extendedInfo>
+      <event id="Transition_1" label="Check Status">
+        <sensorCheck classname="Xareus.Scenarios.Boolean.BooleanSensor,Xareus.Scenarios.Extra">
+          <extendedInfo>
+            <unityEditor xmlns="">
+              <editBox type="Xareus.Unity.Editor.Scenarios.UI.BooleanSensorEditBox,Xareus.Unity.Libraries.Editor" />
+            </unityEditor>
+          </extendedInfo>
+          <param value="EQUAL" type="Xareus.Scenarios.Boolean.BooleanSensor+ComparisonOperator,Xareus.Scenarios.Extra" name="Operator">
+            <extendedInfo>
+              <unityEditor xmlns="">
+                <field type="Xareus.Unity.Editor.Scenarios.UI.Fields.EnumField`1[[Xareus.Scenarios.Boolean.BooleanSensor+ComparisonOperator,Xareus.Scenarios.Extra]],Xareus.Unity.Editor" />
+              </unityEditor>
+            </extendedInfo>
+          </param>
+          <param value="$(ExternalContext.Status)" type="Xareus.Scenarios.Variables.Variable,Xareus.Scenarios" name="Operand 1">
+            <extendedInfo>
+              <unityEditor xmlns="">
+                <field type="Xareus.Unity.Editor.Scenarios.UI.Fields.VariableField,Xareus.Unity.Editor" />
+              </unityEditor>
+            </extendedInfo>
+          </param>
+          <param value="False" type="System.Boolean,mscorlib" name="Operand 2">
+            <extendedInfo>
+              <unityEditor xmlns="">
+                <field type="Xareus.Unity.Editor.Scenarios.UI.Fields.BoolField,Xareus.Unity.Editor" />
+              </unityEditor>
+            </extendedInfo>
+          </param>
+        </sensorCheck>
+      </event>
+      <upstreamSequence idref="Place_1" />
+      <downstreamSequence idref="Place_2" />
+    </transition>
+    <transition id="Transition_2" label="Wait">
+      <extendedInfo>
+        <unityEditor xmlns="">
+          <position x="700" y="100" />
+        </unityEditor>
+      </extendedInfo>
+      <event id="Transition_2" label="Wait">
+        <sensorCheck classname="Xareus.Scenarios.Time.Unity.UnityTimeSensor,Xareus.Unity.Libraries">
+          <extendedInfo>
+            <unityEditor xmlns="">
+              <editBox type="Xareus.Unity.Editor.Scenarios.UI.UnityTimeSensorEditBox,Xareus.Unity.Libraries.Editor" />
+            </unityEditor>
+          </extendedInfo>
+          <param value="SECOND" type="Xareus.Scenarios.Time.TimeUnit,Xareus.Scenarios.Extra" name="unit">
+            <extendedInfo>
+              <unityEditor xmlns="">
+                <field type="Xareus.Unity.Editor.Scenarios.UI.Fields.EnumField`1[[Xareus.Scenarios.Time.TimeUnit,Xareus.Scenarios.Extra]],Xareus.Unity.Editor" />
+              </unityEditor>
+            </extendedInfo>
+          </param>
+          <param value="Update" type="Xareus.Scenarios.Time.Unity.UnityTimeSensor+TimeType,Xareus.Unity.Libraries" name="Time type">
+            <extendedInfo>
+              <unityEditor xmlns="">
+                <field type="Xareus.Unity.Editor.Scenarios.UI.Fields.EnumField`1[[Xareus.Scenarios.Time.Unity.UnityTimeSensor+TimeType,Xareus.Unity.Libraries]],Xareus.Unity.Editor" />
+              </unityEditor>
+            </extendedInfo>
+          </param>
+          <param value="1" type="System.Double,mscorlib" name="minimum">
+            <extendedInfo>
+              <unityEditor xmlns="">
+                <field type="Xareus.Unity.Editor.Scenarios.UI.Fields.DoubleField,Xareus.Unity.Editor" />
+              </unityEditor>
+            </extendedInfo>
+          </param>
+        </sensorCheck>
+      </event>
+      <upstreamSequence idref="Place_2" />
+      <downstreamSequence idref="Place_3" />
+    </transition>
+    <transition id="Transition_3" label="End">
+      <extendedInfo>
+        <unityEditor xmlns="">
+          <position x="500" y="500" />
+        </unityEditor>
+      </extendedInfo>
+      <event id="Transition_3" label="End">
+        <effectorUpdate classname="Xareus.Scenarios.Unity.LogEffector,Xareus.Unity.Libraries">
+          <extendedInfo>
+            <unityEditor xmlns="">
+              <editBox type="Xareus.Unity.Editor.Scenarios.UI.DefaultEditBox,Xareus.Unity.Editor" />
+            </unityEditor>
+          </extendedInfo>
+          <param value="Log" type="UnityEngine.LogType,UnityEngine.CoreModule" name="Log Type">
+            <extendedInfo>
+              <unityEditor xmlns="">
+                <field type="Xareus.Unity.Editor.Scenarios.UI.Fields.EnumField`1[[UnityEngine.LogType,UnityEngine.CoreModule]],Xareus.Unity.Editor" />
+              </unityEditor>
+            </extendedInfo>
+          </param>
+          <param type="System.Collections.Generic.List`1[[System.Object,mscorlib]],mscorlib" name="Strings">
+            <extendedInfo>
+              <unityEditor xmlns="">
+                <field type="Xareus.Unity.Editor.Scenarios.UI.Group.CollectionGroup`1[[System.Object,mscorlib]],Xareus.Unity.Editor" />
+              </unityEditor>
+            </extendedInfo>
+            <param value="Finished !" type="System.String,mscorlib" name="elem0">
+              <extendedInfo>
+                <unityEditor xmlns="">
+                  <field type="Xareus.Unity.Editor.Scenarios.UI.Fields.AdaptiveField,Xareus.Unity.Editor" />
+                </unityEditor>
+              </extendedInfo>
+            </param>
+          </param>
+        </effectorUpdate>
+      </event>
+      <upstreamSequence idref="Place_1" />
+      <downstreamSequence idref="Place_4" />
+    </transition>
+    <transition id="Transition_4" label="Set Random Limit">
+      <extendedInfo>
+        <unityEditor xmlns="">
+          <position x="500" y="0" />
+        </unityEditor>
+      </extendedInfo>
+      <event id="Transition_4" label="Set Random Limit">
+        <effectorUpdate classname="Xareus.Scenarios.Arithmetics.RandomNumberEffector,Xareus.Scenarios.Extra">
+          <extendedInfo>
+            <unityEditor xmlns="">
+              <editBox type="Xareus.Unity.Editor.Scenarios.UI.DefaultEditBox,Xareus.Unity.Editor" />
+            </unityEditor>
+          </extendedInfo>
+          <param value="$(ExternalContext.Limit)" type="Xareus.Scenarios.Variables.Variable,Xareus.Scenarios" name="Result" />
+          <param value="5" type="System.Single,mscorlib" name="Lower Bound">
+            <extendedInfo>
+              <unityEditor xmlns="">
+                <field type="Xareus.Unity.Editor.Scenarios.UI.Fields.FloatField,Xareus.Unity.Editor" />
+              </unityEditor>
+            </extendedInfo>
+          </param>
+          <param value="10" type="System.Single,mscorlib" name="Upper Bound">
+            <extendedInfo>
+              <unityEditor xmlns="">
+                <field type="Xareus.Unity.Editor.Scenarios.UI.Fields.FloatField,Xareus.Unity.Editor" />
+              </unityEditor>
+            </extendedInfo>
+          </param>
+        </effectorUpdate>
+      </event>
+      <upstreamSequence idref="Place_0" />
+      <downstreamSequence idref="Place_3" />
+    </transition>
+    <initialSequence idref="Place_0">
+      <tokenInit classname="Xareus.Scenarios.TokenInit.EmptyTokenInit,Xareus.Scenarios" />
+    </initialSequence>
+    <finalSequence idref="Place_4" />
+  </sequence>
+</scenario>

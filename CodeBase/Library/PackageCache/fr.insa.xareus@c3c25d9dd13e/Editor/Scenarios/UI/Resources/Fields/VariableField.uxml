@@ -1,0 +1,10 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../../../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <ui:VisualElement style="flex-direction: row; flex-grow: 1; flex-shrink: 1; justify-content: flex-start;">
+        <ui:VisualElement name="ContextContainer" style="flex-shrink: 0;" />
+        <ui:Toggle name="PathSpecified" tooltip="Specify a path in the context" />
+        <ui:VisualElement name="PathSection" style="flex-direction: row; flex-grow: 1; justify-content: space-between;">
+            <ui:DropdownField index="-1" name="Path" />
+            <ui:Button text="New" parse-escape-sequences="true" display-tooltip-when-elided="true" name="New" style="right: 0; flex-shrink: 1;" />
+        </ui:VisualElement>
+    </ui:VisualElement>
+</ui:UXML>

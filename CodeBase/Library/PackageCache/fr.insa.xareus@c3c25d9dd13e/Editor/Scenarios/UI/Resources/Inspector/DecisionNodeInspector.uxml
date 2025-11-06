@@ -1,0 +1,13 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="True">
+    <Xareus.Unity.Editor.Scenarios.UI.IdentifiableInspector name="Identifiable" element_name="Sequence" title="Node" />
+    <Xareus.Unity.Editor.Scenarios.UI.InitialFinalInspector name="InitialFinalInspector" />
+    <ui:Box>
+        <ui:Label text="Token Init" style="-unity-font-style: bold;" />
+        <Xareus.Unity.Editor.Scenarios.UI.FunctionInspectorElement name="TokenInit" prefix_to_remove="TokenInit" />
+    </ui:Box>
+    <Xareus.Unity.Editor.Scenarios.UI.DecorationInspector name="DecorationInspector" />
+    <ui:Box name="TokenBox" style="margin-left: 2px; margin-right: 2px; margin-top: 5px; margin-bottom: 5px;">
+        <ui:Label text="Token" style="-unity-font-style: bold;" />
+        <Xareus.Unity.Editor.Scenarios.UI.ContextInspector name="ContextInspector" />
+    </ui:Box>
+</ui:UXML>

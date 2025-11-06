@@ -1,0 +1,40 @@
+{
+    "name": "Xareus.Unity.Libraries",
+    "rootNamespace": "Xareus.Unity",
+    "references": [
+        "GUID:c4915fa8d86165343b736d30bc255bec",
+        "GUID:8dd56bdb7570756428aead35217bf96d",
+        "GUID:5ea7474a739865444bd98223d0af0514",
+        "GUID:4075ddd3fd0d6494e8c2b1c6385c7452",
+        "GUID:06af67f13793d6540b7b5526694d3911",
+        "GUID:4edad06a44048a7478e94a6a25f7f21a",
+        "GUID:75469ad4d38634e559750d17036d5f7c",
+        "GUID:7574f799cb23da74186b36e79dc5f290",
+        "GUID:6055be8ebefd69e48b49212b09b47b2f"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [
+        {
+            "name": "com.middlevr",
+            "expression": "2",
+            "define": "MIDDLEVR_2"
+        },
+        {
+            "name": "com.unity.inputsystem",
+            "expression": "0",
+            "define": "INPUT_SYSTEM"
+        },
+        {
+            "name": "com.unity.textmeshpro",
+            "expression": "0",
+            "define": "TEXT_MESH_PRO"
+        }
+    ],
+    "noEngineReferences": false
+}

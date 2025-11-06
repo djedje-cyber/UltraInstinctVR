@@ -1,0 +1,7 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="True">
+    <Xareus.Unity.Editor.Scenarios.UI.IdentifiableInspector name="Identifiable" element_name="Sequence" title="Sequence" />
+    <Xareus.Unity.Editor.Scenarios.UI.InitialFinalInspector name="InitialFinalInspector" />
+    <Xareus.Unity.Editor.Scenarios.UI.ConfigurationInspector name="ConfigurationInspector" />
+    <Xareus.Unity.Editor.Scenarios.UI.DecorationInspector name="DecorationInspector" />
+    <Xareus.Unity.Editor.Scenarios.UI.SequenceContextInspector name="ContextInspector" />
+</ui:UXML>

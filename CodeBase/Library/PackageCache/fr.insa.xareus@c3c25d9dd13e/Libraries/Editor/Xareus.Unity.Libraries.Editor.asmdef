@@ -1,0 +1,23 @@
+{
+    "name": "Xareus.Unity.Libraries.Editor",
+    "rootNamespace": "Xareus.Unity.Editor.Scenarios.UI",
+    "references": [
+        "GUID:06af67f13793d6540b7b5526694d3911",
+        "GUID:f321572a3252a944a98b7fba30fc3b1c",
+        "GUID:2fec425afc498cd4d8224351007e9671",
+        "GUID:75469ad4d38634e559750d17036d5f7c",
+        "GUID:c4915fa8d86165343b736d30bc255bec",
+        "GUID:41a07b5758b81bf4f925710d05cd2ede"
+    ],
+    "includePlatforms": [
+        "Editor"
+    ],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

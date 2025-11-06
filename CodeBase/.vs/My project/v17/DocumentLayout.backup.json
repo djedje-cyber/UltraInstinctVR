@@ -1,0 +1,54 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\glongfil\\My project\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{32C3BDE6-E125-3128-82C1-25D0441455A3}|Assembly-CSharp.csproj|C:\\Users\\glongfil\\My project\\assets\\scripts\\effector\\outsidesceneeffector.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{32C3BDE6-E125-3128-82C1-25D0441455A3}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\effector\\outsidesceneeffector.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{32C3BDE6-E125-3128-82C1-25D0441455A3}|Assembly-CSharp.csproj|c:\\users\\glongfil\\my project\\assets\\scripts\\interaction\\teleportation\\sizescene.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{32C3BDE6-E125-3128-82C1-25D0441455A3}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\interaction\\teleportation\\sizescene.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "OutsideSceneEffector.cs",
+              "DocumentMoniker": "C:\\Users\\glongfil\\My project\\Assets\\Scripts\\Effector\\OutsideSceneEffector.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\Effector\\OutsideSceneEffector.cs",
+              "ToolTip": "C:\\Users\\glongfil\\My project\\Assets\\Scripts\\Effector\\OutsideSceneEffector.cs",
+              "RelativeToolTip": "Assets\\Scripts\\Effector\\OutsideSceneEffector.cs",
+              "ViewState": "AgIAABYAAAAAAAAAAAAgwEYAAABVAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-05T15:35:44.367Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "SizeScene.cs",
+              "DocumentMoniker": "C:\\Users\\glongfil\\My project\\Assets\\Scripts\\Interaction\\Teleportation\\SizeScene.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\Interaction\\Teleportation\\SizeScene.cs",
+              "ToolTip": "C:\\Users\\glongfil\\My project\\Assets\\Scripts\\Interaction\\Teleportation\\SizeScene.cs",
+              "RelativeToolTip": "Assets\\Scripts\\Interaction\\Teleportation\\SizeScene.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAWAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-05T14:12:23.385Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,61 @@
+﻿<html><head><title>Unity Log Report</title>
+<style>
+body { font-family: Arial, sans-serif; margin: 20px; }
+h1 { color: #333; }
+table { border-collapse: collapse; width: 100%; }
+table, th, td { border: 1px solid black; }
+th, td { padding: 10px; text-align: center; }
+th { background-color: #f2f2f2; }
+.log-box { background: #f8f8f8; padding: 10px; border-radius: 5px; margin: 5px 0; }
+.log-passed { color: green; }
+.log-failed { color: red; }
+</style></head><body>
+<h1>Unity Log Analysis Report</h1>
+<h2>Summary</h2>
+<p><strong>Nombre de logs contenant 'TestGenerated':</strong> 18</p>
+<p><strong>Nombre de logs contenant 'TestFailed':</strong> 9</p>
+<p><strong>Nombre de logs contenant 'TestPassed':</strong> 18</p>
+<h2>ORACLE Test Results</h2>
+<table>
+<tr><th>ORACLE</th><th>Instances</th><th>Test Passed</th><th>Test Failed</th></tr>
+<tr><td>CanTeleport</td><td>3</td><td>3</td><td>0</td></tr>
+<tr><td>InObjectScene</td><td>9</td><td>0</td><td>9</td></tr>
+<tr><td>CollisionDetection</td><td>5</td><td>5</td><td>0</td></tr>
+<tr><td>MoveObjectToOrigin</td><td>11</td><td>10</td><td>0</td></tr>
+</table>
+<h2>Logs pour ORACLE: CanTeleport</h2>
+<h3 style='color: green;'>Tests Réussis</h3>
+<div class='log-box log-passed'>[05-11-25 15:26:47] Log: ORACLE CanTeleport - TestPassed - Teleportation successfully done at (0.00, 0.00, 0.00)</div>
+<div class='log-box log-passed'>[05-11-25 15:26:48] Log: ORACLE CanTeleport - TestPassed - Teleportation successfully done at (0.84, 1.39, -4.11)</div>
+<div class='log-box log-passed'>[05-11-25 15:26:49] Log: ORACLE CanTeleport - TestPassed - Teleportation successfully done at (-5.27, 1.39, 9.08)</div>
+<h2>Logs pour ORACLE: InObjectScene</h2>
+<h3 style='color: red;'>Tests Échoués</h3>
+<div class='log-box log-failed'>[05-11-25 15:27:05] Error: ORACLE InObjectScene - TestFailed - Teleportation into covered object detected: (2.49, 0.71, -2.13)</div>
+<div class='log-box log-failed'>[05-11-25 15:27:06] Error: ORACLE InObjectScene - TestFailed - Teleportation into covered object detected: (2.50, 1.60, -2.98)</div>
+<div class='log-box log-failed'>[05-11-25 15:27:07] Error: ORACLE InObjectScene - TestFailed - Teleportation into covered object detected: (3.25, 2.81, 0.50)</div>
+<div class='log-box log-failed'>[05-11-25 15:27:08] Error: ORACLE InObjectScene - TestFailed - Teleportation into covered object detected: (2.15, 1.16, -2.98)</div>
+<div class='log-box log-failed'>[05-11-25 15:27:09] Error: ORACLE InObjectScene - TestFailed - Teleportation into covered object detected: (2.61, 0.95, -0.16)</div>
+<div class='log-box log-failed'>[05-11-25 15:27:10] Error: ORACLE InObjectScene - TestFailed - Teleportation into covered object detected: (2.51, 1.19, -2.98)</div>
+<div class='log-box log-failed'>[05-11-25 15:27:11] Error: ORACLE InObjectScene - TestFailed - Teleportation into covered object detected: (2.51, 0.99, -2.98)</div>
+<div class='log-box log-failed'>[05-11-25 15:27:12] Error: ORACLE InObjectScene - TestFailed - Teleportation into covered object detected: (0.44, 0.93, -1.83)</div>
+<div class='log-box log-failed'>[05-11-25 15:27:13] Error: ORACLE InObjectScene - TestFailed - Teleportation into covered object detected: (-0.45, 0.93, -2.35)</div>
+<h2>Logs pour ORACLE: CollisionDetection</h2>
+<h3 style='color: green;'>Tests Réussis</h3>
+<div class='log-box log-passed'>[05-11-25 15:27:36] Log: ORACLE CollisionDetection - TestPassed - Collision successfully done with Arch_Interactable at : (2.49, 0.71, -2.13)</div>
+<div class='log-box log-passed'>[05-11-25 15:27:38] Log: ORACLE CollisionDetection - TestPassed - Collision successfully done with Mesh_COL at : (2.50, 1.60, -2.98)</div>
+<div class='log-box log-passed'>[05-11-25 15:27:40] Log: ORACLE CollisionDetection - TestPassed - Collision successfully done with Sphere_COL at : (3.25, 2.81, 0.50)</div>
+<div class='log-box log-passed'>[05-11-25 15:27:42] Log: ORACLE CollisionDetection - TestPassed - Collision successfully done with Cylinder_COL at : (2.15, 1.16, -2.98)</div>
+<div class='log-box log-passed'>[05-11-25 15:27:44] Log: ORACLE CollisionDetection - TestPassed - Collision successfully done with Blaster_COL at : (2.61, 0.95, -0.16)</div>
+<h2>Logs pour ORACLE: MoveObjectToOrigin</h2>
+<h3 style='color: green;'>Tests Réussis</h3>
+<div class='log-box log-passed'>[05-11-25 15:27:44] Log:  ORACLE MoveObjectToOrigin - TestPassed - Cube Interactable a été déplacé à l'origine.</div>
+<div class='log-box log-passed'>[05-11-25 15:27:44] Log:  ORACLE MoveObjectToOrigin - TestPassed - Arch_Interactable a été déplacé à l'origine.</div>
+<div class='log-box log-passed'>[05-11-25 15:27:44] Log:  ORACLE MoveObjectToOrigin - TestPassed - Tapered Interactable a été déplacé à l'origine.</div>
+<div class='log-box log-passed'>[05-11-25 15:27:44] Log:  ORACLE MoveObjectToOrigin - TestPassed - Sphere Interactable a été déplacé à l'origine.</div>
+<div class='log-box log-passed'>[05-11-25 15:27:44] Log:  ORACLE MoveObjectToOrigin - TestPassed - Cylinder Interactable a été déplacé à l'origine.</div>
+<div class='log-box log-passed'>[05-11-25 15:27:44] Log:  ORACLE MoveObjectToOrigin - TestPassed - Blaster a été déplacé à l'origine.</div>
+<div class='log-box log-passed'>[05-11-25 15:27:44] Log:  ORACLE MoveObjectToOrigin - TestPassed - Torus Interactable a été déplacé à l'origine.</div>
+<div class='log-box log-passed'>[05-11-25 15:27:44] Log:  ORACLE MoveObjectToOrigin - TestPassed - Tapered Interactable a été déplacé à l'origine.</div>
+<div class='log-box log-passed'>[05-11-25 15:27:44] Log:  ORACLE MoveObjectToOrigin - TestPassed - Spatial Panel Manipulator Model a été déplacé à l'origine.</div>
+<div class='log-box log-passed'>[05-11-25 15:27:44] Log:  ORACLE MoveObjectToOrigin - TestPassed - Spatial Panel Manipulator UI Examples a été déplacé à l'origine.</div>
+</body></html>

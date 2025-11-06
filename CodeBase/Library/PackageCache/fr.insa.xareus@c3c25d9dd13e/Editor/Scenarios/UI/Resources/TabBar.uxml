@@ -1,0 +1,10 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <uie:Toolbar style="justify-content: flex-start; flex-grow: 1; max-height: 21px; width: auto; align-items: stretch; height: 21px;">
+        <uie:ToolbarButton name="LeftButton" style="background-image: url(&quot;project://database/Packages/fr.insa.xareus/Editor/Scenarios/UI/DefaultTheme.tss?fileID=-1087164816274819069&amp;guid=9d9e6f0d1e692cc44b901946736fa0b4&amp;type=3#arrow-right@2x&quot;); width: 15px; height: 20px; background-size: 100% 100%; rotate: 180deg;" />
+        <ui:ScrollView scroll-deceleration-rate="0,135" elasticity="0,1" horizontal-scroller-visibility="Hidden" vertical-scroller-visibility="Hidden" mode="Horizontal" name="TabBarButtons" style="flex-grow: 1; width: auto; flex-direction: row; justify-content: flex-start; flex-wrap: nowrap; height: 20px; max-height: 20px;">
+            <Xareus.Unity.Editor.Scenarios.UI.TabBarButton title="Button 1" style="display: flex;" />
+            <Xareus.Unity.Editor.Scenarios.UI.TabBarButton title="Button 2" style="display: flex;" />
+        </ui:ScrollView>
+        <uie:ToolbarButton name="RightButton" style="background-image: url(&quot;project://database/Packages/fr.insa.xareus/Editor/Scenarios/UI/DefaultTheme.tss?fileID=-1087164816274819069&amp;guid=9d9e6f0d1e692cc44b901946736fa0b4&amp;type=3#arrow-right@2x&quot;); width: 15px; height: 20px; left: auto; top: auto; right: auto; position: relative;" />
+    </uie:Toolbar>
+</ui:UXML>

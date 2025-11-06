@@ -1,0 +1,9 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <Xareus.Unity.Editor.Scenarios.UI.IdentifiableInspector name="Identifiable" title="Scenario" />
+    <ui:Toggle label="Used in single Unity scene" tooltip="When checked, the scenario editor will consider this scenario to be referenced in one scene only. This can have various impact, including the default way of referencing elements (Save By Ref), closing or locking a scenario when its corresponding scene is closed, ..." name="SingleSceneUsage" />
+    <ui:Foldout text="Scenario Context Init">
+        <Xareus.Unity.Editor.Scenarios.UI.FunctionInspectorElement name="ContextInit" prefix_to_remove="ContextInit" />
+    </ui:Foldout>
+    <Xareus.Unity.Editor.Scenarios.UI.ConfigurationInspector name="ConfigurationInspector" />
+    <Xareus.Unity.Editor.Scenarios.UI.ScenarioContextInspector name="ContextInspector" style="margin-top: 5px; margin-right: 2px; margin-bottom: 5px; margin-left: 2px;" />
+</ui:UXML>

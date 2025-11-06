@@ -1,0 +1,29 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <ui:Label tabindex="-1" text="Contact Form" parse-escape-sequences="true" display-tooltip-when-elided="true" style="align-items: center; align-self: center; -unity-font-style: bold; -unity-text-align: upper-center; font-size: 20px;" />
+    <ui:VisualElement style="flex-grow: 1; justify-content: space-between; flex-wrap: nowrap; align-self: auto; flex-shrink: 1;">
+        <ui:GroupBox style="flex-grow: 0; flex-shrink: 1;">
+            <ui:GroupBox>
+                <ui:Label tabindex="-1" text="We would like to know who you are" parse-escape-sequences="true" display-tooltip-when-elided="true" style="-unity-font-style: bold; margin-bottom: 4px;" />
+                <ui:TextField picking-mode="Ignore" label="Name" name="Name" binding-path="Name" />
+            </ui:GroupBox>
+            <ui:GroupBox>
+                <ui:Label tabindex="-1" text="Which company/organization do you work for ?" parse-escape-sequences="true" display-tooltip-when-elided="true" style="-unity-font-style: bold; margin-bottom: 4px;" />
+                <ui:TextField picking-mode="Ignore" label="Organization" name="Company" binding-path="Organization" />
+                <ui:TextField picking-mode="Ignore" label="E-Mail" name="email" binding-path="Email" />
+            </ui:GroupBox>
+            <ui:GroupBox>
+                <ui:Label tabindex="-1" text="What do you plan to use Xareus for ?" parse-escape-sequences="true" display-tooltip-when-elided="true" style="-unity-font-style: bold; margin-bottom: 4px;" />
+                <ui:TextField picking-mode="Ignore" label="Usage" multiline="true" name="Usage" binding-path="Usage" style="height: 74px;" />
+            </ui:GroupBox>
+            <ui:ScrollView scroll-deceleration-rate="0,135" elasticity="0,1" style="max-height: initial; margin-bottom: 4px; border-top-width: 1px; border-right-width: 1px; border-bottom-width: 1px; border-left-width: 1px; border-top-left-radius: 1px; border-top-right-radius: 1px; border-bottom-right-radius: 1px; border-bottom-left-radius: 1px; border-left-color: rgb(62, 62, 62); border-right-color: rgb(62, 62, 62); border-top-color: rgb(62, 62, 62); border-bottom-color: rgb(62, 62, 62); flex-grow: 0; min-height: 50px; flex-wrap: nowrap; justify-content: flex-start;">
+                <ui:GroupBox style="margin-top: 0; padding-top: 2px; flex-shrink: 0; flex-grow: 0;">
+                    <ui:Label tabindex="-1" text="&lt;size=200%&gt;&lt;align=&quot;center&quot;&gt;&lt;b&gt;Personal Data Protection&lt;/b&gt;&lt;/align&gt;&lt;/size&gt;&#10;&#10;The information collected through this form is recorded in a digital file by &#10;&lt;b&gt;INSA Rennes, 20 avenue des Buttes de Coësmes, 35708 Rennes Cedex, France&lt;/b&gt;, &#10;for the purpose of contacting Xareus users. The legal basis for processing is &#10;point f), sentence 1, paragraph 1 of Article 6 of EU Regulation 2016/679 of the European Parliament and of the Council of 27 April 2016, the so-called General Data Protection Regulation (hereinafter referred to as “GDPR”).&#10;&#10;The collected data will be shared only with the following recipients: &lt;b&gt;INSA Rennes, SATT Ouest Valorisation.&lt;/b&gt;&#10;The data will be retained for &lt;b&gt;5 years&lt;/b&gt;&#10;You have the right to access your personal data, to have it rectified, to request its erasure, or to restrict the processing of your data.&#10;Since the legal basis for processing is consent:&#10;&lt;i&gt;You may withdraw your consent at any time.&lt;/i&gt;&#10;&lt;i&gt;You also have the right to object to the processing of your data.&lt;/i&gt;&#10;&lt;i&gt;You may also exercise your right to data portability.&lt;/i&gt;&#10;&#10;To exercise these rights or for any questions about the processing of your data in this context, you can contact: &lt;b&gt;xareus-support@inria.fr&lt;/b&gt;" parse-escape-sequences="true" display-tooltip-when-elided="true" style="font-size: 10px; flex-wrap: wrap; white-space: normal; flex-shrink: 0;" />
+                </ui:GroupBox>
+            </ui:ScrollView>
+        </ui:GroupBox>
+        <ui:VisualElement style="flex-grow: 0; flex-direction: row; align-items: flex-end; align-self: center; bottom: 4px; flex-shrink: 0;">
+            <ui:Button text="Send" parse-escape-sequences="true" display-tooltip-when-elided="true" name="Send" style="align-items: center; align-self: center; -unity-font-style: bold; font-size: 20px;" />
+            <ui:Button text="Close" parse-escape-sequences="true" display-tooltip-when-elided="true" name="Close" style="align-items: center; align-self: center; -unity-font-style: bold; font-size: 20px;" />
+        </ui:VisualElement>
+    </ui:VisualElement>
+</ui:UXML>

@@ -1,0 +1,9 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <Style src="project://database/Packages/fr.insa.xareus/Scripts/Scenarios/Edition/Resources/ScenarioEditor.uss?fileID=7433441132597879392&amp;guid=8a78d608d337567499181cc4be4d618f&amp;type=3#ScenarioEditor" />
+    <ui:Box name="RootToolbar" class="unity-toolbar" style="height: 21px; max-height: 21px; min-height: 21px; flex-direction: row; border-top-width: 0; border-right-width: 0; border-bottom-width: 0; border-left-width: 0; flex-grow: 1;">
+        <ui:Box name="ButtonsContainer" style="flex-grow: 1; flex-direction: row; overflow: hidden;">
+            <Xareus.Scenarios.Unity.Edition.LayerBarButton title="button2" style="overflow: hidden; border-left-width: 0; border-right-width: 0; display: none;" />
+            <Xareus.Scenarios.Unity.Edition.LayerBarButton focusable="true" title="Button Title" style="overflow: hidden; border-left-width: 0; border-right-width: 0; display: none;" />
+        </ui:Box>
+    </ui:Box>
+</ui:UXML>

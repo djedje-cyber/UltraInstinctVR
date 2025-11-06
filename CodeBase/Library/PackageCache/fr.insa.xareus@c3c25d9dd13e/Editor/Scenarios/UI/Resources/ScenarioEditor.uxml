@@ -1,0 +1,31 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="True">
+    <Style src="project://database/Packages/fr.insa.xareus/Scripts/Scenarios/Edition/Resources/ScenarioEditor.uss?fileID=7433441132597879392&amp;guid=8a78d608d337567499181cc4be4d618f&amp;type=3#ScenarioEditor" />
+    <ui:VisualElement name="Window" focusable="true" style="flex-direction: column; flex-grow: 1; justify-content: flex-start; min-width: auto; min-height: auto; flex-basis: auto; flex-shrink: 0; height: 100%; max-height: none; max-width: none; align-items: stretch; overflow: visible;">
+        <ui:TwoPaneSplitView fixed-pane-initial-dimension="350" name="SplitView" fixed-pane-index="1" focusable="true" style="min-width: auto; flex-direction: column; justify-content: flex-start; flex-shrink: 0; height: auto; min-height: auto; flex-basis: auto; overflow: visible; align-items: auto; visibility: visible; display: flex; flex-grow: 1; max-height: none; flex-wrap: nowrap; bottom: auto; right: auto; top: auto; left: auto;">
+            <ui:VisualElement name="Scenarios" focusable="true" style="min-height: 100%; min-width: 425px; flex-grow: 1; flex-shrink: 0; border-right-width: 0; border-right-color: rgb(32, 32, 32); overflow: visible; align-items: stretch; height: 100%; flex-basis: auto; justify-content: flex-start;">
+                <uie:Toolbar name="Toolbar" style="flex-grow: 0; flex-shrink: 0; justify-content: space-between; flex-wrap: nowrap; min-width: auto; height: auto; align-items: stretch; margin-right: -2px; min-height: auto; overflow: visible; width: auto;">
+                    <ui:VisualElement name="FileToolbar" style="flex-direction: row; flex-wrap: nowrap; align-items: flex-end; flex-grow: 0; flex-shrink: 0;">
+                        <uie:ToolbarMenu display-tooltip-when-elided="true" name="File_Button" text="File" style="flex-grow: 0; flex-direction: row; min-height: auto; flex-shrink: 0; flex-basis: auto; align-items: center; padding-top: 2px; padding-bottom: 2px;" />
+                        <uie:ToolbarMenu display-tooltip-when-elided="true" name="Options_Button" text="Options" style="flex-grow: 0; min-height: auto; flex-shrink: 0; padding-top: 2px; padding-bottom: 2px;" />
+                        <uie:ToolbarButton text="Save" display-tooltip-when-elided="true" name="Save_Button" tabindex="2" style="align-items: center; min-height: auto; flex-grow: 0; flex-shrink: 0; justify-content: flex-start; padding-top: 2px; padding-bottom: 2px;" />
+                    </ui:VisualElement>
+                    <uie:ToolbarSpacer style="flex-grow: 1;" />
+                    <uie:ToolbarPopupSearchField name="Filter" style="min-width: 75px; max-width: 200px; align-self: center;" />
+                    <uie:ToolbarSpacer />
+                    <uie:ToolbarToggle focusable="false" label="Play Mode" name="PlayMode_Button" value="false" style="flex-shrink: 0; left: -1px; flex-grow: 0; max-width: 74px; min-height: auto; padding-top: 2px; padding-bottom: 2px; -unity-text-align: middle-left; padding-left: 4px;" />
+                </uie:Toolbar>
+                <ui:VisualElement style="flex-grow: 0; flex-direction: row; align-items: auto; justify-content: flex-start; width: 100%;">
+                    <ui:HelpBox text="Create or open a new scenario" name="NoTabHelpBox" message-type="Info" style="flex-grow: 1; flex-shrink: 0; max-width: none; width: auto; margin-right: 3px;" />
+                </ui:VisualElement>
+                <Xareus.Unity.Editor.Scenarios.UI.TabBar name="TabsBar" style="display: flex;" />
+                <ui:VisualElement name="Tabs" focusable="true" style="flex-grow: 1; min-width: auto; align-items: flex-start; overflow: visible; flex-shrink: 0; flex-wrap: wrap; margin-right: 0; width: auto; height: auto;" />
+            </ui:VisualElement>
+            <ui:VisualElement name="Inspector" style="flex-wrap: nowrap; min-height: auto; min-width: 250px; transform-origin: right; flex-grow: 0; flex-shrink: 0; border-left-width: 0; border-left-color: rgb(60, 60, 60); border-top-left-radius: 0; border-bottom-left-radius: 5px; border-top-right-radius: 0; border-bottom-right-radius: 0; height: auto; width: 100%; overflow: visible; justify-content: flex-start; align-items: stretch; visibility: visible; display: flex; flex-direction: column;">
+                <ui:Label text="Inspector" display-tooltip-when-elided="true" style="margin-left: 5px; margin-right: 5px; margin-top: 5px; margin-bottom: 5px; font-size: 18px; -unity-font-style: bold; flex-grow: 0; flex-direction: row;" />
+                <ui:ScrollView scroll-deceleration-rate="0,135" elasticity="0,1" mode="VerticalAndHorizontal" vertical-scroller-visibility="Auto" horizontal-scroller-visibility="Auto" name="InspectorScrollView" nested-interaction-kind="StopScrolling" style="flex-grow: 0; flex-shrink: 1; flex-wrap: wrap; width: auto; flex-direction: column; align-items: stretch; justify-content: flex-start;">
+                    <Xareus.Unity.Editor.Scenarios.UI.Inspector name="Inspector" style="flex-grow: 1; flex-shrink: 1;" />
+                </ui:ScrollView>
+            </ui:VisualElement>
+        </ui:TwoPaneSplitView>
+    </ui:VisualElement>
+</ui:UXML>

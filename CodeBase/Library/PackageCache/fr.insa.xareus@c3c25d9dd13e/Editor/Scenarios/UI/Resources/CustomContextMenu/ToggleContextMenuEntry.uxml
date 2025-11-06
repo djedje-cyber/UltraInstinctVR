@@ -1,0 +1,7 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <ui:Button parse-escape-sequences="true" display-tooltip-when-elided="true" name="ToggleButton" style="flex-direction: row; flex-shrink: 1; align-items: center; align-self: center; flex-grow: 1; padding-top: 6px; padding-bottom: 5px; max-height: 30px; padding-right: 12px; margin-right: 4px; padding-left: 12px;">
+        <ui:VisualElement name="ToggleOn" style="flex-grow: 1; background-image: resource(&apos;check&apos;); width: 25px; height: 25px; max-width: 25px; max-height: 25px; min-width: 25px; min-height: 25px;" />
+        <ui:VisualElement name="ToggleOff" style="flex-grow: 1; background-image: none; width: 25px; height: 25px; max-width: 25px; max-height: 25px; min-width: 25px; min-height: 25px;" />
+        <ui:Label tabindex="-1" text="Label" parse-escape-sequences="true" display-tooltip-when-elided="true" name="EntryLabel" focusable="true" style="flex-shrink: 1; flex-grow: 1; -unity-text-align: middle-left;" />
+    </ui:Button>
+</ui:UXML>

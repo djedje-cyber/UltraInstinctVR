@@ -1,0 +1,9 @@
+<linker>
+  <assembly fullname="Xareus.Unity" preserve="all"/>
+  <assembly fullname="Xareus.Unity.Converters.InputSystem" preserve="all"/>  
+  <assembly fullname="Xareus.Relations.Unity" preserve="all"/>
+  <assembly fullname="Xareus.Relations.Scenarios.Unity" preserve="all"/>
+  <assembly fullname="Xareus.Scenarios.Unity" preserve="all"/>
+  <assembly fullname="Xareus.Scenarios.Unity.MiddleVR" preserve="all"/>
+  <assembly fullname="Xareus.Unity.Utils" preserve="all"/>
+</linker>

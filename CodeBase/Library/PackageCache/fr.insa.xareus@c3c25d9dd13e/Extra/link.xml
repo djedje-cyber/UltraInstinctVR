@@ -1,0 +1,3 @@
+<linker>
+  <assembly fullname="Xareus.Unity.Extra" preserve="all"/>
+</linker>

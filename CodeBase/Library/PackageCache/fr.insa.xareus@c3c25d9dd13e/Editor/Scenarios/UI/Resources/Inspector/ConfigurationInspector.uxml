@@ -1,0 +1,6 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../../../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <ui:Box name="ConfigurationBox" style="margin-top: 2px; margin-right: 2px; margin-left: 2px; padding-top: 4px; padding-bottom: 0; padding-left: 0; flex-shrink: 1;">
+        <ui:Label tabindex="-1" text="Configuration" parse-escape-sequences="true" display-tooltip-when-elided="true" style="-unity-font-style: bold; margin-left: 4px;" />
+        <Xareus.Unity.Editor.Scenarios.UI.FunctionInspectorElement name="ConfigurationInspector" style="display: flex;" />
+    </ui:Box>
+</ui:UXML>

@@ -1,0 +1,39 @@
+{
+  "name": "fr.inria.unity.tools",
+  "displayName": "Inria Tools",
+  "version": "2.0.0",
+  "description": "This package contains various utilities for Unity :\n\n▪UnityTCP : Unity compatible TCP communication\n▪UnityThreadExecute : helps executing some code in unity when the main code is in a thread\n▪SeparateThread : helps executing some code in a thread when the main code is in unity\n▪UnitySingleton : Define a singleton that can be added to the scene or created automatically on first usage\n▪Serialization : Help serializing data into files  \n▪GraphDisplay : Display graphs of long values   \n▪Timer : Various timer utilies for Higher resolution timers, sometimes with tradeoff with CPU usage  \n▪SerializableDictionary/SerializableStack : Unity-serializable versions of Dictionary and Stack classes  \n  \nCommand line actions (mainly for automated package creation in CI):  \n  \n▪ChangeScriptExecutionOrder : Change script execution order  \n▪CommandLineBuilder : Trigger application build  \n▪CommandLineDefineSymbol : Add/Remove symbols  \n▪CommandLinePackageManager : Add/remove/Update packages  \n▪ReplaceAssemblies : replaces assembly definition files by their assembly dll file counterpart\n▪GenerateSolutionFile : Generate visual studio Solution file",
+  "unity": "2022.3",
+  "documentationUrl": "https://unity.gitlabpages.inria.fr/tools/",
+  "keywords": [
+    "package",
+    "unity",
+    "tools",
+    "serialization",
+    "singleton",
+    "tcp",
+    "timer",
+    "graph",
+    "thread"
+  ],
+  "samples": [
+    {
+      "displayName": "Thread",
+      "description": "Contains sample scene and scripts for thread related usage",
+      "path": "Samples~/Thread"
+    },
+    {
+      "displayName": "Serialization",
+      "description": "Contains sample scene and scripts for serialization",
+      "path": "Samples~/Serialization"
+    },
+    {
+      "displayName": "Timer",
+      "description": "Contains sample scene and scripts using MicroTimer and HighResolutionTimer",
+      "path": "Samples~/Timer"
+    }
+  ],
+  "author": "Florian Nouviale",
+  "license": "NONE",
+  "_fingerprint": "05e07d878e048b0cc554c591cad7d65e9d999686"
+}

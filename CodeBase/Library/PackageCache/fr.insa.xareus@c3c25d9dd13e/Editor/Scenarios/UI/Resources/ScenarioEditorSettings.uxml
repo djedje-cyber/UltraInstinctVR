@@ -1,0 +1,15 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="True">
+    <ui:GroupBox text="Profiles" name="Profiles">
+        <ui:GroupBox text="Base Profiles" focusable="false" usage-hints="None" class="unity-box" style="min-height: 5px; padding-left: 3px; margin-left: 5px; margin-top: 8px;">
+            <ui:ListView focusable="true" name="BaseProfiles" show-bound-collection-size="false" virtualization-method="DynamicHeight" fixed-item-height="18" show-foldout-header="false" show-border="false" show-alternating-row-backgrounds="None" style="margin-left: 0; margin-right: 0; margin-top: 0; padding-left: 0; padding-right: 5px;" />
+        </ui:GroupBox>
+        <ui:GroupBox text="Custom Profiles" name="CustomProfiles" class="unity-box" style="min-height: 5px; margin-left: 5px; margin-top: 8px;">
+            <ui:ListView focusable="true" name="CustomProfilesList" show-alternating-row-backgrounds="All" show-border="false" show-add-remove-footer="true" reorderable="true" virtualization-method="FixedHeight" fixed-item-height="20" show-foldout-header="false" show-bound-collection-size="false" horizontal-scrolling="false" style="padding-left: 5px; padding-right: 5px;" />
+            <ui:GroupBox style="flex-direction: row-reverse;">
+                <ui:Button text="Export..." display-tooltip-when-elided="true" name="Export" style="flex-grow: 0; visibility: visible; display: flex;" />
+                <ui:Button text="Import..." display-tooltip-when-elided="true" name="Import" style="flex-grow: 0;" />
+            </ui:GroupBox>
+            <uie:PropertyField name="CustomProfileSettings" label="Settings" />
+        </ui:GroupBox>
+    </ui:GroupBox>
+</ui:UXML>

@@ -1,0 +1,16 @@
+{
+    "name": "DecisionTreeLightControl",
+    "rootNamespace": "Xareus.Samples.DecisionTreeLightControl",
+    "references": [
+        "GUID:c4915fa8d86165343b736d30bc255bec"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

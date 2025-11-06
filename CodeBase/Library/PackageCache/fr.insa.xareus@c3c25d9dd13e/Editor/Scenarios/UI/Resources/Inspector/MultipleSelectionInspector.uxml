@@ -1,0 +1,4 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../../../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <ui:Label tabindex="-1" text="Multi-object editing is not supported" style="-unity-font-style: bold; padding-bottom: 10px;" />
+    <ui:Box name="DataBox" style="padding-top: 5px; padding-left: 5px; margin-left: 5px; padding-bottom: 5px;" />
+</ui:UXML>

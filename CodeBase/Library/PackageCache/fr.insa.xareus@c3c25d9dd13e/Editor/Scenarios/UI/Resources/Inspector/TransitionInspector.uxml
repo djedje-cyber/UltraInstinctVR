@@ -1,0 +1,27 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <ui:Template name="FunctionListInspector" src="project://database/Packages/fr.insa.xareus/Editor/Scenarios/UI/Resources/Inspector/FunctionListInspector.uxml?fileID=9197481963319205126&amp;guid=8be3e5e95fd41af4db0ad539c2b462fc&amp;type=3#FunctionListInspector" />
+    <Xareus.Unity.Editor.Scenarios.UI.IdentifiableInspector name="Identifiable" element_name="Transition" title="Transition" />
+    <ui:HelpBox message-type="Error" text="Error Message" name="Error" style="display: none; visibility: visible; margin-top: 1px; margin-bottom: 3px; padding-left: 2px; padding-right: 2px; padding-top: 5px; padding-bottom: 2px; flex-shrink: 1; flex-grow: 0;" />
+    <ui:Box name="PriorityBox" style="padding-top: 2px; padding-bottom: 2px; margin-bottom: 2px; margin-top: 2px; padding-left: 2px; padding-right: 2px; flex-shrink: 0; flex-grow: 1; margin-left: 2px; margin-right: 2px;">
+        <uie:IntegerField name="Priority" label="Priority" />
+    </ui:Box>
+    <ui:Box name="TokenMergeBox" style="padding-top: 0; padding-bottom: 0; margin-bottom: 5px; margin-top: 5px; flex-wrap: nowrap; justify-content: flex-start; flex-shrink: 0; flex-grow: 1; margin-left: 2px; margin-right: 2px;">
+        <ui:Foldout text="Token Merge" name="TokenMerge" style="margin-left: 0; flex-direction: column; flex-wrap: nowrap; padding-left: 0; -unity-font-style: normal; padding-bottom: 0; margin-bottom: 0; justify-content: flex-start; top: auto;">
+            <Xareus.Unity.Editor.Scenarios.UI.FunctionInspectorElement prefix_to_remove="TokenMerge" name="TokenMergeInspector" />
+        </ui:Foldout>
+    </ui:Box>
+    <ui:Box name="SensorsBox" style="-unity-font-style: normal; padding-top: 5px; padding-bottom: 5px; margin-bottom: 5px; margin-top: 5px; flex-shrink: 0; margin-left: 2px; margin-right: 2px;">
+        <ui:Label text="Sensors" style="-unity-font-style: bold;" />
+        <ui:Instance template="FunctionListInspector" name="Sensors" />
+    </ui:Box>
+    <ui:Box name="EffectorsBox" style="padding-top: 5px; padding-bottom: 5px; margin-bottom: 5px; margin-top: 5px; flex-shrink: 0; margin-left: 2px; margin-right: 2px;">
+        <ui:Label text="Effectors" style="-unity-font-style: bold;" />
+        <ui:Instance template="FunctionListInspector" name="Effectors" />
+    </ui:Box>
+    <ui:Box name="TokenAssignBox" style="padding-top: 5px; padding-bottom: 5px; margin-top: 5px; margin-bottom: 5px; flex-shrink: 0; margin-left: 2px; margin-right: 2px;">
+        <ui:Foldout text="Token Assign" name="TokenAssign">
+            <Xareus.Unity.Editor.Scenarios.UI.FunctionInspectorElement prefix_to_remove="TokenAssign" name="TokenAssignInspector" />
+        </ui:Foldout>
+    </ui:Box>
+    <Xareus.Unity.Editor.Scenarios.UI.DecorationInspector name="DecorationInspector" style="flex-shrink: 0;" />
+</ui:UXML>

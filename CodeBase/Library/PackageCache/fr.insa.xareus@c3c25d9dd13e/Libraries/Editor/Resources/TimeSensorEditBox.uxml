@@ -1,0 +1,9 @@
+<!-- Used by TimeSensor, UnityTimeSensor, WaitEffector -->
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="True">
+    <ui:Template name="EditBoxOneLineContainer" src="project://database/Packages/fr.insa.xareus/Libraries/Editor/Resources/EditBoxOneLineContainer.uxml?fileID=9197481963319205126&amp;guid=01b2e72bf20ebd545bee0bcaa2d1e4a0&amp;type=3#EditBoxOneLineContainer" />
+    <ui:Instance template="EditBoxOneLineContainer" name="container" style="align-items: stretch; justify-content: center;">
+        <ui:Label name="field-label" tabindex="-1" text="Wait for" parse-escape-sequences="true" display-tooltip-when-elided="true" style="padding-left: 5px; padding-top: 5px;" />
+        <Xareus.Unity.Editor.Scenarios.UI.Group.ConstantVariableModeGroup name="minimum" constant-type="System.Double, mscorlib" />
+        <Xareus.Unity.Editor.Scenarios.UI.TimeUnitDropdownField name="unit" style="min-width: 140px;" />
+    </ui:Instance>
+</ui:UXML>

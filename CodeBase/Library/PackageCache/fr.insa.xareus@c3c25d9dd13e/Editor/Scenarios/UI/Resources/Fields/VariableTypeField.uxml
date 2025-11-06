@@ -1,0 +1,13 @@
+<ui:UXML 
+xmlns:ui="UnityEngine.UIElements" 
+xmlns:uie="UnityEditor.UIElements" 
+xsi="http://www.w3.org/2001/XMLSchema-instance" 
+engine="UnityEngine.UIElements" 
+editor="UnityEditor.UIElements" 
+noNamespaceSchemaLocation="../../../../../../UIElementsSchema/UIElements.xsd" 
+editor-extension-mode="False">
+    <ui:VisualElement style="flex-grow: 1; flex-direction: column;">
+        <Xareus.Unity.Editor.Scenarios.UI.Fields.VariableField name="variable" label="Component" />
+        <Xareus.Unity.Editor.Scenarios.UI.Fields.TypeField name="type" label="Of Type" />
+    </ui:VisualElement>
+</ui:UXML>

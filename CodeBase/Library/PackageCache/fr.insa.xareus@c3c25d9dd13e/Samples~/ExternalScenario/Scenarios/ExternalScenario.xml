@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="utf-8"?>
+<scenario xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" id="InvertObjectsPositions" label="MyScenario" version="5.16.0.0" xmlns="http://www.insa-rennes.fr/Xareus.Scenarios">
+  <extendedInfo>
+    <unityEditor xmlns="">
+      <version>1.2</version>
+    </unityEditor>
+  </extendedInfo>
+  <sequence xsi:type="SafePetriNet" id="Root" label="Root">
+    <extendedInfo>
+      <unityEditor xmlns="">
+        <viewData x="-60" y="-1" zoom="1" />
+        <comments />
+        <sections />
+      </unityEditor>
+    </extendedInfo>
+    <configuration classname="InvertObjectsConfiguration,ExternalScenario">
+      <param type="UnityEngine.GameObject,UnityEngine.CoreModule" name="Object1">
+        <extendedInfo>
+          <unityEditor xmlns="">
+            <field type="Xareus.Unity.Editor.Scenarios.UI.Fields.ObjectDropField`1[[UnityEngine.GameObject,UnityEngine.CoreModule]],Xareus.Unity.Editor" />
+          </unityEditor>
+        </extendedInfo>
+        <param value="" type="System.Guid,mscorlib" name="UFID" />
+      </param>
+      <param type="UnityEngine.GameObject,UnityEngine.CoreModule" name="Object2">
+        <extendedInfo>
+          <unityEditor xmlns="">
+            <field type="Xareus.Unity.Editor.Scenarios.UI.Fields.ObjectDropField`1[[UnityEngine.GameObject,UnityEngine.CoreModule]],Xareus.Unity.Editor" />
+          </unityEditor>
+        </extendedInfo>
+        <param value="" type="System.Guid,mscorlib" name="UFID" />
+      </param>
+    </configuration>
+    <sequence xsi:type="Place" id="Place_0" label="Place_0">
+      <extendedInfo>
+        <unityEditor xmlns="">
+          <position x="400" y="100" />
+        </unityEditor>
+      </extendedInfo>
+    </sequence>
+    <sequence xsi:type="Place" id="Place_1" label="Both Objects At the Same Position">
+      <extendedInfo>
+        <unityEditor xmlns="">
+          <position x="400" y="300" />
+        </unityEditor>
+      </extendedInfo>
+    </sequence>
+    <sequence xsi:type="Place" id="Place_2" label="Objects positions inverted">
+      <extendedInfo>
+        <unityEditor xmlns="">
+          <position x="400" y="500" />
+        </unityEditor>
+      </extendedInfo>
+    </sequence>
+    <transition id="Transition_0" label="Move Object 1">
+      <extendedInfo>
+        <unityEditor xmlns="">
+          <position x="400" y="200" />
+        </unityEditor>
+      </extendedInfo>
+      <event id="Transition_0" label="Move Object 1">
+        <effectorUpdate classname="Xareus.Scenarios.Unity.SetMemberValueEffector,Xareus.Unity.Libraries">
+          <extendedInfo>
+            <unityEditor xmlns="">
+              <editBox type="Xareus.Unity.Editor.Scenarios.UI.DefaultEditBox,Xareus.Unity.Editor" />
+            </unityEditor>
+          </extendedInfo>
+          <param value="$(ConfigurationContext.Transform1)" type="Xareus.Scenarios.Variables.Variable,Xareus.Scenarios" name="Component">
+            <extendedInfo>
+              <unityEditor xmlns="">
+                <field type="Xareus.Unity.Editor.Scenarios.UI.Fields.VariableTypeField,Xareus.Unity.Editor" />
+              </unityEditor>
+            </extendedInfo>
+            <param value="UnityEngine.Transform,UnityEngine.CoreModule" type="System.RuntimeType,mscorlib" name="Type" />
+          </param>
+          <param type="System.Reflection.RuntimePropertyInfo,mscorlib" name="Member">
+            <extendedInfo>
+              <unityEditor xmlns="">
+                <field type="Xareus.Unity.Editor.Scenarios.UI.Fields.MemberInfoField,Xareus.Unity.Editor" />
+              </unityEditor>
+            </extendedInfo>
+            <param value="UnityEngine.Transform,UnityEngine.CoreModule" name="DeclaringType" />
+            <param value="position" name="MemberName" />
+          </param>
+          <param value="$(ConfigurationContext.Position2)" type="Xareus.Scenarios.Variables.Variable,Xareus.Scenarios" name="Value">
+            <extendedInfo>
+              <unityEditor xmlns="">
+                <field type="Xareus.Unity.Editor.Scenarios.UI.Fields.VariableField,Xareus.Unity.Editor" />
+              </unityEditor>
+            </extendedInfo>
+          </param>
+        </effectorUpdate>
+      </event>
+      <upstreamSequence idref="Place_0" />
+      <downstreamSequence idref="Place_1" />
+    </transition>
+    <transition id="Transition_1" label="Wait and Move Object 2">
+      <extendedInfo>
+        <unityEditor xmlns="">
+          <position x="400" y="400" />
+        </unityEditor>
+      </extendedInfo>
+      <event id="Transition_1" label="Wait and Move Object 2">
+        <sensorCheck classname="Xareus.Scenarios.Time.TimeSensor,Xareus.Scenarios.Extra">
+          <extendedInfo>
+            <unityEditor xmlns="">
+              <editBox type="Xareus.Unity.Editor.Scenarios.UI.TimeSensorEditBox,Xareus.Unity.Libraries.Editor" />
+            </unityEditor>
+          </extendedInfo>
+          <param value="SECOND" type="Xareus.Scenarios.Time.TimeUnit,Xareus.Scenarios.Extra" name="unit">
+            <extendedInfo>
+              <unityEditor xmlns="">
+                <field type="Xareus.Unity.Editor.Scenarios.UI.Fields.EnumField`1[[Xareus.Scenarios.Time.TimeUnit,Xareus.Scenarios.Extra]],Xareus.Unity.Editor" />
+              </unityEditor>
+            </extendedInfo>
+          </param>
+          <param value="5" type="System.Double,mscorlib" name="minimum">
+            <extendedInfo>
+              <unityEditor xmlns="">
+                <field type="Xareus.Unity.Editor.Scenarios.UI.Fields.DoubleField,Xareus.Unity.Editor" />
+              </unityEditor>
+            </extendedInfo>
+          </param>
+        </sensorCheck>
+        <effectorUpdate classname="Xareus.Scenarios.Unity.SetMemberValueEffector,Xareus.Unity.Libraries">
+          <extendedInfo>
+            <unityEditor xmlns="">
+              <editBox type="Xareus.Unity.Editor.Scenarios.UI.DefaultEditBox,Xareus.Unity.Editor" />
+            </unityEditor>
+          </extendedInfo>
+          <param value="$(ConfigurationContext.Transform2)" type="Xareus.Scenarios.Variables.Variable,Xareus.Scenarios" name="Component">
+            <extendedInfo>
+              <unityEditor xmlns="">
+                <field type="Xareus.Unity.Editor.Scenarios.UI.Fields.VariableTypeField,Xareus.Unity.Editor" />
+              </unityEditor>
+            </extendedInfo>
+            <param value="UnityEngine.Transform,UnityEngine.CoreModule" type="System.RuntimeType,mscorlib" name="Type" />
+          </param>
+          <param type="System.Reflection.RuntimePropertyInfo,mscorlib" name="Member">
+            <extendedInfo>
+              <unityEditor xmlns="">
+                <field type="Xareus.Unity.Editor.Scenarios.UI.Fields.MemberInfoField,Xareus.Unity.Editor" />
+              </unityEditor>
+            </extendedInfo>
+            <param value="UnityEngine.Transform,UnityEngine.CoreModule" name="DeclaringType" />
+            <param value="position" name="MemberName" />
+          </param>
+          <param value="$(ConfigurationContext.Position1)" type="Xareus.Scenarios.Variables.Variable,Xareus.Scenarios" name="Value">
+            <extendedInfo>
+              <unityEditor xmlns="">
+                <field type="Xareus.Unity.Editor.Scenarios.UI.Fields.VariableField,Xareus.Unity.Editor" />
+              </unityEditor>
+            </extendedInfo>
+          </param>
+        </effectorUpdate>
+      </event>
+      <upstreamSequence idref="Place_1" />
+      <downstreamSequence idref="Place_2" />
+    </transition>
+    <initialSequence idref="Place_0">
+      <tokenInit classname="Xareus.Scenarios.TokenInit.EmptyTokenInit,Xareus.Scenarios" />
+    </initialSequence>
+    <finalSequence idref="Place_2" />
+  </sequence>
+</scenario>

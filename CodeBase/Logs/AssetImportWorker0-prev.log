@@ -1,0 +1,512 @@
+[Licensing::Module] Trying to connect to existing licensing client channel...
+Built from '6000.0/staging' branch; Version is '6000.0.62f1 (f99f05b3e950) revision 16359173'; Using compiler version '193933523'; Build Type 'Release'
+[Licensing::IpcConnector] Successfully connected to: "LicenseClient-glongfil" at "2025-11-05T16:11:33.2915299Z"
+OS: 'Windows 11  (10.0.26200) 64bit Professional' Language: 'fr' Physical Memory: 32189 MB
+BatchMode: 1, IsHumanControllingUs: 0, StartBugReporterOnCrash: 0, Is64bit: 1
+Date: 2025-11-05T16:11:33Z
+
+COMMAND LINE ARGUMENTS:
+C:\Program Files\Unity\Hub\Editor\6000.0.62f1\Editor\Unity.exe
+-adb2
+-batchMode
+-noUpm
+-name
+AssetImportWorker0
+-projectPath
+C:/Users/glongfil/My project
+-logFile
+Logs/AssetImportWorker0.log
+-srvPort
+64522
+-licensingIpc
+LicenseClient-glongfil
+-job-worker-count
+11
+-background-job-worker-count
+8
+-gc-helper-count
+1
+-name
+AssetImport
+Successfully changed project path to: C:/Users/glongfil/My project
+C:/Users/glongfil/My project
+[UnityMemory] Configuration Parameters - Can be set up in boot.config
+    "memorysetup-bucket-allocator-granularity=16"
+    "memorysetup-bucket-allocator-bucket-count=8"
+    "memorysetup-bucket-allocator-block-size=33554432"
+    "memorysetup-bucket-allocator-block-count=8"
+    "memorysetup-main-allocator-block-size=16777216"
+    "memorysetup-thread-allocator-block-size=16777216"
+    "memorysetup-gfx-main-allocator-block-size=16777216"
+    "memorysetup-gfx-thread-allocator-block-size=16777216"
+    "memorysetup-cache-allocator-block-size=4194304"
+    "memorysetup-typetree-allocator-block-size=2097152"
+    "memorysetup-profiler-bucket-allocator-granularity=16"
+    "memorysetup-profiler-bucket-allocator-bucket-count=8"
+    "memorysetup-profiler-bucket-allocator-block-size=33554432"
+    "memorysetup-profiler-bucket-allocator-block-count=8"
+    "memorysetup-profiler-allocator-block-size=16777216"
+    "memorysetup-profiler-editor-allocator-block-size=1048576"
+    "memorysetup-temp-allocator-size-main=16777216"
+    "memorysetup-job-temp-allocator-block-size=2097152"
+    "memorysetup-job-temp-allocator-block-size-background=1048576"
+    "memorysetup-job-temp-allocator-reduction-small-platforms=262144"
+    "memorysetup-allocator-temp-initial-block-size-main=262144"
+    "memorysetup-allocator-temp-initial-block-size-worker=262144"
+    "memorysetup-temp-allocator-size-background-worker=32768"
+    "memorysetup-temp-allocator-size-job-worker=262144"
+    "memorysetup-temp-allocator-size-preload-manager=33554432"
+    "memorysetup-temp-allocator-size-nav-mesh-worker=65536"
+    "memorysetup-temp-allocator-size-audio-worker=65536"
+    "memorysetup-temp-allocator-size-cloud-worker=32768"
+    "memorysetup-temp-allocator-size-gi-baking-worker=262144"
+    "memorysetup-temp-allocator-size-gi-baking-worker=262144"
+    "memorysetup-temp-allocator-size-gi-baking-worker=262144"
+    "memorysetup-temp-allocator-size-gi-baking-worker=262144"
+    "memorysetup-temp-allocator-size-gi-baking-worker=262144"
+    "memorysetup-temp-allocator-size-gfx=262144"
+Player connection [19192]  Target information:
+
+Player connection [19192]  * "[IP] 138.48.33.139 [Port] 0 [Flags] 2 [Guid] 2499519833 [EditorId] 2499519833 [Version] 1048832 [Id] WindowsEditor(7,inf25l-xde-glo) [Debug] 1 [PackageName] WindowsEditor [ProjectName] Editor" 
+
+Player connection [19192] Host joined multi-casting on [225.0.0.222:54997]...
+Player connection [19192] Host joined alternative multi-casting on [225.0.0.222:34997]...
+JobSystem: Creating JobQueue using job-worker-count value 11
+Input System module state changed to: Initialized.
+[Physics::Module] Initialized fallback backend.
+[Physics::Module] Id: 0xdecafbad
+[Licensing::Client] Code 10 while verifying Licensing Client signature (process Id: 18220, path: "C:/Program Files/Unity Hub/UnityLicensingClient_V1/Unity.Licensing.Client.exe")
+[Licensing::Module] LicensingClient has failed validation; ignoring
+[Licensing::Client] Handshaking with LicensingClient:
+  Version:                 1.17.3+a4e98f1
+  Session Id:              cead9e340e38454cb8e2d0e1a086a225
+  Correlation Id:          961244f6a1398cda4f55a9d8bafce40e
+  External correlation Id: 3986360346734092597
+  Machine Id:              PZT+nH7eq8MGO6vuvuhZALpbm3o=
+[Licensing::Module] Successfully connected to LicensingClient on channel: "LicenseClient-glongfil" (connect: 0.00s, validation: 0.00s, handshake: 0.04s)
+[Licensing::IpcConnector] Successfully connected to: "LicenseClient-glongfil-notifications" at "2025-11-05T16:11:33.3314075Z"
+[Licensing::Module] Licensing Background thread has ended after 0.04s
+Library Redirect Path: Library/
+[Physics::Module] Selected backend.
+[Physics::Module] Name: PhysX
+[Physics::Module] Id: 0xf2b8ea05
+[Physics::Module] SDK Version: 4.1.2
+[Physics::Module] Integration Version: 1.0.0
+[Physics::Module] Threading Mode: Multi-Threaded
+Refreshing native plugins compatible for Editor in 7.94 ms, found 8 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Initialize engine version: 6000.0.62f1 (f99f05b3e950)
+[Subsystems] Discovering subsystems at path C:/Program Files/Unity/Hub/Editor/6000.0.62f1/Editor/Data/Resources/UnitySubsystems
+[Subsystems] Discovering subsystems at path C:/Users/glongfil/My project/Assets
+GfxDevice: creating device client; kGfxThreadingModeNonThreaded
+Direct3D:
+    Version:  Direct3D 11.0 [level 11.1]
+    Renderer: NVIDIA GeForce RTX 5070 Laptop GPU (ID=0x2d18)
+    Vendor:   NVIDIA
+    VRAM:     7802 MB
+    Driver:   32.0.15.7705
+Initialize mono
+Mono path[0] = 'C:/Program Files/Unity/Hub/Editor/6000.0.62f1/Editor/Data/Managed'
+Mono path[1] = 'C:/Program Files/Unity/Hub/Editor/6000.0.62f1/Editor/Data/MonoBleedingEdge/lib/mono/unityjit-win32'
+Mono config path = 'C:/Program Files/Unity/Hub/Editor/6000.0.62f1/Editor/Data/MonoBleedingEdge/etc'
+Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56164
+Begin MonoManager ReloadAssembly
+Registering precompiled unity dll's ...
+Register platform support module: C:/Program Files/Unity/Hub/Editor/6000.0.62f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
+Registered in 0.001467 seconds.
+- Loaded All Assemblies, in  0.252 seconds
+Native extension for WindowsStandalone target not found
+Mono: successfully reloaded assembly
+- Finished resetting the current domain, in  0.245 seconds
+Domain Reload Profiling: 495ms
+	BeginReloadAssembly (93ms)
+		ExecutionOrderSort (0ms)
+		DisableScriptedObjects (0ms)
+		BackupInstance (0ms)
+		ReleaseScriptingObjects (0ms)
+		CreateAndSetChildDomain (1ms)
+	RebuildCommonClasses (26ms)
+	RebuildNativeTypeToScriptingClass (8ms)
+	initialDomainReloadingComplete (28ms)
+	LoadAllAssembliesAndSetupDomain (95ms)
+		LoadAssemblies (91ms)
+		RebuildTransferFunctionScriptingTraits (0ms)
+		AnalyzeDomain (93ms)
+			TypeCache.Refresh (92ms)
+				TypeCache.ScanAssembly (82ms)
+			BuildScriptInfoCaches (0ms)
+			ResolveRequiredComponents (0ms)
+	FinalizeReload (245ms)
+		ReleaseScriptCaches (0ms)
+		RebuildScriptCaches (0ms)
+		SetupLoadedEditorAssemblies (216ms)
+			LogAssemblyErrors (0ms)
+			InitializePlatformSupportModulesInManaged (20ms)
+			SetLoadedEditorAssemblies (4ms)
+			BeforeProcessingInitializeOnLoad (50ms)
+			ProcessInitializeOnLoadAttributes (106ms)
+			ProcessInitializeOnLoadMethodAttributes (36ms)
+			AfterProcessingInitializeOnLoad (0ms)
+			EditorAssembliesLoaded (0ms)
+		ExecutionOrderSort2 (0ms)
+		AwakeInstancesAfterBackupRestoration (0ms)
+========================================================================
+Worker process is ready to serve import requests
+Import Worker Mode flag is 0x00
+Begin MonoManager ReloadAssembly
+[Licensing::Client] Successfully resolved entitlement details
+[Licensing::Module] License group:
+  Id: SC-GV9V-U6Q8-JP58-AD2S-XXXX
+  Product: Unity Pro
+  Type: ULF
+  Expiration: 2026-04-11T14:02:29Z
+[Licensing::Module] License group:
+  Id: 9072253325369-gerrylongfils-UnityProStuXXXX
+  Product: Unity Student
+  Type: Assigned
+  Expiration: 2026-04-05T14:02:29Z
+- Loaded All Assemblies, in  0.547 seconds
+Refreshing native plugins compatible for Editor in 4.15 ms, found 8 plugins.
+Native extension for WindowsStandalone target not found
+ChangeScriptExecutionOrder will try to parse the command line to change the script execution order
+	 Use -scriptorder "namespaces.classname" "value" for every script or component class for which you wish to change the execution order
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:LogFormat (UnityEngine.LogType,string,object[])
+UnityEngine.Debug:LogFormat (string,object[])
+InriaTools.ChangeScriptExecutionOrder:.cctor () (at ./Library/PackageCache/fr.inria.unity.tools@05e07d878e04/Editor/ChangeScriptExecutionOrder.cs:29)
+System.Runtime.CompilerServices.RuntimeHelpers:RunClassConstructor (System.RuntimeTypeHandle)
+UnityEditor.EditorAssemblies:ProcessInitializeOnLoadAttributes (System.Type[])
+
+(Filename: ./Library/PackageCache/fr.inria.unity.tools@05e07d878e04/Editor/ChangeScriptExecutionOrder.cs Line: 29)
+
+CommandLineBuilder will try to parse the command line to automate the build. If you need to change the runtime, you need to do it before on a separate run of unity editor
+	 To set the runtime, use -executeMethod CommandLineBuilder.SetRuntime
+		 Use the -runtime parameter to specify the runtime (default: .NET 4.x)
+	 Use -executeMethod CommandLineBuilder.Build -build "executable pathname"
+		 Use the -scenes "scenefile1";"scenefile2";... parameter to specify the scenes to include in the build
+		 Use the -target or -buildTarget [win32|win64] parameter to specify the targeted platform (default: win64)
+		 Use the -api_level parameter to specify the API level (default: .NET .2.0 for 3.5 runtime and .NET 4.x for 4.x runtime)
+		 Use the -backend parameter to specify the scripting scripting backend (default: mono)
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:LogFormat (UnityEngine.LogType,string,object[])
+UnityEngine.Debug:LogFormat (string,object[])
+CommandLineBuilder:.cctor () (at ./Library/PackageCache/fr.inria.unity.tools@05e07d878e04/Editor/CommandLineBuilder.cs:34)
+System.Runtime.CompilerServices.RuntimeHelpers:RunClassConstructor (System.RuntimeTypeHandle)
+UnityEditor.EditorAssemblies:ProcessInitializeOnLoadAttributes (System.Type[])
+
+(Filename: ./Library/PackageCache/fr.inria.unity.tools@05e07d878e04/Editor/CommandLineBuilder.cs Line: 34)
+
+GenerateAssemblies will try to parse the command line to replace assemblies or update ids.
+		 Use -replaceassembly "assemblyname" for every assembly you wish to replace 
+		 Use -mapfilesprefix "map_files_prefix" to optionnaly set a prefix to the map files that will be read/written. Default is map_ 
+		 Use -mapfilespath "path" to optionnaly set the path where the map files will be read/written. Default is ./ 
+
+	 Use -updateids to update the ids of the classes in the assets. 
+		 Use -guidclassesmapfile "path" to optionnaly set the path where the GUID to Class map file is located. Default is map_guid_class.json 
+		 Use -classordermapfile "path" to optionnaly set the path where the Class to Order map file is located. Default is map_class_order.json 
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:LogFormat (UnityEngine.LogType,string,object[])
+UnityEngine.Debug:LogFormat (string,object[])
+GenerateAssemblies:.cctor () (at ./Library/PackageCache/fr.inria.unity.tools@05e07d878e04/Editor/GenerateAssemblies.cs:41)
+System.Runtime.CompilerServices.RuntimeHelpers:RunClassConstructor (System.RuntimeTypeHandle)
+UnityEditor.EditorAssemblies:ProcessInitializeOnLoadAttributes (System.Type[])
+
+(Filename: ./Library/PackageCache/fr.inria.unity.tools@05e07d878e04/Editor/GenerateAssemblies.cs Line: 41)
+
+CommandLineDefineSymbols will try to parse the command line to set define symbols (which can remove previously set ones).
+	 Use -define "TARGET:SYMBOL1;-SYMBOL2;...SYMBOLx"
+	 Possible values for TARGET : Unknown,Standalone,WebPlayer,iPhone,iOS,PS3,XBOX360,Android,WebGL,WSA,Metro,WP8,BlackBerry,Tizen,PSP2,PS4,PSM,XboxOne,SamsungTV,N3DS,WiiU,tvOS,Facebook,Switch,Lumin,Stadia,CloudRendering,LinuxHeadlessSimulation,GameCoreScarlett,GameCoreXboxSeries,GameCoreXboxOne,PS5,EmbeddedLinux,QNX,VisionOS,Switch2,Kepler
+	 -SYMBOL will remove the SYMBOL define from the list if present
+	 If no symbol is specified, any symbol defined in the project will be unset for the specified target
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:LogFormat (UnityEngine.LogType,string,object[])
+UnityEngine.Debug:LogFormat (string,object[])
+CommandLineDefineSymbols:.cctor () (at ./Library/PackageCache/fr.inria.unity.tools@05e07d878e04/Editor/CommandLineDefineSymbols.cs:20)
+System.Runtime.CompilerServices.RuntimeHelpers:RunClassConstructor (System.RuntimeTypeHandle)
+UnityEditor.EditorAssemblies:ProcessInitializeOnLoadAttributes (System.Type[])
+
+(Filename: ./Library/PackageCache/fr.inria.unity.tools@05e07d878e04/Editor/CommandLineDefineSymbols.cs Line: 20)
+
+CommandLinePackageManager will try to parse the command line to add or remove packages.
+	 Use -package "[+-]PACKAGE"
+	 +PACKAGE will add the PACKAGE to the project
+	 -PACKAGE will remove the PACKAGE from the project
+	 Do not use the -quit command line option or this script won't work. Unity editor will exit when all packages have been handled
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:LogFormat (UnityEngine.LogType,string,object[])
+UnityEngine.Debug:LogFormat (string,object[])
+CommandLinePackageManager:.cctor () (at ./Library/PackageCache/fr.inria.unity.tools@05e07d878e04/Editor/CommandLinePackageManager.cs:42)
+System.Runtime.CompilerServices.RuntimeHelpers:RunClassConstructor (System.RuntimeTypeHandle)
+UnityEditor.EditorAssemblies:ProcessInitializeOnLoadAttributes (System.Type[])
+
+(Filename: ./Library/PackageCache/fr.inria.unity.tools@05e07d878e04/Editor/CommandLinePackageManager.cs Line: 42)
+
+GenerateSolutionFile will try to parse the command line to generate the solution file.
+	 Use -generatesolution or -executeMethod GenerateSolutionFile.GenerateFiles
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:LogFormat (UnityEngine.LogType,string,object[])
+UnityEngine.Debug:LogFormat (string,object[])
+GenerateSolutionFile:.cctor () (at ./Library/PackageCache/fr.inria.unity.tools@05e07d878e04/Editor/GenerateSolutionFile.cs:22)
+System.Runtime.CompilerServices.RuntimeHelpers:RunClassConstructor (System.RuntimeTypeHandle)
+UnityEditor.EditorAssemblies:ProcessInitializeOnLoadAttributes (System.Type[])
+
+(Filename: ./Library/PackageCache/fr.inria.unity.tools@05e07d878e04/Editor/GenerateSolutionFile.cs Line: 22)
+
+Package Manager log level set to [2]
+[Package Manager] Failed to launch server process. Reason: Unity was launched with the -noUpm command-line argument
+[Package Manager] Unable to send message (not connected to server process).
+[Package Manager] Cannot connect to Unity Package Manager local server
+Mono: successfully reloaded assembly
+[Package Manager] Failed to launch server process. Reason: Unity was launched with the -noUpm command-line argument
+[Package Manager] Unable to send message (not connected to server process).
+[Package Manager] Cannot connect to Unity Package Manager local server
+[Package Manager] Failed to launch server process. Reason: Unity was launched with the -noUpm command-line argument
+[Package Manager] Unable to send message (not connected to server process).
+[Package Manager] Cannot connect to Unity Package Manager local server
+- Finished resetting the current domain, in  0.667 seconds
+Domain Reload Profiling: 1211ms
+	BeginReloadAssembly (119ms)
+		ExecutionOrderSort (0ms)
+		DisableScriptedObjects (5ms)
+		BackupInstance (0ms)
+		ReleaseScriptingObjects (0ms)
+		CreateAndSetChildDomain (22ms)
+	RebuildCommonClasses (21ms)
+	RebuildNativeTypeToScriptingClass (7ms)
+	initialDomainReloadingComplete (25ms)
+	LoadAllAssembliesAndSetupDomain (372ms)
+		LoadAssemblies (259ms)
+		RebuildTransferFunctionScriptingTraits (0ms)
+		AnalyzeDomain (175ms)
+			TypeCache.Refresh (128ms)
+				TypeCache.ScanAssembly (114ms)
+			BuildScriptInfoCaches (35ms)
+			ResolveRequiredComponents (8ms)
+	FinalizeReload (667ms)
+		ReleaseScriptCaches (0ms)
+		RebuildScriptCaches (0ms)
+		SetupLoadedEditorAssemblies (578ms)
+			LogAssemblyErrors (0ms)
+			InitializePlatformSupportModulesInManaged (1ms)
+			SetLoadedEditorAssemblies (3ms)
+			BeforeProcessingInitializeOnLoad (88ms)
+			ProcessInitializeOnLoadAttributes (360ms)
+			ProcessInitializeOnLoadMethodAttributes (123ms)
+			AfterProcessingInitializeOnLoad (3ms)
+			EditorAssembliesLoaded (0ms)
+		ExecutionOrderSort2 (0ms)
+		AwakeInstancesAfterBackupRestoration (4ms)
+WARNING: Shader Unsupported: 'Hidden/Simulation/URP/Synthetic' - All subshaders removed
+WARNING: Shader Did you use #pragma only_renderers and omit this platform?
+WARNING: Shader If subshaders removal was intentional, you may have forgotten turning Fallback off?
+WARNING: Shader Unsupported: 'Hidden/Simulation/URP/Synthetic' - All subshaders removed
+WARNING: Shader Did you use #pragma only_renderers and omit this platform?
+WARNING: Shader If subshaders removal was intentional, you may have forgotten turning Fallback off?
+WARNING: Shader Unsupported: 'Hidden/Simulation/Synthetic Lit' - All subshaders removed
+WARNING: Shader Did you use #pragma only_renderers and omit this platform?
+WARNING: Shader If subshaders removal was intentional, you may have forgotten turning Fallback off?
+WARNING: Shader Unsupported: 'Hidden/Simulation/Synthetic Lit' - All subshaders removed
+WARNING: Shader Did you use #pragma only_renderers and omit this platform?
+WARNING: Shader If subshaders removal was intentional, you may have forgotten turning Fallback off?
+WARNING: Shader Unsupported: 'Simulation/Standard Lit' - All subshaders removed
+WARNING: Shader Did you use #pragma only_renderers and omit this platform?
+WARNING: Shader If subshaders removal was intentional, you may have forgotten turning Fallback off?
+WARNING: Shader Unsupported: 'Simulation/Standard Lit' - All subshaders removed
+WARNING: Shader Did you use #pragma only_renderers and omit this platform?
+WARNING: Shader If subshaders removal was intentional, you may have forgotten turning Fallback off?
+WARNING: Shader Unsupported: 'Simulation/URP/Room X-Ray' - All subshaders removed
+WARNING: Shader Did you use #pragma only_renderers and omit this platform?
+WARNING: Shader If subshaders removal was intentional, you may have forgotten turning Fallback off?
+WARNING: Shader Unsupported: 'Simulation/URP/Room X-Ray' - All subshaders removed
+WARNING: Shader Did you use #pragma only_renderers and omit this platform?
+WARNING: Shader If subshaders removal was intentional, you may have forgotten turning Fallback off?
+WARNING: Shader Unsupported: 'Simulation/Room X-Ray' - All subshaders removed
+WARNING: Shader Did you use #pragma only_renderers and omit this platform?
+WARNING: Shader If subshaders removal was intentional, you may have forgotten turning Fallback off?
+WARNING: Shader Unsupported: 'Simulation/Room X-Ray' - All subshaders removed
+WARNING: Shader Did you use #pragma only_renderers and omit this platform?
+WARNING: Shader If subshaders removal was intentional, you may have forgotten turning Fallback off?
+WARNING: Shader Unsupported: 'Simulation/URP/Lit' - All subshaders removed
+WARNING: Shader Did you use #pragma only_renderers and omit this platform?
+WARNING: Shader If subshaders removal was intentional, you may have forgotten turning Fallback off?
+WARNING: Shader Unsupported: 'Simulation/URP/Lit' - All subshaders removed
+WARNING: Shader Did you use #pragma only_renderers and omit this platform?
+WARNING: Shader If subshaders removal was intentional, you may have forgotten turning Fallback off?
+Launched and connected shader compiler UnityShaderCompiler.exe after 0.02 seconds
+Refreshing native plugins compatible for Editor in 6.73 ms, found 8 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 56 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 6388 unused Assets / (6.8 MB). Loaded Objects now: 7115.
+Memory consumption went from 155.2 MB to 148.4 MB.
+Total: 10.467200 ms (FindLiveObjects: 0.693000 ms CreateObjectMapping: 0.736100 ms MarkObjects: 5.155200 ms  DeleteObjects: 3.881900 ms)
+
+========================================================================
+Received Import Request.
+  Time since last request: 176.014581 seconds.
+  path: Assets/Scripts/XareusScenario
+  artifactKey: Guid(a3effb8c02821b4439757f905daaaab1) Importer(2089858483,192608db42251d675da83286b1cce702)
+Start importing Assets/Scripts/XareusScenario using Guid(a3effb8c02821b4439757f905daaaab1) Importer(2089858483,192608db42251d675da83286b1cce702) (ScriptedImporter) -> (artifact id: '94ed1446ed27eed630fb75eeae7c949b') in 0.1582178 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000019 seconds.
+  path: Assets/Oracle_Selection.xml
+  artifactKey: Guid(11760addc07672d4e99318827f6c5ccd) Importer(2089858483,192608db42251d675da83286b1cce702)
+Start importing Assets/Oracle_Selection.xml using Guid(11760addc07672d4e99318827f6c5ccd) Importer(2089858483,192608db42251d675da83286b1cce702) (ScriptedImporter) -> (artifact id: 'b2a916833c40c21c1fbca7cfaa005bd1') in 0.0158927 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000028 seconds.
+  path: Assets/ScenarioReferenceData.asset
+  artifactKey: Guid(4830cbf7d1d23e445b7b2182aad3791e) Importer(2089858483,192608db42251d675da83286b1cce702)
+Start importing Assets/ScenarioReferenceData.asset using Guid(4830cbf7d1d23e445b7b2182aad3791e) Importer(2089858483,192608db42251d675da83286b1cce702) (ScriptedImporter) -> (artifact id: 'c233628ec4fbcfdb8d970b2b4e917665') in 0.034453 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000015 seconds.
+  path: Assets/result/result_9f00a_05112025.csv
+  artifactKey: Guid(c04bdf52da8235149917e1138508bf82) Importer(2089858483,192608db42251d675da83286b1cce702)
+Start importing Assets/result/result_9f00a_05112025.csv using Guid(c04bdf52da8235149917e1138508bf82) Importer(2089858483,192608db42251d675da83286b1cce702) (ScriptedImporter) -> (artifact id: '5bb0593c04b2a6d44dd9efadcb4a01b6') in 0.0192178 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000019 seconds.
+  path: Assets/Scripts/Interaction/GameObjectMovement
+  artifactKey: Guid(82a7cabae6f64c94c833feac4839240c) Importer(2089858483,192608db42251d675da83286b1cce702)
+Start importing Assets/Scripts/Interaction/GameObjectMovement using Guid(82a7cabae6f64c94c833feac4839240c) Importer(2089858483,192608db42251d675da83286b1cce702) (ScriptedImporter) -> (artifact id: '7fb4c5a37d3cdc480950b304b361360e') in 0.0136986 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000022 seconds.
+  path: Assets/Scripts/Effector/Effector.cs
+  artifactKey: Guid(c57758dd5502ee1429c92e172ef93e48) Importer(2089858483,192608db42251d675da83286b1cce702)
+Start importing Assets/Scripts/Effector/Effector.cs using Guid(c57758dd5502ee1429c92e172ef93e48) Importer(2089858483,192608db42251d675da83286b1cce702) (ScriptedImporter) -> (artifact id: '837a5aa331c3d6985c8f1a7c0f138fe4') in 0.0194477 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 0
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000023 seconds.
+  path: Assets/result/result_12c9f_05112025.csv
+  artifactKey: Guid(2c150dd9695911e4493a56223d736e0c) Importer(2089858483,192608db42251d675da83286b1cce702)
+Start importing Assets/result/result_12c9f_05112025.csv using Guid(2c150dd9695911e4493a56223d736e0c) Importer(2089858483,192608db42251d675da83286b1cce702) (ScriptedImporter) -> (artifact id: '5b78f4d97d1b56a2df1f9b131978ebba') in 0.0152969 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000019 seconds.
+  path: Assets/result/result_482cb_05112025.csv
+  artifactKey: Guid(92382653eaa47f744a1f87eb9706f0d1) Importer(2089858483,192608db42251d675da83286b1cce702)
+Start importing Assets/result/result_482cb_05112025.csv using Guid(92382653eaa47f744a1f87eb9706f0d1) Importer(2089858483,192608db42251d675da83286b1cce702) (ScriptedImporter) -> (artifact id: 'e3d4e5db0d86f8e250f59f142c80e978') in 0.0098868 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000029 seconds.
+  path: Assets/Scripts/Interaction/VRTest/Logs.cs
+  artifactKey: Guid(04f06c9002eb18444876287b4abc3f1c) Importer(2089858483,192608db42251d675da83286b1cce702)
+Start importing Assets/Scripts/Interaction/VRTest/Logs.cs using Guid(04f06c9002eb18444876287b4abc3f1c) Importer(2089858483,192608db42251d675da83286b1cce702) (ScriptedImporter) -> (artifact id: 'f537b9706e75facbabf2a7f729ab0f02') in 0.0113176 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 0
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000017 seconds.
+  path: Assets/Scripts/Interaction/Teleportation/TeleportPlayer.cs
+  artifactKey: Guid(688738d31ed5d20449ec495f6218926f) Importer(2089858483,192608db42251d675da83286b1cce702)
+Start importing Assets/Scripts/Interaction/Teleportation/TeleportPlayer.cs using Guid(688738d31ed5d20449ec495f6218926f) Importer(2089858483,192608db42251d675da83286b1cce702) (ScriptedImporter) -> (artifact id: 'b760bc941180fdd03d3c7a07f92c3666') in 0.0124853 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 0
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000019 seconds.
+  path: Assets/Scripts
+  artifactKey: Guid(fab36c3c272b81647a13db82ad06ee17) Importer(2089858483,192608db42251d675da83286b1cce702)
+Start importing Assets/Scripts using Guid(fab36c3c272b81647a13db82ad06ee17) Importer(2089858483,192608db42251d675da83286b1cce702) (ScriptedImporter) -> (artifact id: 'f2dc1e2c65c7332aaf40f669d67117fa') in 0.0117898 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000016 seconds.
+  path: Assets/result/result_b20df_05112025.csv
+  artifactKey: Guid(9d64a2faecdc200428f8d47e7fc2e7cf) Importer(2089858483,192608db42251d675da83286b1cce702)
+Start importing Assets/result/result_b20df_05112025.csv using Guid(9d64a2faecdc200428f8d47e7fc2e7cf) Importer(2089858483,192608db42251d675da83286b1cce702) (ScriptedImporter) -> (artifact id: '2a794cdfbf85a259a0bfead33c3a7ad2') in 0.0175329 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000030 seconds.
+  path: Assets/Scripts/LogToCsv.cs
+  artifactKey: Guid(502c0e03f6cb60043a1e785d807f5caf) Importer(2089858483,192608db42251d675da83286b1cce702)
+Start importing Assets/Scripts/LogToCsv.cs using Guid(502c0e03f6cb60043a1e785d807f5caf) Importer(2089858483,192608db42251d675da83286b1cce702) (ScriptedImporter) -> (artifact id: 'ee931edeb0743db68614c1cc51d95894') in 0.0105102 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 0
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000019 seconds.
+  path: Assets/Scripts/Interaction/GameObjectSelection/AutoSelectOnCollision.cs
+  artifactKey: Guid(c483723d5e69231438795ae32135cf44) Importer(2089858483,192608db42251d675da83286b1cce702)
+Start importing Assets/Scripts/Interaction/GameObjectSelection/AutoSelectOnCollision.cs using Guid(c483723d5e69231438795ae32135cf44) Importer(2089858483,192608db42251d675da83286b1cce702) (ScriptedImporter) -> (artifact id: '6baec373123693cd496df02e70320ce2') in 0.0091739 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 0
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000022 seconds.
+  path: Assets/Scripts/Interaction/GameObjectMovement/Collision.cs
+  artifactKey: Guid(91771b5f71d59594d85d45ea45f74c2b) Importer(2089858483,192608db42251d675da83286b1cce702)
+Start importing Assets/Scripts/Interaction/GameObjectMovement/Collision.cs using Guid(91771b5f71d59594d85d45ea45f74c2b) Importer(2089858483,192608db42251d675da83286b1cce702) (ScriptedImporter) -> (artifact id: 'cfa794123e10337ac61aaa5cb9b4a7d6') in 0.0107174 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 0
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000029 seconds.
+  path: Assets/Scripts/GetStartTime.cs
+  artifactKey: Guid(f63ce6c35ca356f4cbad82080fd6bc29) Importer(2089858483,192608db42251d675da83286b1cce702)
+Start importing Assets/Scripts/GetStartTime.cs using Guid(f63ce6c35ca356f4cbad82080fd6bc29) Importer(2089858483,192608db42251d675da83286b1cce702) (ScriptedImporter) -> (artifact id: '6ad9f5d912be5d0e4f021d476fbbfa54') in 0.0144768 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 0
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000017 seconds.
+  path: Assets/result/result_96ac7_05112025.csv
+  artifactKey: Guid(46aa757e20ff35341b5d906c97437acd) Importer(2089858483,192608db42251d675da83286b1cce702)
+Start importing Assets/result/result_96ac7_05112025.csv using Guid(46aa757e20ff35341b5d906c97437acd) Importer(2089858483,192608db42251d675da83286b1cce702) (ScriptedImporter) -> (artifact id: '2a1d50e1e179add7e23e8b1e21a7ea85') in 0.0213314 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000020 seconds.
+  path: Assets/Scripts/TESTREPLAY/TEST_REPLAY_ObjectFound_9e95c306-df24-474e-9215-1e0ce2827092_2025-11-05.txt
+  artifactKey: Guid(d7af1b4e12683b140aae08e2d3b9a2af) Importer(2089858483,192608db42251d675da83286b1cce702)
+Start importing Assets/Scripts/TESTREPLAY/TEST_REPLAY_ObjectFound_9e95c306-df24-474e-9215-1e0ce2827092_2025-11-05.txt using Guid(d7af1b4e12683b140aae08e2d3b9a2af) Importer(2089858483,192608db42251d675da83286b1cce702) (ScriptedImporter) -> (artifact id: '06b7a96c0d432d02613734abc3848edf') in 0.0159221 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000017 seconds.
+  path: Assets/Maradona.prefab
+  artifactKey: Guid(b1bd4652bcf68754f83ddd7f7da53181) Importer(2089858483,192608db42251d675da83286b1cce702)
+Start importing Assets/Maradona.prefab using Guid(b1bd4652bcf68754f83ddd7f7da53181) Importer(2089858483,192608db42251d675da83286b1cce702) (ScriptedImporter) -> (artifact id: '00685e8957f22a1ea6592a65b4cea3f0') in 0.1909317 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 13
+

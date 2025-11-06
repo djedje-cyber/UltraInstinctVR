@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="utf-8"?>
+<scenario xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" id="MyScenario" label="MyScenario" version="6.0" xmlns="http://www.insa-rennes.fr/Xareus.Scenarios">
+  <extendedInfo>
+    <unityEditor xmlns="">
+      <version>1.2</version>
+    </unityEditor>
+  </extendedInfo>
+  <sequence xsi:type="DecisionTree" id="Root" label="Root">
+    <extendedInfo>
+      <unityEditor xmlns="">
+        <comments />
+        <sections />
+        <viewData x="-164" y="16" zoom="1" />
+      </unityEditor>
+    </extendedInfo>
+    <sequence xsi:type="Node" id="Node_0" label="Node_0">
+      <extendedInfo>
+        <unityEditor xmlns="">
+          <position x="400" y="100" />
+        </unityEditor>
+      </extendedInfo>
+      <tokenInit classname="Xareus.Scenarios.TokenInit.DefaultTokenInit,Xareus.Scenarios">
+        <param type="System.Collections.Generic.ICollection`1[[System.Collections.Generic.KeyValuePair`2[[Xareus.Scenarios.Variables.TokenVariablePath,Xareus.Scenarios],[System.Object,mscorlib]],mscorlib]],mscorlib" name="Values">
+          <param value="" type="System.Collections.Generic.KeyValuePair`2[[Xareus.Scenarios.Variables.TokenVariablePath,Xareus.Scenarios],[System.Object,mscorlib]],mscorlib" name="elem0">
+            <param value="A" type="Xareus.Scenarios.Variables.TokenVariablePath,Xareus.Scenarios" name="key" />
+            <param value="0" type="System.Int32,mscorlib" name="value" />
+          </param>
+        </param>
+      </tokenInit>
+    </sequence>
+    <sequence xsi:type="Node" id="Node_1" label="Light Off">
+      <extendedInfo>
+        <unityEditor xmlns="">
+          <position x="300" y="300" />
+        </unityEditor>
+      </extendedInfo>
+      <tokenInit classname="Xareus.Scenarios.TokenInit.DefaultTokenInit,Xareus.Scenarios">
+        <param type="System.Collections.Generic.ICollection`1[[System.Collections.Generic.KeyValuePair`2[[Xareus.Scenarios.Variables.TokenVariablePath,Xareus.Scenarios],[System.Object,mscorlib]],mscorlib]],mscorlib" name="Values">
+          <param value="" type="System.Collections.Generic.KeyValuePair`2[[Xareus.Scenarios.Variables.TokenVariablePath,Xareus.Scenarios],[System.Object,mscorlib]],mscorlib" name="elem0">
+            <param value="LightOn" type="Xareus.Scenarios.Variables.TokenVariablePath,Xareus.Scenarios" name="key" />
+            <param value="False" type="System.Boolean,mscorlib" name="value" />
+          </param>
+        </param>
+      </tokenInit>
+    </sequence>
+    <sequence xsi:type="Node" id="Node_2" label="Light On">
+      <extendedInfo>
+        <unityEditor xmlns="">
+          <position x="500" y="300" />
+        </unityEditor>
+      </extendedInfo>
+      <tokenInit classname="Xareus.Scenarios.TokenInit.DefaultTokenInit,Xareus.Scenarios">
+        <param type="System.Collections.Generic.ICollection`1[[System.Collections.Generic.KeyValuePair`2[[Xareus.Scenarios.Variables.TokenVariablePath,Xareus.Scenarios],[System.Object,mscorlib]],mscorlib]],mscorlib" name="Values">
+          <param value="" type="System.Collections.Generic.KeyValuePair`2[[Xareus.Scenarios.Variables.TokenVariablePath,Xareus.Scenarios],[System.Object,mscorlib]],mscorlib" name="elem0">
+            <param value="LightOn" type="Xareus.Scenarios.Variables.TokenVariablePath,Xareus.Scenarios" name="key" />
+            <param value="True" type="System.Boolean,mscorlib" name="value" />
+          </param>
+        </param>
+      </tokenInit>
+    </sequence>
+    <sequence xsi:type="Node" id="Node_3" label="Half Power">
+      <extendedInfo>
+        <unityEditor xmlns="">
+          <position x="400" y="500" />
+        </unityEditor>
+      </extendedInfo>
+      <tokenInit classname="Xareus.Scenarios.TokenInit.DefaultTokenInit,Xareus.Scenarios">
+        <param type="System.Collections.Generic.ICollection`1[[System.Collections.Generic.KeyValuePair`2[[Xareus.Scenarios.Variables.TokenVariablePath,Xareus.Scenarios],[System.Object,mscorlib]],mscorlib]],mscorlib" name="Values">
+          <param value="" type="System.Collections.Generic.KeyValuePair`2[[Xareus.Scenarios.Variables.TokenVariablePath,Xareus.Scenarios],[System.Object,mscorlib]],mscorlib" name="elem0">
+            <param value="Power" type="Xareus.Scenarios.Variables.TokenVariablePath,Xareus.Scenarios" name="key" />
+            <param value="0.5" type="System.Single,mscorlib" name="value" />
+          </param>
+        </param>
+      </tokenInit>
+    </sequence>
+    <sequence xsi:type="Node" id="Node_5" label="Full Power">
+      <extendedInfo>
+        <unityEditor xmlns="">
+          <position x="600" y="500" />
+        </unityEditor>
+      </extendedInfo>
+      <tokenInit classname="Xareus.Scenarios.TokenInit.DefaultTokenInit,Xareus.Scenarios">
+        <param type="System.Collections.Generic.ICollection`1[[System.Collections.Generic.KeyValuePair`2[[Xareus.Scenarios.Variables.TokenVariablePath,Xareus.Scenarios],[System.Object,mscorlib]],mscorlib]],mscorlib" name="Values">
+          <param value="" type="System.Collections.Generic.KeyValuePair`2[[Xareus.Scenarios.Variables.TokenVariablePath,Xareus.Scenarios],[System.Object,mscorlib]],mscorlib" name="elem0">
+            <param value="Power" type="Xareus.Scenarios.Variables.TokenVariablePath,Xareus.Scenarios" name="key" />
+            <param value="1" type="System.Single,mscorlib" name="value" />
+          </param>
+        </param>
+      </tokenInit>
+    </sequence>
+    <transition xsi:type="Decision" id="Decision_0" label="Decision_0">
+      <extendedInfo>
+        <unityEditor xmlns="">
+          <position x="400" y="200" />
+        </unityEditor>
+      </extendedInfo>
+      <event xsi:type="DecisionEvent" id="Decision_0" label="Decision_0">
+        <sensorCheck classname="Xareus.Scenarios.Unity.UI.ToggleValueSensor,Xareus.Unity.Libraries">
+          <param type="UnityEngine.UI.Toggle,UnityEngine.UI" name="Toggle">
+            <param value="c4bbdf80-085f-44cd-b5ca-20f9f4c370e6" type="System.Guid,mscorlib" name="UFID" />
+          </param>
+          <param value="Select" type="Xareus.Scenarios.Unity.UI.ToggleValueSensor+SelectMode,Xareus.Unity.Librairies" name="Validate On" />
+        </sensorCheck>
+        <sensorCheck classname="Xareus.Scenarios.Unity.UnityNumberSensor,Xareus.Unity.Libraries">
+          <param value="UnityEngine.UI.Slider,UnityEngine.UI" type="System.Type,mscorlib" name="Component Type" />
+          <param type="UnityEngine.Component,UnityEngine.CoreModule" name="Component">
+            <param value="4e05780a-2c5b-49e8-9d96-51c8f7dd8858" type="System.Guid,mscorlib" name="UFID" />
+          </param>
+          <param type="System.Reflection.MemberInfo,mscorlib" name="Member">
+            <param value="UnityEngine.UI.Slider,UnityEngine.UI" name="DeclaringType" />
+            <param value="value" name="MemberName" />
+          </param>
+          <param value="0" type="System.Single,mscorlib" name="operand2" />
+          <param value="GREATER_THAN" type="Xareus.Scenarios.Arithmetics.NumberSensor+ComparisonOperator,Xareus.Scenarios.Extra" name="operator" />
+          <param value="False" type="System.Boolean,mscorlib" name="Negate" />
+        </sensorCheck>
+      </event>
+      <upstreamSequence idref="Node_0" />
+      <downstreamSequence idref="Node_1" />
+      <downstreamSequence idref="Node_2" />
+      <trueDownstreamNode idref="Node_2" />
+      <falseDownstreamNode idref="Node_1" />
+    </transition>
+    <transition xsi:type="Decision" id="Decision_1" label="Slider Threshold">
+      <extendedInfo>
+        <unityEditor xmlns="">
+          <position x="500" y="400" />
+        </unityEditor>
+      </extendedInfo>
+      <event xsi:type="DecisionEvent" id="Decision_1" label="Slider Threshold">
+        <sensorCheck classname="Xareus.Scenarios.Unity.UnityNumberSensor,Xareus.Unity.Libraries">
+          <param value="UnityEngine.UI.Slider,UnityEngine.UI" type="System.Type,mscorlib" name="Component Type" />
+          <param type="UnityEngine.Component,UnityEngine.CoreModule" name="Component">
+            <param value="4e05780a-2c5b-49e8-9d96-51c8f7dd8858" type="System.Guid,mscorlib" name="UFID" />
+          </param>
+          <param type="System.Reflection.MemberInfo,mscorlib" name="Member">
+            <param value="UnityEngine.UI.Slider,UnityEngine.UI" name="DeclaringType" />
+            <param value="value" name="MemberName" />
+          </param>
+          <param value="0.5" type="System.Single,mscorlib" name="operand2" />
+          <param value="GREATER_THAN_OR_EQUAL_TO" type="Xareus.Scenarios.Arithmetics.NumberSensor+ComparisonOperator,Xareus.Scenarios.Extra" name="operator" />
+          <param value="False" type="System.Boolean,mscorlib" name="Negate" />
+        </sensorCheck>
+      </event>
+      <upstreamSequence idref="Node_2" />
+      <downstreamSequence idref="Node_3" />
+      <downstreamSequence idref="Node_5" />
+      <trueDownstreamNode idref="Node_5" />
+      <falseDownstreamNode idref="Node_3" />
+    </transition>
+  </sequence>
+</scenario>

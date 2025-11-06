@@ -1,0 +1,6 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../../../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <ui:VisualElement name="InspectorRoot" style="flex-grow: 1; margin-left: 5px; margin-right: 5px; margin-top: 5px; margin-bottom: 5px; padding-left: 1px; padding-right: 2px; flex-shrink: 0; flex-wrap: nowrap; align-items: stretch; width: auto; max-height: none; min-height: auto; height: auto;">
+        <ui:VisualElement name="InspectorElement" style="flex-grow: 1; flex-shrink: 0; align-items: stretch; flex-wrap: nowrap; max-height: none; min-height: auto; height: auto;" />
+        <ui:HelpBox message-type="Error" name="InspectorError" style="flex-grow: 0; display: none;" />
+    </ui:VisualElement>
+</ui:UXML>

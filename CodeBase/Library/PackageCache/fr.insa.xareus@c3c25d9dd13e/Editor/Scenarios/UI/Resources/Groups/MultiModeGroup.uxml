@@ -1,0 +1,7 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../../../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="True">
+    <ui:Box name="MultiMode" style="margin-left: 0; margin-right: 0; margin-top: 0; margin-bottom: 0; flex-grow: 1; flex-direction: row;">
+        <ui:VisualElement name="FieldContainer" style="flex-grow: 1; flex-shrink: 0; margin-right: 5px;" />
+        <ui:ButtonStripField name="ButtonStrip" style="flex-shrink: 1; margin-top: 0; margin-right: 0; margin-bottom: 0; margin-left: 0;" />
+        <ui:Button text="..." parse-escape-sequences="true" display-tooltip-when-elided="true" name="ContextMenuButton" />
+    </ui:Box>
+</ui:UXML>

@@ -1,0 +1,23 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../../../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <ui:VisualElement style="margin-top: 5px; margin-left: 5px; margin-right: 5px; margin-bottom: 5px;">
+        <ui:VisualElement name="FunctionSelectContainer">
+            <Xareus.Unity.Editor.Scenarios.UI.FunctionSelectionButton />
+        </ui:VisualElement>
+        <ui:VisualElement name="Deprecation">
+            <ui:HelpBox message-type="Warning" text="Deprecated" name="Deprecated" />
+            <ui:Button text="Convert to " name="Convert" />
+        </ui:VisualElement>
+        <ui:Foldout text="Description" name="DescriptionFoldout" value="false">
+            <ui:TextField picking-mode="Ignore" value="Description" readonly="true" name="Description" multiline="true" focusable="false" style="flex-wrap: wrap; white-space: normal; max-width: none; min-width: auto; max-height: none; min-height: auto;" />
+        </ui:Foldout>
+        <ui:Box style="padding-left: 5px; margin-left: 4px; margin-right: 4px;">
+            <ui:RadioButtonGroup value="-1" name="EditBoxChoices" choices="test 1, test 2" label="Edition Mode" />
+            <ui:VisualElement name="EditBox" style="flex-grow: 1;" />
+            <ui:IMGUIContainer name="FunctionFields" style="margin-left: 4px;" />
+        </ui:Box>
+        <ui:HelpBox message-type="Info" text="Please select a " name="Select" />
+        <ui:HelpBox message-type="Warning" text="Please fill all required fields (*)" name="UnproperlyFilled" />
+        <ui:Toggle label="Debug Mode" name="Debug" />
+        <ui:IMGUIContainer name="DebugView" style="margin-left: 4px;" />
+    </ui:VisualElement>
+</ui:UXML>

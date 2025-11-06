@@ -1,0 +1,54 @@
+{
+    "name": "Xareus.Unity.Libraries.Input",
+    "rootNamespace": "Xareus.Scenarios.Input",
+    "references": [
+        "GUID:06af67f13793d6540b7b5526694d3911",
+        "GUID:7574f799cb23da74186b36e79dc5f290",
+        "GUID:86d2e0d128305fc4ca00f7e4c0484200",
+        "GUID:42384a7a624be2843b9789b02bdcc076",
+        "GUID:a90e426ff65856f4489dc931c5b61ba6",
+        "GUID:4075ddd3fd0d6494e8c2b1c6385c7452",
+        "GUID:c4915fa8d86165343b736d30bc255bec",
+        "GUID:75469ad4d38634e559750d17036d5f7c"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [
+        {
+            "name": "com.hybrid.middlevr",
+            "expression": "1.7.3",
+            "define": "MIDDLEVR"
+        },
+        {
+            "name": "com.hybrid.middlevr",
+            "expression": "2.0.0",
+            "define": "MIDDLEVR2"
+        },
+        {
+            "name": "com.hybrid.middlevr",
+            "expression": "2.1.0",
+            "define": "MIDDLEVR2_1"
+        },
+        {
+            "name": "com.hybrid.vrtools",
+            "expression": "1.0.0",
+            "define": "VRTOOLS"
+        },
+        {
+            "name": "com.unity.inputsystem",
+            "expression": "0.2",
+            "define": "INPUT_SYSTEM_0_2_0"
+        },
+        {
+            "name": "com.unity.inputsystem",
+            "expression": "0",
+            "define": "INPUT_SYSTEM"
+        }
+    ],
+    "noEngineReferences": false
+}

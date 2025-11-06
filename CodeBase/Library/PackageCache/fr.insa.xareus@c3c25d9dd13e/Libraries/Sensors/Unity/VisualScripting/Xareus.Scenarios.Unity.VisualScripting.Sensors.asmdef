@@ -1,0 +1,26 @@
+{
+    "name": "Xareus.Scenarios.Unity.VisualScripting.Sensors",
+    "rootNamespace": "Xareus.Scenarios.Unity.VisualScripting",
+    "references": [
+        "GUID:4075ddd3fd0d6494e8c2b1c6385c7452",
+        "GUID:94b17ce9ede5c074f97a6305a1560f61",
+        "GUID:c4915fa8d86165343b736d30bc255bec",
+        "GUID:21b0c8d1703a94250bfac916590cea4f",
+        "GUID:ea715009a4efd4c6cbc85be3ae097dd3"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [
+        {
+            "name": "com.unity.visualscripting",
+            "expression": "1.9.0",
+            "define": "VISUAL_SCRIPTING"
+        }
+    ],
+    "noEngineReferences": false
+}
