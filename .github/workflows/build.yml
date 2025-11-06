@@ -17,3 +17,9 @@ jobs:
         uses: SonarSource/sonarqube-scan-action@v6
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+            with:
+                args: >
+                  -Dsonar.projectKey=djedje-cyber_UltraInstinctVR
+                  -Dsonar.organization=djedje-cyber
+                  -Dsonar.sources=Assets
+                  -Dsonar.exclusions=Library/**,Temp/**,Build/**,Builds/*
