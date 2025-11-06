@@ -1,9 +1,10 @@
-using Xareus.Scenarios.Context;
-using Xareus.Scenarios.Utilities;
-using Xareus.Scenarios.Unity;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.XR.Interaction.Toolkit;
+using UnityEngine.XR.Interaction.Toolkit.Interactables;
+using Xareus.Scenarios.Context;
+using Xareus.Scenarios.Unity;
+using Xareus.Scenarios.Utilities;
 
 [FunctionDescription("Effector to move an object to origin and manage its selection")]
 public class MoveObjectToOriginEffector : AUnityEffector
@@ -29,88 +30,128 @@ public class MoveObjectToOriginEffector : AUnityEffector
 
     public override void SafeReset()
     {
-        // Optionally reset something if needed
+        // Optionally reset state if needed
     }
 
     public override void SafeEffectorUpdate()
     {
         Debug.Log("ORACLE MoveObjectToOrigin - TestGenerated");
 
-
-        if (virtualHand == null)
-        {
-            Debug.LogError(" ORACLE MoveObjectToOrigin - TestFailed - virtualHand is not assigned!");
+        if (!ValidateVirtualHand())
             return;
-        }
 
-        if (!virtualHand.TryGetComponent(out interactor))
-        {
-            Debug.LogError("ORACLE MoveObjectToOrigin - TestFailed - XRDirectInteractor component missing on virtualHand!");
-            return;
-        }
-
-        if (!virtualHand.TryGetComponent(out interactionManager))
-        {
-            Debug.LogError("ORACLE MoveObjectToOrigin - TestFailed - XRInteractionManager component missing on virtualHand!");
-            return;
-        }
-
-        // Récupérer tous les objets interactables SAUF le virtualHand
-        var interactables = Object.FindObjectsOfType<UnityEngine.XR.Interaction.Toolkit.Interactables.XRGrabInteractable>();
+        var interactables = GetAllInteractablesExceptVirtualHand();
         bool movedAnyObject = false;
-
-
 
         foreach (var interactable in interactables)
         {
-
-
-            if (interactable.gameObject == virtualHand)
-                continue; // On ignore le virtualHand lui-même
-
-            // Vérifier si l'objet est déjà sélectionné (ajouter un contrôle pour éviter plusieurs sélections)
-            if (interactable.isSelected)
+            if (TryMoveInteractableToOrigin(interactable))
             {
-                continue;  // Si l'objet est déjà sélectionné, on passe à l'objet suivant
-            }
-
-            // Sélectionner et déplacer l'objet (uniquement si non sélectionné)
-            interactionManager.SelectEnter((UnityEngine.XR.Interaction.Toolkit.Interactors.IXRSelectInteractor)interactor, 
-                                           (UnityEngine.XR.Interaction.Toolkit.Interactables.IXRSelectInteractable)interactable);
-            interactor.StartManualInteraction((UnityEngine.XR.Interaction.Toolkit.Interactables.IXRSelectInteractable)interactable);
-
-
-            // Déplacement de l'objet à l'origine
-            interactable.transform.position = Vector3.zero;
-
-            // Vérification du déplacement
-            if (Vector3.Distance(interactable.transform.position, Vector3.zero) < 0.01f)
-            {
-                Debug.Log($" ORACLE MoveObjectToOrigin - TestPassed - {interactable.name} a été déplacé à l'origine.");
                 movedAnyObject = true;
-            }
-            else
-            {
-                Debug.LogError($" ORACLE MoveObjectToOrigin - TestFailed - {interactable.name} n'a pas bougé !");
-            }
-
-            // Désélectionner après déplacement
-            if (interactor.hasSelection && interactable.isSelected)
-            {
-                interactor.EndManualInteraction();
-                interactionManager.SelectExit((UnityEngine.XR.Interaction.Toolkit.Interactors.IXRSelectInteractor)interactor, 
-                                              (UnityEngine.XR.Interaction.Toolkit.Interactables.IXRSelectInteractable)interactable);
-               
-            }
-            else
-            {
-                Debug.LogError($" ORACLE MoveObjectToOrigin - TestFailed - {interactable.name} n'était pas sélectionné.");
             }
         }
 
         if (!movedAnyObject)
         {
-            Debug.LogError("ORACLE MoveObjectToOrigin - TestFailed - Aucun objet n'a été déplacé !");
+            Debug.LogError("ORACLE MoveObjectToOrigin - TestFailed - No object was moved!");
         }
     }
+
+    #region Helper Methods
+
+    private bool ValidateVirtualHand()
+    {
+        if (virtualHand == null)
+        {
+            Debug.LogError("ORACLE MoveObjectToOrigin - TestFailed - virtualHand is not assigned!");
+            return false;
+        }
+
+        if (!virtualHand.TryGetComponent(out interactor))
+        {
+            Debug.LogError("ORACLE MoveObjectToOrigin - TestFailed - XRDirectInteractor component missing on virtualHand!");
+            return false;
+        }
+
+        if (!virtualHand.TryGetComponent(out interactionManager))
+        {
+            Debug.LogError("ORACLE MoveObjectToOrigin - TestFailed - XRInteractionManager component missing on virtualHand!");
+            return false;
+        }
+
+        return true;
+    }
+
+    private IEnumerable<XRGrabInteractable> GetAllInteractablesExceptVirtualHand()
+    {
+        foreach (var interactable in Object.FindObjectsOfType<XRGrabInteractable>())
+        {
+            if (interactable.gameObject != virtualHand && !interactable.isSelected)
+            {
+                yield return interactable;
+            }
+        }
+    }
+
+    private bool TryMoveInteractableToOrigin(XRGrabInteractable interactable)
+    {
+        try
+        {
+            SelectInteractable(interactable);
+            MoveInteractable(interactable);
+
+            if (VerifyMovement(interactable))
+            {
+                DeselectInteractable(interactable);
+                return true;
+            }
+
+            DeselectInteractable(interactable);
+            return false;
+        }
+        catch (System.Exception ex)
+        {
+            Debug.LogError($"ORACLE MoveObjectToOrigin - TestFailed - {interactable.name}: {ex.Message}");
+            return false;
+        }
+    }
+
+    private void SelectInteractable(XRGrabInteractable interactable)
+    {
+        interactionManager.SelectEnter(interactor, interactable);
+        interactor.StartManualInteraction(interactable);
+    }
+
+    private void MoveInteractable(XRGrabInteractable interactable)
+    {
+        interactable.transform.position = Vector3.zero;
+    }
+
+    private bool VerifyMovement(XRGrabInteractable interactable)
+    {
+        if (Vector3.Distance(interactable.transform.position, Vector3.zero) < 0.01f)
+        {
+            Debug.Log($"ORACLE MoveObjectToOrigin - TestPassed - {interactable.name} was moved to the origin.");
+            return true;
+        }
+
+        Debug.LogError($"ORACLE MoveObjectToOrigin - TestFailed - {interactable.name} did not move!");
+        return false;
+    }
+
+    private void DeselectInteractable(XRGrabInteractable interactable)
+    {
+        if (interactor.hasSelection && interactable.isSelected)
+        {
+            interactor.EndManualInteraction();
+            interactionManager.SelectExit(interactor, interactable);
+        }
+        else
+        {
+            Debug.LogError($"ORACLE MoveObjectToOrigin - TestFailed - {interactable.name} was not selected.");
+        }
+    }
+
+    #endregion
+
 }
