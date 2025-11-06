@@ -1,0 +1,6 @@
+ERROR_NUMBER, ERROR, TIMESTAMP (s)
+1, "ORACLE OutsideSceneTeleportation - TestFailed - A player cannot teleport outside the scene at position: (3105468.00  1.57  299996.60)", 0,09
+2, "ORACLE OutsideSceneTeleportation - TestFailed - A player cannot teleport outside the scene at position: (-2972796.00  1.57  754399.10)", 1,00
+3, "ORACLE OutsideSceneTeleportation - TestFailed - A player cannot teleport outside the scene at position: (-2058916.00  1.57  2518383.00)", 2,01
+4, "ORACLE OutsideSceneTeleportation - TestFailed - A player cannot teleport outside the scene at position: (1296848.00  1.57  2775121.00)", 3,01
+5, "ORACLE OutsideSceneTeleportation - TestFailed - A player cannot teleport outside the scene at position: (1414911.00  1.57  369395.90)", 4,00

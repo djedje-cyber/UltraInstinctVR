@@ -1,0 +1,53 @@
+####################################
+### Unity generated folders/files ###
+####################################
+
+# Unity build folders
+Library/
+Temp/
+Obj/
+Build/
+Builds/
+UserSettings/
+Logs/
+
+# Ensure Cache & GI data isn't tracked
+MemoryCaptures/
+Assets/Plugins/Editor/JetBrains*
+AssetStoreTools*
+
+# Visual Studio / JetBrains Rider
+.vs/
+*.csproj
+*.sln
+*.user
+*.unityproj
+*.pidb
+*.svd
+*.pdb
+*.mdb
+
+# IDE metadata
+.idea/
+*.userprefs
+
+# Auto-generated
+ExportedObj/
+*.booproj
+*.svd
+*.pidb
+*.suo
+*.tmp
+*.log
+*.bak
+*.swp
+.DS_Store
+
+# Crash reports
+sysinfo.txt
+
+# Unity Cloud build
+UnityCloudBuild/
+
+# Addressables auto files
+[Aa]ssets/[Ss]treamingAssets/Unity_*
