@@ -1,7 +1,0 @@
-<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../../../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
-    <ui:Box name="DecorationBox" style="margin-left: 2px; margin-right: 2px; margin-top: 5px; margin-bottom: 5px;">
-        <ui:Foldout text="Decorations">
-            <ui:ListView focusable="true" reorderable="true" show-add-remove-footer="true" selection-type="Single" show-alternating-row-backgrounds="All" virtualization-method="DynamicHeight" show-bound-collection-size="false" name="DecorationData" reorder-mode="Animated" style="margin-right: 5px;" />
-        </ui:Foldout>
-    </ui:Box>
-</ui:UXML>

@@ -1,5 +1,0 @@
-<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../../../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
-    <ui:VisualElement style="flex-direction: row; flex-grow: 1; flex-shrink: 0;">
-        <ui:Button text="Select Type" name="TypeButton" style="flex-shrink: 1; right: 0; height: 20px; flex-grow: 1;" />
-    </ui:VisualElement>
-</ui:UXML>

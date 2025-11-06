@@ -1,6 +1,0 @@
-<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
-    <ui:VisualElement style="flex-grow: 1; height: 21px; max-height: 21px; flex-direction: row; justify-content: space-between;">
-        <uie:ToolbarToggle focusable="false" text="Button Text" name="Button" style="flex-grow: 1; border-right-width: 0;" />
-        <uie:ToolbarButton text="X" name="Close" style="border-left-width: 0; border-right-width: 1px; position: relative; left: auto; right: auto; top: auto; flex-direction: row; justify-content: flex-end; flex-grow: 0; height: 20px; max-height: 20px; padding-left: 4px; margin-left: -1px; -unity-text-align: middle-left; padding-top: 0;" />
-    </ui:VisualElement>
-</ui:UXML>

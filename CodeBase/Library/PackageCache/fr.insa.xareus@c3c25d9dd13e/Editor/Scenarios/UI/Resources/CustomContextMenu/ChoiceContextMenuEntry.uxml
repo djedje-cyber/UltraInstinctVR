@@ -1,5 +1,0 @@
-<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="True">
-    <ui:GroupBox style="flex-direction: row; align-self: auto; align-items: center; padding-bottom: 2px; padding-top: 2px; margin-top: 2px; flex-shrink: 0; min-width: auto; flex-wrap: wrap; min-height: 25px;">
-        <ui:ButtonStripField name="ButtonStrip" style="flex-shrink: 1; margin-top: 0; margin-right: 0; margin-bottom: 0; margin-left: 0;" />
-    </ui:GroupBox>
-</ui:UXML>

@@ -1,7 +1,0 @@
-<linker>
-  <assembly fullname="Xareus.Unity.Libraries" preserve="all" />
-  <assembly fullname="Xareus.Unity.Libraries.Input" preserve="all" />
-  <assembly fullname="Xareus.Scenarios.Unity.VisualScripting.Utils" preserve="all" />
-  <assembly fullname="Xareus.Scenarios.Unity.VisualScripting.Sensors" preserve="all" />
-  <assembly fullname="Xareus.Scenarios.Unity.VisualScripting.Effectors" preserve="all" />
-</linker>

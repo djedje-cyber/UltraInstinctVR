@@ -1,7 +1,0 @@
-<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../../../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
-    <ui:GroupBox style="flex-grow: 1;">
-        <Xareus.Unity.Editor.Scenarios.UI.Fields.DownstreamSequenceListField name="SequenceList" label="Downstream" tooltip="The downstream sequences the variable will be set to" style="flex-grow: 0;" />
-        <Xareus.Unity.Editor.Scenarios.UI.Fields.TokenVariablePathField name="VariablePath" label="Variable" tooltip="Select the variable that will be set in the downstream sequences" />
-        <Xareus.Unity.Editor.Scenarios.UI.Fields.AdaptiveField name="Value" label="Value" tooltip="The value to set in the downstream sequences" />
-    </ui:GroupBox>
-</ui:UXML>

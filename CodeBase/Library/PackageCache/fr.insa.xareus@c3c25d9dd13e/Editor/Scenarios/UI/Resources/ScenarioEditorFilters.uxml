@@ -1,7 +1,0 @@
-<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="True">
-    <ui:GroupBox text="Filters" name="Filters">
-        <ui:GroupBox text="Filtered Functions" name="FilteredFunctions" class="unity-box" style="min-height: 5px; margin-left: 5px; margin-top: 8px;">
-            <ui:ListView focusable="true" name="FiltersList" show-alternating-row-backgrounds="All" show-border="false" show-add-remove-footer="true" reorderable="false" virtualization-method="FixedHeight" fixed-item-height="20" show-foldout-header="false" show-bound-collection-size="false" horizontal-scrolling="false" style="padding-left: 5px; padding-right: 5px; padding-top: 5px; padding-bottom: 5px;" />
-        </ui:GroupBox>
-    </ui:GroupBox>
-</ui:UXML>

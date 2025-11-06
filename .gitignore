@@ -3,13 +3,13 @@
 ####################################
 
 # Unity build folders
-Library/
-Temp/
-Obj/
-Build/
-Builds/
-UserSettings/
-Logs/
+CodeBase/Library/
+CodeBase/Temp/
+CodeBase/Obj/
+CodeBase/Build/
+CodeBase/Builds/
+CodeBase/UserSettings/
+CodeBase/Logs/
 
 # Ensure Cache & GI data isn't tracked
 MemoryCaptures/

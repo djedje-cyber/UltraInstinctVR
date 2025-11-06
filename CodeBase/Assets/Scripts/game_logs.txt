@@ -1,72 +1,36 @@
 
 === Nouvelle Session ===
-[06-11-25 10:39:46] Log: Scenario files used in the scene SampleScene and added to the build: 
+[06-11-25 11:16:00] Log: Scenario files used in the scene SampleScene and added to the build: 
 Assets/Oracle_InObjectScene.xml
 Assets/Oracle_Colission.xml
 Assets/Oracle_MoveObjectToOrigin.xml
 Assets/Oracle_Teleportation.xml
 Assets/Oracle_OutSceneTeleportation.xml
 Assets/Oracle_Selection.xml
-[06-11-25 10:39:46] Log: [UnitySingleton] An instance of InriaTools.UnityThreadExecute is needed in the scene, so '(singleton) InriaTools.UnityThreadExecute (UnityEngine.GameObject)' was created with DontDestroyOnLoad.
-[06-11-25 10:39:46] Log: UFSevenNetworkManager will parse the command line connect to the specified remote server
+[06-11-25 11:16:00] Log: [UnitySingleton] An instance of InriaTools.UnityThreadExecute is needed in the scene, so '(singleton) InriaTools.UnityThreadExecute (UnityEngine.GameObject)' was created with DontDestroyOnLoad.
+[06-11-25 11:16:00] Log: UFSevenNetworkManager will parse the command line connect to the specified remote server
 	 Use --sevenserverremoteadress (or -ssra) "address[:remoteport]" to connect to the given remote server (default remoteport : 7777)
-[06-11-25 10:39:46] Log: 🚀 Initialisation of the test suite
-[06-11-25 10:39:46] Log: 📢 StartNextChild() appelé - Index actuel : 0
-[06-11-25 10:39:47] Log: ▶ Activation de Broly
-[06-11-25 10:39:47] Log: 🎬 Broly initialised !
-[06-11-25 10:39:47] Log: ➡ Broly begins his interaction !
-[06-11-25 10:39:47] Log: Positions read from file: 10
-[06-11-25 10:39:47] Log: [UnitySingleton] An instance of InriaTools.SeparateThread is needed in the scene, so '(singleton) InriaTools.SeparateThread (UnityEngine.GameObject)' was created with DontDestroyOnLoad.
-[06-11-25 10:39:47] Warning: Hand Tracking Subsystem not found or not running, can't subscribe to hand tracking status. Enable that feature in the OpenXR project settings and ensure OpenXR is enabled as the plug-in provider. This component will reattempt getting a reference to the subsystem each frame.
-[06-11-25 10:39:47] Log: Cube position: (2.51, 1.40, -2.98)
-[06-11-25 10:39:50] Log: TestGenerated - CollisionDetection
-[06-11-25 10:39:50] Log: ORACLE CollisionDetection - TestPassed - Collision successfully done with Arch_Interactable at: (2.49, 0.71, -2.13)
-[06-11-25 10:39:50] Log: Cube position: (2.49, 0.71, -2.13)
-[06-11-25 10:39:52] Log: TestGenerated - CollisionDetection
-[06-11-25 10:39:52] Error: ORACLE CollisionDetection - TestFailed - No valid collision detected at: (2.50, 1.60, -2.98)
-UnityEngine.Debug:LogError (object)
-CollisionEffector:DetectCollision () (at Assets/Scripts/Effector/CollisionEffector.cs:57)
-CollisionEffector:SafeEffectorUpdate () (at Assets/Scripts/Effector/CollisionEffector.cs:31)
-Xareus.Scenarios.Unity.AUnityEffector:<EffectorUpdate>b__5_0 ()
-InriaTools.UnityThreadExecute:InvokeActionForNextExecutionStepsAndWait (System.Action,InriaTools.UnityThreadExecute/UnityExecutionStep,int) (at ./Library/PackageCache/fr.inria.unity.tools@05e07d878e04/Scripts/UnityThreadExecute.cs:182)
-Xareus.Scenarios.Unity.AUnityEffector:EffectorUpdate ()
-Xareus.Scenarios.Event:ApplyEffect (Xareus.Scenarios.Context.IContext,Xareus.Scenarios.Context.IContext)
-Xareus.Scenarios.Transition:FireTransition ()
-Xareus.Scenarios.ComplexSequence:StartFireTransition (Xareus.Scenarios.Transition)
-Xareus.Scenarios.ComplexSequence:Advance (bool)
-Xareus.Scenarios.Scenario:NextStep (bool)
-Xareus.Scenarios.Unity.AUnitySensor:UpdateScenario ()
-Xareus.Scenarios.Unity.AInUnityStepSensor:InternalUpdate ()
-InriaTools.UnityThreadExecute:InvokeActions (InriaTools.UnityThreadExecute/UnityExecutionStep) (at ./Library/PackageCache/fr.inria.unity.tools@05e07d878e04/Scripts/UnityThreadExecute.cs:344)
-InriaTools.UnityThreadExecute:Update () (at ./Library/PackageCache/fr.inria.unity.tools@05e07d878e04/Scripts/UnityThreadExecute.cs:364)
-
-[06-11-25 10:39:52] Log: Cube position: (2.50, 1.60, -2.98)
-[06-11-25 10:39:54] Log: TestGenerated - CollisionDetection
-[06-11-25 10:39:54] Log: ORACLE CollisionDetection - TestPassed - Collision successfully done with Sphere_COL at: (3.25, 2.81, 0.50)
-[06-11-25 10:39:54] Log: Cube position: (3.25, 2.81, 0.50)
-[06-11-25 10:39:56] Log: TestGenerated - CollisionDetection
-[06-11-25 10:39:56] Error: ORACLE CollisionDetection - TestFailed - No valid collision detected at: (2.15, 1.16, -2.98)
-UnityEngine.Debug:LogError (object)
-CollisionEffector:DetectCollision () (at Assets/Scripts/Effector/CollisionEffector.cs:57)
-CollisionEffector:SafeEffectorUpdate () (at Assets/Scripts/Effector/CollisionEffector.cs:31)
-Xareus.Scenarios.Unity.AUnityEffector:<EffectorUpdate>b__5_0 ()
-InriaTools.UnityThreadExecute:InvokeActionForNextExecutionStepsAndWait (System.Action,InriaTools.UnityThreadExecute/UnityExecutionStep,int) (at ./Library/PackageCache/fr.inria.unity.tools@05e07d878e04/Scripts/UnityThreadExecute.cs:182)
-Xareus.Scenarios.Unity.AUnityEffector:EffectorUpdate ()
-Xareus.Scenarios.Event:ApplyEffect (Xareus.Scenarios.Context.IContext,Xareus.Scenarios.Context.IContext)
-Xareus.Scenarios.Transition:FireTransition ()
-Xareus.Scenarios.ComplexSequence:StartFireTransition (Xareus.Scenarios.Transition)
-Xareus.Scenarios.ComplexSequence:Advance (bool)
-Xareus.Scenarios.Scenario:NextStep (bool)
-Xareus.Scenarios.Unity.AUnitySensor:UpdateScenario ()
-Xareus.Scenarios.Unity.AInUnityStepSensor:InternalUpdate ()
-InriaTools.UnityThreadExecute:InvokeActions (InriaTools.UnityThreadExecute/UnityExecutionStep) (at ./Library/PackageCache/fr.inria.unity.tools@05e07d878e04/Scripts/UnityThreadExecute.cs:344)
-InriaTools.UnityThreadExecute:Update () (at ./Library/PackageCache/fr.inria.unity.tools@05e07d878e04/Scripts/UnityThreadExecute.cs:364)
-
-[06-11-25 10:39:56] Log: Cube position: (2.15, 1.16, -2.98)
-[06-11-25 10:39:58] Log: ✅ Broly has terminated his execution !
-[06-11-25 10:39:58] Log: ⏹ Broly terminé ! - Passage à l'enfant suivant.
-[06-11-25 10:39:58] Log: ✅ Test Suite terminated !
-[06-11-25 10:39:58] Log: ACTION_DONE
-[06-11-25 10:39:58] Log: TestGenerated - CollisionDetection
-[06-11-25 10:39:58] Log: ORACLE CollisionDetection - TestPassed - Collision successfully done with Blaster_COL at: (2.61, 0.95, -0.16)
-[06-11-25 10:39:58] Log: Cube position: (2.61, 0.95, -0.16)
+[06-11-25 11:16:00] Log: 🚀 Initialisation of the test suite
+[06-11-25 11:16:00] Log: 📢 StartNextChild() appelé - Index actuel : 0
+[06-11-25 11:16:00] Warning: There are multiple active and enabled XR Interaction Manager components in the loaded scenes. This is supported, but may not be intended since interactors and interactables are not able to interact with those registered to a different manager. You can use the <b>Window</b> > <b>Analysis</b> > <b>XR Interaction Debugger</b> window to verify the interactors and interactables registered with each. The default manager that interactors and interactables automatically register with when None is: <b>SampleScene</b>/XRInteractionManager
+[06-11-25 11:16:01] Log: ▶ Activation de Vegeta
+[06-11-25 11:16:01] Log: 🎬 Vegeta initialised !
+[06-11-25 11:16:01] Log: ➡ Vegeta begins his interaction !
+[06-11-25 11:16:01] Log: 🚀 Téléportation of the player
+[06-11-25 11:16:01] Log: Trying to teleport at : (5.79, 0.28, 4.31)
+[06-11-25 11:16:01] Log: [UnitySingleton] An instance of InriaTools.SeparateThread is needed in the scene, so '(singleton) InriaTools.SeparateThread (UnityEngine.GameObject)' was created with DontDestroyOnLoad.
+[06-11-25 11:16:01] Warning: Hand Tracking Subsystem not found or not running, can't subscribe to hand tracking status. Enable that feature in the OpenXR project settings and ensure OpenXR is enabled as the plug-in provider. This component will reattempt getting a reference to the subsystem each frame.
+[06-11-25 11:16:01] Log: Cube position: (5.79, 0.28, 4.31)
+[06-11-25 11:16:02] Log: Trying to teleport at : (-1.80, 0.28, 6.31)
+[06-11-25 11:16:02] Log: ORACLE MoveObjectToOrigin - TestGenerated
+[06-11-25 11:16:02] Log: ORACLE MoveObjectToOrigin - TestPassed - Cube Interactable was moved to the origin.
+[06-11-25 11:16:02] Log: ORACLE MoveObjectToOrigin - TestPassed - Arch_Interactable was moved to the origin.
+[06-11-25 11:16:02] Log: ORACLE MoveObjectToOrigin - TestPassed - Tapered Interactable was moved to the origin.
+[06-11-25 11:16:02] Log: ORACLE MoveObjectToOrigin - TestPassed - Sphere Interactable was moved to the origin.
+[06-11-25 11:16:02] Log: ORACLE MoveObjectToOrigin - TestPassed - Cylinder Interactable was moved to the origin.
+[06-11-25 11:16:02] Log: ORACLE MoveObjectToOrigin - TestPassed - Blaster was moved to the origin.
+[06-11-25 11:16:02] Log: ORACLE MoveObjectToOrigin - TestPassed - Torus Interactable was moved to the origin.
+[06-11-25 11:16:02] Log: ORACLE MoveObjectToOrigin - TestPassed - Tapered Interactable was moved to the origin.
+[06-11-25 11:16:02] Log: ORACLE MoveObjectToOrigin - TestPassed - Spatial Panel Manipulator Model was moved to the origin.
+[06-11-25 11:16:02] Log: ORACLE MoveObjectToOrigin - TestPassed - Spatial Panel Manipulator UI Examples was moved to the origin.
+[06-11-25 11:16:02] Log: Cube position: (-1.80, 0.28, 6.31)

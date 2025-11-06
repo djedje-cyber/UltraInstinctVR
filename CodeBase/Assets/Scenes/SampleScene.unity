@@ -1706,7 +1706,7 @@ PrefabInstance:
     - target: {fileID: 5966853726598549314, guid: 215c413031aef414895775e307868878, type: 3}
       propertyPath: 'childrenPrefabs.Array.data[0]'
       value: 
-      objectReference: {fileID: 217447824}
+      objectReference: {fileID: 217447823}
     - target: {fileID: 5966853726598549314, guid: 215c413031aef414895775e307868878, type: 3}
       propertyPath: 'childrenPrefabs.Array.data[1]'
       value: 

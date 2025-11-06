@@ -1,6 +1,0 @@
-<engine:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:engine="UnityEngine.UIElements" xmlns:editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../../../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
-    <engine:VisualElement style="flex-grow: 1; flex-direction: row; justify-content: space-between; border-top-width: 1px; border-bottom-width: 1px;">
-        <engine:Label text="Label" style="flex-grow: 1; margin-top: 2px; padding-top: 2px; margin-left: 4px;" />
-        <engine:VisualElement name="Arrow" style="flex-grow: 0; background-image: url(&quot;project://database/Packages/fr.insa.xareus/Editor/Scenarios/UI/DefaultTheme.tss?fileID=-4521532143779581420&amp;guid=9d9e6f0d1e692cc44b901946736fa0b4&amp;type=3#arrow-right&quot;); flex-shrink: 0; height: 25px; width: 25px; background-position-y: center 0; align-content: flex-start; margin-top: -1px;" />
-    </engine:VisualElement>
-</engine:UXML>
