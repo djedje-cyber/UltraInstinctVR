@@ -118,8 +118,14 @@ public class MoveObjectToOriginEffector : AUnityEffector
 
     private void SelectInteractable(XRGrabInteractable interactable)
     {
-        interactionManager.SelectEnter(interactor, interactable);
-        interactor.StartManualInteraction(interactable);
+        interactionManager.SelectEnter(
+            (UnityEngine.XR.Interaction.Toolkit.Interactors.IXRSelectInteractor)interactor,
+            (UnityEngine.XR.Interaction.Toolkit.Interactables.IXRSelectInteractable)interactable
+        );
+
+        interactor.StartManualInteraction(
+            (UnityEngine.XR.Interaction.Toolkit.Interactables.IXRSelectInteractable)interactable
+        );
     }
 
     private void MoveInteractable(XRGrabInteractable interactable)
@@ -143,8 +149,14 @@ public class MoveObjectToOriginEffector : AUnityEffector
     {
         if (interactor.hasSelection && interactable.isSelected)
         {
-            interactor.EndManualInteraction();
-            interactionManager.SelectExit(interactor, interactable);
+            interactionManager.SelectEnter(
+                (UnityEngine.XR.Interaction.Toolkit.Interactors.IXRSelectInteractor)interactor,
+                (UnityEngine.XR.Interaction.Toolkit.Interactables.IXRSelectInteractable)interactable
+            );
+
+            interactor.StartManualInteraction(
+                (UnityEngine.XR.Interaction.Toolkit.Interactables.IXRSelectInteractable)interactable
+            );
         }
         else
         {
