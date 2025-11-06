@@ -23,3 +23,5 @@ jobs:
             -Dsonar.organization=djedje-cyber
             -Dsonar.sources=CodeBase/Assets
             -Dsonar.exclusions=Library/**,Temp/**,Build/**,Builds/*
+            -Dsonar.language=cs
+
