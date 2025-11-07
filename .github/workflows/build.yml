@@ -1,4 +1,4 @@
-name: Unity C# SonarCloud Analysis
+name: SonarCloud Scan
 
 on:
   push:
@@ -8,34 +8,33 @@ on:
 
 jobs:
   sonarcloud:
-    name: SonarCloud Analysis
     runs-on: windows-latest
-
     steps:
       - name: Checkout repository
         uses: actions/checkout@v3
 
-      - name: Setup .NET SDK
-        uses: actions/setup-dotnet@v3
+      - name: Setup Java
+        uses: actions/setup-java@v3
         with:
-          dotnet-version: '7.0.x'
+          distribution: 'temurin'
+          java-version: '17'
 
-      - name: Setup SonarCloud
-        uses: SonarSource/sonarcloud-github-action@master
-        with:
-          organization: djedje-cyber
-          projectKey: djedje-cyber_UltraInstinctVR
-          token: ${{ secrets.SONAR_TOKEN }}
-
-      - name: Install NuGet (if needed)
-        run: dotnet restore
-
-      - name: Fake Build C# projects
+      - name: Install SonarScanner CLI
         run: |
-          Get-ChildItem -Path CodeBase -Filter *.csproj -Recurse | ForEach-Object {
-            dotnet msbuild $_.FullName /t:Build /p:SkipCompilerExecution=true
-          }
+          mkdir "%RUNNER_TEMP%\sonarscanner"
+          cd "%RUNNER_TEMP%\sonarscanner"
+          curl -Lo sonar-scanner.zip https://binaries.sonarsource.com/Distribution/sonar-scanner-cli/sonar-scanner-cli-7.2.0.5079-windows-x64.zip
+          tar -xf sonar-scanner.zip
+          echo "%RUNNER_TEMP%\sonarscanner\sonar-scanner-7.2.0.5079-windows-x64\bin" >> $Env:GITHUB_PATH
 
-      - name: Run SonarCloud Scanner
+      - name: Run SonarScanner
+        env:
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
         run: |
-          dotnet sonarscanner end /d:sonar.login="${{ secrets.SONAR_TOKEN }}"
+          sonar-scanner.bat ^
+            -Dsonar.projectKey=djedje-cyber_UltraInstinctVR ^
+            -Dsonar.organization=djedje-cyber ^
+            -Dsonar.sources=CodeBase/Assets ^
+            -Dsonar.exclusions=Library/**,Temp/**,Build/**,Builds/** ^
+            -Dsonar.host.url=https://sonarcloud.io ^
+            -Dsonar.login=%SONAR_TOKEN%
