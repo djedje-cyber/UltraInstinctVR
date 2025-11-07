@@ -30,6 +30,8 @@ jobs:
           extraProperties: |
             sonar.exclusions=Library/**,Temp/**,Build/**,Builds/**
             sonar.cs.opencover.reportsPaths=**/coverage.opencover.xml
+        env:
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
 
       # 4. Build the C# solution (required for analysis)
       - name: Build C# Solution
