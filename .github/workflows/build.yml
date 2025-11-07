@@ -1,0 +1,29 @@
+name: SonarCloud Unity C# Source-Only Analysis
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+
+jobs:
+  sonar-analysis:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Install SonarScanner CLI
+        run: |
+          wget https://binaries.sonarsource.com/Distribution/sonar-scanner-cli/sonar-scanner-cli-4.9.3.72796-linux.zip
+          unzip sonar-scanner-cli-4.9.3.72796-linux.zip
+          export PATH="$PATH:$PWD/sonar-scanner-4.9.3.72796-linux/bin"
+
+      - name: Run SonarCloud Generic Scanner
+        run: |
+          sonar-scanner \
+            -Dsonar.projectKey=djedje-cyber_UltraInstinctVR \
+            -Dsonar.organization=djedje-cyber \
+            -Dsonar.sources=CodeBase/Assets,CodeBase/Packages \
+            -Dsonar.host.url=https://sonarcloud.io \
+            -Dsonar.login=${{ secrets.SONAR_TOKEN }} \
+            -Dsonar.exclusions=Library/**,Temp/**,Build/**,Builds/**
