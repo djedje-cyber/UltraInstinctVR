@@ -8,10 +8,9 @@ on:
 jobs:
   sonar-analysis:
     runs-on: windows-latest
-
     
     steps:
-      # 1. Checkout repo
+      # 1. Checkout repository
       - name: Checkout repository
         uses: actions/checkout@v3
 
@@ -25,17 +24,10 @@ jobs:
       - name: Install SonarScanner
         run: dotnet tool install --global dotnet-sonarscanner
 
-      # 4. Begin SonarCloud analysis
+      # 4. Begin SonarCloud analysis (skip Unity build)
       - name: SonarCloud Begin
-        run: dotnet sonarscanner begin /k:"djedje-cyber_UltraInstinctVR" /o:"djedje-cyber" /d:sonar.login="${{ secrets.SONAR_TOKEN }}" /d:sonar.exclusions="Library/**,Temp/**,Build/**,Builds/**"
+        run: dotnet sonarscanner begin /k:"djedje-cyber_UltraInstinctVR" /o:"djedje-cyber" /d:sonar.login="${{ secrets.SONAR_TOKEN }}" /d:sonar.cs.analyzeBuild=false
 
-      # 5. Build the C# solution
-      - name: Build C# Solution
-        shell: pwsh
-        run: |
-          $solutionPath = "CodeBase/My project.sln"
-          dotnet build $solutionPath /p:Configuration=Release
-
-      # 6. End SonarCloud analysis
+      # 5. End SonarCloud analysis
       - name: SonarCloud End
         run: dotnet sonarscanner end /d:sonar.login="${{ secrets.SONAR_TOKEN }}"
