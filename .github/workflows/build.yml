@@ -1,62 +1,60 @@
-name: Unity + SonarCloud
+name: Unity CI + SonarCloud
 
 on:
   push:
-    branches: [ "main" ]
+    branches: [ main ]
   pull_request:
-    branches: [ "main" ]
 
 jobs:
-  build:
+  unity-build:
     runs-on: windows-latest
-
     env:
-      UNITY_VERSION: "6000.0.62f1"  # <-- CHANGE Unity version
-      PROJECT_PATH: "CodeBase"     # <-- Your Unity folder
-      SONAR_PROJECT_KEY: "djedje-cyber_UltraInstinctVR"
-      SONAR_ORG: "djedje-cyber"
-      SONAR_HOST: "https://sonarcloud.io"
+      UNITY_VERSION: 6000.0.62f1
+      PROJECT_PATH: CodeBase
 
     steps:
-    - name: Checkout repository
-      uses: actions/checkout@v3
-      with:
-        fetch-depth: 0
+      - name: Checkout repository
+        uses: actions/checkout@v3
 
-    # ✅ Install .NET (needed for Sonar scanner)
-    - name: Setup .NET
-      uses: actions/setup-dotnet@v3
-      with:
-        dotnet-version: "7.0.x"
+      # Install Unity via GitHub Action
+      - name: Install Unity
+        uses: game-ci/unity-setup@v2
+        with:
+          unityVersion: ${{ env.UNITY_VERSION }}
+          # optionally, add modules like Windows build support if needed
+          modules: Windows-Mono
 
-    # ✅ Begin SonarCloud scan
-    - name: SonarCloud - Begin
-      env:
-        SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-      run: |
-        dotnet tool install --global dotnet-sonarscanner
-        dotnet sonarscanner begin `
-          /k:"$env:SONAR_PROJECT_KEY" `
-          /o:"$env:SONAR_ORG" `
-          /d:sonar.host.url="$env:SONAR_HOST" `
-          /d:sonar.token="$env:SONAR_TOKEN" `
-          /d:sonar.projectBaseDir="$env:PROJECT_PATH" `
-          /d:sonar.sources="$env:PROJECT_PATH/Assets" `
-          /d:sonar.cs.unity.projectPath="$env:PROJECT_PATH" `
-          /d:sonar.exclusions="**/Library/**,**/Temp/**,**/Build/**,**/Builds/**,**/Logs/**"
+      # Compile scripts / run Unity in batch mode
+      - name: Unity Compile Scripts
+        shell: pwsh
+        run: |
+          $unityExe = "C:\Program Files\Unity\Hub\Editor\$env:UNITY_VERSION\Editor\Unity.exe"
+          & $unityExe `
+            -batchmode `
+            -quit `
+            -projectPath "$env:PROJECT_PATH" `
+            -buildTarget StandaloneWindows64 `
+            -logFile -
 
-    # ✅ Build Unity Scripts (batchmode)
-    - name: Unity Build (script compile only)
-      run: |
-        "C:\Program Files\Unity\Hub\Editor\$env:UNITY_VERSION\Editor\Unity.exe" `
-        -batchmode -quit `
-        -projectPath "$env:PROJECT_PATH" `
-        -buildTarget StandaloneWindows64 `
-        -logFile -
+      # SonarCloud analysis for C# projects
+      - name: SonarCloud Begin Analysis
+        uses: SonarSource/sonarcloud-github-action@v2
+        with:
+          projectKey: djedje-cyber_UltraInstinctVR
+          organization: djedje-cyber
+          scannerMode: 'MSBuild'
+          extraProperties: |
+            sonar.exclusions=Library/**,Temp/**,Build/**,Builds/**
+            sonar.cs.opencover.reportsPaths=**/coverage.opencover.xml
 
-    # ✅ End SonarCloud scan
-    - name: SonarCloud - End
-      env:
-        SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-      run: |
-        dotnet sonarscanner end /d:sonar.token="$env:SONAR_TOKEN"
+      # Build your Unity project for SonarCloud analysis
+      - name: Build Unity Project (MSBuild)
+        shell: pwsh
+        run: |
+          # Path to your compiled solution (.sln)
+          $solutionPath = "$env:PROJECT_PATH\UltraInstinctVR.sln"
+          dotnet build $solutionPath /p:Configuration=Release
+
+      # End SonarCloud analysis
+      - name: SonarCloud End Analysis
+        run: dotnet sonarscanner end /d:sonar.login="${{ secrets.SONAR_TOKEN }}"
