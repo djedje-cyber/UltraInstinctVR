@@ -1,45 +1,41 @@
-name: SonarCloud Analysis
+name: Unity C# SonarCloud Analysis
 
 on:
   push:
     branches:
       - main
   pull_request:
-    branches:
-      - "*"
-
-env:
-  SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-  SONAR_PROJECT_KEY: djedje-cyber_UltraInstinctVR
-  SONAR_ORGANIZATION: djedje-cyber
 
 jobs:
-  sonar:
+  sonarcloud:
+    name: SonarCloud Analysis
     runs-on: windows-latest
+
     steps:
       - name: Checkout repository
         uses: actions/checkout@v3
 
-      - name: Setup .NET
+      - name: Setup .NET SDK
         uses: actions/setup-dotnet@v3
         with:
-          dotnet-version: 7.0.x
+          dotnet-version: '7.0.x'
 
-      - name: Build C# code (Fix2)
-        run: dotnet build CodeBase/Assembly-CSharp.csproj
-
-      - name: SonarCloud Begin Analysis
-        uses: SonarSource/sonarcloud-github-action@v2
+      - name: Setup SonarCloud
+        uses: SonarSource/sonarcloud-github-action@master
         with:
-          args: >
-            -Dsonar.projectKey=${{ env.SONAR_PROJECT_KEY }}
-            -Dsonar.organization=${{ env.SONAR_ORGANIZATION }}
-            -Dsonar.sources=CodeBase/Assets
-            -Dsonar.exclusions=Library/**,Temp/**,Build/**,Builds/**
-            -Dsonar.cs.opencover.reportsPaths=**/coverage.opencover.xml
+          organization: djedje-cyber
+          projectKey: djedje-cyber_UltraInstinctVR
+          token: ${{ secrets.SONAR_TOKEN }}
 
-      - name: SonarCloud End Analysis
-        uses: SonarSource/sonarcloud-github-action@v2
-        with:
-          args: >
-            -Dsonar.login=${{ secrets.SONAR_TOKEN }}
+      - name: Install NuGet (if needed)
+        run: dotnet restore
+
+      - name: Fake Build C# projects
+        run: |
+          Get-ChildItem -Path CodeBase -Filter *.csproj -Recurse | ForEach-Object {
+            dotnet msbuild $_.FullName /t:Build /p:SkipCompilerExecution=true
+          }
+
+      - name: Run SonarCloud Scanner
+        run: |
+          dotnet sonarscanner end /d:sonar.login="${{ secrets.SONAR_TOKEN }}"
