@@ -1,4 +1,4 @@
-name: SonarCloud C# Source-Only Analysis
+name: SonarCloud Unity C# Source-Only Analysis
 
 on:
   push:
@@ -7,15 +7,23 @@ on:
 
 jobs:
   sonar-analysis:
-    runs-on: windows-latest
+    runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
         uses: actions/checkout@v3
 
-      - name: Install SonarScanner
-        run: dotnet tool install --global dotnet-sonarscanner
-
-      - name: Run SonarCloud Source-Only Analysis
+      - name: Install SonarScanner CLI
         run: |
-          dotnet-sonarscanner begin /k:"djedje-cyber_UltraInstinctVR" /o:"djedje-cyber" /d:sonar.login="${{ secrets.SONAR_TOKEN }}" /d:sonar.cs.analyzeBuild=false /d:sonar.sources="CodeBase/Assets,CodeBase/Packages"
-          dotnet-sonarscanner end /d:sonar.login="${{ secrets.SONAR_TOKEN }}"
+          wget https://binaries.sonarsource.com/Distribution/sonar-scanner-cli/sonar-scanner-cli-4.9.3.72796-linux.zip
+          unzip sonar-scanner-cli-4.9.3.72796-linux.zip
+          export PATH="$PATH:$PWD/sonar-scanner-4.9.3.72796-linux/bin"
+
+      - name: Run SonarCloud Generic Scanner
+        run: |
+          sonar-scanner \
+            -Dsonar.projectKey=djedje-cyber_UltraInstinctVR \
+            -Dsonar.organization=djedje-cyber \
+            -Dsonar.sources=CodeBase/Assets,CodeBase/Packages \
+            -Dsonar.host.url=https://sonarcloud.io \
+            -Dsonar.login=${{ secrets.SONAR_TOKEN }} \
+            -Dsonar.exclusions=Library/**,Temp/**,Build/**,Builds/**
