@@ -22,5 +22,3 @@ jobs:
             -Dsonar.projectKey=djedje-cyber_UltraInstinctVR
             -Dsonar.organization=djedje-cyber
             -Dsonar.exclusions=Library/**,Temp/**,Build/**,Builds/*
-            -Dsonar.language=cs
-
