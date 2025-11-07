@@ -21,4 +21,5 @@ jobs:
           args: >
             -Dsonar.projectKey=djedje-cyber_UltraInstinctVR
             -Dsonar.organization=djedje-cyber
+            -Dsonar.sources=CodeBase/Assets
             -Dsonar.exclusions=Library/**,Temp/**,Build/**,Builds/*
