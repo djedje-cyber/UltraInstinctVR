@@ -10,13 +10,14 @@ jobs:
     runs-on: windows-latest
     env:
       UNITY_VERSION: 6000.0.62f1   # replace with your Unity version
-      PROJECT_PATH: CodeBase      # relative path to your Unity project root
+      PROJECT_PATH: CodeBase      # path to your Unity project root
 
     steps:
+      # 1. Checkout repository
       - name: Checkout repository
         uses: actions/checkout@v3
 
-      # Optional: cache Library folder to speed up builds
+      # 2. Optional: cache Unity Library folder for faster builds
       - name: Cache Unity Library
         uses: actions/cache@v3
         with:
@@ -26,46 +27,35 @@ jobs:
             Library-${{ env.PROJECT_PATH }}-
             Library-
 
-      # Build Unity project using Unity Builder
+      # 3. Build Unity project using Unity Builder
       - name: Build Unity Project
         uses: game-ci/unity-builder@v4
-        env:
-          UNITY_EMAIL: ${{ secrets.UNITY_EMAIL }}
-          UNITY_PASSWORD: ${{ secrets.UNITY_PASSWORD }}
-          UNITY_SERIAL: ${{ secrets.UNITY_SERIAL }}
         with:
           projectPath: ${{ env.PROJECT_PATH }}
           unityVersion: ${{ env.UNITY_VERSION }}
           targetPlatform: StandaloneWindows64
-          buildName: MyGameWindows64     # optional
-          buildsPath: build              # optional
+        env:
+          UNITY_SERIAL: ${{ secrets.UNITY_SERIAL }}
 
-      # Begin SonarCloud analysis (for C# / .NET)
+      # 4. Begin SonarCloud analysis (for C# / .NET)
       - name: SonarCloud Begin Analysis
         uses: SonarSource/sonarcloud-github-action@v2
         with:
-          projectKey: your_org_projectkey      # replace
-          organization: your_org_name           # replace
+          projectKey: your_org_projectkey        # replace
+          organization: your_org_name            # replace
           scannerMode: 'MSBuild'
           extraProperties: |
             sonar.exclusions=Library/**,Temp/**,Build/**,Builds/**
             sonar.cs.opencover.reportsPaths=**/coverage.opencover.xml
 
-      # Build your C# solution (so SonarCloud can scan)
+      # 5. Build the C# solution for SonarCloud
       - name: Build .NET Solution
         shell: pwsh
         run: |
-          $solutionPath = "${{ env.PROJECT_PATH }}\UltraInstinctVR.sln"   # replace .sln if needed
+          $solutionPath = "${{ env.PROJECT_PATH }}\UltraInstinctVR.sln"   # replace with your solution path
           dotnet build $solutionPath /p:Configuration=Release
 
-      # Run tests & generate coverage (if you have them)
-      - name: Run tests and collect coverage
-        shell: pwsh
-        run: |
-          $solutionPath = "${{ env.PROJECT_PATH }}\UltraInstinctVR.sln"
-          dotnet test $solutionPath /p:Configuration=Release /p:CollectCoverage=true /p:CoverletOutputFormat=opencover
-          # You might need to install coverlet tool or set up accordingly
 
-      # End SonarCloud analysis
+      # 7. End SonarCloud analysis
       - name: SonarCloud End Analysis
         run: dotnet sonarscanner end /d:sonar.login="${{ secrets.SONAR_TOKEN }}"
