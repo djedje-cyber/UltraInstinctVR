@@ -1,28 +1,65 @@
+name: Unity CI + SonarCloud
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+
 jobs:
-  sonarcloud:
+  build-and-analyze:
     runs-on: windows-latest
+
+    env:
+      UNITY_VERSION: 6000.0.62f1
+      UNITY_LICENSE: ${{ secrets.UNITY_LICENSE }}
+      SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+      SONAR_PROJECT_KEY: djedje-cyber_UltraInstinctVR
+      SONAR_ORGANIZATION: djedje-cyber
+
     steps:
-      # 1️⃣ Checkout code
+      # 1️⃣ Checkout repository
       - name: Checkout repository
         uses: actions/checkout@v3
 
-      # 2️⃣ Setup .NET
+      # 2️⃣ Setup Unity
+      - name: Setup Unity
+        uses: game-ci/unity-setup@v3
+        with:
+          unityVersion: ${{ env.UNITY_VERSION }}
+
+      # 3️⃣ Activate Unity License
+      - name: Activate Unity License
+        run: |
+          "C:\Program Files\Unity\Hub\Editor\$env:UNITY_VERSION\Editor\Unity.exe" -batchmode -nographics -quit -manualLicenseFile "$env:UNITY_LICENSE"
+
+      # 4️⃣ Ensure solution exists for SonarScanner
+      - name: Generate Unity Solution (if missing)
+        run: |
+          "C:\Program Files\Unity\Hub\Editor\$env:UNITY_VERSION\Editor\Unity.exe" -batchmode -nographics -quit -projectPath . -createSolution
+
+      # 5️⃣ Setup .NET SDK (required for SonarScanner)
       - name: Setup .NET
         uses: actions/setup-dotnet@v3
         with:
-          dotnet-version: '7.0.x' # Or your Unity-compatible .NET version
+          dotnet-version: '7.0.x'
 
-      # 3️⃣ Begin SonarScanner
+      # 6️⃣ Begin SonarScanner
       - name: SonarScanner Begin
         run: |
-          dotnet sonarscanner begin /k:"djedje-cyber_UltraInstinctVR" /o:"djedje-cyber" /d:sonar.login="${{ secrets.SONAR_TOKEN }}"
+          dotnet sonarscanner begin /k:"${{ env.SONAR_PROJECT_KEY }}" /o:"${{ env.SONAR_ORGANIZATION }}" /d:sonar.login="${{ env.SONAR_TOKEN }}" /d:sonar.exclusions="Library/**,Temp/**,Build/**,Builds/**" /d:sonar.cs.opencover.reportsPaths="**/coverage.xml"
 
-      # 4️⃣ Build the solution
-      - name: Build solution
+      # 7️⃣ Build the Unity solution (fix2: mandatory)
+      - name: Build Unity Solution
         run: |
-          dotnet build YourProject.sln --configuration Release
+          dotnet build YourUnityProject.sln --configuration Release
 
-      # 5️⃣ End SonarScanner
+      # 8️⃣ End SonarScanner
       - name: SonarScanner End
         run: |
-          dotnet sonarscanner end /d:sonar.login="${{ secrets.SONAR_TOKEN }}"
+          dotnet sonarscanner end /d:sonar.login="${{ env.SONAR_TOKEN }}"
+
+      # 9️⃣ Return Unity License
+      - name: Return Unity License
+        run: |
+          "C:\Program Files\Unity\Hub\Editor\$env:UNITY_VERSION\Editor\Unity.exe" -quit -batchmode -returnlicense
