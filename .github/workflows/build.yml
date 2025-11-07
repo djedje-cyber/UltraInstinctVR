@@ -18,7 +18,7 @@ jobs:
 
       # Install Unity via GitHub Action
       - name: Install Unity
-        uses: game-ci/unity-setup@v2
+        uses: game-ci/unity-builder@v2
         with:
           unityVersion: ${{ env.UNITY_VERSION }}
           # optionally, add modules like Windows build support if needed
