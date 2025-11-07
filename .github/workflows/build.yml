@@ -1,25 +1,48 @@
-name: Build
+name: Build & SonarCloud
+
 on:
   push:
-    branches:
-      - main
+    branches: [ main ]
   pull_request:
-    types: [opened, synchronize, reopened]
+    branches: [ main ]
+
 jobs:
-  sonarqube:
-    name: SonarQube
+  build:
     runs-on: windows-latest
+
     steps:
       - uses: actions/checkout@v4
         with:
-          fetch-depth: 0  # Shallow clones should be disabled for a better relevancy of analysis
-      - name: SonarQube Scan
-        uses: SonarSource/sonarqube-scan-action@v6
+          fetch-depth: 0
+
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: 6.0.x # or 7+
+
+      - name: Install SonarScanner for .NET
+        run: dotnet tool install --global dotnet-sonarscanner
+
+      - name: Begin SonarCloud Scan
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-        with:
-          args: >
-            -Dsonar.projectKey=djedje-cyber_UltraInstinctVR
-            -Dsonar.organization=djedje-cyber
-            -Dsonar.sources=CodeBase/Assets
-            -Dsonar.exclusions=Library/**,Temp/**,Build/**,Builds/*
+        run: |
+          dotnet sonarscanner begin `
+            /k:"djedje-cyber_UltraInstinctVR" `
+            /o:"djedje-cyber" `
+            /d:sonar.host.url="https://sonarcloud.io" `
+            /d:sonar.token="${env:SONAR_TOKEN}" `
+            /d:sonar.sources="CodeBase/Assets" `
+            /d:sonar.exclusions="**/Library/**,**/Temp/**,**/Build/**,**/Builds/**" `
+            /d:sonar.cs.unity.projectPath="CodeBase"
+
+      # ✅ Unity build / dotnet build step
+      - name: Build Unity Assemblies (Unity)
+        run: |
+          echo "Unity build or dotnet build command goes here"
+
+      - name: End SonarCloud Scan
+        if: always()
+        env:
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+        run: dotnet sonarscanner end /d:sonar.token="${env:SONAR_TOKEN}"
