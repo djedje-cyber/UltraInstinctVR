@@ -18,26 +18,21 @@ jobs:
       - name: Setup .NET
         uses: actions/setup-dotnet@v3
         with:
-          dotnet-version: '7.0.x'   # match your project
+          dotnet-version: '7.0.x'
 
-      # 3. Begin SonarCloud analysis
+      # 3. Install SonarScanner for .NET
+      - name: Install SonarScanner
+        run: dotnet tool install --global dotnet-sonarscanner
+
+      # 4. Begin SonarCloud analysis
       - name: SonarCloud Begin
-        uses: SonarSource/sonarcloud-github-action@v2
-        with:
-          projectKey: djedje-cyber_UltraInstinctVR
-          organization: djedje-cyber
-          scannerMode: 'MSBuild'
-          extraProperties: |
-            sonar.exclusions=Library/**,Temp/**,Build/**,Builds/**
-            sonar.cs.opencover.reportsPaths=**/coverage.opencover.xml
-        env:
-          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+        run: dotnet sonarscanner begin /k:"djedje-cyber_UltraInstinctVR" /o:"djedje-cyber" /d:sonar.login="${{ secrets.SONAR_TOKEN }}" /d:sonar.exclusions="Library/**,Temp/**,Build/**,Builds/**"
 
-      # 4. Build the C# solution (required for analysis)
+      # 5. Build the C# solution
       - name: Build C# Solution
         shell: pwsh
         run: |
-          $solutionPath = "CodeBase/My project.sln
+          $solutionPath = "CodeBase/My project.sln"
           dotnet build $solutionPath /p:Configuration=Release
 
       # 6. End SonarCloud analysis
