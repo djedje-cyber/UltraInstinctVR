@@ -1,50 +1,60 @@
-name: .NET Build and SonarCloud Analysis
+name: Unity CI + SonarCloud
 
 on:
   push:
-    branches:
-      - main
+    branches: [ main ]
   pull_request:
-    branches:
-      - '*'
 
 jobs:
-  build:
-    name: Build and Analyze
-    runs-on: ubuntu-latest
+  unity-build:
+    runs-on: windows-latest
+    env:
+      UNITY_VERSION: 6000.0.62f1
+      PROJECT_PATH: CodeBase
+
     steps:
-      # 1. Checkout the repo
-      - name: Checkout
+      - name: Checkout repository
         uses: actions/checkout@v3
 
-      # 2. Setup .NET SDK
-      - name: Setup .NET
-        uses: actions/setup-dotnet@v3
+      # Install Unity via GitHub Action
+      - name: Install Unity
+        uses: game-ci/unity-setup@v2
         with:
-          dotnet-version: '7.0.x'  # Set your desired .NET version
+          unityVersion: ${{ env.UNITY_VERSION }}
+          # optionally, add modules like Windows build support if needed
+          modules: Windows-Mono
 
-      # 3. Restore dependencies
-      - name: Restore dependencies
-        run: dotnet restore
+      # Compile scripts / run Unity in batch mode
+      - name: Unity Compile Scripts
+        shell: pwsh
+        run: |
+          $unityExe = "C:\Program Files\Unity\Hub\Editor\$env:UNITY_VERSION\Editor\Unity.exe"
+          & $unityExe `
+            -batchmode `
+            -quit `
+            -projectPath "$env:PROJECT_PATH" `
+            -buildTarget StandaloneWindows64 `
+            -logFile -
 
-      # 4. Build the project
-      - name: Build
-        run: dotnet build --no-restore --configuration Release
-
-      # 5. Run tests and collect coverage
-      - name: Test
-        run: dotnet test --no-build --configuration Release --collect:"XPlat Code Coverage"
-
-      # 6. SonarCloud scan
-      - name: SonarCloud Scan
-        uses: SonarSource/sonarcloud-github-action@master
+      # SonarCloud analysis for C# projects
+      - name: SonarCloud Begin Analysis
+        uses: SonarSource/sonarcloud-github-action@v2
         with:
           projectKey: djedje-cyber_UltraInstinctVR
           organization: djedje-cyber
-          token: ${{ secrets.SONAR_TOKEN }}
+          scannerMode: 'MSBuild'
+          extraProperties: |
+            sonar.exclusions=Library/**,Temp/**,Build/**,Builds/**
+            sonar.cs.opencover.reportsPaths=**/coverage.opencover.xml
 
-      # 7. Optional: Publish coverage to SonarCloud
-      - name: Publish Code Coverage
+      # Build your Unity project for SonarCloud analysis
+      - name: Build Unity Project (MSBuild)
+        shell: pwsh
         run: |
-          dotnet tool install --global dotnet-reportgenerator-globaltool
-          reportgenerator -reports:**/coverage.cobertura.xml -targetdir:coverage-report -reporttypes:Html
+          # Path to your compiled solution (.sln)
+          $solutionPath = "$env:PROJECT_PATH\UltraInstinctVR.sln"
+          dotnet build $solutionPath /p:Configuration=Release
+
+      # End SonarCloud analysis
+      - name: SonarCloud End Analysis
+        run: dotnet sonarscanner end /d:sonar.login="${{ secrets.SONAR_TOKEN }}"
