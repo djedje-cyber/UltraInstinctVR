@@ -1,40 +1,50 @@
-name: SonarCloud Scan
+name: .NET Build and SonarCloud Analysis
 
 on:
   push:
     branches:
       - main
   pull_request:
+    branches:
+      - '*'
 
 jobs:
-  sonarcloud:
-    runs-on: windows-latest
+  build:
+    name: Build and Analyze
+    runs-on: ubuntu-latest
     steps:
-      - name: Checkout repository
+      # 1. Checkout the repo
+      - name: Checkout
         uses: actions/checkout@v3
 
-      - name: Setup Java
-        uses: actions/setup-java@v3
+      # 2. Setup .NET SDK
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v3
         with:
-          distribution: 'temurin'
-          java-version: '17'
+          dotnet-version: '7.0.x'  # Set your desired .NET version
 
-      - name: Install SonarScanner CLI
-        run: |
-          mkdir "%RUNNER_TEMP%\sonarscanner"
-          cd "%RUNNER_TEMP%\sonarscanner"
-          curl -Lo sonar-scanner.zip https://binaries.sonarsource.com/Distribution/sonar-scanner-cli/sonar-scanner-cli-7.2.0.5079-windows-x64.zip
-          tar -xf sonar-scanner.zip
-          echo "%RUNNER_TEMP%\sonarscanner\sonar-scanner-7.2.0.5079-windows-x64\bin" >> $Env:GITHUB_PATH
+      # 3. Restore dependencies
+      - name: Restore dependencies
+        run: dotnet restore
 
-      - name: Run SonarScanner
-        env:
-          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+      # 4. Build the project
+      - name: Build
+        run: dotnet build --no-restore --configuration Release
+
+      # 5. Run tests and collect coverage
+      - name: Test
+        run: dotnet test --no-build --configuration Release --collect:"XPlat Code Coverage"
+
+      # 6. SonarCloud scan
+      - name: SonarCloud Scan
+        uses: SonarSource/sonarcloud-github-action@master
+        with:
+          projectKey: djedje-cyber_UltraInstinctVR
+          organization: djedje-cyber
+          token: ${{ secrets.SONAR_TOKEN }}
+
+      # 7. Optional: Publish coverage to SonarCloud
+      - name: Publish Code Coverage
         run: |
-          sonar-scanner.bat ^
-            -Dsonar.projectKey=djedje-cyber_UltraInstinctVR ^
-            -Dsonar.organization=djedje-cyber ^
-            -Dsonar.sources=CodeBase/Assets ^
-            -Dsonar.exclusions=Library/**,Temp/**,Build/**,Builds/** ^
-            -Dsonar.host.url=https://sonarcloud.io ^
-            -Dsonar.login=%SONAR_TOKEN%
+          dotnet tool install --global dotnet-reportgenerator-globaltool
+          reportgenerator -reports:**/coverage.cobertura.xml -targetdir:coverage-report -reporttypes:Html
