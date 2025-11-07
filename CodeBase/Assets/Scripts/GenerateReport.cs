@@ -1,33 +1,34 @@
 using System;
 using System.IO;
+using System.Linq;
 
-class GenerateReport
+
+namespace GenerateReportSpace
 {
-    static void Main()
-    {
-        string filePath = "Assets/Scripts/game_logs.txt";
-        CountTestGeneratedLogs(filePath);
-    }
 
-    static void CountTestGeneratedLogs(string filePath)
+    public class GenerateReport
     {
-        if (!File.Exists(filePath))
+        public static void Main()
         {
-            Console.WriteLine("Le fichier game_logs.txt n'existe pas !");
-            return;
+            string filePath = "Assets/Scripts/game_logs.txt";
+            CountTestGeneratedLogs(filePath);
         }
 
-        int count = 0;
-        string[] lines = File.ReadAllLines(filePath);
-        
-        foreach (string line in lines)
+        public static void CountTestGeneratedLogs(string filePath)
         {
-            if (line.Contains("TestGenerated"))
+            if (!File.Exists(filePath))
             {
-                count++;
+                Console.WriteLine("Le fichier game_logs.txt n'existe pas !");
+                return;
             }
+
+            int count = 0;
+            string[] lines = File.ReadAllLines(filePath);
+
+            count = lines.Count(line => line.Contains("TestGenerated"));
+
+
+            Console.WriteLine($"Nombre de logs contenant 'TestGenerated' : {count}");
         }
-        
-        Console.WriteLine($"Nombre de logs contenant 'TestGenerated' : {count}");
     }
 }

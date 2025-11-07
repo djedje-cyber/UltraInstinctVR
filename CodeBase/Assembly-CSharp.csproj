@@ -159,6 +159,7 @@
     <None Include="Assets\Oracle_OutSceneTeleportation.xml" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF Overlay.shader" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_Bitmap-Mobile.shader" />
+    <None Include="Assets\Scripts\TESTREPLAY\TESTREPLAY_SizeScene_e4a64384-6262-440e-8972-463680f68328_2025-11-07.txt" />
     <None Include="Assets\VRTemplateAssets\Shaders\TexturedFresnelStandard.shader" />
     <None Include="Assets\TextMesh Pro\Fonts\LiberationSans - OFL.txt" />
     <None Include="Assets\VRTemplateAssets\Shaders\TexturedStableFresnelCommon.cginc" />
