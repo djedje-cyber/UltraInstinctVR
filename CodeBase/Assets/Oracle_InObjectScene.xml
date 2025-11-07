@@ -56,7 +56,7 @@
             <param value="fe4b3cec-9099-4f04-b5cd-291cc5d93666" type="System.Guid,mscorlib" name="UFID" />
           </param>
         </sensorCheck>
-        <effectorUpdate classname="InObjectSceneEffector,Assembly-CSharp">
+        <effectorUpdate classname="InObjectSceneEffectorSpace.InObjectSceneEffector,Assembly-CSharp">
           <extendedInfo>
             <unityEditor xmlns="">
               <editBox type="Xareus.Unity.Editor.Scenarios.UI.DefaultEditBox,Xareus.Unity.Editor" />

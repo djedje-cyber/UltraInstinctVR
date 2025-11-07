@@ -4,64 +4,70 @@ using Xareus.Scenarios.Unity;
 using UnityEngine;
 using System.Collections.Generic;
 
-[FunctionDescription("Collision Detection Effect")]
-public class CollisionEffector : AUnityEffector
+
+
+namespace ColissionEffectorSpace
 {
-    // Cube to monitor for collision detection
-    [ConfigurationParameter("Cube", Necessity.Required)]
-    protected GameObject cube;
-
-    // Detection radius for collision
-    [ConfigurationParameter("Collision Detection Radius", Necessity.Required)]
-    protected float collisionDetectionRadius = 0.5f;
-
-    public CollisionEffector(Xareus.Scenarios.Event @event,
-        Dictionary<string, Xareus.Scenarios.Parameter> nameValueListMap,
-        IContext externalContext,
-        IContext scenarioContext,
-        IContext sequenceContext,
-        IContext eventContext)
-        : base(@event, nameValueListMap, externalContext, scenarioContext, sequenceContext, eventContext)
-    { }
-
-    // Method called every frame to check for collisions
-    public override void SafeEffectorUpdate()
+    [FunctionDescription("Collision Detection Effect")]
+    public class CollisionEffector : AUnityEffector
     {
-        Debug.Log("TestGenerated - CollisionDetection");
-        DetectCollision();
-    }
+        // Cube to monitor for collision detection
+        [ConfigurationParameter("Cube", Necessity.Required)]
+        protected GameObject cube;
 
-    private void DetectCollision()
-    {
-        // Detect all colliders within a sphere around the cube
-        Collider[] hitColliders = Physics.OverlapSphere(cube.transform.position, collisionDetectionRadius);
+        // Detection radius for collision
+        [ConfigurationParameter("Collision Detection Radius", Necessity.Required)]
+        protected float collisionDetectionRadius = 0.5f;
 
-        // If objects are colliding with the "cube" object
-        if (hitColliders.Length > 0)
+        public CollisionEffector(Xareus.Scenarios.Event @event,
+            Dictionary<string, Xareus.Scenarios.Parameter> nameValueListMap,
+            IContext externalContext,
+            IContext scenarioContext,
+            IContext sequenceContext,
+            IContext eventContext)
+            : base(@event, nameValueListMap, externalContext, scenarioContext, sequenceContext, eventContext)
+        { }
+
+        // Method called every frame to check for collisions
+        public override void SafeEffectorUpdate()
         {
-            foreach (var hitCollider in hitColliders)
+            Debug.Log("TestGenerated - CollisionDetection");
+            DetectCollision();
+        }
+
+        private void DetectCollision()
+        {
+            // Detect all colliders within a sphere around the cube
+            Collider[] hitColliders = Physics.OverlapSphere(cube.transform.position, collisionDetectionRadius);
+
+            // If objects are colliding with the "cube" object
+            if (hitColliders.Length > 0)
             {
-                // Check that the detected object is not the cube itself
-                if (hitCollider != null && hitCollider.gameObject != cube)
+                foreach (var hitCollider in hitColliders)
                 {
-                    // Collision detected with another object (excluding the cube itself)
-                    Debug.Log("ORACLE CollisionDetection - TestPassed - Collision successfully done with "
-                            + hitCollider.name + " at: " + cube.transform.position);
+                    // Check that the detected object is not the cube itself
+                    if (hitCollider != null && hitCollider.gameObject != cube)
+                    {
+                        // Collision detected with another object (excluding the cube itself)
+                        Debug.Log("ORACLE CollisionDetection - TestPassed - Collision successfully done with "
+                                + hitCollider.name + " at: " + cube.transform.position);
 
-                    // Return to exit the loop once the collision has been handled
-                    return;
+                        // Return to exit the loop once the collision has been handled
+                        return;
+                    }
                 }
-            }
 
-            // If no valid collision was found, display a failure message
-            Debug.LogError("ORACLE CollisionDetection - TestFailed - No valid collision detected at: "
-                        + cube.transform.position);
-        }
-        else
-        {
-            // No collision detected
-            Debug.LogError("ORACLE CollisionDetection - TestFailed - No collision detected at: "
-                        + cube.transform.position);
+                // If no valid collision was found, display a failure message
+                Debug.LogError("ORACLE CollisionDetection - TestFailed - No valid collision detected at: "
+                            + cube.transform.position);
+            }
+            else
+            {
+                // No collision detected
+                Debug.LogError("ORACLE CollisionDetection - TestFailed - No collision detected at: "
+                            + cube.transform.position);
+            }
         }
     }
+
 }
