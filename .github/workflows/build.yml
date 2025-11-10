@@ -12,13 +12,13 @@ jobs:
     runs-on: windows-latest
 
     steps:
-      # 1️⃣ Checkout repo
+      # 1️⃣ Checkout repository
       - name: Checkout repository
         uses: actions/checkout@v4
         with:
           fetch-depth: 0
 
-      # 2️⃣ Cache Unity project Library
+      # 2️⃣ Cache Unity Library and Temp folders
       - name: Cache Unity project Library
         uses: actions/cache@v3
         with:
@@ -29,35 +29,34 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-unity-6000.0.62f1-
 
-      # 3️⃣ Install Unity Editor (builder will handle installation)
-      - name: Install Unity Editor
-        uses: game-ci/unity-builder@v4
-        with:
-          unityVersion: 6000.0.62f1
-          targetPlatform: StandaloneWindows64
-        env:
-          UNITY_SERIAL: ${{ secrets.UNITY_SERIAL }}
-
-      # 4️⃣ Activate Unity License via Serial
+      # 3️⃣ Activate Unity License (using serial + email/password)
       - name: Activate Unity License
         uses: game-ci/unity-activate@v2
         with:
           unityVersion: 6000.0.62f1
           serial: ${{ secrets.UNITY_SERIAL }}
+        env:
+          UNITY_EMAIL: ${{ secrets.UNITY_EMAIL }}
+          UNITY_PASSWORD: ${{ secrets.UNITY_PASSWORD }}
 
-      # 5️⃣ Build Unity Project
+
+      # 5️⃣ Build Unity Project (Windows)
       - name: Build Unity Project
         uses: game-ci/unity-builder@v4
         with:
           unityVersion: 6000.0.62f1
           targetPlatform: StandaloneWindows64
         env:
+          UNITY_EMAIL: ${{ secrets.UNITY_EMAIL }}
+          UNITY_PASSWORD: ${{ secrets.UNITY_PASSWORD }}
           UNITY_SERIAL: ${{ secrets.UNITY_SERIAL }}
 
-      # 6️⃣ Optional: Return Unity License after build
+      # 6️⃣ Return Unity License
       - name: Return Unity License
         uses: game-ci/unity-return-license@v2
         env:
+          UNITY_EMAIL: ${{ secrets.UNITY_EMAIL }}
+          UNITY_PASSWORD: ${{ secrets.UNITY_PASSWORD }}
           UNITY_SERIAL: ${{ secrets.UNITY_SERIAL }}
 
       # 7️⃣ SonarCloud Scan
