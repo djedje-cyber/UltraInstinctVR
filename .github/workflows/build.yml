@@ -8,7 +8,7 @@ on:
 
 jobs:
   build-and-sonar:
-    name: Build (Unity 6000.0.62f1) + SonarCloud
+    name: Build Unity 6000 + SonarCloud (Windows)
     runs-on: windows-latest
 
     steps:
@@ -19,7 +19,7 @@ jobs:
           fetch-depth: 0
 
       # 2️⃣ Cache Unity Library and Temp folders
-      - name: Cache Unity project Library
+      - name: Cache Unity Library
         uses: actions/cache@v3
         with:
           path: |
@@ -28,19 +28,9 @@ jobs:
           key: ${{ runner.os }}-unity-6000.0.62f1-${{ hashFiles('**/Packages/manifest.json') }}
           restore-keys: |
             ${{ runner.os }}-unity-6000.0.62f1-
+            
 
-      # 3️⃣ Activate Unity License (using serial + email/password)
-      - name: Activate Unity License
-        uses: game-ci/unity-activate@v2
-        with:
-          unityVersion: 6000.0.62f1
-          serial: ${{ secrets.UNITY_SERIAL }}
-        env:
-          UNITY_EMAIL: ${{ secrets.UNITY_EMAIL }}
-          UNITY_PASSWORD: ${{ secrets.UNITY_PASSWORD }}
-
-
-      # 5️⃣ Build Unity Project (Windows)
+      # 4️⃣ Build Unity Project (Windows 64-bit)
       - name: Build Unity Project
         uses: game-ci/unity-builder@v4
         with:
@@ -51,7 +41,9 @@ jobs:
           UNITY_PASSWORD: ${{ secrets.UNITY_PASSWORD }}
           UNITY_SERIAL: ${{ secrets.UNITY_SERIAL }}
 
-      # 6️⃣ Return Unity License
+      # 5️⃣ Optional: Return Unity License
+      # The builder automatically handles license activation on Windows,
+      # so this step is not strictly required, but safe to include
       - name: Return Unity License
         uses: game-ci/unity-return-license@v2
         env:
@@ -59,7 +51,7 @@ jobs:
           UNITY_PASSWORD: ${{ secrets.UNITY_PASSWORD }}
           UNITY_SERIAL: ${{ secrets.UNITY_SERIAL }}
 
-      # 7️⃣ SonarCloud Scan
+      # 6️⃣ SonarCloud Scan
       - name: SonarCloud Scan
         uses: sonarsource/sonarcloud-github-action@v1
         with:
