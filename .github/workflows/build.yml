@@ -37,6 +37,7 @@ jobs:
           unityVersion: 6000.0.62f1
           targetPlatform: StandaloneWindows64
           buildScenes: "CodeBase/Assets/Scenes/SampleScene.unity"
+          buildPath: "Builds/WindowsTest"
         env:
           UNITY_EMAIL: ${{ secrets.UNITY_EMAIL }}
           UNITY_PASSWORD: ${{ secrets.UNITY_PASSWORD }}
