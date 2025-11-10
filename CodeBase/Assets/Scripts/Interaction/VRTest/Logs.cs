@@ -8,37 +8,39 @@ public class LogToFile : MonoBehaviour
 
     void Awake()
     {
-        // Définir le chemin du fichier log (dans Assets/Scripts/)
-        logFilePath = Path.Combine(Application.dataPath, "Scripts", "game_logs.txt");
+        // Define the path of the log file (inside Assets/Scripts/)
+        string projectRoot = Directory.GetParent(Application.dataPath).FullName;
 
-        // Vérifier si le dossier existe, sinon le créer
+        logFilePath = Path.Combine(projectRoot, "Logs", "game_logs.txt");
+
+        // Check if the folder exists, otherwise create it
         string directoryPath = Path.GetDirectoryName(logFilePath);
         if (!Directory.Exists(directoryPath))
         {
             Directory.CreateDirectory(directoryPath);
         }
 
-        // Si le fichier existe déjà, on le vide pour commencer une nouvelle session
+        // If the file already exists, clear it to start a new session
         if (File.Exists(logFilePath))
         {
-            File.WriteAllText(logFilePath, string.Empty);  // Vide le fichier
+            File.WriteAllText(logFilePath, string.Empty);  // Clears the file
         }
         else
         {
-            // Si le fichier n'existe pas, on le crée avec un message initial
+            // If the file does not exist, create it with an initial message
             using (StreamWriter writer = File.CreateText(logFilePath))
             {
-                writer.WriteLine("=== Nouvelle Session ===");
+                writer.WriteLine("=== New Session ===");
             }
         }
 
-        // Ajouter une nouvelle entrée au début du fichier
+        // Add a new entry at the beginning of the file
         using (StreamWriter writer = new StreamWriter(logFilePath, true))
         {
-            writer.WriteLine("\n=== Nouvelle Session ===");
+            writer.WriteLine("\n=== New Session ===");
         }
 
-        // Écouter les logs de la console
+        // Listen to Unity console logs
         Application.logMessageReceived += LogToFileMethod;
     }
 
