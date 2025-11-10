@@ -1,29 +1,75 @@
-name: SonarCloud Unity C# Source-Only Analysis
+name: Unity Build & SonarCloud Analysis (Windows)
 
 on:
   push:
-    branches: [ main ]
+    branches: [ "main" ]
   pull_request:
+    branches: [ "main" ]
 
 jobs:
-  sonar-analysis:
-    runs-on: ubuntu-latest
+  build-and-sonar:
+    name: Unity Build + SonarCloud (Windows)
+    runs-on: windows-latest
+
     steps:
+      # 1. Checkout repo
       - name: Checkout repository
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
 
-      - name: Install SonarScanner CLI
-        run: |
-          wget https://binaries.sonarsource.com/Distribution/sonar-scanner-cli/sonar-scanner-cli-4.9.3.72796-linux.zip
-          unzip sonar-scanner-cli-4.9.3.72796-linux.zip
-          export PATH="$PATH:$PWD/sonar-scanner-4.9.3.72796-linux/bin"
+      # 2. Cache Unity
+      - name: Cache Unity
+        uses: actions/cache@v3
+        with:
+          path: |
+            C:\Users\runneradmin\AppData\Local\Unity\cache
+            C:\Users\runneradmin\AppData\Roaming\Unity
+          key: ${{ runner.os }}-unity-${{ hashFiles('**/Packages/manifest.json') }}
 
-      - name: Run SonarCloud Generic Scanner
-        run: |
-          sonar-scanner \
-            -Dsonar.projectKey=djedje-cyber_UltraInstinctVR \
-            -Dsonar.organization=djedje-cyber \
-            -Dsonar.sources=CodeBase/Assets,CodeBase/Packages \
-            -Dsonar.host.url=https://sonarcloud.io \
-            -Dsonar.login=${{ secrets.SONAR_TOKEN }} \
-            -Dsonar.exclusions=Library/**,Temp/**,Build/**,Builds/**
+      # 3. Install Unity Editor
+      - name: Install Unity
+        uses: game-ci/unity-installer@v3
+        with:
+          unityVersion: 6000.0.62f1    # Replace with your version
+          modules: windows-mono
+
+      # 4. Activate Unity license
+      - name: Activate Unity License
+        uses: game-ci/unity-activate@v2
+        with:
+          unityVersion: 6000.0.62f1
+        env:
+          UNITY_LICENSE: ${{ secrets.UNITY_LICENSE }}
+
+      # 6. Build Unity Project
+      - name: Build Unity Project
+        uses: game-ci/unity-builder@v3
+        with:
+          unityVersion: 6000.0.62f1
+          targetPlatform: StandaloneWindows64
+        env:
+          UNITY_LICENSE: ${{ secrets.UNITY_LICENSE }}
+
+      # 7. SonarCloud Scan
+      - name: SonarCloud Scan
+        uses: SonarSource/sonarcloud-github-action@v2
+        with:
+          args: >
+            -Dsonar.login=${{ secrets.SONAR_TOKEN }}
+        env:
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      # 8. SonarCloud Quality Gate
+      - name: SonarCloud Quality Gate
+        uses: SonarSource/sonarcloud-quality-gate-action@master
+        timeout-minutes: 5
+        env:
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+
+      # 9. Deactivate Unity license
+      - name: Return Unity License
+        uses: game-ci/unity-return-license@v2
+        env:
+          UNITY_LICENSE: ${{ secrets.UNITY_LICENSE }}
