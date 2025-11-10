@@ -1,24 +1,24 @@
 
 === Nouvelle Session ===
-[07-11-25 15:34:36] Log: Scenario files used in the scene SampleScene and added to the build: 
+[08-11-25 17:58:04] Log: Scenario files used in the scene SampleScene and added to the build: 
 Assets/Oracle_InObjectScene.xml
 Assets/Oracle_Colission.xml
 Assets/Oracle_MoveObjectToOrigin.xml
 Assets/Oracle_Teleportation.xml
 Assets/Oracle_OutSceneTeleportation.xml
 Assets/Oracle_Selection.xml
-[07-11-25 15:34:36] Log: [UnitySingleton] An instance of InriaTools.UnityThreadExecute is needed in the scene, so '(singleton) InriaTools.UnityThreadExecute (UnityEngine.GameObject)' was created with DontDestroyOnLoad.
-[07-11-25 15:34:36] Log: UFSevenNetworkManager will parse the command line connect to the specified remote server
+[08-11-25 17:58:04] Log: [UnitySingleton] An instance of InriaTools.UnityThreadExecute is needed in the scene, so '(singleton) InriaTools.UnityThreadExecute (UnityEngine.GameObject)' was created with DontDestroyOnLoad.
+[08-11-25 17:58:04] Log: UFSevenNetworkManager will parse the command line connect to the specified remote server
 	 Use --sevenserverremoteadress (or -ssra) "address[:remoteport]" to connect to the given remote server (default remoteport : 7777)
-[07-11-25 15:34:36] Log: 🚀 Initialisation of the test suite
-[07-11-25 15:34:36] Log: 📢 StartNextChild() appelé - Index actuel : 0
-[07-11-25 15:34:36] Log: ▶ Activation de Gohan
-[07-11-25 15:34:36] Log: 🎬 Gohan initialised !
-[07-11-25 15:34:36] Log: ➡ Gohan begins his interaction !
-[07-11-25 15:34:36] Log: [UnitySingleton] An instance of InriaTools.SeparateThread is needed in the scene, so '(singleton) InriaTools.SeparateThread (UnityEngine.GameObject)' was created with DontDestroyOnLoad.
-[07-11-25 15:34:36] Warning: Hand Tracking Subsystem not found or not running, can't subscribe to hand tracking status. Enable that feature in the OpenXR project settings and ensure OpenXR is enabled as the plug-in provider. This component will reattempt getting a reference to the subsystem each frame.
-[07-11-25 15:34:38] Log: TestGenerated - OutsideSceneTeleportation
-[07-11-25 15:34:38] Error: ORACLE OutsideSceneTeleportation - TestFailed - A player cannot teleport outside the scene at position: (-85602.29, 1.57, 2804546.00)
+[08-11-25 17:58:04] Log: 🚀 Initialisation of the test suite
+[08-11-25 17:58:04] Log: 📢 StartNextChild() appelé - Index actuel : 0
+[08-11-25 17:58:04] Log: ▶ Activation de Gohan
+[08-11-25 17:58:04] Log: 🎬 Gohan initialised !
+[08-11-25 17:58:04] Log: ➡ Gohan begins his interaction !
+[08-11-25 17:58:04] Log: [UnitySingleton] An instance of InriaTools.SeparateThread is needed in the scene, so '(singleton) InriaTools.SeparateThread (UnityEngine.GameObject)' was created with DontDestroyOnLoad.
+[08-11-25 17:58:04] Warning: Hand Tracking Subsystem not found or not running, can't subscribe to hand tracking status. Enable that feature in the OpenXR project settings and ensure OpenXR is enabled as the plug-in provider. This component will reattempt getting a reference to the subsystem each frame.
+[08-11-25 17:58:06] Log: TestGenerated - OutsideSceneTeleportation
+[08-11-25 17:58:06] Error: ORACLE OutsideSceneTeleportation - TestFailed - A player cannot teleport outside the scene at position: (-1883300.00, 1.57, 351666.50)
 UnityEngine.Debug:LogError (object)
 OutsideSceneEffectorSpace.OutsideSceneEffector:SafeEffectorUpdate () (at Assets/Scripts/Effector/OutsideSceneEffector.cs:77)
 Xareus.Scenarios.Unity.AUnityEffector:<EffectorUpdate>b__5_0 ()
@@ -34,8 +34,8 @@ Xareus.Scenarios.Unity.AInUnityStepSensor:InternalUpdate ()
 InriaTools.UnityThreadExecute:InvokeActions (InriaTools.UnityThreadExecute/UnityExecutionStep) (at ./Library/PackageCache/fr.inria.unity.tools@05e07d878e04/Scripts/UnityThreadExecute.cs:344)
 InriaTools.UnityThreadExecute:Update () (at ./Library/PackageCache/fr.inria.unity.tools@05e07d878e04/Scripts/UnityThreadExecute.cs:364)
 
-[07-11-25 15:34:39] Log: TestGenerated - OutsideSceneTeleportation
-[07-11-25 15:34:39] Error: ORACLE OutsideSceneTeleportation - TestFailed - A player cannot teleport outside the scene at position: (3063197.00, 1.57, -929330.10)
+[08-11-25 17:58:07] Log: TestGenerated - OutsideSceneTeleportation
+[08-11-25 17:58:07] Error: ORACLE OutsideSceneTeleportation - TestFailed - A player cannot teleport outside the scene at position: (-3164369.00, 1.57, 46407.73)
 UnityEngine.Debug:LogError (object)
 OutsideSceneEffectorSpace.OutsideSceneEffector:SafeEffectorUpdate () (at Assets/Scripts/Effector/OutsideSceneEffector.cs:77)
 Xareus.Scenarios.Unity.AUnityEffector:<EffectorUpdate>b__5_0 ()
@@ -51,8 +51,8 @@ Xareus.Scenarios.Unity.AInUnityStepSensor:InternalUpdate ()
 InriaTools.UnityThreadExecute:InvokeActions (InriaTools.UnityThreadExecute/UnityExecutionStep) (at ./Library/PackageCache/fr.inria.unity.tools@05e07d878e04/Scripts/UnityThreadExecute.cs:344)
 InriaTools.UnityThreadExecute:Update () (at ./Library/PackageCache/fr.inria.unity.tools@05e07d878e04/Scripts/UnityThreadExecute.cs:364)
 
-[07-11-25 15:34:40] Log: TestGenerated - OutsideSceneTeleportation
-[07-11-25 15:34:40] Error: ORACLE OutsideSceneTeleportation - TestFailed - A player cannot teleport outside the scene at position: (-170004.60, 1.57, 3365715.00)
+[08-11-25 17:58:08] Log: TestGenerated - OutsideSceneTeleportation
+[08-11-25 17:58:08] Error: ORACLE OutsideSceneTeleportation - TestFailed - A player cannot teleport outside the scene at position: (-253712.80, 1.57, -1391749.00)
 UnityEngine.Debug:LogError (object)
 OutsideSceneEffectorSpace.OutsideSceneEffector:SafeEffectorUpdate () (at Assets/Scripts/Effector/OutsideSceneEffector.cs:77)
 Xareus.Scenarios.Unity.AUnityEffector:<EffectorUpdate>b__5_0 ()
@@ -68,8 +68,8 @@ Xareus.Scenarios.Unity.AInUnityStepSensor:InternalUpdate ()
 InriaTools.UnityThreadExecute:InvokeActions (InriaTools.UnityThreadExecute/UnityExecutionStep) (at ./Library/PackageCache/fr.inria.unity.tools@05e07d878e04/Scripts/UnityThreadExecute.cs:344)
 InriaTools.UnityThreadExecute:Update () (at ./Library/PackageCache/fr.inria.unity.tools@05e07d878e04/Scripts/UnityThreadExecute.cs:364)
 
-[07-11-25 15:34:41] Log: TestGenerated - OutsideSceneTeleportation
-[07-11-25 15:34:41] Error: ORACLE OutsideSceneTeleportation - TestFailed - A player cannot teleport outside the scene at position: (-2173910.00, 1.57, 261039.40)
+[08-11-25 17:58:09] Log: TestGenerated - OutsideSceneTeleportation
+[08-11-25 17:58:09] Error: ORACLE OutsideSceneTeleportation - TestFailed - A player cannot teleport outside the scene at position: (-2529523.00, 1.57, -12089.49)
 UnityEngine.Debug:LogError (object)
 OutsideSceneEffectorSpace.OutsideSceneEffector:SafeEffectorUpdate () (at Assets/Scripts/Effector/OutsideSceneEffector.cs:77)
 Xareus.Scenarios.Unity.AUnityEffector:<EffectorUpdate>b__5_0 ()
@@ -85,8 +85,8 @@ Xareus.Scenarios.Unity.AInUnityStepSensor:InternalUpdate ()
 InriaTools.UnityThreadExecute:InvokeActions (InriaTools.UnityThreadExecute/UnityExecutionStep) (at ./Library/PackageCache/fr.inria.unity.tools@05e07d878e04/Scripts/UnityThreadExecute.cs:344)
 InriaTools.UnityThreadExecute:Update () (at ./Library/PackageCache/fr.inria.unity.tools@05e07d878e04/Scripts/UnityThreadExecute.cs:364)
 
-[07-11-25 15:34:42] Log: TestGenerated - OutsideSceneTeleportation
-[07-11-25 15:34:42] Error: ORACLE OutsideSceneTeleportation - TestFailed - A player cannot teleport outside the scene at position: (-624503.40, 1.57, -1623957.00)
+[08-11-25 17:58:10] Log: TestGenerated - OutsideSceneTeleportation
+[08-11-25 17:58:10] Error: ORACLE OutsideSceneTeleportation - TestFailed - A player cannot teleport outside the scene at position: (780439.20, 1.57, 639319.00)
 UnityEngine.Debug:LogError (object)
 OutsideSceneEffectorSpace.OutsideSceneEffector:SafeEffectorUpdate () (at Assets/Scripts/Effector/OutsideSceneEffector.cs:77)
 Xareus.Scenarios.Unity.AUnityEffector:<EffectorUpdate>b__5_0 ()
@@ -102,8 +102,4 @@ Xareus.Scenarios.Unity.AInUnityStepSensor:InternalUpdate ()
 InriaTools.UnityThreadExecute:InvokeActions (InriaTools.UnityThreadExecute/UnityExecutionStep) (at ./Library/PackageCache/fr.inria.unity.tools@05e07d878e04/Scripts/UnityThreadExecute.cs:344)
 InriaTools.UnityThreadExecute:Update () (at ./Library/PackageCache/fr.inria.unity.tools@05e07d878e04/Scripts/UnityThreadExecute.cs:364)
 
-[07-11-25 15:34:43] Log: Teleport log written to: Assets/Scripts/TESTREPLAY\TESTREPLAY_SizeScene_e4a64384-6262-440e-8972-463680f68328_2025-11-07.txt
-[07-11-25 15:35:08] Log: ✅ Gohan has terminated his execution !
-[07-11-25 15:35:08] Log: ⏹ Gohan terminé ! - Passage à l'enfant suivant.
-[07-11-25 15:35:08] Log: ✅ Test Suite terminated !
-[07-11-25 15:35:08] Log: ACTION_DONE
+[08-11-25 17:58:11] Log: Teleport log written to: Assets/Scripts/TESTREPLAY\TESTREPLAY_SizeScene_b1e15f86-4a81-4670-b553-8e49f3dbc60a_2025-11-08.txt

@@ -4,7 +4,7 @@ using System.IO;
 using System.Text.RegularExpressions;
 using UnityEngine;
 using System.Globalization;
-
+using GetStartTimeSpace;
 public class LogToCsv : MonoBehaviour
 {
     public string filePath = "Assets/Scripts/game_logs.txt";

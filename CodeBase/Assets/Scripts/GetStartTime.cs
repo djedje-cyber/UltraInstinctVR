@@ -1,31 +1,37 @@
 using UnityEngine;
 
-public class GetStartTime : MonoBehaviour
+
+
+namespace GetStartTimeSpace
 {
-    public static GetStartTime Instance { get; private set; }
 
-    private float startTime;
-
-    void Awake()
+    public class GetStartTime : MonoBehaviour
     {
-        if (Instance == null)
+        public static GetStartTime Instance { get; private set; }
+
+        private float startTime;
+
+        void Awake()
         {
-            Instance = this;
+            if (Instance == null)
+            {
+                Instance = this;
+            }
+            else
+            {
+                Destroy(gameObject);
+            }
         }
-        else
+
+        void Start()
         {
-            Destroy(gameObject);
+            startTime = Time.time;
         }
-    }
 
-    void Start()
-    {
-        startTime = Time.time;
-    }
-
-    // Renommé la méthode pour éviter la collision avec le nom de la classe
-    public float GetStartTimeValue()
-    {
-        return startTime;
+        // Renamed the method to avoid collision with the class name
+        public float GetStartTimeValue()
+        {
+            return startTime;
+        }
     }
 }
