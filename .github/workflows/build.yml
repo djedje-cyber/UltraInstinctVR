@@ -51,7 +51,7 @@ jobs:
         run: |
           $scanner = "${{ runner.temp }}\scanner\dotnet-sonarscanner.exe"
           cd CodeBase
-          & $scanner begin /k:"djedje-cyber_UltraInstinctVR" /o:"djedje-cyber" /d:sonar.login="${{ secrets.SONAR_TOKEN }}" /s:"My Project.sln"
+          & $scanner begin /k:"djedje-cyber_UltraInstinctVR" /o:"djedje-cyber" /d:sonar.login="${{ secrets.SONAR_TOKEN }}"
 
       - name: Build Unity Solution
         shell: powershell
