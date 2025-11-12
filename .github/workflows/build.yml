@@ -35,7 +35,7 @@ jobs:
           key: ${{ runner.os }}-sonar-scanner
           restore-keys: ${{ runner.os }}-sonar-scanner
 
-      # 4️⃣ Install SonarCloud scanner
+      # 4️⃣ Install SonarCloud scanner if not cached
       - name: Install SonarCloud scanner
         if: steps.cache-sonar-scanner.outputs.cache-hit != 'true'
         shell: bash
@@ -50,13 +50,15 @@ jobs:
         shell: bash
         run: |
           SCANNER="${{ runner.temp }}/scanner/dotnet-sonarscanner"
-          # Begin analysis
+          # Begin analysis in preview mode (no build required)
           $SCANNER begin \
             /k:"djedje-cyber_UltraInstinctVR" \
             /o:"djedje-cyber" \
             /d:sonar.login="${{ secrets.SONAR_TOKEN }}" \
             /d:sonar.sources="CodeBase/Assets" \
-            /d:sonar.analysis.mode=preview
+            /d:sonar.sourceEncoding="UTF-8" \
+            /d:sonar.analysis.mode=preview \
+            /d:sonar.exclusions="**/Editor/**/*,**/Plugins/**/*"
 
-          # No build step needed for static analysis
+          # End analysis
           $SCANNER end /d:sonar.login="${{ secrets.SONAR_TOKEN }}"
