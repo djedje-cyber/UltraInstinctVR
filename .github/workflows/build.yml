@@ -44,6 +44,10 @@ jobs:
           New-Item -Path ${{ runner.temp }}\scanner -ItemType Directory
           dotnet tool update dotnet-sonarscanner --tool-path ${{ runner.temp }}\scanner
 
+      # 🔹 Setup MSBuild so 'msbuild' command is recognized
+      - name: Setup MSBuild tools
+        uses: microsoft/setup-msbuild@v1
+
       - name: Begin SonarCloud Analysis
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
