@@ -13,13 +13,13 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      # 1️⃣ Checkout the repository
+      # 1️⃣ Checkout repository
       - name: Checkout repository
         uses: actions/checkout@v4
         with:
           fetch-depth: 0
 
-      # 2️⃣ Set up JDK (required by SonarScanner)
+      # 2️⃣ Set up JDK 17 (required by SonarScanner)
       - name: Set up JDK 17
         uses: actions/setup-java@v4
         with:
@@ -50,14 +50,13 @@ jobs:
         shell: bash
         run: |
           SCANNER="${{ runner.temp }}/scanner/dotnet-sonarscanner"
-          # Use "begin" in preview mode and skip build
+          # Begin analysis
           $SCANNER begin \
             /k:"djedje-cyber_UltraInstinctVR" \
             /o:"djedje-cyber" \
             /d:sonar.login="${{ secrets.SONAR_TOKEN }}" \
             /d:sonar.sources="CodeBase/Assets" \
-            /d:sonar.cs.opencover.reportsPaths="" \
             /d:sonar.analysis.mode=preview
 
-          # No build step, just end
+          # No build step needed for static analysis
           $SCANNER end /d:sonar.login="${{ secrets.SONAR_TOKEN }}"
