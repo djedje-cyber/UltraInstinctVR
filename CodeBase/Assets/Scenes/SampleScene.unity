@@ -1647,13 +1647,17 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 303699539160935787, guid: 215c413031aef414895775e307868878, type: 3}
+      propertyPath: m_Name
+      value: Rapport generator
+      objectReference: {fileID: 0}
     - target: {fileID: 2025121721177110626, guid: 215c413031aef414895775e307868878, type: 3}
       propertyPath: duration
       value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 3331843296398877614, guid: 215c413031aef414895775e307868878, type: 3}
       propertyPath: m_Name
-      value: Zeno 3
+      value: TestManager
       objectReference: {fileID: 0}
     - target: {fileID: 4374499507277120183, guid: 215c413031aef414895775e307868878, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1695,9 +1699,29 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4641781548278772603, guid: 215c413031aef414895775e307868878, type: 3}
+      propertyPath: m_Name
+      value: Teleport in interactable Object
+      objectReference: {fileID: 0}
     - target: {fileID: 4806124465279499047, guid: 215c413031aef414895775e307868878, type: 3}
       propertyPath: m_Enabled
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4910088052241752649, guid: 215c413031aef414895775e307868878, type: 3}
+      propertyPath: m_Name
+      value: Move Object To Origin
+      objectReference: {fileID: 0}
+    - target: {fileID: 5094908220714009835, guid: 215c413031aef414895775e307868878, type: 3}
+      propertyPath: m_Name
+      value: Teleportation Outside scene
+      objectReference: {fileID: 0}
+    - target: {fileID: 5299364931519720327, guid: 215c413031aef414895775e307868878, type: 3}
+      propertyPath: m_Name
+      value: ScanInteractableObject
+      objectReference: {fileID: 0}
+    - target: {fileID: 5465508612094878651, guid: 215c413031aef414895775e307868878, type: 3}
+      propertyPath: m_Name
+      value: Object colission
       objectReference: {fileID: 0}
     - target: {fileID: 5966853726598549314, guid: 215c413031aef414895775e307868878, type: 3}
       propertyPath: childrenPrefabs.Array.size
@@ -1715,6 +1739,14 @@ PrefabInstance:
       propertyPath: 'childrenPrefabs.Array.data[2]'
       value: 
       objectReference: {fileID: 217447825}
+    - target: {fileID: 6072136479699822781, guid: 215c413031aef414895775e307868878, type: 3}
+      propertyPath: m_Name
+      value: Select GameObject
+      objectReference: {fileID: 0}
+    - target: {fileID: 7222676998826887686, guid: 215c413031aef414895775e307868878, type: 3}
+      propertyPath: m_Name
+      value: Simple Teleportation
+      objectReference: {fileID: 0}
     - target: {fileID: 8145115545789104209, guid: 215c413031aef414895775e307868878, type: 3}
       propertyPath: teleportCount
       value: 5

@@ -1,20 +1,21 @@
 using UnityEditor;
 using UnityEngine;
 using System.IO;
-using Xareus.Unity.Licensing;
+using Xareus;
 [InitializeOnLoad]
 public class XareusLicenseSetup
 {
     static XareusLicenseSetup()
     {
         string licenseContent = System.Environment.GetEnvironmentVariable("XAREUS_LICENSE");
-        Debug.Log(licenseContent);
         if (!string.IsNullOrEmpty(licenseContent))
         {
+
             Xareus.Unity.Licensing.LicenseManager.CheckLicense(licenseContent);
+            Debug.Log(Xareus.Unity.Licensing.LicenseManager.LicenseOk);
             UnityEngine.Debug.Log("Xareus license written from environment variable.");
         }
-        else
+        else 
         {
             Debug.LogWarning("XAREUS_LICENSE environment variables is not set. Xareus license not configured.");
         }
