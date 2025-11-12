@@ -1,16 +1,15 @@
-name: SonarCloud Static Analysis (Unity Scripts)
+name: Unity Build & SonarCloud Analysis (Windows)
 
 on:
   push:
-    branches:
-      - main
+    branches: [ "main" ]
   pull_request:
-    types: [opened, synchronize, reopened]
+    branches: [ "main" ]
 
 jobs:
-  sonar-static:
-    name: Static Analysis of Unity Scripts
-    runs-on: ubuntu-latest
+  build-and-sonar:
+    name: Build Unity 6000 + SonarCloud (Windows)
+    runs-on: windows-latest
 
     steps:
       # 1️⃣ Checkout repository
@@ -19,46 +18,49 @@ jobs:
         with:
           fetch-depth: 0
 
-      # 2️⃣ Set up JDK 17 (required by SonarScanner)
-      - name: Set up JDK 17
-        uses: actions/setup-java@v4
+      # 2️⃣ Cache Unity Library and Temp folders
+      - name: Cache Unity Library
+        uses: actions/cache@v3
         with:
-          java-version: 17
-          distribution: 'zulu'
+          path: |
+            Library
+            Temp
+          key: ${{ runner.os }}-unity-6000.0.62f1-${{ hashFiles('**/Packages/manifest.json') }}
+          restore-keys: |
+            ${{ runner.os }}-unity-6000.0.62f1-
+            
 
-      # 3️⃣ Cache SonarCloud scanner
-      - name: Cache SonarCloud scanner
-        id: cache-sonar-scanner
-        uses: actions/cache@v4
+      # 4️⃣ Build Unity Project (Windows 64-bit)
+      - name: Build Unity Project
+        uses: game-ci/unity-builder@v4
         with:
-          path: ${{ runner.temp }}/scanner
-          key: ${{ runner.os }}-sonar-scanner
-          restore-keys: ${{ runner.os }}-sonar-scanner
+          unityVersion: 6000.0.62f1
+          targetPlatform: StandaloneWindows64
+          projectPath: CodeBase
+          buildScenes: "Assets/Scenes/SampleScene.unity"
+          buildPath: "Builds/WindowsTest"
+        env:
+          UNITY_EMAIL: ${{ secrets.UNITY_EMAIL }}
+          UNITY_PASSWORD: ${{ secrets.UNITY_PASSWORD }}
+          UNITY_SERIAL: ${{ secrets.UNITY_SERIAL }}
 
-      # 4️⃣ Install SonarCloud scanner if not cached
-      - name: Install SonarCloud scanner
-        if: steps.cache-sonar-scanner.outputs.cache-hit != 'true'
-        shell: bash
-        run: |
-          mkdir -p ${{ runner.temp }}/scanner
-          dotnet tool update dotnet-sonarscanner --tool-path ${{ runner.temp }}/scanner
+      # 5️⃣ Optional: Return Unity License
+      # The builder automatically handles license activation on Windows,
+      # so this step is not strictly required, but safe to include
+      - name: Return Unity License
+        uses: game-ci/unity-return-license@v2
+        env:
+          UNITY_EMAIL: ${{ secrets.UNITY_EMAIL }}
+          UNITY_PASSWORD: ${{ secrets.UNITY_PASSWORD }}
+          UNITY_SERIAL: ${{ secrets.UNITY_SERIAL }}
 
-      # 5️⃣ Run static analysis on Unity C# scripts only
-      - name: Run SonarCloud Static Analysis
+      # 6️⃣ SonarCloud Scan
+      - name: SonarCloud Scan
+        uses: sonarsource/sonarcloud-github-action@v1
+        with:
+          args: >
+            -Dsonar.login=${{ secrets.SONAR_TOKEN }}
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-        shell: bash
-        run: |
-          SCANNER="${{ runner.temp }}/scanner/dotnet-sonarscanner"
-          # Begin analysis in preview mode (no build required)
-          $SCANNER begin \
-            /k:"djedje-cyber_UltraInstinctVR" \
-            /o:"djedje-cyber" \
-            /d:sonar.login="${{ secrets.SONAR_TOKEN }}" \
-            /d:sonar.sources="CodeBase/Assets" \
-            /d:sonar.sourceEncoding="UTF-8" \
-            /d:sonar.analysis.mode=preview \
-            /d:sonar.exclusions="**/Editor/**/*,**/Plugins/**/*"
-
-          # End analysis
-          $SCANNER end /d:sonar.login="${{ secrets.SONAR_TOKEN }}"
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          XAREUS_ACCEPT_FREEMIUM: 1
