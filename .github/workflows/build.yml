@@ -8,16 +8,23 @@ on:
 
 jobs:
   sonarcloud:
-    name: SonarCloud Static Analysis
     runs-on: ubuntu-latest
 
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
         with:
-          fetch-depth: 0   # Required for Sonar to analyze code history
+          fetch-depth: 0
 
-      - name: Setup .NET (required for C# analysis)
+      # Install Java 17 for SonarCloud
+      - name: Set up JDK 17
+        uses: actions/setup-java@v4
+        with:
+          distribution: 'temurin'
+          java-version: '17'
+
+      # Install .NET for C# Unity scripts
+      - name: Setup .NET
         uses: actions/setup-dotnet@v3
         with:
           dotnet-version: '6.0.x'
