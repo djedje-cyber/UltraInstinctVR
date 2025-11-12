@@ -57,11 +57,6 @@ jobs:
           cd CodeBase
           & $scanner begin /k:"djedje-cyber_UltraInstinctVR" /o:"djedje-cyber" /d:sonar.login="${{ secrets.SONAR_TOKEN }}"
 
-      - name: Build Unity Solution
-        shell: powershell
-        run: |
-          cd CodeBase
-          msbuild "My Project.sln" /t:Rebuild /p:Configuration=Release
 
       - name: End SonarCloud Analysis
         env:
