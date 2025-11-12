@@ -155,6 +155,7 @@
     <None Include="Assets\Oracle_Teleportation.xml" />
     <None Include="Assets\Scripts\TESTREPLAY\TESTREPLAY_TeleportPlayer_faafd254-8f24-4ccf-aa1a-3e872442257b_2025-11-07.txt" />
     <None Include="Assets\TextMesh Pro\Resources\LineBreaking Following Characters.txt" />
+    <None Include="Assets\Scripts\TESTREPLAY\TESTREPLAY_SizeScene_03cc312f-b803-490c-bce1-7f8088c35e13_2025-11-12.txt" />
     <None Include="Assets\Scripts\TESTREPLAY\TESTREPLAY_TeleportPlayer_d734b7ee-c2ab-4e48-b95e-3c11f94adce6_2025-11-06.txt" />
     <None Include="Assets\Scripts\TESTREPLAY\TESTREPLAY_TeleportPlayer_ab9313b6-4b85-4f67-8d97-9a3af611056f_2025-11-06.txt" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile Masking.shader" />
@@ -168,6 +169,7 @@
     <None Include="Assets\VRTemplateAssets\Shaders\TexturedStableFresnelCommon.cginc" />
     <None Include="Assets\Scripts\TESTREPLAY\TESTREPLAY_TeleportPlayer_9ddc17ec-5147-4d67-9c32-54416f5b83f8_2025-11-07.txt" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile.shader" />
+    <None Include="Assets\Scripts\TESTREPLAY\TESTREPLAY_SizeScene_6c66284d-9dfd-4cea-a56c-6a60638eebdf_2025-11-12.txt" />
     <None Include="Assets\VRTemplateAssets\Materials\Skybox\Horizontal Skybox.shader" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_Sprite.shader" />
   </ItemGroup>
