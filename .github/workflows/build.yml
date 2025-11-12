@@ -1,67 +1,47 @@
-name: SonarCloud Analysis (runner-runner scanner, Java 17)
-
+name: SonarQube
 on:
   push:
-    branches: ["main"]
+    branches:
+      - main
   pull_request:
-    branches: ["main"]
-
+    types: [opened, synchronize, reopened]
 jobs:
-  sonarcloud-runner:
-    name: SonarCloud scan (with local SonarScanner CLI + Java 17)
-    runs-on: ubuntu-latest
+  build:
+    name: Build and analyze
+    runs-on: windows-latest
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4
-        with:
-          fetch-depth: 0
-
       - name: Set up JDK 17
         uses: actions/setup-java@v4
         with:
-          distribution: 'temurin'
-          java-version: '17'
-      
-      - name: Install unzip (if missing)
+          java-version: 17
+          distribution: 'zulu' # Alternative distribution options are available.
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0  # Shallow clones should be disabled for a better relevancy of analysis
+      - name: Cache SonarQube Cloud packages
+        uses: actions/cache@v4
+        with:
+          path: ~\sonar\cache
+          key: ${{ runner.os }}-sonar
+          restore-keys: ${{ runner.os }}-sonar
+      - name: Cache SonarQube Cloud scanner
+        id: cache-sonar-scanner
+        uses: actions/cache@v4
+        with:
+          path: ${{ runner.temp }}\scanner
+          key: ${{ runner.os }}-sonar-scanner
+          restore-keys: ${{ runner.os }}-sonar-scanner
+      - name: Install SonarQube Cloud scanner
+        if: steps.cache-sonar-scanner.outputs.cache-hit != 'true'
+        shell: powershell
         run: |
-          sudo apt-get update
-          sudo apt-get install -y unzip curl
-
-      - name: Download SonarScanner CLI
-        env:
-          SONAR_SCANNER_VERSION: "4.8.1.3023"  # change if needed
-        run: |
-          # download the SonarScanner CLI zip from SonarSource official binaries
-          SC_VERSION="$SONAR_SCANNER_VERSION"
-          SC_ZIP="sonar-scanner-cli-${SC_VERSION}-linux.zip"
-          SC_URL="https://binaries.sonarsource.com/Distribution/sonar-scanner-cli/${SC_ZIP}"
-
-          echo "Downloading SonarScanner CLI ${SC_VERSION}..."
-          curl -sSLo "$SC_ZIP" "$SC_URL"
-          unzip -q "$SC_ZIP"
-          rm -f "$SC_ZIP"
-          # move to a known folder
-          mv "sonar-scanner-${SC_VERSION}-linux" sonar-scanner
-
-      - name: Export sonar scanner to PATH
-        run: |
-          echo "::add-path::${{ github.workspace }}/sonar-scanner/bin"
-        # For newer runners, use GITHUB_PATH instead of add-path (safe):
-        # run: echo "${{ github.workspace }}/sonar-scanner/bin" >> $GITHUB_PATH
-
-      - name: Show java & scanner versions
-        run: |
-          java -version
-          ./sonar-scanner/bin/sonar-scanner -v || true
-
-      - name: Run SonarScanner
+          New-Item -Path ${{ runner.temp }}\scanner -ItemType Directory
+          dotnet tool update dotnet-sonarscanner --tool-path ${{ runner.temp }}\scanner
+      - name: Build and analyze
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        shell: powershell
         run: |
-          # ensure project base dir points to your Unity project
-          # sonar.projectBaseDir can also live in sonar-project.properties
-          ./sonar-scanner/bin/sonar-scanner \
-            -Dsonar.projectBaseDir=CodeBase \
-            -Dsonar.login="${SONAR_TOKEN}" \
-            -Dsonar.host.url=https://sonarcloud.io
+          ${{ runner.temp }}\scanner\dotnet-sonarscanner begin /k:"djedje-cyber_UltraInstinctVR" /o:"djedje-cyber" /d:sonar.token="${{ secrets.SONAR_TOKEN }}"
+          dotnet build
+          ${{ runner.temp }}\scanner\dotnet-sonarscanner end /d:sonar.token="${{ secrets.SONAR_TOKEN }}"
