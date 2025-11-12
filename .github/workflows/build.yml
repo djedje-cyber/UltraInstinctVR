@@ -1,4 +1,5 @@
-name: SonarQube
+name: SonarCloud Static Analysis (Unity Scripts)
+
 on:
   push:
     branches:
@@ -7,62 +8,56 @@ on:
     types: [opened, synchronize, reopened]
 
 jobs:
-  build:
-    name: Build and analyze Unity solution
-    runs-on: windows-latest
+  sonar-static:
+    name: Static Analysis of Unity Scripts
+    runs-on: ubuntu-latest
 
     steps:
+      # 1️⃣ Checkout the repository
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      # 2️⃣ Set up JDK (required by SonarScanner)
       - name: Set up JDK 17
         uses: actions/setup-java@v4
         with:
           java-version: 17
           distribution: 'zulu'
 
-      - uses: actions/checkout@v4
-        with:
-          fetch-depth: 0
-
-      - name: Cache SonarCloud packages
-        uses: actions/cache@v4
-        with:
-          path: ~\sonar\cache
-          key: ${{ runner.os }}-sonar
-          restore-keys: ${{ runner.os }}-sonar
-
+      # 3️⃣ Cache SonarCloud scanner
       - name: Cache SonarCloud scanner
         id: cache-sonar-scanner
         uses: actions/cache@v4
         with:
-          path: ${{ runner.temp }}\scanner
+          path: ${{ runner.temp }}/scanner
           key: ${{ runner.os }}-sonar-scanner
           restore-keys: ${{ runner.os }}-sonar-scanner
 
+      # 4️⃣ Install SonarCloud scanner
       - name: Install SonarCloud scanner
         if: steps.cache-sonar-scanner.outputs.cache-hit != 'true'
-        shell: powershell
+        shell: bash
         run: |
-          New-Item -Path ${{ runner.temp }}\scanner -ItemType Directory
-          dotnet tool update dotnet-sonarscanner --tool-path ${{ runner.temp }}\scanner
+          mkdir -p ${{ runner.temp }}/scanner
+          dotnet tool update dotnet-sonarscanner --tool-path ${{ runner.temp }}/scanner
 
-      # 🔹 Setup MSBuild so 'msbuild' command is recognized
-      - name: Setup MSBuild tools
-        uses: microsoft/setup-msbuild@v1
-
-      - name: Begin SonarCloud Analysis
+      # 5️⃣ Run static analysis on Unity C# scripts only
+      - name: Run SonarCloud Static Analysis
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-        shell: powershell
+        shell: bash
         run: |
-          $scanner = "${{ runner.temp }}\scanner\dotnet-sonarscanner.exe"
-          cd CodeBase
-          & $scanner begin /k:"djedje-cyber_UltraInstinctVR" /o:"djedje-cyber" /d:sonar.login="${{ secrets.SONAR_TOKEN }}"
+          SCANNER="${{ runner.temp }}/scanner/dotnet-sonarscanner"
+          # Use "begin" in preview mode and skip build
+          $SCANNER begin \
+            /k:"djedje-cyber_UltraInstinctVR" \
+            /o:"djedje-cyber" \
+            /d:sonar.login="${{ secrets.SONAR_TOKEN }}" \
+            /d:sonar.sources="CodeBase/Assets" \
+            /d:sonar.cs.opencover.reportsPaths="" \
+            /d:sonar.analysis.mode=preview
 
-
-      - name: End SonarCloud Analysis
-        env:
-          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-        shell: powershell
-        run: |
-          $scanner = "${{ runner.temp }}\scanner\dotnet-sonarscanner.exe"
-          cd CodeBase
-          & $scanner end /d:sonar.login="${{ secrets.SONAR_TOKEN }}"
+          # No build step, just end
+          $SCANNER end /d:sonar.login="${{ secrets.SONAR_TOKEN }}"
