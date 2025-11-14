@@ -7,7 +7,7 @@ using System;
 
 
 /// <summary>
-/// 
+/// Class <c>SizeScene</c> teleports an object out of the scene bounds multiple times and logs the positions to a file.
 /// </summary>
 
 
@@ -29,6 +29,11 @@ public class SizeScene : MonoBehaviour
     private string replayFilePath;
     private List<string> teleportLogs = new List<string>();
 
+
+
+    /// <summary>
+    /// Method <c>Start</c> initializes the log file, calculates scene bounds, and starts the teleportation coroutine.
+    /// </summary>
     private void Start()
     {
         // Initialize the log file
@@ -38,7 +43,6 @@ public class SizeScene : MonoBehaviour
         StartCoroutine(SetupAndTeleport());
     }
 
-    // Main coroutine: calculates bounds and performs teleportation
     private IEnumerator SetupAndTeleport()
     {
         yield return StartCoroutine(CalculateSceneBoundsDeferred());
@@ -49,14 +53,23 @@ public class SizeScene : MonoBehaviour
         WriteLogsToFile();
     }
 
-    // Wait until the end of the frame to ensure all objects are initialized
+
+
+    /// <summary>
+    /// Method <c>CalculateSceneBoundsDeferred</c> waits for the end of the frame before calculating scene bounds.
+    /// </summary>
+    /// <returns>CalculateSceneBounds()</returns>
     private IEnumerator CalculateSceneBoundsDeferred()
     {
         yield return new WaitForEndOfFrame();
         CalculateSceneBounds();
     }
 
-    // Calculate the bounding box of the scene based on all renderers
+
+
+    /// <summary>
+    /// Method <c>CalculateSceneBounds</c> calculates the bounds of all renderers in the scene.
+    /// </summary>
     private void CalculateSceneBounds()
     {
         sceneBounds = new Bounds(Vector3.zero, Vector3.zero);
@@ -68,7 +81,11 @@ public class SizeScene : MonoBehaviour
         }
     }
 
-    // Coroutine to teleport the object out of bounds multiple times
+    /// <summary>
+    /// Method <c>TeleportOutOfBounds</c> teleports the object out of bounds multiple times and logs the positions.
+    /// </summary>
+    /// <returns> Break the program to let the game object to teleport</returns>
+
     private IEnumerator TeleportOutOfBounds()
     {
         for (int i = 0; i < teleportCount; i++)
@@ -81,7 +98,10 @@ public class SizeScene : MonoBehaviour
         }
     }
 
-    // Calculate a random position outside the scene bounds
+    /// <summary>
+    /// Method <c>CalculateRandomOutOfBoundsPosition</c> calculates a random position outside the scene bounds.
+    /// </summary>
+    /// <returns>The sceneBounds</returns>
     private Vector3 CalculateRandomOutOfBoundsPosition()
     {
         Vector3 randomDir = UnityEngine.Random.onUnitSphere;
@@ -90,7 +110,11 @@ public class SizeScene : MonoBehaviour
         return sceneBounds.center + randomDir * distance;
     }
 
-    // Move the object to the given position
+
+    /// <summary>
+    /// Method <c>TeleportObject</c> teleports the specified object to the new position.
+    /// </summary>
+    /// <param name="newPosition"></param>
     private void TeleportObject(Vector3 newPosition)
     {
         if (objectToTeleport != null)
@@ -103,20 +127,31 @@ public class SizeScene : MonoBehaviour
         }
     }
 
-    // Add the teleportation position to the log buffer
+
+    /// <summary>
+    /// Method <c>LogTeleport</c> logs the teleportation position to the list.
+    /// </summary>
+    /// <param name="position"></param>
     private void LogTeleport(Vector3 position)
     {
         teleportLogs.Add($"{position.x}, {position.y}, {position.z}");
     }
 
-    // Write all buffered teleport positions to the log file
+
+    /// <summary>
+    /// Method <c>WriteLogsToFile</c> writes the teleportation logs to the replay file.
+    /// </summary>
     private void WriteLogsToFile()
     {
         File.WriteAllLines(replayFilePath, teleportLogs);
         Debug.Log($"Teleport log written to: {replayFilePath}");
     }
 
-    // Initialize the log file with a unique filename
+
+
+    /// <summary>
+    /// Method <c>InitializeLogFile</c> initializes the replay log file with a unique name.
+    /// </summary>
     private void InitializeLogFile()
     {
         if (!Directory.Exists(replayFolder))

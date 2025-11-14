@@ -40,12 +40,12 @@ public static class XareusLicenseSetup
     }
 
 
+    /// <summary>
+    /// Method <c>ActivateXareus</c> activates the Xareus license using the content from the XAREUS_LICENSE environment variable.
+    /// </summary>
+    /// 
 
-
-
-
-
-
+    #if UNITY_EDITOR
 
     public static void ActivateXareus()
     {
@@ -65,5 +65,6 @@ public static class XareusLicenseSetup
             Debug.LogWarning("XAREUS_LICENSE environment variables is not set. Xareus license not configured.");
         }
     }
+    #endif
 }
 
