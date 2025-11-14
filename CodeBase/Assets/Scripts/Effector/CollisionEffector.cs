@@ -9,6 +9,11 @@ using System.Collections.Generic;
 namespace ColissionEffectorSpace
 {
     [FunctionDescription("Collision Detection Effect")]
+
+
+    /// <summary>
+    /// Class <c>CollisionEffector</c> detects collisions between a specified cube and other objects in a Unity scene.
+    /// </summary>
     public class CollisionEffector : AUnityEffector
     {
         // Cube to monitor for collision detection
@@ -19,6 +24,17 @@ namespace ColissionEffectorSpace
         [ConfigurationParameter("Collision Detection Radius", Necessity.Required)]
         protected float collisionDetectionRadius = 0.5f;
 
+
+
+        /// <summary>
+        /// Method <c>CollisionEffector</c> initializes the effector with necessary contexts and parameters.
+        /// </summary>
+        /// <param name="event"></param>
+        /// <param name="nameValueListMap"></param>
+        /// <param name="externalContext"></param>
+        /// <param name="scenarioContext"></param>
+        /// <param name="sequenceContext"></param>
+        /// <param name="eventContext"></param>
         public CollisionEffector(Xareus.Scenarios.Event @event,
             Dictionary<string, Xareus.Scenarios.Parameter> nameValueListMap,
             IContext externalContext,
@@ -28,13 +44,19 @@ namespace ColissionEffectorSpace
             : base(@event, nameValueListMap, externalContext, scenarioContext, sequenceContext, eventContext)
         { }
 
-        // Method called every frame to check for collisions
+        /// <summary>
+        /// Method <c>SafeReset</c> resets the effector state before execution.
+        /// </summary>
         public override void SafeEffectorUpdate()
         {
             Debug.Log("TestGenerated - CollisionDetection");
             DetectCollision();
         }
 
+
+        /// <summary>
+        /// Method <c>DetectCollision</c> checks for collisions between the cube and other objects in the scene.
+        /// </summary>
         private void DetectCollision()
         {
             // Detect all colliders within a sphere around the cube

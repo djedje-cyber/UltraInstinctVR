@@ -10,8 +10,6 @@ using System;
 /// Class <c>SizeScene</c> teleports an object out of the scene bounds multiple times and logs the positions to a file.
 /// </summary>
 
-
-
 public class SizeScene : MonoBehaviour
 {
     [Header("Teleportation Settings")]

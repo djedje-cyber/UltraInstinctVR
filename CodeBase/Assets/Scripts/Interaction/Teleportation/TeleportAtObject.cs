@@ -5,7 +5,9 @@ using System.Text.RegularExpressions;
 using UnityEngine;
 using System.Globalization;
 
-
+/// <summary>
+/// Class <c>Teleport</c>> teleports an object to a series of positions read from a text file.
+/// </summary>
 public class TeleportAtObject : MonoBehaviour
 {
     // List of positions to reach
@@ -19,7 +21,9 @@ public class TeleportAtObject : MonoBehaviour
     public string filePath = "Assets/Scripts/CoveredObjects/FoundObject.txt";
 
 
-
+    /// <summary>
+    /// Method <c>Start</c> initializes the teleportation process by reading positions from a file and starting the teleportation coroutine.
+    /// </summary>
     void Start()
     {
         // Read positions from the file
@@ -36,7 +40,9 @@ public class TeleportAtObject : MonoBehaviour
         }
     }
 
-    // Read positions from the text file
+    /// <summary>
+    /// Method <c>ReadPositionsFromFile</c> reads positions from a specified text file and stores them in a list.
+    /// </summary>
     private void ReadPositionsFromFile()
     {
         if (!File.Exists(filePath))
@@ -55,6 +61,13 @@ public class TeleportAtObject : MonoBehaviour
 
         Debug.Log("Positions read from file: " + positions.Count);
     }
+
+
+    /// <summary>
+    /// Method <c>ProcessLine</c> processes a single line from the file to extract coordinates and add them to the positions list.
+    /// </summary>
+    /// <param name="line"></param>
+    /// <param name="pattern"></param>
 
     private void ProcessLine(string line, string pattern)
     {
@@ -75,6 +88,12 @@ public class TeleportAtObject : MonoBehaviour
         TryAddPosition(coordinates, line);
     }
 
+
+    /// <summary>
+    /// Method <c>TryAddPosition</c> attempts to parse coordinates and add them as a Vector3 to the positions list.
+    /// </summary>
+    /// <param name="coordinates"></param>
+    /// <param name="line"></param>
     private void TryAddPosition(string[] coordinates, string line)
     {
         try
@@ -92,6 +111,11 @@ public class TeleportAtObject : MonoBehaviour
     }
 
 
+
+    /// <summary>
+    /// Method <c>TeleportToNextPosition</c> teleports the object to each position in the list with a delay in between.
+    /// </summary>
+    /// <returns></returns>
     private IEnumerator TeleportToNextPosition()
     {
         // While there are still positions to reach

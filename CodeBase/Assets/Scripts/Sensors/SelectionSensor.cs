@@ -6,6 +6,12 @@ using System.Collections.Generic;
 using System;
 
 [FunctionDescription("A Teleportation Detection Sensor at precise object position")]
+
+
+/// <summary>
+/// Class <c>SelectionSensor</c> detects when the selected cube teleports by monitoring significant changes in its position.
+/// </summary>
+
 public class SelectionSensor : AInUnityStepSensor
 {
     // Clé pour l'ajouter dans le contexte d'événement
@@ -30,6 +36,12 @@ public class SelectionSensor : AInUnityStepSensor
         : base(@event, nameValueListMap, externalContext, scenarioContext, sequenceContext)
     { }
 
+
+
+
+    /// <summary>
+    /// Method <c>SafeReset</c> resets the sensor's state, initializing the last known position of the cube.
+    /// </summary>
     public override void SafeReset()
     {
 
@@ -37,6 +49,12 @@ public class SelectionSensor : AInUnityStepSensor
 
         lastPosition = GetPlayerPosition();
     }
+
+
+    /// <summary>
+    /// Method <c>UnityStepSensorCheck</c> checks if the cube has teleported by comparing its current position to the last known position.
+    /// </summary>
+    /// <returns></returns>
 
     public override Result UnityStepSensorCheck()
     {
@@ -55,6 +73,11 @@ public class SelectionSensor : AInUnityStepSensor
 
         return new Result(false, eventContext);  // Retourne un résultat négatif si pas de téléportation
     }
+
+    /// <summary>
+    /// Method <c>GetPlayerPosition</c> retrieves the current position of the cube.
+    /// </summary>
+    /// <returns></returns>
 
     private Vector3 GetPlayerPosition()
     {

@@ -8,7 +8,9 @@ using System.IO;
 
 namespace OutsideSceneEffectorSpace
 {
-
+    /// <summary>
+    /// Class <c>OutsideSceneEffector</c> checks if the player teleports outside the scene boundaries when triggered by an event.
+    /// </summary>
     public class OutsideSceneEffector : AUnityEffector
     {
         [ConfigurationParameter("Teleport Distance Threshold", Necessity.Required)]
@@ -30,6 +32,11 @@ namespace OutsideSceneEffectorSpace
             : base(@event, nameValueListMap, externalContext, scenarioContext, sequenceContext, anotherContext)
         { }
 
+
+
+        /// <summary>
+        /// Method <c>SafeReset</c> resets the effector's state, initializing the last known position of the player.
+        /// </summary>
         public override void SafeReset()
         {
 
@@ -38,7 +45,10 @@ namespace OutsideSceneEffectorSpace
         }
 
 
-
+        /// <summary>
+        /// Method <c>GetSceneBounds</c> calculates the boundaries of the scene based on all renderers present.
+        /// </summary>
+        /// <returns></returns>
         public static Bounds GetSceneBounds()
         {
             // Get all renderers in the scene
@@ -62,7 +72,9 @@ namespace OutsideSceneEffectorSpace
             return sceneBounds;
         }
 
-
+        /// <summary>
+        /// Method <c>SafeEffectorUpdate</c> checks if the player is outside the scene boundaries and logs the result.
+        /// </summary>
         public override void SafeEffectorUpdate()
         {
             Vector3 currentPosition = GetPlayerPosition();
@@ -82,6 +94,11 @@ namespace OutsideSceneEffectorSpace
             }
         }
 
+
+        /// <summary>
+        /// Method <c>GetPlayerPosition</c> retrieves the current position of the player.
+        /// </summary>
+        /// <returns></returns>
         private Vector3 GetPlayerPosition()
         {
             return gameObjectToObserve.transform.position;

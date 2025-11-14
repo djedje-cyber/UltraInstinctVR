@@ -13,6 +13,11 @@ namespace MoveObjectToOriginEffectorSpace
 {
 
     [FunctionDescription("Effector to move an object to origin and manage its selection")]
+
+
+    /// <summary> 
+    /// Class <c>MoveObjectToOriginEffector</c> moves a specified interactable object to the origin (0,0,0) in a Unity XR environment.
+    /// </summary>
     public class MoveObjectToOriginEffector : AUnityEffector
     {
         [ConfigurationParameter("Object to Move", Necessity.Required)]
@@ -34,11 +39,19 @@ namespace MoveObjectToOriginEffectorSpace
             : base(@event, nameValueListMap, externalContext, scenarioContext, sequenceContext, eventContext)
         { }
 
+
+        /// <summary>
+        /// Method <c>SafeReset</c> resets the effector state before execution.
+        /// </summary>
         public override void SafeReset()
         {
             // Optionally reset state if needed
         }
 
+
+        /// <summary>
+        /// Method <c>SafeEffectorUpdate</c> performs the action of moving the object to the origin.
+        /// </summary>
         public override void SafeEffectorUpdate()
         {
             Debug.Log("ORACLE MoveObjectToOrigin - TestGenerated");
@@ -59,6 +72,11 @@ namespace MoveObjectToOriginEffectorSpace
 
         #region Helper Methods
 
+
+        /// <summary>
+        /// Method <c>ValidateVirtualHand</c> checks if the virtual hand and its components are properly assigned.
+        /// </summary>
+        /// <returns></returns>
         private bool ValidateVirtualHand()
         {
             if (virtualHand == null)
@@ -82,6 +100,12 @@ namespace MoveObjectToOriginEffectorSpace
             return true;
         }
 
+
+
+        /// <summary>
+        /// Method <c>GetAllInteractablesExceptVirtualHand</c> retrieves all XRGrabInteractable objects in the scene except the virtual hand and those currently selected.
+        /// </summary>
+        /// <returns></returns>
         private IEnumerable<XRGrabInteractable> GetAllInteractablesExceptVirtualHand()
         {
             foreach (var interactable in Object.FindObjectsOfType<XRGrabInteractable>())
@@ -93,6 +117,12 @@ namespace MoveObjectToOriginEffectorSpace
             }
         }
 
+
+        /// <summary>
+        /// Method <c>TryMoveInteractableToOrigin</c> attempts to select, move, and verify the movement of a given interactable object to the origin.
+        /// </summary>
+        /// <param name="interactable"></param>
+        /// <returns></returns>
         private bool TryMoveInteractableToOrigin(XRGrabInteractable interactable)
         {
             try
@@ -116,6 +146,11 @@ namespace MoveObjectToOriginEffectorSpace
             }
         }
 
+        /// <summary>
+        /// Method <c>SelectInteractable</c> selects the specified interactable object using the interactor.
+        /// </summary>
+        /// <param name="interactable"></param>
+
         private void SelectInteractable(XRGrabInteractable interactable)
         {
             interactionManager.SelectEnter(
@@ -128,6 +163,14 @@ namespace MoveObjectToOriginEffectorSpace
             );
         }
 
+
+
+
+
+        /// <summary>
+        /// Method <c>MoveInteractable</c> moves the specified interactable object to the origin (0,0,0).
+        /// </summary>
+        /// <param name="interactable"></param>
         private static void MoveInteractable(XRGrabInteractable interactable)
         {
             interactable.transform.position = Vector3.zero;
@@ -145,6 +188,10 @@ namespace MoveObjectToOriginEffectorSpace
             return false;
         }
 
+        /// <summary>
+        /// Method <c>DeselectInteractable</c> deselects the specified interactable object using the interactor.
+        /// </summary>
+        /// <param name="interactable"></param>
         private void DeselectInteractable(XRGrabInteractable interactable)
         {
             if (interactor.hasSelection && interactable.isSelected)

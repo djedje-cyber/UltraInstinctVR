@@ -10,7 +10,12 @@ using System.Text.RegularExpressions;
 
 
 
-namespace InObjectSceneEffectorSpace { 
+namespace InObjectSceneEffectorSpace {
+
+    /// <summary>
+    /// Class <c>InObjectSceneEffector</c> checks if the player teleports into covered objects in a Unity scene
+    /// </summary>
+
     public class InObjectSceneEffector : AUnityEffector
     {
         [ConfigurationParameter("Teleport Distance Threshold", Necessity.Required)]
@@ -35,6 +40,11 @@ namespace InObjectSceneEffectorSpace {
             : base(@event, nameValueListMap, externalContext, scenarioContext, sequenceContext, anotherContext)
         { }
 
+
+
+        /// <summary>
+        /// Method  <c>SafeReset</c> resets the effector state before execution.
+        /// </summary>
         public override void SafeReset()
         {
             LoadCoveredObjectPositions();
@@ -42,6 +52,11 @@ namespace InObjectSceneEffectorSpace {
             lastPosition = GetPlayerPosition();
         }
 
+
+
+        /// <summary>
+        /// Method <c>SafeEffectorUpdate</c> checks if the player has teleported into any covered objects.
+        /// </summary>
         public override void SafeEffectorUpdate()
         {
             Vector3 currentPosition = GetPlayerPosition();
@@ -69,6 +84,10 @@ namespace InObjectSceneEffectorSpace {
            
         }
 
+
+        /// <summary>
+        /// Method <c>LoadCoveredObjectPositions</c> loads covered object positions from a text file.
+        /// </summary>
         private void LoadCoveredObjectPositions()
         {
             if (!File.Exists(filePath))
@@ -85,6 +104,12 @@ namespace InObjectSceneEffectorSpace {
                 ParseAndAddPosition(line, pattern);
             }
         }
+
+        /// <summary>
+        /// Method <c>ParseAndAddPosition</c> parses a line to extract coordinates and adds them to the list.
+        /// </summary>
+        /// <param name="line"></param>
+        /// <param name="pattern"></param>
 
         private void ParseAndAddPosition(string line, string pattern)
         {
@@ -105,6 +130,12 @@ namespace InObjectSceneEffectorSpace {
             TryAddPosition(coordinates, line);
         }
 
+        /// <summary>
+        /// Method <c>TryAddPosition</c> attempts to parse coordinates and add them to the list.
+        /// </summary>
+        /// <param name="coordinates"></param>
+        /// <param name="line"></param>
+
         private void TryAddPosition(string[] coordinates, string line)
         {
             try
@@ -121,7 +152,10 @@ namespace InObjectSceneEffectorSpace {
             }
         }
 
-
+        /// <summary>
+        /// Method <c>GetPlayerPosition</c> retrieves the current position of the player.
+        /// </summary>
+        /// <returns></returns>
         private Vector3 GetPlayerPosition()
         {
             return gameObjectToObserve.transform.position;
