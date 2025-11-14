@@ -2,16 +2,21 @@ using UnityEditor;
 using UnityEngine;
 using System.IO;
 using Xareus;
-[InitializeOnLoad]
-public class XareusLicenseSetup
+public static class XareusLicenseSetup
 {
-    static XareusLicenseSetup()
+
+    [InitializeOnLoadMethod]
+
+    static void ActivateXareus()
     {
         string licenseContent = System.Environment.GetEnvironmentVariable("XAREUS_LICENSE");
         if (!string.IsNullOrEmpty(licenseContent))
         {
 
-            Xareus.Unity.Licensing.LicenseManager.CheckLicense(licenseContent);
+            string tempPath = Path.Combine(Application.temporaryCachePath, "xareus-license.xml");
+            File.WriteAllText(tempPath, licenseContent);
+            string fileContent = File.ReadAllText(tempPath);
+            Xareus.Unity.Licensing.LicenseManager.CheckLicense(fileContent);
             Debug.Log(Xareus.Unity.Licensing.LicenseManager.LicenseOk);
             UnityEngine.Debug.Log("Xareus license written from environment variable.");
         }
