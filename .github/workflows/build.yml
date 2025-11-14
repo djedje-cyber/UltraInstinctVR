@@ -29,9 +29,15 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-unity-6000.0.62f1-
             
-      - name: Debug license value
-        run: Write-Output $env:XAREUS_LICENSE
+      - name: Check license variable
         shell: pwsh
+        run: |
+          if ($env:XAREUS_LICENSE) {
+            Write-Output "XAREUS_LICENSE is PRESENT"
+          } else {
+            Write-Output "XAREUS_LICENSE is EMPTY"
+          }
+
 
       # 4️⃣ Build Unity Project (Windows 64-bit)
       - name: Build Unity Project
