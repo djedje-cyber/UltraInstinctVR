@@ -42,7 +42,7 @@ jobs:
           UNITY_EMAIL: ${{ secrets.UNITY_EMAIL }}
           UNITY_PASSWORD: ${{ secrets.UNITY_PASSWORD }}
           UNITY_SERIAL: ${{ secrets.UNITY_SERIAL }}
-          XAREUS_LICENSE: ${{ secrets.XAREUS_LICENSE }}
+          XAREUS_LICENSE: '<?xml version="1.0" encoding="utf-16"?><SignedLicense xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><LicensedTo>Gerry Longfils - CI</LicensedTo><LicenseId>1</LicenseId><EndTime>12/12/2025 13:16</EndTime><signature>U41oVvptVMHyWw6Ns18Gjm0JR1sXb8kxUE9hfAMm1eFk1fHxDvDlXFcr6i2LGb+TvrfZFnKcFfYsQL1W0uNj/OcveY33duDawYWcwOaAhf4fA6eDNbGuNPyBx/H3CZXtGDMrghnTucjsHDYxZi0ce87O0VWy1Hak8/JHcf8lETc=</signature></SignedLicense>'
 
       # 5️⃣ Optional: Return Unity License
       # The builder automatically handles license activation on Windows,
@@ -53,7 +53,7 @@ jobs:
           UNITY_EMAIL: ${{ secrets.UNITY_EMAIL }}
           UNITY_PASSWORD: ${{ secrets.UNITY_PASSWORD }}
           UNITY_SERIAL: ${{ secrets.UNITY_SERIAL }}
-          XAREUS_LICENSE: ${{ secrets.XAREUS_LICENSE }}
+          XAREUS_LICENSE: '<?xml version="1.0" encoding="utf-16"?><SignedLicense xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><LicensedTo>Gerry Longfils - CI</LicensedTo><LicenseId>1</LicenseId><EndTime>12/12/2025 13:16</EndTime><signature>U41oVvptVMHyWw6Ns18Gjm0JR1sXb8kxUE9hfAMm1eFk1fHxDvDlXFcr6i2LGb+TvrfZFnKcFfYsQL1W0uNj/OcveY33duDawYWcwOaAhf4fA6eDNbGuNPyBx/H3CZXtGDMrghnTucjsHDYxZi0ce87O0VWy1Hak8/JHcf8lETc=</signature></SignedLicense>'
 
 
       # 6️⃣ SonarCloud Scan
@@ -65,4 +65,5 @@ jobs:
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          XAREUS_LICENSE: '<?xml version="1.0" encoding="utf-16"?><SignedLicense xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><LicensedTo>Gerry Longfils - CI</LicensedTo><LicenseId>1</LicenseId><EndTime>12/12/2025 13:16</EndTime><signature>U41oVvptVMHyWw6Ns18Gjm0JR1sXb8kxUE9hfAMm1eFk1fHxDvDlXFcr6i2LGb+TvrfZFnKcFfYsQL1W0uNj/OcveY33duDawYWcwOaAhf4fA6eDNbGuNPyBx/H3CZXtGDMrghnTucjsHDYxZi0ce87O0VWy1Hak8/JHcf8lETc=</signature></SignedLicense>'
 
