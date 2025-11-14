@@ -29,6 +29,7 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-unity-6000.0.62f1-
             
+      - run: echo "$XAREUS_LICENSE"
 
       # 4️⃣ Build Unity Project (Windows 64-bit)
       - name: Build Unity Project
