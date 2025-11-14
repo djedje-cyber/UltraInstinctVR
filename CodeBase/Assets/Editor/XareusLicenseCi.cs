@@ -1,13 +1,53 @@
+
+
+#if UNITY_EDITOR
 using UnityEditor;
+#endif
+
 using UnityEngine;
 using System.IO;
 using Xareus;
+
+
+
+
+/// <summary>
+/// Class <c>XareusLicenseSetup</c> sets up the Xareus license from an environment variable for Unity Editor.
+/// </summary>
+
 public static class XareusLicenseSetup
 {
 
-    [InitializeOnLoadMethod]
+    /// <summary>
+    /// Method <c>ActivateXareus</c> reads the XAREUS_LICENSE environment variable, writes its content to a temporary file and activate the license,
+    /// </summary>
 
-    static void ActivateXareus()
+    [InitializeOnLoadMethod]
+    static void XareusLicenseLoader()
+    {
+    #if UNITY_EDITOR
+        // Skip UI dialogs if running in batchmode (CI)
+        if (Application.isBatchMode)
+        {
+            Debug.Log("Batchmode detected — skipping license dialogs");
+
+            ActivateXareus();
+            return;
+        }
+
+
+    #endif
+    }
+
+
+
+
+
+
+
+
+
+    public static void ActivateXareus()
     {
         string licenseContent = System.Environment.GetEnvironmentVariable("XAREUS_LICENSE");
         if (!string.IsNullOrEmpty(licenseContent))

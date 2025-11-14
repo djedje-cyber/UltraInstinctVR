@@ -4,6 +4,14 @@ using UnityEngine;
 using System.IO;
 using System;
 
+
+
+/// <summary>
+/// 
+/// </summary>
+
+
+
 public class SizeScene : MonoBehaviour
 {
     [Header("Teleportation Settings")]
