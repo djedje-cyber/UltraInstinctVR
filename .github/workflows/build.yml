@@ -29,16 +29,6 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-unity-6000.0.62f1-
             
-      - name: Check license variable
-        shell: pwsh
-        run: |
-          if ($env:XAREUS_LICENSE) {
-            Write-Output "XAREUS_LICENSE is PRESENT"
-          } else {
-            Write-Output "XAREUS_LICENSE is EMPTY"
-          }
-
-
       # 4️⃣ Build Unity Project (Windows 64-bit)
       - name: Build Unity Project
         uses: game-ci/unity-builder@v4
@@ -52,6 +42,7 @@ jobs:
           UNITY_EMAIL: ${{ secrets.UNITY_EMAIL }}
           UNITY_PASSWORD: ${{ secrets.UNITY_PASSWORD }}
           UNITY_SERIAL: ${{ secrets.UNITY_SERIAL }}
+          XAREUS_LICENSE: ${{ secrets.XAREUS_LICENSE }}
 
       # 5️⃣ Optional: Return Unity License
       # The builder automatically handles license activation on Windows,
@@ -62,6 +53,8 @@ jobs:
           UNITY_EMAIL: ${{ secrets.UNITY_EMAIL }}
           UNITY_PASSWORD: ${{ secrets.UNITY_PASSWORD }}
           UNITY_SERIAL: ${{ secrets.UNITY_SERIAL }}
+          XAREUS_LICENSE: ${{ secrets.XAREUS_LICENSE }}
+
 
       # 6️⃣ SonarCloud Scan
       - name: SonarCloud Scan
@@ -72,5 +65,4 @@ jobs:
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          XAREUS_LICENSE: ${{ secrets.XAREUS_LICENSE }}
 
