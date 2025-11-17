@@ -17,6 +17,7 @@ namespace ChildBahaviorSpace
     /// be customized by modifying the <c>duration</c> field.</remarks>
     public class ChildBehavior : MonoBehaviour
     {
+        [SerializeField]
         private float duration = 30f; // Delay between actions
         private ParentController parentController;
 
