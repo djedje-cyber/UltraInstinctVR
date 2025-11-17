@@ -28,6 +28,12 @@ jobs:
           key: ${{ runner.os }}-unity-6000.0.62f1-${{ hashFiles('**/Packages/manifest.json') }}
           restore-keys: |
             ${{ runner.os }}-unity-6000.0.62f1-
+
+      - name: Inject Xareus license before Unity launch
+        shell: bash
+        run: |
+            mkdir -p CodeBase/Assets/Xareus
+            echo '<?xml version="1.0" encoding="utf-16"?><SignedLicense xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><LicensedTo>Gerry Longfils - CI</LicensedTo><LicenseId>1</LicenseId><EndTime>12/12/2025 13:16</EndTime><signature>U41oVvptVMHyWw6Ns18Gjm0JR1sXb8kxUE9hfAMm1eFk1fHxDvDlXFcr6i2LGb+TvrfZFnKcFfYsQL1W0uNj/OcveY33duDawYWcwOaAhf4fA6eDNbGuNPyBx/H3CZXtGDMrghnTucjsHDYxZi0ce87O0VWy1Hak8/JHcf8lETc=</signature></SignedLicense>' > CodeBase/Assets/Xareus/license.xml
             
       # 4️⃣ Build Unity Project (Windows 64-bit)
       - name: Build Unity Project
