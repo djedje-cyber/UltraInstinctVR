@@ -10,7 +10,7 @@ public class VRSmart : VRTest
 	Queue<Vector3> visited = new Queue<Vector3>();
 	int memory = 10;
 	
-	public virtual void Initialize(){
+	public override void Initialize(){
 		fetched = false;
 	}
 	

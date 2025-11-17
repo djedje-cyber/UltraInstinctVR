@@ -5,13 +5,13 @@ using UnityEngine;
 using System.Runtime.InteropServices;
 using System;
 using UnityEngine.EventSystems;
- // N'oublie pas d'inclure le namespace d'OpenXR
+
+
 
 public class VRTest : MonoBehaviour
 {
     protected static Dictionary<GameObject, ControlInfo> controls = new Dictionary<GameObject, ControlInfo>();
     protected static GameObject triggered;
-    int index = 0;
     float passed = 0.0f;
     bool clickStay;
 
@@ -35,17 +35,16 @@ public class VRTest : MonoBehaviour
     protected List<Vector3> turns = new List<Vector3>();
 
     float clickStayLength = 2f;
-    float eventGap = 1f;
 
-    // Ajout du timer pour l'arrêt automatique
+    // Added timer for automatic shutdown
     private float lastInteractionTime;
     private const float timeoutDuration = 900f; // 15 minutes
     private bool isRunning = true;
 
-    // Ajout du compteur et du calcul du taux d'objets trouvés
+    // Added counter and calculation of the rate of objects found
     private int objectsFound = 0;
     private float timeElapsed = 0f;
-    private float reportInterval = 60f; // Affiche le taux toutes les 60 secondes (1 minute)
+    private float reportInterval = 60f; // Displays the rate every 60 seconds (1 minute)
 
     void Start()
     {
@@ -75,7 +74,7 @@ public class VRTest : MonoBehaviour
         clickStay = false;
         passed = 0f;
 
-        // Initialisation du timer
+        // Initialization of the timer
         lastInteractionTime = Time.time;
 
         Initialize();
@@ -97,14 +96,14 @@ public class VRTest : MonoBehaviour
 
 protected void FetchControls()
 {
-    // Création du dossier pour les objets trouvés
+    // Creation of the folder for found objects
     string folderPath = "Assets/Scripts/CoveredObjects";
     if (!Directory.Exists(folderPath))
     {
         Directory.CreateDirectory(folderPath);
     }
 
-    // Création du dossier pour les fichiers TESTREPLAY
+    // Creation of the folder for TESTREPLAY files
     string replayFolderPath = "Assets/Scripts/TESTREPLAY";
     if (!Directory.Exists(replayFolderPath))
     {
@@ -118,38 +117,39 @@ protected void FetchControls()
     string replayFilePath = Path.Combine(replayFolderPath, $"TEST_REPLAY_ObjectFound_{uuid}_{Date}.txt");
 
 
-    // Enregistrer dans le fichier de log dans CoveredObjects
+    // Write to the log file in CoveredObjects
+
     string coveredObjectsFilePath = Path.Combine(folderPath, "FoundObject.txt");
 
-    // Création et ouverture des fichiers de log
+    // Creation and opening of log files
     using (StreamWriter writerCoveredObjects = new StreamWriter(coveredObjectsFilePath, false))
     using (StreamWriter writerReplay = new StreamWriter(replayFilePath, false))
     {
-        // Récupérer tous les objets dans la scène
-        GameObject[] gos = UnityEngine.Object.FindObjectsOfType<GameObject>();
-        foreach (GameObject go in gos)
+            // Retrieve all objects in the scene
+            GameObject[] gos = UnityEngine.Object.FindObjectsByType<GameObject>(FindObjectsSortMode.None); foreach (GameObject go in gos)
         {
-            // Vérification si l'objet possède un XRGrabInteractable
+            // Check if the object has an XRGrabInteractable
             UnityEngine.XR.Interaction.Toolkit.Interactables.XRGrabInteractable grabInteractable = go.GetComponent<UnityEngine.XR.Interaction.Toolkit.Interactables.XRGrabInteractable>();
             if (grabInteractable != null && !controls.ContainsKey(go))
             {
-                // Ajouter l'objet à la liste de contrôles
+
+                
                 controls[go] = new ControlInfo(go);
 
-                // Préparer les informations sur l'objet
+              
                 string objectInfo = $"{go.name}: {go.transform.position}";
                 Debug.Log(objectInfo);
 
-                // Écrire dans le fichier FoundObject.txt dans CoveredObjects
+                
                 writerCoveredObjects.WriteLine(objectInfo);
 
-                // Écrire dans le fichier TEST_REPLAY
+                
                 writerReplay.WriteLine(objectInfo);
 
-                // Incrémenter le compteur d'objets trouvés
+              
                 objectsFound++;
 
-                // Attacher un événement PointerClick pour les objets XRGrabInteractable
+                
                 EventTrigger r = go.GetComponent<EventTrigger>();
                 if (r == null)
                 {
@@ -160,8 +160,6 @@ protected void FetchControls()
                 entry.eventID = EventTriggerType.PointerClick;
                 entry.callback.AddListener((eventData) => { UpdateTrigger(); });
                 r.triggers.Add(entry);
-
-                // Mettre à jour le timer de l'interaction
                 lastInteractionTime = Time.time;
             }
         }
@@ -180,7 +178,7 @@ protected void FetchControls()
 
     void FixedUpdate()
     {
-        if (!isRunning) return; // Arrêter l'exécution du script si isRunning est false
+        if (!isRunning) return; 
 
         if (clickStay)
         {
@@ -205,23 +203,23 @@ protected void FetchControls()
             }
         }
 
-        // Mise à jour du temps écoulé
+        
         timeElapsed = Time.time - lastInteractionTime;
 
-        // Vérification du taux d'objets trouvés
+        
         if (timeElapsed >= reportInterval)
         {
             float objectsPerMinute = (objectsFound / timeElapsed) * 60f; // Calcul du taux par minute
             Debug.Log($"Taux d'objets trouvés : {objectsPerMinute:F2} objets/minute.");
 
-            // Si le taux tombe à 0, stopper uniquement ce script
+           
             if (objectsPerMinute == 0)
             {
                 Debug.Log("Le taux d'objets trouvés est tombé à 0. Arrêt du script.");
                 isRunning = false;
             }
 
-            // Réinitialisation pour le prochain calcul
+            
             objectsFound = 0;
             lastInteractionTime = Time.time;
         }
