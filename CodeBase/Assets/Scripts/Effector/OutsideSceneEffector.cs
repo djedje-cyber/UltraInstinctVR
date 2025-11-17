@@ -21,7 +21,6 @@ namespace OutsideSceneEffectorSpace
         protected GameObject gameObjectToObserve;
 
         private Vector3 lastPosition;
-        private readonly string sceneBoundsFilePath = "Assets/Scripts/CoveredObjects/sceneBounds.txt"; // Chemin du fichier
 
         public OutsideSceneEffector(Xareus.Scenarios.Event @event,
             Dictionary<string, Xareus.Scenarios.Parameter> nameValueListMap,
@@ -29,8 +28,8 @@ namespace OutsideSceneEffectorSpace
             IContext scenarioContext,
             IContext sequenceContext,
             IContext anotherContext)
-            : base(@event, nameValueListMap, externalContext, scenarioContext, sequenceContext, anotherContext)
-        { }
+            : base(@event, nameValueListMap, new ContextHolder(externalContext, scenarioContext, sequenceContext, anotherContext))
+            { }
 
 
 
@@ -44,7 +43,7 @@ namespace OutsideSceneEffectorSpace
             lastPosition = GetPlayerPosition();
         }
 
-
+         
         /// <summary>
         /// Method <c>GetSceneBounds</c> calculates the boundaries of the scene based on all renderers present.
         /// </summary>
@@ -52,7 +51,7 @@ namespace OutsideSceneEffectorSpace
         public static Bounds GetSceneBounds()
         {
             // Get all renderers in the scene
-            Renderer[] renderers = Object.FindObjectsOfType<Renderer>();
+            Renderer[] renderers = Object.FindObjectsByType<Renderer>(FindObjectsSortMode.None);
 
             if (renderers.Length == 0)
             {

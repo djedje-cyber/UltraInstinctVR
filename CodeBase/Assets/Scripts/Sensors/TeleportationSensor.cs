@@ -1,9 +1,10 @@
-using Xareus.Scenarios.Context;
-using Xareus.Scenarios.Utilities;
-using Xareus.Scenarios.Unity;
-using UnityEngine;
-using System.Collections.Generic;
 using System;
+using System.Collections.Generic;
+using UnityEditor.Timeline;
+using UnityEngine;
+using Xareus.Scenarios.Context;
+using Xareus.Scenarios.Unity;
+using Xareus.Scenarios.Utilities;
 
 
 
@@ -43,8 +44,9 @@ public class TeleportationSensor : AInUnityStepSensor
         IContext externalContext, 
         IContext scenarioContext, 
         IContext sequenceContext)
-        : base(@event, nameValueListMap, externalContext, scenarioContext, sequenceContext)
-    { }
+       :base(@event, nameValueListMap, new ContextHolder(externalContext, scenarioContext, sequenceContext))
+
+    { } 
 
 
     /// <summary>

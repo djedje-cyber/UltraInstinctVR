@@ -41,7 +41,8 @@ namespace ColissionEffectorSpace
             IContext scenarioContext,
             IContext sequenceContext,
             IContext eventContext)
-            : base(@event, nameValueListMap, externalContext, scenarioContext, sequenceContext, eventContext)
+            : base(@event, nameValueListMap, new ContextHolder(externalContext, scenarioContext, sequenceContext))
+
         { }
 
         /// <summary>
@@ -53,7 +54,7 @@ namespace ColissionEffectorSpace
             DetectCollision();
         }
 
-
+         
         /// <summary>
         /// Method <c>DetectCollision</c> checks for collisions between the cube and other objects in the scene.
         /// </summary>

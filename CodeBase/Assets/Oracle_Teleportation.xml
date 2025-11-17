@@ -40,7 +40,7 @@
     <transition id="Transition_1" label="Transition_1">
       <extendedInfo>
         <unityEditor xmlns="">
-          <position x="434.178467" y="177.694916" />
+          <position x="431.546875" y="177.694916" />
         </unityEditor>
       </extendedInfo>
       <event id="Transition_1" label="Transition_1">
@@ -66,7 +66,7 @@
             <param value="fafeaf69-9f6a-45ea-8847-ad7c15907398" type="System.Guid,mscorlib" name="UFID" />
           </param>
         </sensorCheck>
-        <effectorUpdate classname="TeleportationEffector,Assembly-CSharp">
+        <effectorUpdate classname="TeleportationEffectorSpace.TeleportationEffector,Assembly-CSharp">
           <extendedInfo>
             <unityEditor xmlns="">
               <editBox type="Xareus.Unity.Editor.Scenarios.UI.DefaultEditBox,Xareus.Unity.Editor" />

@@ -84,7 +84,7 @@ public class VRTest : MonoBehaviour
     {
         string filePath = "Assets/Scripts/CoveredObjects/FoundObject.txt";
         if (File.Exists(filePath))
-        {
+        { 
             using (StreamWriter writer = new StreamWriter(filePath, false)) { }
             Debug.Log("Le fichier FoundObject.txt a été vidé.");
         }

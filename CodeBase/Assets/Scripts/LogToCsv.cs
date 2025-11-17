@@ -14,8 +14,8 @@ public class LogToCsv : MonoBehaviour
     void Start()
     {
         // Récupérer la référence du GameManager
-        gameManager = FindObjectOfType<GetStartTime>();
-        
+        gameManager = UnityEngine.Object.FindFirstObjectByType<GetStartTime>();
+
         if (gameManager != null)
         {
             // Récupérer le startTime du GameManager

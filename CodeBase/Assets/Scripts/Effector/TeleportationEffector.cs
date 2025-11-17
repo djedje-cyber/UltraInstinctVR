@@ -23,7 +23,7 @@ namespace TeleportationEffectorSpace
 
         private Vector3 lastPosition;
 
-
+          
 
         /// <summary>
         /// Method  <c>TeleportationEffector</c> initializes the effector with the given parameters.
@@ -40,7 +40,8 @@ namespace TeleportationEffectorSpace
             IContext scenarioContext,
             IContext sequenceContext,
             IContext anotherContext)
-            : base(@event, nameValueListMap, externalContext, scenarioContext, sequenceContext, anotherContext)
+            : base(@event, nameValueListMap, new ContextHolder(externalContext, scenarioContext, sequenceContext, anotherContext))
+
         { }
 
 

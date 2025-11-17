@@ -32,7 +32,8 @@ public class ObjectSelectionEffector : AUnityEffector
         IContext scenarioContext,
         IContext sequenceContext,
         IContext eventContext)
-        : base(@event, nameValueListMap, externalContext, scenarioContext, sequenceContext, eventContext)
+        : base(@event, nameValueListMap, new ContextHolder(externalContext, scenarioContext, sequenceContext))
+
     { }
 
     // Méthode appelée à chaque frame pour vérifier les collisions avec le cube

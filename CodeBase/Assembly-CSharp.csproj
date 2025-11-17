@@ -122,21 +122,25 @@
     <Compile Include="Assets\Scripts\Interaction\VRTest\SpawnPaper.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Assets\Scripts\TESTREPLAY\TEST_REPLAY_ObjectFound_7da663a3-20df-4322-84e7-2b12e4d6b0c8_2025-11-17.txt" />
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile Overlay.shader" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile-2-Pass.shader" />
     <None Include="Assets\VRTemplateAssets\Shaders\FauxBlurURP.shader" />
     <None Include="Assets\Oracle_Selection.xml" />
     <None Include="Assets\Scripts\TESTREPLAY\TESTREPLAY_SizeScene_706570f9-59a3-4c40-b301-641f65fb89b9_2025-11-06.txt" />
+    <None Include="Assets\Scripts\TESTREPLAY\TESTREPLAY_TeleportPlayer_18d272e7-b981-458c-82fa-ec24f0ff3732_2025-11-17.txt" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_Bitmap.shader" />
     <None Include="Assets\Oracle_InObjectScene.xml" />
     <None Include="Assets\Scripts\TESTREPLAY\TESTREPLAY_SizeScene_b1e15f86-4a81-4670-b553-8e49f3dbc60a_2025-11-08.txt" />
     <None Include="Assets\Scripts\TESTREPLAY\TESTREPLAY_TeleportPlayer_849c29f4-53b0-4f1c-90ab-13a9180ba2c9_2025-11-06.txt" />
+    <None Include="Assets\Scripts\TESTREPLAY\TEST_REPLAY_ObjectFound_6dd906e0-8d88-422f-8a8b-d079649f4d87_2025-11-17.txt" />
     <None Include="Assets\TextMesh Pro\Shaders\TMPro_Mobile.cginc" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF SSD.shader" />
     <None Include="Assets\Scripts\CoveredObjects\FoundObject.txt" />
     <None Include="Assets\Scripts\TESTREPLAY\TESTREPLAY_TeleportPlayer_fa595f27-128a-41d0-b49e-dc36d3fee0f3_2025-11-07.txt" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Surface-Mobile.shader" />
+    <None Include="Assets\Scripts\TESTREPLAY\TESTREPLAY_SizeScene_7bbd90ed-1869-43cc-9592-c07331d43cbd_2025-11-17.txt" />
     <None Include="Assets\Oracle_MoveObjectToOrigin.xml" />
     <None Include="Assets\TextMesh Pro\Shaders\SDFFunctions.hlsl" />
     <None Include="Assets\Scripts\game_logs.txt" />
@@ -150,12 +154,14 @@
     <None Include="Assets\TextMesh Pro\Resources\LineBreaking Leading Characters.txt" />
     <None Include="Assets\Scripts\TESTREPLAY\TESTREPLAY_TeleportPlayer_10205d3f-7a69-43e6-bed6-036167448846_2025-11-07.txt" />
     <None Include="Assets\TextMesh Pro\Shaders\TMPro_Properties.cginc" />
+    <None Include="Assets\Scripts\TESTREPLAY\TESTREPLAY_SizeScene_d6f0912e-794c-4d9f-90cd-7adb00ec43f5_2025-11-17.txt" />
     <None Include="Assets\Oracle_Colission.xml" />
     <None Include="Assets\TextMesh Pro\Shaders\TMPro_Surface.cginc" />
     <None Include="Assets\Oracle_Teleportation.xml" />
     <None Include="Assets\Scripts\TESTREPLAY\TESTREPLAY_TeleportPlayer_faafd254-8f24-4ccf-aa1a-3e872442257b_2025-11-07.txt" />
     <None Include="Assets\TextMesh Pro\Resources\LineBreaking Following Characters.txt" />
     <None Include="Assets\Scripts\TESTREPLAY\TESTREPLAY_SizeScene_03cc312f-b803-490c-bce1-7f8088c35e13_2025-11-12.txt" />
+    <None Include="Assets\Scripts\TESTREPLAY\TESTREPLAY_TeleportPlayer_d8edc786-5f39-472c-8c9f-2e921d450cf2_2025-11-17.txt" />
     <None Include="Assets\Scripts\TESTREPLAY\TESTREPLAY_TeleportPlayer_d734b7ee-c2ab-4e48-b95e-3c11f94adce6_2025-11-06.txt" />
     <None Include="Assets\Scripts\TESTREPLAY\TESTREPLAY_TeleportPlayer_ab9313b6-4b85-4f67-8d97-9a3af611056f_2025-11-06.txt" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile Masking.shader" />
@@ -168,9 +174,13 @@
     <None Include="Assets\TextMesh Pro\Fonts\LiberationSans - OFL.txt" />
     <None Include="Assets\VRTemplateAssets\Shaders\TexturedStableFresnelCommon.cginc" />
     <None Include="Assets\Scripts\TESTREPLAY\TESTREPLAY_TeleportPlayer_9ddc17ec-5147-4d67-9c32-54416f5b83f8_2025-11-07.txt" />
+    <None Include="Assets\Scripts\TESTREPLAY\TESTREPLAY_TeleportPlayer_15ade747-5aac-474f-82bb-9b41581233dd_2025-11-17.txt" />
+    <None Include="Assets\Scripts\TESTREPLAY\TESTREPLAY_TeleportPlayer_091e6544-5274-4a13-88ab-de2d86d6ceb4_2025-11-17.txt" />
+    <None Include="Assets\Scripts\TESTREPLAY\TESTREPLAY_SizeScene_d9edf2fe-54e4-485b-9721-03d392998aa8_2025-11-17.txt" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile.shader" />
     <None Include="Assets\Scripts\TESTREPLAY\TESTREPLAY_SizeScene_6c66284d-9dfd-4cea-a56c-6a60638eebdf_2025-11-12.txt" />
     <None Include="Assets\VRTemplateAssets\Materials\Skybox\Horizontal Skybox.shader" />
+    <None Include="Assets\Scripts\TESTREPLAY\TESTREPLAY_TeleportPlayer_c4395f07-7202-4c84-81d2-2181de0c787a_2025-11-17.txt" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_Sprite.shader" />
   </ItemGroup>
   <ItemGroup>

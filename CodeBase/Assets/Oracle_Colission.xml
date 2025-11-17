@@ -56,7 +56,7 @@
             <param value="2ca489e1-aacc-4d2b-964f-102522b22e36" type="System.Guid,mscorlib" name="UFID" />
           </param>
         </sensorCheck>
-        <effectorUpdate classname="CollisionEffector,Assembly-CSharp">
+        <effectorUpdate classname="ColissionEffectorSpace.CollisionEffector,Assembly-CSharp">
           <extendedInfo>
             <unityEditor xmlns="">
               <editBox type="Xareus.Unity.Editor.Scenarios.UI.DefaultEditBox,Xareus.Unity.Editor" />

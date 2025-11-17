@@ -24,6 +24,7 @@ namespace MoveObjectToOriginEffectorSpace
         private GameObject virtualHand;
 
         [ConfigurationParameter("Teleport Delay", Necessity.Optional)]
+    
         private float teleportDelay = 2f;
 
         private UnityEngine.XR.Interaction.Toolkit.Interactors.XRDirectInteractor interactor;
@@ -36,7 +37,7 @@ namespace MoveObjectToOriginEffectorSpace
             IContext scenarioContext,
             IContext sequenceContext,
             IContext eventContext)
-            : base(@event, nameValueListMap, externalContext, scenarioContext, sequenceContext, eventContext)
+            : base(@event, nameValueListMap, new ContextHolder(externalContext, scenarioContext, sequenceContext))
         { }
 
 
@@ -108,7 +109,7 @@ namespace MoveObjectToOriginEffectorSpace
         /// <returns></returns>
         private IEnumerable<XRGrabInteractable> GetAllInteractablesExceptVirtualHand()
         {
-            foreach (var interactable in Object.FindObjectsOfType<XRGrabInteractable>())
+            foreach (var interactable in Object.FindObjectsByType<XRGrabInteractable>(FindObjectsSortMode.None))
             {
                 if (interactable.gameObject != virtualHand && !interactable.isSelected)
                 {
@@ -116,7 +117,7 @@ namespace MoveObjectToOriginEffectorSpace
                 }
             }
         }
-
+         
 
         /// <summary>
         /// Method <c>TryMoveInteractableToOrigin</c> attempts to select, move, and verify the movement of a given interactable object to the origin.

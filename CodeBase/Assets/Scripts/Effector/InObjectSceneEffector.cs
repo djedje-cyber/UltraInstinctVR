@@ -3,7 +3,6 @@ using Xareus.Scenarios.Utilities;
 using Xareus.Scenarios.Unity;
 using UnityEngine;
 using System.Collections.Generic;
-using System.Collections;
 using System.IO;
 using System.Globalization;
 using System.Text.RegularExpressions;
@@ -37,7 +36,8 @@ namespace InObjectSceneEffectorSpace {
             IContext scenarioContext,
             IContext sequenceContext,
             IContext anotherContext)
-            : base(@event, nameValueListMap, externalContext, scenarioContext, sequenceContext, anotherContext)
+            : base(@event, nameValueListMap, new ContextHolder(externalContext, scenarioContext, sequenceContext, anotherContext))
+
         { }
 
 

@@ -21,7 +21,8 @@ public class LogErrorListener : MonoBehaviour
 
     void Start()
     {
-        var gameManager = FindObjectOfType<GetStartTime>();
+        var gameManager = UnityEngine.Object.FindFirstObjectByType<GetStartTime>();
+
         if (gameManager != null)
         {
             startTime = gameManager.GetStartTimeValue();
@@ -58,7 +59,7 @@ public class LogErrorListener : MonoBehaviour
             }
         }
     }
-
+        
     void HandleLog(string logString, string stackTrace, LogType type)
     {
         if (type == LogType.Error || type == LogType.Exception)

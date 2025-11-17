@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using System.IO;
 using System;
+using UObject = UnityEngine.Object;
 
 
 
@@ -71,14 +72,15 @@ public class SizeScene : MonoBehaviour
     private void CalculateSceneBounds()
     {
         sceneBounds = new Bounds(Vector3.zero, Vector3.zero);
-        Renderer[] renderers = FindObjectsOfType<Renderer>();
+        Renderer[] renderers = UObject.FindObjectsByType<Renderer>(FindObjectsSortMode.None);
+       ;
 
         foreach (Renderer renderer in renderers)
         {
             sceneBounds.Encapsulate(renderer.bounds);
         }
     }
-
+       
     /// <summary>
     /// Method <c>TeleportOutOfBounds</c> teleports the object out of bounds multiple times and logs the positions.
     /// </summary>
