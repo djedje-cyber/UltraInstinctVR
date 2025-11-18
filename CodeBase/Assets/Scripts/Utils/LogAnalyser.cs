@@ -110,7 +110,7 @@ public class LogAnalyzer : MonoBehaviour
         htmlReport.AppendLine("</body></html>");
 
         File.WriteAllText("report_HTML.html", htmlReport.ToString(), Encoding.UTF8);
-        Debug.Log("Le rapport HTML a été généré avec succès : report_HTML.html");
+        Debug.Log("The HTML report has been successfully generated: report_HTML.html");
     }
 }
 

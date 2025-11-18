@@ -121,10 +121,13 @@
     <None Include="Assets\Oracle_Selection.xml" />
     <None Include="Assets\Scripts\TESTREPLAY\TESTREPLAY_SizeScene_706570f9-59a3-4c40-b301-641f65fb89b9_2025-11-06.txt" />
     <None Include="Assets\Scripts\TESTREPLAY\TESTREPLAY_TeleportPlayer_d53cc9d0-3181-4e6b-91a5-9b0211f72c11_2025-11-18.txt" />
+    <None Include="Assets\Scripts\TESTREPLAY\TESTREPLAY_TeleportPlayer_00ccaa97-e1a4-476e-820a-c4f45d80da51_2025-11-18.txt" />
     <None Include="Assets\Scripts\TESTREPLAY\TESTREPLAY_SizeScene_59716268-1cc9-4305-9e5b-9d80f7a253d4_2025-11-18.txt" />
     <None Include="Assets\Scripts\TESTREPLAY\TEST_REPLAY_ObjectFound_503c5e36-3fd6-458b-814b-4a5396829257_2025-11-18.txt" />
     <None Include="Assets\Scripts\TESTREPLAY\TESTREPLAY_TeleportPlayer_18d272e7-b981-458c-82fa-ec24f0ff3732_2025-11-17.txt" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_Bitmap.shader" />
+    <None Include="Assets\Scripts\TESTREPLAY\TESTREPLAY_TeleportPlayer_ebaa703d-ebf6-4401-9b16-ca81dffe61d6_2025-11-18.txt" />
+    <None Include="Assets\Scripts\TESTREPLAY\TEST_REPLAY_ObjectFound_3140c6ca-0713-407c-9711-b087080b785e_2025-11-18.txt" />
     <None Include="Assets\Oracle_InObjectScene.xml" />
     <None Include="Assets\Scripts\TESTREPLAY\TESTREPLAY_TeleportPlayer_99560dd9-5f89-427b-8baa-58b902e316ec_2025-11-18.txt" />
     <None Include="Assets\Scripts\TESTREPLAY\TESTREPLAY_SizeScene_c0c5aa53-0188-451c-bcd7-a9fd3cf0fd49_2025-11-18.txt" />
@@ -194,6 +197,7 @@
     <None Include="Assets\Scripts\TESTREPLAY\TEST_REPLAY_ObjectFound_0e4a6aad-d6a7-465e-8d05-97b1636b967f_2025-11-18.txt" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_Bitmap-Mobile.shader" />
     <None Include="Assets\Scripts\TESTREPLAY\TESTREPLAY_SizeScene_e4a64384-6262-440e-8972-463680f68328_2025-11-07.txt" />
+    <None Include="Assets\Scripts\TESTREPLAY\TESTREPLAY_SizeScene_ded02da3-f53a-45e7-9fa3-92f289a09208_2025-11-18.txt" />
     <None Include="Assets\VRTemplateAssets\Shaders\TexturedFresnelStandard.shader" />
     <None Include="Assets\TextMesh Pro\Fonts\LiberationSans - OFL.txt" />
     <None Include="Assets\VRTemplateAssets\Shaders\TexturedStableFresnelCommon.cginc" />

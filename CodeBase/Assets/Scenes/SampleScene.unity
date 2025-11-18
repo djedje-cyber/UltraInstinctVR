@@ -1651,6 +1651,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Rapport generator
       objectReference: {fileID: 0}
+    - target: {fileID: 887337345965301936, guid: 215c413031aef414895775e307868878, type: 3}
+      propertyPath: filePath
+      value: Logs/game_logs.txt
+      objectReference: {fileID: 0}
     - target: {fileID: 2025121721177110626, guid: 215c413031aef414895775e307868878, type: 3}
       propertyPath: duration
       value: 5
