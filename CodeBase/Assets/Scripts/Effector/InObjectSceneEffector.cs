@@ -26,7 +26,7 @@ namespace InObjectSceneEffectorSpace {
         private Vector3 lastPosition;
 
 
-        private readonly string filePath = "Assets/Scripts/CoveredObjects/FoundObject.txt";
+        private readonly string filePath = "Logs/FoundObject.txt";
 
         private readonly List<Vector3> coveredObjectPositions = new List<Vector3>();  // List to store positions
 

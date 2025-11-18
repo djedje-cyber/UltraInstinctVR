@@ -1,4 +1,5 @@
 using System.IO;
+using System;
 using UnityEngine;
 
 
@@ -9,7 +10,8 @@ using UnityEngine;
 /// </summary>
 public class VRLogger
 {
-    private string folderPath = "Assets/Scripts/CoveredObjects";
+    private string logFilePath;
+
 
 
 
@@ -18,15 +20,14 @@ public class VRLogger
     /// </summary>
     public void ClearFoundObjectsFile()
     {
-        string filePath = Path.Combine(folderPath, "FoundObject.txt");
-        if (File.Exists(filePath))
-        {
-            using (StreamWriter writer = new StreamWriter(filePath, false)) { }
-            Debug.Log("The FoundObject.txt file has been emptied.");
-        }
-        else
-        {
-            Debug.LogWarning("The FoundObject.txt file does not exist");
-        }
+        string projectRoot = Directory.GetParent(Application.dataPath).FullName;
+        logFilePath = Path.Combine(projectRoot, "Logs", "game_logs.txt");
+
+        FileStream filePath = File.Create(logFilePath);
+        StreamWriter writer = new StreamWriter(filePath);
+        Debug.Log("The FoundObject.txt file has been written.");
+   
+       
+
     }
 }

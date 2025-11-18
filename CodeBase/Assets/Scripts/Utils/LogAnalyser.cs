@@ -7,7 +7,8 @@ using UnityEngine;
 
 public class LogAnalyzer : MonoBehaviour
 {
-    public string filePath = "Assets/Scripts/game_logs.txt";
+
+    public string  filePath = Path.GetFullPath(Path.Combine(Application.dataPath, "Logs/game_logs.txt"));
 
     void Start()
     {

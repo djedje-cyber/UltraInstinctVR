@@ -8,7 +8,7 @@ public class LogToFile : MonoBehaviour
 
     void Awake()
     {
-        // Define the path of the log file (inside Assets/Scripts/)
+        // Define the path of the log file (inside Logs/)
         string projectRoot = Directory.GetParent(Application.dataPath).FullName;
 
         logFilePath = Path.Combine(projectRoot, "Logs", "game_logs.txt");

@@ -18,7 +18,7 @@ public class TeleportAtObject : MonoBehaviour
 
     // Waiting time between each teleportation (in seconds)
     public float teleportDelay = 2f;
-    public string filePath = "Assets/Scripts/CoveredObjects/FoundObject.txt";
+    public string filePath = "Logs/FoundObject.txt";
 
 
     /// <summary>

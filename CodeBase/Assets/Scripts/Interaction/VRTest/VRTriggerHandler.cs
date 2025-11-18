@@ -34,11 +34,11 @@ public class VRTriggerHandler
     /// <param name="lastInteractionTime"></param>
     public void FetchControls(ref int objectsFound, ref float lastInteractionTime)
     {
-        EnsureDirectoryExists("Assets/Scripts/CoveredObjects");
+        EnsureDirectoryExists("Logs/CoveredObjects");
         EnsureDirectoryExists("Assets/Scripts/TESTREPLAY");
 
         string replayFilePath = GetReplayFilePath();
-        string coveredObjectsFilePath = "Assets/Scripts/CoveredObjects/FoundObject.txt";
+        string coveredObjectsFilePath = "Logs/FoundObject.txt";
 
         using (StreamWriter writerCoveredObjects = new StreamWriter(coveredObjectsFilePath, false))
         using (StreamWriter writerReplay = new StreamWriter(replayFilePath, false))

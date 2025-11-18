@@ -1655,6 +1655,10 @@ PrefabInstance:
       propertyPath: duration
       value: 5
       objectReference: {fileID: 0}
+    - target: {fileID: 2326727645208060939, guid: 215c413031aef414895775e307868878, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3331843296398877614, guid: 215c413031aef414895775e307868878, type: 3}
       propertyPath: m_Name
       value: TestManager
@@ -1723,25 +1727,53 @@ PrefabInstance:
       propertyPath: m_Name
       value: Object colission
       objectReference: {fileID: 0}
+    - target: {fileID: 5523046743907854811, guid: 215c413031aef414895775e307868878, type: 3}
+      propertyPath: filePath
+      value: Logs/FoundObject.txt
+      objectReference: {fileID: 0}
     - target: {fileID: 5966853726598549314, guid: 215c413031aef414895775e307868878, type: 3}
       propertyPath: childrenPrefabs.Array.size
-      value: 1
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 5966853726598549314, guid: 215c413031aef414895775e307868878, type: 3}
       propertyPath: 'childrenPrefabs.Array.data[0]'
       value: 
-      objectReference: {fileID: 217447823}
+      objectReference: {fileID: 266230972}
     - target: {fileID: 5966853726598549314, guid: 215c413031aef414895775e307868878, type: 3}
       propertyPath: 'childrenPrefabs.Array.data[1]'
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 217447827}
     - target: {fileID: 5966853726598549314, guid: 215c413031aef414895775e307868878, type: 3}
       propertyPath: 'childrenPrefabs.Array.data[2]'
       value: 
+      objectReference: {fileID: 217447826}
+    - target: {fileID: 5966853726598549314, guid: 215c413031aef414895775e307868878, type: 3}
+      propertyPath: 'childrenPrefabs.Array.data[3]'
+      value: 
       objectReference: {fileID: 217447825}
+    - target: {fileID: 5966853726598549314, guid: 215c413031aef414895775e307868878, type: 3}
+      propertyPath: 'childrenPrefabs.Array.data[4]'
+      value: 
+      objectReference: {fileID: 217447824}
+    - target: {fileID: 5966853726598549314, guid: 215c413031aef414895775e307868878, type: 3}
+      propertyPath: 'childrenPrefabs.Array.data[5]'
+      value: 
+      objectReference: {fileID: 217447823}
+    - target: {fileID: 5966853726598549314, guid: 215c413031aef414895775e307868878, type: 3}
+      propertyPath: 'childrenPrefabs.Array.data[6]'
+      value: 
+      objectReference: {fileID: 1365253683}
+    - target: {fileID: 5966853726598549314, guid: 215c413031aef414895775e307868878, type: 3}
+      propertyPath: 'childrenPrefabs.Array.data[7]'
+      value: 
+      objectReference: {fileID: 266230972}
     - target: {fileID: 6072136479699822781, guid: 215c413031aef414895775e307868878, type: 3}
       propertyPath: m_Name
       value: Select GameObject
+      objectReference: {fileID: 0}
+    - target: {fileID: 6856442553299878965, guid: 215c413031aef414895775e307868878, type: 3}
+      propertyPath: filePath
+      value: Logs/FoundObject.txt
       objectReference: {fileID: 0}
     - target: {fileID: 7222676998826887686, guid: 215c413031aef414895775e307868878, type: 3}
       propertyPath: m_Name
@@ -2100,6 +2132,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 264405215}
   m_CullTransparentMesh: 1
+--- !u!1 &266230972 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5299364931519720327, guid: 215c413031aef414895775e307868878, type: 3}
+  m_PrefabInstance: {fileID: 217447822}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &269346896
 GameObject:
   m_ObjectHideFlags: 0
@@ -10383,6 +10420,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1356027082}
   m_CullTransparentMesh: 1
+--- !u!1 &1365253683 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 303699539160935787, guid: 215c413031aef414895775e307868878, type: 3}
+  m_PrefabInstance: {fileID: 217447822}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1366150440
 GameObject:
   m_ObjectHideFlags: 0
