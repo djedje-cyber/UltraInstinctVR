@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Runtime.InteropServices;
 
 public class MouseOperations
@@ -18,7 +18,7 @@ public class MouseOperations
 
     [DllImport("user32.dll", EntryPoint = "SetCursorPos")]
     [return: MarshalAs(UnmanagedType.Bool)]
-    private static extern bool SetCursorPos(int x, int y);      
+    private static extern bool SetCursorPos(int x, int y);
 
     [DllImport("user32.dll")]
     [return: MarshalAs(UnmanagedType.Bool)]
@@ -27,7 +27,7 @@ public class MouseOperations
     [DllImport("user32.dll")]
     private static extern void mouse_event(int dwFlags, int dx, int dy, int dwData, int dwExtraInfo);
 
-    public static void SetCursorPosition(int x, int y) 
+    public static void SetCursorPosition(int x, int y)
     {
         SetCursorPos(x, y);
     }

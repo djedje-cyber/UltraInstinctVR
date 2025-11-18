@@ -62,27 +62,22 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Scripts\Interaction\VRTest\VRTriggerHandler.cs" />
-    <Compile Include="Assets\Scripts\Interaction\VRTest\Autowalk.cs" />
     <Compile Include="Assets\Scripts\Interaction\Teleportation\TeleportRunner.cs" />
     <Compile Include="Assets\VRTemplateAssets\Scripts\VideoPlayerRenderTexture.cs" />
     <Compile Include="Assets\Scripts\LogPerformance.cs" />
     <Compile Include="Assets\Scripts\ChildBehavior.cs" />
     <Compile Include="Assets\VRTemplateAssets\Scripts\Rotator.cs" />
     <Compile Include="Assets\VRTemplateAssets\Scripts\XRKnob.cs" />
-    <Compile Include="Assets\Scripts\Interaction\VRTest\PlayTV.cs" />
-    <Compile Include="Assets\Scripts\Interaction\VRTest\Exit.cs" />
     <Compile Include="Assets\VRTemplateAssets\Scripts\BooleanToggleVisualsController.cs" />
     <Compile Include="Assets\Scripts\LogToCsv.cs" />
     <Compile Include="Assets\Scripts\Interaction\VRTest\Logs.cs" />
     <Compile Include="Assets\VRTemplateAssets\Scripts\RayAttachModifier.cs" />
-    <Compile Include="Assets\Scripts\Interaction\VRTest\SceneCov.cs" />
     <Compile Include="Assets\Scripts\Interaction\GameObjectSelection\AutoSelectOnCollision.cs" />
-    <Compile Include="Assets\Scripts\Interaction\VRTest\RunPC.cs" />
     <Compile Include="Assets\VRTemplateAssets\Scripts\XRPokeFollowAffordanceFill.cs" />
     <Compile Include="Assets\Scripts\Interaction\Teleportation\TeleportPlayer.cs" />
     <Compile Include="Assets\Scripts\Effector\OutsideSceneEffector.cs" />
     <Compile Include="Assets\Scripts\XareusScenario\Sensor.cs" />
-    <Compile Include="Assets\Scripts\Interaction\VRTest\GOCov.cs" />
+    <Compile Include="Assets\Scripts\Interaction\VRTest\MouseOperation.cs" />
     <Compile Include="Assets\Scripts\Effector\TeleportationEffector.cs" />
     <Compile Include="Assets\Scripts\Interaction\VRTest\VRSmart.cs" />
     <Compile Include="Assets\Scripts\Interaction\GameObjectSelection\AutoSelectWithRayCast.cs" />
@@ -92,7 +87,6 @@
     <Compile Include="Assets\Scripts\LogErrorListenner.cs" />
     <Compile Include="Assets\Scripts\Interaction\VRTest\VRGreed.cs" />
     <Compile Include="Assets\VRTemplateAssets\Scripts\HandSubsystemManager.cs" />
-    <Compile Include="Assets\Scripts\Interaction\VRTest\MouseOperations.cs" />
     <Compile Include="Assets\Scripts\Effector\InObjectSceneEffector.cs" />
     <Compile Include="Assets\Scripts\Effector\ObjectSelectionEffector.cs" />
     <Compile Include="Assets\Scripts\LogAnalyser.cs" />
@@ -102,10 +96,8 @@
     <Compile Include="Assets\VRTemplateAssets\Scripts\VideoTimeScrubControl.cs" />
     <Compile Include="Assets\Scripts\Interaction\VRTest\VRLogger.cs" />
     <Compile Include="Assets\Scripts\Sensors\SelectionSensor.cs" />
-    <Compile Include="Assets\Scripts\Interaction\VRTest\Timeout.cs" />
     <Compile Include="Assets\Scripts\Interaction\GameObjectMovement\SelectAndMoveToOrigin.cs" />
     <Compile Include="Assets\Scripts\Effector\CollisionEffector.cs" />
-    <Compile Include="Assets\Scripts\Interaction\VRTest\SoundPlayer.cs" />
     <Compile Include="Assets\Scripts\Effector\MoveObjectToOriginEffector.cs" />
     <Compile Include="Assets\Scripts\GenerateReport.cs" />
     <Compile Include="Assets\VRTemplateAssets\Scripts\Callout.cs" />
@@ -119,10 +111,7 @@
     <Compile Include="Assets\Scripts\Interaction\GameObjectMovement\Collision.cs" />
     <Compile Include="Assets\Scripts\Interaction\Teleportation\TeleportAtObject.cs" />
     <Compile Include="Assets\Scripts\Interaction\Teleportation\ITeleportable.cs" />
-    <Compile Include="Assets\Scripts\Interaction\VRTest\FaceCov.cs" />
     <Compile Include="Assets\VRTemplateAssets\Scripts\AnchorVisuals.cs" />
-    <Compile Include="Assets\Scripts\Interaction\VRTest\Pixel.cs" />
-    <Compile Include="Assets\Scripts\Interaction\VRTest\SpawnPaper.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Scripts\TESTREPLAY\TEST_REPLAY_ObjectFound_7da663a3-20df-4322-84e7-2b12e4d6b0c8_2025-11-17.txt" />
@@ -148,6 +137,7 @@
     <None Include="Assets\Scripts\TESTREPLAY\TESTREPLAY_SizeScene_7bbd90ed-1869-43cc-9592-c07331d43cbd_2025-11-17.txt" />
     <None Include="Assets\Oracle_MoveObjectToOrigin.xml" />
     <None Include="Assets\Scripts\TESTREPLAY\TEST_REPLAY_ObjectFound_53d3b658-b474-4164-a5e8-6396a19308b0_2025-11-18.txt" />
+    <None Include="Assets\Scripts\TESTREPLAY\TEST_REPLAY_ObjectFound_5e114425-c9b0-4e43-a8e0-fb7561012e1d_2025-11-18.txt" />
     <None Include="Assets\TextMesh Pro\Shaders\SDFFunctions.hlsl" />
     <None Include="Assets\Scripts\game_logs.txt" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Surface.shader" />
@@ -163,6 +153,7 @@
     <None Include="Assets\Scripts\TESTREPLAY\TESTREPLAY_SizeScene_d6f0912e-794c-4d9f-90cd-7adb00ec43f5_2025-11-17.txt" />
     <None Include="Assets\Oracle_Colission.xml" />
     <None Include="Assets\TextMesh Pro\Shaders\TMPro_Surface.cginc" />
+    <None Include="Assets\Scripts\TESTREPLAY\TEST_REPLAY_ObjectFound_eda310f5-0a1e-41a2-8bf5-809b36777259_2025-11-18.txt" />
     <None Include="Assets\Scripts\TESTREPLAY\TEST_REPLAY_ObjectFound_2c9367e8-d996-427a-b3fa-f8c74272d352_2025-11-18.txt" />
     <None Include="Assets\Oracle_Teleportation.xml" />
     <None Include="Assets\Scripts\TESTREPLAY\TEST_REPLAY_ObjectFound_d0db6f02-5be4-401e-ac1d-1dfccb2139ed_2025-11-18.txt" />
