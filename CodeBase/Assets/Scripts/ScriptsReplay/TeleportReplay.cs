@@ -14,8 +14,11 @@ using UnityEngine;
 /// </summary>
 public class TeleportReplay : MonoBehaviour
 {
-    public TextAsset positionFile; // Allows assignment of the position file in the inspector
-    public float teleportDelay = 2f; // Time delay between teleports
+
+    [SerializeField]
+    private TextAsset positionFile; // Allows assignment of the position file in the inspector
+    [SerializeField] 
+    private float teleportDelay = 2f; // Time delay between teleports
     private List<Vector3> positions = new List<Vector3>();
     private int currentPositionIndex = 0;
 
