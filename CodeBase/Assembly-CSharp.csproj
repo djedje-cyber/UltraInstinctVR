@@ -62,36 +62,32 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Scripts\Interaction\VRTest\VRTriggerHandler.cs" />
+    <Compile Include="Assets\Scripts\Utils\GetStartTime.cs" />
     <Compile Include="Assets\Scripts\Interaction\Teleportation\TeleportRunner.cs" />
     <Compile Include="Assets\VRTemplateAssets\Scripts\VideoPlayerRenderTexture.cs" />
-    <Compile Include="Assets\Scripts\LogPerformance.cs" />
-    <Compile Include="Assets\Scripts\ChildBehavior.cs" />
     <Compile Include="Assets\VRTemplateAssets\Scripts\Rotator.cs" />
     <Compile Include="Assets\VRTemplateAssets\Scripts\XRKnob.cs" />
     <Compile Include="Assets\VRTemplateAssets\Scripts\BooleanToggleVisualsController.cs" />
-    <Compile Include="Assets\Scripts\LogToCsv.cs" />
     <Compile Include="Assets\Scripts\Interaction\VRTest\Logs.cs" />
     <Compile Include="Assets\VRTemplateAssets\Scripts\RayAttachModifier.cs" />
-    <Compile Include="Assets\Scripts\Interaction\GameObjectSelection\AutoSelectOnCollision.cs" />
+    <Compile Include="Assets\Scripts\Utils\LogErrorListenner.cs" />
     <Compile Include="Assets\VRTemplateAssets\Scripts\XRPokeFollowAffordanceFill.cs" />
     <Compile Include="Assets\Scripts\Interaction\Teleportation\TeleportPlayer.cs" />
     <Compile Include="Assets\Scripts\Effector\OutsideSceneEffector.cs" />
-    <Compile Include="Assets\Scripts\XareusScenario\Sensor.cs" />
     <Compile Include="Assets\Scripts\Interaction\VRTest\MouseOperation.cs" />
     <Compile Include="Assets\Scripts\Effector\TeleportationEffector.cs" />
     <Compile Include="Assets\Scripts\Interaction\VRTest\VRSmart.cs" />
-    <Compile Include="Assets\Scripts\Interaction\GameObjectSelection\AutoSelectWithRayCast.cs" />
+    <Compile Include="Assets\Scripts\Utils\LogAnalyser.cs" />
     <Compile Include="Assets\Scripts\Interaction\VRTest\VRTest.cs" />
     <Compile Include="Assets\VRTemplateAssets\Scripts\BezierCurve.cs" />
     <Compile Include="Assets\VRTemplateAssets\Scripts\LaunchProjectile.cs" />
-    <Compile Include="Assets\Scripts\LogErrorListenner.cs" />
     <Compile Include="Assets\Scripts\Interaction\VRTest\VRGreed.cs" />
     <Compile Include="Assets\VRTemplateAssets\Scripts\HandSubsystemManager.cs" />
+    <Compile Include="Assets\Scripts\Utils\GenerateReport.cs" />
     <Compile Include="Assets\Scripts\Effector\InObjectSceneEffector.cs" />
     <Compile Include="Assets\Scripts\Effector\ObjectSelectionEffector.cs" />
-    <Compile Include="Assets\Scripts\LogAnalyser.cs" />
+    <Compile Include="Assets\Scripts\Utils\ChildBehavior.cs" />
     <Compile Include="Assets\Maradona.cs" />
-    <Compile Include="Assets\Scripts\GetStartTime.cs" />
     <Compile Include="Assets\VRTemplateAssets\Scripts\DestroyObject.cs" />
     <Compile Include="Assets\VRTemplateAssets\Scripts\VideoTimeScrubControl.cs" />
     <Compile Include="Assets\Scripts\Interaction\VRTest\VRLogger.cs" />
@@ -99,18 +95,19 @@
     <Compile Include="Assets\Scripts\Interaction\GameObjectMovement\SelectAndMoveToOrigin.cs" />
     <Compile Include="Assets\Scripts\Effector\CollisionEffector.cs" />
     <Compile Include="Assets\Scripts\Effector\MoveObjectToOriginEffector.cs" />
-    <Compile Include="Assets\Scripts\GenerateReport.cs" />
     <Compile Include="Assets\VRTemplateAssets\Scripts\Callout.cs" />
     <Compile Include="Assets\VRTemplateAssets\Scripts\CalloutGazeController.cs" />
     <Compile Include="Assets\Scripts\Interaction\Teleportation\SizeScene.cs" />
-    <Compile Include="Assets\Scripts\ParentController.cs" />
+    <Compile Include="Assets\Scripts\Utils\ParentController.cs" />
     <Compile Include="Assets\Scripts\ScriptsReplay\TeleportReplay.cs" />
     <Compile Include="Assets\Scripts\Interaction\VRTest\VRMovementHandler.cs" />
+    <Compile Include="Assets\Scripts\Utils\LogToCsv.cs" />
     <Compile Include="Assets\VRTemplateAssets\Scripts\StepManager.cs" />
     <Compile Include="Assets\Scripts\Sensors\TeleportationSensor.cs" />
     <Compile Include="Assets\Scripts\Interaction\GameObjectMovement\Collision.cs" />
     <Compile Include="Assets\Scripts\Interaction\Teleportation\TeleportAtObject.cs" />
     <Compile Include="Assets\Scripts\Interaction\Teleportation\ITeleportable.cs" />
+    <Compile Include="Assets\Scripts\Utils\LogPerformance.cs" />
     <Compile Include="Assets\VRTemplateAssets\Scripts\AnchorVisuals.cs" />
   </ItemGroup>
   <ItemGroup>
