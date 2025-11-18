@@ -62,6 +62,13 @@
               <editBox type="Xareus.Unity.Editor.Scenarios.UI.DefaultEditBox,Xareus.Unity.Editor" />
             </unityEditor>
           </extendedInfo>
+          <param value="0" type="System.Single,mscorlib" name="Teleport Delay">
+            <extendedInfo>
+              <unityEditor xmlns="">
+                <field type="Xareus.Unity.Editor.Scenarios.UI.Fields.FloatField,Xareus.Unity.Editor" />
+              </unityEditor>
+            </extendedInfo>
+          </param>
           <param type="UnityEngine.GameObject,UnityEngine.CoreModule" name="Object to Move">
             <extendedInfo>
               <unityEditor xmlns="">
@@ -69,13 +76,6 @@
               </unityEditor>
             </extendedInfo>
             <param value="027e0b93-d55e-4f1d-a58c-cdfb2a0402e5" type="System.Guid,mscorlib" name="UFID" />
-          </param>
-          <param value="0" type="System.Single,mscorlib" name="Teleport Delay">
-            <extendedInfo>
-              <unityEditor xmlns="">
-                <field type="Xareus.Unity.Editor.Scenarios.UI.Fields.FloatField,Xareus.Unity.Editor" />
-              </unityEditor>
-            </extendedInfo>
           </param>
         </effectorUpdate>
       </event>

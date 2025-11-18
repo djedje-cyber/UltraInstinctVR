@@ -31,7 +31,7 @@ public class MouseOperations
     {
         SetCursorPos(x, y);
     }
-
+     
     public static void SetCursorPosition(MousePoint point)
     {
         SetCursorPos(point.X, point.Y);

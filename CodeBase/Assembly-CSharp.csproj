@@ -121,6 +121,7 @@
     <None Include="Assets\VRTemplateAssets\Shaders\FauxBlurURP.shader" />
     <None Include="Assets\Oracle_Selection.xml" />
     <None Include="Assets\Scripts\TESTREPLAY\TESTREPLAY_SizeScene_706570f9-59a3-4c40-b301-641f65fb89b9_2025-11-06.txt" />
+    <None Include="Assets\Scripts\TESTREPLAY\TESTREPLAY_TeleportPlayer_d53cc9d0-3181-4e6b-91a5-9b0211f72c11_2025-11-18.txt" />
     <None Include="Assets\Scripts\TESTREPLAY\TESTREPLAY_SizeScene_59716268-1cc9-4305-9e5b-9d80f7a253d4_2025-11-18.txt" />
     <None Include="Assets\Scripts\TESTREPLAY\TESTREPLAY_TeleportPlayer_18d272e7-b981-458c-82fa-ec24f0ff3732_2025-11-17.txt" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_Bitmap.shader" />
@@ -172,6 +173,7 @@
     <None Include="Assets\VRTemplateAssets\Shaders\TexturedFresnelStandard.shader" />
     <None Include="Assets\TextMesh Pro\Fonts\LiberationSans - OFL.txt" />
     <None Include="Assets\VRTemplateAssets\Shaders\TexturedStableFresnelCommon.cginc" />
+    <None Include="Assets\Scripts\TESTREPLAY\TESTREPLAY_TeleportPlayer_63c9b95a-e876-49fa-91c8-7608f8a4661a_2025-11-18.txt" />
     <None Include="Assets\Scripts\TESTREPLAY\TESTREPLAY_TeleportPlayer_9ddc17ec-5147-4d67-9c32-54416f5b83f8_2025-11-07.txt" />
     <None Include="Assets\Scripts\TESTREPLAY\TESTREPLAY_TeleportPlayer_15ade747-5aac-474f-82bb-9b41581233dd_2025-11-17.txt" />
     <None Include="Assets\Scripts\TESTREPLAY\TESTREPLAY_TeleportPlayer_091e6544-5274-4a13-88ab-de2d86d6ceb4_2025-11-17.txt" />

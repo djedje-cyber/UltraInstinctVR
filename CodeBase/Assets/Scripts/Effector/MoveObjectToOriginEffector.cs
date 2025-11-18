@@ -23,10 +23,6 @@ namespace MoveObjectToOriginEffectorSpace
         [ConfigurationParameter("Object to Move", Necessity.Required)]
         private GameObject virtualHand;
 
-        [ConfigurationParameter("Teleport Delay", Necessity.Optional)]
-    
-        private float teleportDelay = 2f;
-
         private UnityEngine.XR.Interaction.Toolkit.Interactors.XRDirectInteractor interactor;
         private XRInteractionManager interactionManager;
         private UnityEngine.XR.Interaction.Toolkit.Interactables.XRGrabInteractable currentInteractable;
