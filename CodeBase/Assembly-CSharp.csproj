@@ -61,6 +61,7 @@
     <Analyzer Include="C:\Program Files\Unity\Hub\Editor\6000.0.62f1\Editor\Data\Tools\Unity.SourceGenerators\Unity.UIToolkit.SourceGenerator.dll" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Scripts\Interaction\VRTest\VRTriggerHandler.cs" />
     <Compile Include="Assets\Scripts\Interaction\VRTest\Autowalk.cs" />
     <Compile Include="Assets\Scripts\Interaction\Teleportation\TeleportRunner.cs" />
     <Compile Include="Assets\VRTemplateAssets\Scripts\VideoPlayerRenderTexture.cs" />
@@ -99,6 +100,7 @@
     <Compile Include="Assets\Scripts\GetStartTime.cs" />
     <Compile Include="Assets\VRTemplateAssets\Scripts\DestroyObject.cs" />
     <Compile Include="Assets\VRTemplateAssets\Scripts\VideoTimeScrubControl.cs" />
+    <Compile Include="Assets\Scripts\Interaction\VRTest\VRLogger.cs" />
     <Compile Include="Assets\Scripts\Sensors\SelectionSensor.cs" />
     <Compile Include="Assets\Scripts\Interaction\VRTest\Timeout.cs" />
     <Compile Include="Assets\Scripts\Interaction\GameObjectMovement\SelectAndMoveToOrigin.cs" />
@@ -111,6 +113,7 @@
     <Compile Include="Assets\Scripts\Interaction\Teleportation\SizeScene.cs" />
     <Compile Include="Assets\Scripts\ParentController.cs" />
     <Compile Include="Assets\Scripts\ScriptsReplay\TeleportReplay.cs" />
+    <Compile Include="Assets\Scripts\Interaction\VRTest\VRMovementHandler.cs" />
     <Compile Include="Assets\VRTemplateAssets\Scripts\StepManager.cs" />
     <Compile Include="Assets\Scripts\Sensors\TeleportationSensor.cs" />
     <Compile Include="Assets\Scripts\Interaction\GameObjectMovement\Collision.cs" />
@@ -129,6 +132,7 @@
     <None Include="Assets\VRTemplateAssets\Shaders\FauxBlurURP.shader" />
     <None Include="Assets\Oracle_Selection.xml" />
     <None Include="Assets\Scripts\TESTREPLAY\TESTREPLAY_SizeScene_706570f9-59a3-4c40-b301-641f65fb89b9_2025-11-06.txt" />
+    <None Include="Assets\Scripts\TESTREPLAY\TESTREPLAY_SizeScene_59716268-1cc9-4305-9e5b-9d80f7a253d4_2025-11-18.txt" />
     <None Include="Assets\Scripts\TESTREPLAY\TESTREPLAY_TeleportPlayer_18d272e7-b981-458c-82fa-ec24f0ff3732_2025-11-17.txt" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_Bitmap.shader" />
     <None Include="Assets\Oracle_InObjectScene.xml" />
@@ -136,12 +140,14 @@
     <None Include="Assets\Scripts\TESTREPLAY\TESTREPLAY_TeleportPlayer_849c29f4-53b0-4f1c-90ab-13a9180ba2c9_2025-11-06.txt" />
     <None Include="Assets\Scripts\TESTREPLAY\TEST_REPLAY_ObjectFound_6dd906e0-8d88-422f-8a8b-d079649f4d87_2025-11-17.txt" />
     <None Include="Assets\TextMesh Pro\Shaders\TMPro_Mobile.cginc" />
+    <None Include="Assets\Scripts\TESTREPLAY\TEST_REPLAY_ObjectFound_ef68b13c-fad1-4228-b884-82c8a43735b6_2025-11-18.txt" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF SSD.shader" />
     <None Include="Assets\Scripts\CoveredObjects\FoundObject.txt" />
     <None Include="Assets\Scripts\TESTREPLAY\TESTREPLAY_TeleportPlayer_fa595f27-128a-41d0-b49e-dc36d3fee0f3_2025-11-07.txt" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Surface-Mobile.shader" />
     <None Include="Assets\Scripts\TESTREPLAY\TESTREPLAY_SizeScene_7bbd90ed-1869-43cc-9592-c07331d43cbd_2025-11-17.txt" />
     <None Include="Assets\Oracle_MoveObjectToOrigin.xml" />
+    <None Include="Assets\Scripts\TESTREPLAY\TEST_REPLAY_ObjectFound_53d3b658-b474-4164-a5e8-6396a19308b0_2025-11-18.txt" />
     <None Include="Assets\TextMesh Pro\Shaders\SDFFunctions.hlsl" />
     <None Include="Assets\Scripts\game_logs.txt" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Surface.shader" />
@@ -157,7 +163,9 @@
     <None Include="Assets\Scripts\TESTREPLAY\TESTREPLAY_SizeScene_d6f0912e-794c-4d9f-90cd-7adb00ec43f5_2025-11-17.txt" />
     <None Include="Assets\Oracle_Colission.xml" />
     <None Include="Assets\TextMesh Pro\Shaders\TMPro_Surface.cginc" />
+    <None Include="Assets\Scripts\TESTREPLAY\TEST_REPLAY_ObjectFound_2c9367e8-d996-427a-b3fa-f8c74272d352_2025-11-18.txt" />
     <None Include="Assets\Oracle_Teleportation.xml" />
+    <None Include="Assets\Scripts\TESTREPLAY\TEST_REPLAY_ObjectFound_d0db6f02-5be4-401e-ac1d-1dfccb2139ed_2025-11-18.txt" />
     <None Include="Assets\Scripts\TESTREPLAY\TESTREPLAY_TeleportPlayer_faafd254-8f24-4ccf-aa1a-3e872442257b_2025-11-07.txt" />
     <None Include="Assets\TextMesh Pro\Resources\LineBreaking Following Characters.txt" />
     <None Include="Assets\Scripts\TESTREPLAY\TESTREPLAY_SizeScene_03cc312f-b803-490c-bce1-7f8088c35e13_2025-11-12.txt" />

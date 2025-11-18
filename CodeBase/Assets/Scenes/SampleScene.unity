@@ -1730,7 +1730,7 @@ PrefabInstance:
     - target: {fileID: 5966853726598549314, guid: 215c413031aef414895775e307868878, type: 3}
       propertyPath: 'childrenPrefabs.Array.data[0]'
       value: 
-      objectReference: {fileID: 217447826}
+      objectReference: {fileID: 1310729307}
     - target: {fileID: 5966853726598549314, guid: 215c413031aef414895775e307868878, type: 3}
       propertyPath: 'childrenPrefabs.Array.data[1]'
       value: 
@@ -10080,6 +10080,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1296920724}
   m_CullTransparentMesh: 1
+--- !u!1 &1310729307 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5299364931519720327, guid: 215c413031aef414895775e307868878, type: 3}
+  m_PrefabInstance: {fileID: 217447822}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1326031627
 GameObject:
   m_ObjectHideFlags: 0
