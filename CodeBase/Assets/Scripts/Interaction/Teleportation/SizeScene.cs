@@ -14,16 +14,23 @@ using UObject = UnityEngine.Object;
 public class SizeScene : MonoBehaviour
 {
     [Header("Teleportation Settings")]
-    public int teleportCount = 100;
-    public float outOfBoundsMultiplier = 1000f;
-    public float delayBetweenTeleports = 0.1f;
-    public GameObject objectToTeleport;
+    [SerializeField]
+    private int teleportCount = 100;
+    [SerializeField]
+    private float outOfBoundsMultiplier = 1000f;
+    [SerializeField]
+    private float delayBetweenTeleports = 0.1f;
+    [SerializeField]
+    private GameObject objectToTeleport;
 
     [Header("Scene Bounds")]
-    public Bounds sceneBounds;
+    [SerializeField]
+
+    private Bounds sceneBounds;
 
     [Header("Replay Logging")]
-    public string replayFolder = "Assets/Scripts/TESTREPLAY";
+    [SerializeField]
+    private string replayFolder = "Assets/Scripts/TESTREPLAY";
 
     private string replayFilePath;
     private List<string> teleportLogs = new List<string>();

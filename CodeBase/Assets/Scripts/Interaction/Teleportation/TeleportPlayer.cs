@@ -13,9 +13,13 @@ using UnityEngine;
 
 public class TeleportPlayer : MonoBehaviour
 {
-    public int teleportCount = 10; // Number of teleportation
-    public Vector2 teleportRange = new Vector2(10f, 10f); // Teleportation range on X and Z axes
-    public float delayBetweenTeleports = 0.1f; // Delay between each teleportation in seconds
+
+    [SerializeField]
+    private int teleportCount = 10; // Number of teleportation
+    [SerializeField]
+    private Vector2 teleportRange = new Vector2(10f, 10f); // Teleportation range on X and Z axes
+    [SerializeField]
+    private float delayBetweenTeleports = 0.1f; // Delay between each teleportation in seconds
 
     private string logFilePath;
 

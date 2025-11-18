@@ -17,8 +17,11 @@ public class TeleportAtObject : MonoBehaviour
     private int currentPositionIndex = 0;
 
     // Waiting time between each teleportation (in seconds)
-    public float teleportDelay = 2f;
-    public string filePath = "Logs/FoundObject.txt";
+    [SerializeField]
+    private float teleportDelay = 2f;
+
+    [SerializeField]
+    private string filePath = "Logs/FoundObject.txt";
 
 
     /// <summary>
