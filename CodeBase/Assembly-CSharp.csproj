@@ -115,6 +115,7 @@
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile-2-Pass.shader" />
     <None Include="Assets\VRTemplateAssets\Shaders\FauxBlurURP.shader" />
     <None Include="Assets\Oracle_Selection.xml" />
+    <None Include="Assets\TESTREPLAY\TEST_REPLAY_ObjectFound_12886a28-bfc9-402e-b2f6-29665630aec2_2025-11-19.txt" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_Bitmap.shader" />
     <None Include="Assets\Oracle_InObjectScene.xml" />
     <None Include="Assets\TextMesh Pro\Shaders\TMPro_Mobile.cginc" />
@@ -128,13 +129,15 @@
     <None Include="Assets\TextMesh Pro\Shaders\TMP_Bitmap-Custom-Atlas.shader" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF.shader" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile SSD.shader" />
+    <None Include="Assets\TESTREPLAY\TESTREPLAY_TeleportPlayer_071c28b4-f379-40b8-9b98-9367e7f511d1_2025-11-19.txt" />
     <None Include="Assets\TextMesh Pro\Resources\LineBreaking Leading Characters.txt" />
     <None Include="Assets\TextMesh Pro\Shaders\TMPro_Properties.cginc" />
+    <None Include="Assets\TESTREPLAY\TESTREPLAY_SizeScene_77866243-1846-4ce1-bc8b-ab71ba613044_2025-11-19.txt" />
     <None Include="Assets\Oracle_Colission.xml" />
     <None Include="Assets\TextMesh Pro\Shaders\TMPro_Surface.cginc" />
+    <None Include="Assets\TESTREPLAY\TESTREPLAY_TeleportPlayer_6b8e72ac-bcee-45d1-a48a-4c974c8ad747_2025-11-19.txt" />
     <None Include="Assets\Oracle_Teleportation.xml" />
     <None Include="Assets\TextMesh Pro\Resources\LineBreaking Following Characters.txt" />
-    <None Include="Assets\TESTREPLAY\TEST_REPLAY_ObjectFound_12ccae80-4dc2-4bef-b99b-ad50cda9ab40_2025-11-19.txt" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile Masking.shader" />
     <None Include="Assets\Oracle_OutSceneTeleportation.xml" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF Overlay.shader" />
