@@ -1784,6 +1784,10 @@ PrefabInstance:
       value: Simple Teleportation
       objectReference: {fileID: 0}
     - target: {fileID: 8145115545789104209, guid: 215c413031aef414895775e307868878, type: 3}
+      propertyPath: replayFolder
+      value: Assets/TESTREPLAY
+      objectReference: {fileID: 0}
+    - target: {fileID: 8145115545789104209, guid: 215c413031aef414895775e307868878, type: 3}
       propertyPath: teleportCount
       value: 5
       objectReference: {fileID: 0}
@@ -12591,15 +12595,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 4ed41858240845b479082276b0831228, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 2.521
+      value: 2.52
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 4ed41858240845b479082276b0831228, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.762
+      value: 0.77
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 4ed41858240845b479082276b0831228, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.402
+      value: 0.4
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 4ed41858240845b479082276b0831228, type: 3}
       propertyPath: m_LocalRotation.w

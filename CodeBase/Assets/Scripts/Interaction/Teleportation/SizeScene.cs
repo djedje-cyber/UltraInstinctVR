@@ -30,7 +30,7 @@ public class SizeScene : MonoBehaviour
 
     [Header("Replay Logging")]
     [SerializeField]
-    private string replayFolder = "Assets/Scripts/TESTREPLAY";
+    private string replayFolder = "Logs/TESTREPLAY";
 
     private string replayFilePath;
     private List<string> teleportLogs = new List<string>();
