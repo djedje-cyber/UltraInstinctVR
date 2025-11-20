@@ -69,10 +69,9 @@ Telportation contains :
 <h2>/Utils</h2>
 
 
-- **ParentController.cs**: Executes  
+- **ParentController.cs**: Manages each Test agent that are under the form of GameObject and ensures that each test agent are executed correctly one by one and independently  
 - **ChildBehavior.cs** : Control the execution of a game object
 - **GenerateReport.cs** : Read the logs and put in a log file in `Logs/game_logs.txt`
 - **GetStartTime.cs** : Allows to get the execution time of the testing campaign
 - **LogAnalyser.cs**: Generate the report in `.html` format 
-- **LogPerformance.cs**: Generate a `.csv` file where each errors,time when it's triggers,the name of the error and his stackTrace are collected, it serves for sciences evaluation purposes
-
+- **LogPerformance.cs**: Generate a `.csv` file where each errors,time when it's triggers,the name of the error and his stackTrace are collected, it serves for sciences evaluation purposes the result are stored in `Logs/result`
