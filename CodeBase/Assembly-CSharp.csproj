@@ -69,7 +69,6 @@
     <Compile Include="Assets\VRTemplateAssets\Scripts\BooleanToggleVisualsController.cs" />
     <Compile Include="Assets\Scripts\Interaction\VRTest\Logs.cs" />
     <Compile Include="Assets\VRTemplateAssets\Scripts\RayAttachModifier.cs" />
-    <Compile Include="Assets\Scripts\Utils\LogErrorListenner.cs" />
     <Compile Include="Assets\VRTemplateAssets\Scripts\XRPokeFollowAffordanceFill.cs" />
     <Compile Include="Assets\Scripts\Interaction\Teleportation\TeleportPlayer.cs" />
     <Compile Include="Assets\Scripts\Effector\OutsideSceneEffector.cs" />
@@ -100,7 +99,6 @@
     <Compile Include="Assets\Scripts\Utils\ParentController.cs" />
     <Compile Include="Assets\Scripts\ScriptsReplay\TeleportReplay.cs" />
     <Compile Include="Assets\Scripts\Interaction\VRTest\VRMovementHandler.cs" />
-    <Compile Include="Assets\Scripts\Utils\LogToCsv.cs" />
     <Compile Include="Assets\VRTemplateAssets\Scripts\StepManager.cs" />
     <Compile Include="Assets\Scripts\Sensors\TeleportationSensor.cs" />
     <Compile Include="Assets\Scripts\Interaction\GameObjectMovement\Collision.cs" />

@@ -36,11 +36,43 @@ Game object Movement contains :
 
 Telportation contains :
 
-- **ITeleportable.cs** : 
+- **ITeleportable.cs** : It's a interface to manage teleportation
 - **SizeScene.cs** : Ensure teleportation outside the scene
 - **TeleportAtObject.cs** : Ensure teleportation in interactable Object
 - **TeleportPlayer.cs** : Ensure teleportation in random position
 
 
+<h2>/ScriptsReplay</h2>
 
+- **TeleportReplay.cs** : Allows to make teleportation according to a position file loaded in the componenent
+
+
+<h2>/Sensors</h2>
+
+- **SelectionSensors.cs** : Implement a Xareus sensor that detect the selection of interactable game object
+
+- **TeleportationSensor.cs** : Implement a Xareus sensor that detect a teleportation of a game object in the scene
+
+
+
+<h2>/Effectors</h2>
+
+
+- **TeleportationEffector.cs** : Allows to triggers the Oracle mechanism and check if the teleportation has been done sucessfully
+- **OutsideSceneEffector.cs** : Allows to triggers the Oracle mechanism and check if the teleportation outside the scene has been done 
+- **InObjectSceneEffector.cs** : Allows to triggers the Oracle mechanism and check if the teleportation in a interactable object has been done
+- **ObjectSelectionEffector.cs** :  Allows to triggers the Oracle mechanism and check if the selection of a game object has been done sucessfuly
+- **ColissionEffector.cs** : Allows to triggers the Oracle mechanism and check if the colission between game object has been done
+- **MoveObjectToOriginEffector.cs** : Allows to triggers the Oracle mechanism and check if the interactable object 
+
+
+<h2>/Utils</h2>
+
+
+- **ParentController.cs**: Executes  
+- **ChildBehavior.cs** : Control the execution of a game object
+- **GenerateReport.cs** : Read the logs and put in a log file in `Logs/game_logs.txt`
+- **GetStartTime.cs** : Allows to get the execution time of the testing campaign
+- **LogAnalyser.cs**: Generate the report in `.html` format 
+- **LogPerformance.cs**: Generate a `.csv` file where each errors,time when it's triggers,the name of the error and his stackTrace are collected, it serves for sciences evaluation purposes
 
