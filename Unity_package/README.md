@@ -98,28 +98,36 @@ Unlike traditional assertions at the end of test cases, oracles in VR are contin
 
 ---
 
-## Implemented Oracles & Prefab Components
+## Implemented Oracles linked to the Prefab components and the scenario file
 
-| Name      | Description |
-|-----------|-------------|
-| **Zeno**     | Manages and controls subcomponents; responsible for launching each component independently. |
-| **Beerus**   | Scans the Unity scene and identifies interactable objects. The scan stops once no more objects are found. |
-| **Goku**     | Attempts to teleport within the scene. The oracle passes if successful. |
-| **Gohan**    | Attempts to teleport outside the scene. The oracle fails if teleportation is successful. |
-| **Goten**    | Attempts to teleport into another GameObject. The oracle fails if successful. |
-| **Maradona** | *(Reference to Maradona's "Hand of God" - [Video](https://www.youtube.com/watch?v=-ccNkksrfls))*<br>Tries to select GameObjects. The oracle passes if selection is successful. |
-| **Broly**    | A cube that collides with interactable objects. The oracle passes if collisions occur. |
-| **Vegeta**   | Selects, grabs, and moves interactable objects to position `(0, 0, 0)`. The oracle verifies movement via OpenXR hands. |
-| **Karin**    | Reads logs and generates an HTML test report. |
+| Name      | Description |Scenario file
+|-----------|-------------|------------------------------------------------------------------------------------------| 
+| **Test Manager**     | Manages and controls subcomponents; responsible for launching each component independently. | / |
+| **ScanInteractableObjec**   | Scans the Unity scene and identifies interactable objects. The scan stops once no more objects are found. | / |
+| **Simple Teleportation**     | Attempts to teleport within the scene. The oracle passes if successful. | Oracle_Teleportation.xml |
+| **Teleportation Outside scene**    | Attempts to teleport outside the scene. The oracle fails if teleportation is successful. | Oracle_OutSceneTeleportation.xml |
+| **Teleport in interactable Object**    | Attempts to teleport into another GameObject. The oracle fails if successful. | Oracle_InObjectScene.xml |
+| **SelectGameObject** | Tries to select GameObjects. The oracle passes if selection is successful. | Oracle_Selection.xml |
+| **Object colission**    | A cube that collides with interactable objects. The oracle passes if collisions occur. | Oracle_Colission.xml
+| **Move Object To Origin**   | Selects, grabs, and moves interactable objects to position `(0, 0, 0)`. The oracle verifies movement via OpenXR hands. | Oracle_MoveObjectToOrigin |
+| **Rapport Generator**    | Reads logs and generates an HTML test report. | / |
 
 
 ## How to install and run UltraInstinctVR
 - Import the package by drag and drop in the project tab
-- Import the Zeno3 prefab into the gameObjects hierachy
-- Assign the good gameobject to the Xareus scenario repsenting the oracle as petri-nets
+- Import the `TestManager` prefab into the gameObjects hierachy
+- Assign the good `TestManager` to the Xareus scenario repsenting the oracle as petri-nets
    - open the xareus scenario
    - Assign the gameObject to both the sensor and effector
 - Launch the unity scene and wait the test suite to be terminated
 
 
 
+## UltraInstinctVR version 
+
+
+| Name    | Purpose  
+|---------------------
+|`UltraInstinctVR_V1.0.6.unitypackage`| it's the version for Unity6 |  
+|`UltraInstinct_V2022.3_experimentVersionV1.2.unitypackage` | it's the version for benchmarking purposes against other automated VR testing tool for Unity 2022.X |
+|`UltraInstinct_experimentVersion_6V1.0.unitypackage` | it's the version for benchmarking purposes against other automated VR testing tool for Unity6 |
