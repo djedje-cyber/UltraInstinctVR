@@ -1,0 +1,4 @@
+var class_unity_engine_1_1_x_r_1_1_interaction_1_1_toolkit_1_1_samples_1_1_starter_assets_1_1_permissions_manager =
+[
+    [ "ProcessPermissions", "class_unity_engine_1_1_x_r_1_1_interaction_1_1_toolkit_1_1_samples_1_1_starter_assets_1_1_permissions_manager.html#a69c3d2fc2bf00f91943b5ae6899a6e0f", null ]
+];

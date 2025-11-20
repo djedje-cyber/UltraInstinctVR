@@ -18,7 +18,7 @@ If you'd like a more compact version, a table, or GitHub-style formatting, I can
 
 
 
-<h2> /Interaction folder</h2>
+<h2> /Interaction </h2>
 
 It contains sub folders which regroup interaction of the same type `/GameObject Movement`, `/Teleportation`, `/VRTest` 
 

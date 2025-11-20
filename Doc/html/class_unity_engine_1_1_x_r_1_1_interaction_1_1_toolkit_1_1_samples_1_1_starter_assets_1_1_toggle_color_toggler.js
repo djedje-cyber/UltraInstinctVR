@@ -1,0 +1,5 @@
+var class_unity_engine_1_1_x_r_1_1_interaction_1_1_toolkit_1_1_samples_1_1_starter_assets_1_1_toggle_color_toggler =
+[
+    [ "offColor", "class_unity_engine_1_1_x_r_1_1_interaction_1_1_toolkit_1_1_samples_1_1_starter_assets_1_1_toggle_color_toggler.html#aef7fe0d6cdfcf6e6df6233ab9b0d31a6", null ],
+    [ "onColor", "class_unity_engine_1_1_x_r_1_1_interaction_1_1_toolkit_1_1_samples_1_1_starter_assets_1_1_toggle_color_toggler.html#a10da76935ca0205a82f59fb7a33bafe8", null ]
+];
