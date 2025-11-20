@@ -30,7 +30,7 @@ It contains sub folders which regroup interaction of the same type `/GameObject 
 
 Game object Movement contains : 
     
-- **Colission.cs** : Scripts to simulates colission between game object
+- **Collision.cs** : Scripts to simulates colission between game object
 
 - **SelectAndMoveToOrigin.cs** : Simulates the selection and the grab of game object
 
@@ -49,7 +49,7 @@ Telportation contains :
 
 <h2>/Sensors</h2>
 
-- **SelectionSensors.cs** : Implement a Xareus sensor that detect the selection of interactable game object
+- **SelectionSensor.cs** : Implement a Xareus sensor that detect the selection of interactable game object
 
 - **TeleportationSensor.cs** : Implement a Xareus sensor that detect a teleportation of a game object in the scene
 
@@ -62,7 +62,7 @@ Telportation contains :
 - **OutsideSceneEffector.cs** : Allows to triggers the Oracle mechanism and check if the teleportation outside the scene has been done 
 - **InObjectSceneEffector.cs** : Allows to triggers the Oracle mechanism and check if the teleportation in a interactable object has been done
 - **ObjectSelectionEffector.cs** :  Allows to triggers the Oracle mechanism and check if the selection of a game object has been done sucessfuly
-- **ColissionEffector.cs** : Allows to triggers the Oracle mechanism and check if the colission between game object has been done
+- **CollisionEffector.cs** : Allows to triggers the Oracle mechanism and check if the colission between game object has been done
 - **MoveObjectToOriginEffector.cs** : Allows to triggers the Oracle mechanism and check if the interactable object 
 
 
