@@ -34,7 +34,7 @@ It is compatible with any C# application and can be delivered as a Unity package
 
 ## How to install and run UltraInstinctVR?
 - Import the package
-- Import Zeno 3 into the gameObjects hierachy
+- Import TestManager into the gameObjects hierachy
 - Assign the good gameobject to the Xareus scenario repsenting the oracle as petri-nets
 - Launch the unity scene and wait the test suite to be terminated
 
@@ -66,8 +66,8 @@ To define test cases in VR using UltraInstinctVR, several components are needed 
 - Each test case includes a **GameObject** representing a part of the VR player.
 
 For example:
-- **Goku** represents the headset and simulates locomotion.
-- **Vegeta** represents the hand and simulates manipulation.
+- **Simple Teleportation** represents the headset and simulates locomotion.
+- **Move Object To Origin** represents the hand and simulates manipulation.
 
 Each GameObject includes:
 - OpenXR components (used by Unity to trigger interactions)
@@ -145,3 +145,4 @@ Unlike traditional assertions at the end of test cases, oracles in VR are contin
 |`UltraInstinct_V2022.3_experimentVersionV1.2.unitypackage` | it's the version for benchmarking purposes against other automated VR testing tool for Unity 2022.X |
 
 |`UltraInstinct_experimentVersion_6V1.0.unitypackage` | it's the version for benchmarking purposes against other automated VR testing tool for Unity6 |
+
