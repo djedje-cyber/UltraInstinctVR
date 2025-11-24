@@ -4,7 +4,7 @@
 ## Using UltraInstinctVR
 
 ### Installation
-To use **UltraInstinctVR**, import the Unity package located at: `/Unity_package/UltraInstinctVR_V1.0.6.unitypackage`
+To use **UltraInstinctVR**, import the Unity package located at: `/Unity_package/UltraInstinctVR_V1.0.7.unitypackage`
 
 ### Contributing
 If you want to contribute via a Pull Request:  
