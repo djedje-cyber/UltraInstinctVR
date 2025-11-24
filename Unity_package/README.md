@@ -1,5 +1,18 @@
 # UltraInstinctVR
 
+
+## Using UltraInstinctVR
+
+### Installation
+To use **UltraInstinctVR**, import the Unity package located at: `/Unity_package/UltraInstinctVR_V1.0.6.unitypackage`
+
+### Contributing
+If you want to contribute via a Pull Request:  
+
+1. Clone the repository.  
+2. Open Unity and import the `CodeBase` folder from the cloned repository.  
+3. Make your changes and submit a Pull Request. 
+
 Important note : We will need a Xareus license to install the framework.
 For more information about the license : [Xareus quickstart](https://xareus.insa-rennes.fr/tutorials/quickstart.html)
 
@@ -130,4 +143,5 @@ Unlike traditional assertions at the end of test cases, oracles in VR are contin
 |---------|------------ 
 |`UltraInstinctVR_V1.0.6.unitypackage`| it's the version for Unity6 |  
 |`UltraInstinct_V2022.3_experimentVersionV1.2.unitypackage` | it's the version for benchmarking purposes against other automated VR testing tool for Unity 2022.X |
+
 |`UltraInstinct_experimentVersion_6V1.0.unitypackage` | it's the version for benchmarking purposes against other automated VR testing tool for Unity6 |
