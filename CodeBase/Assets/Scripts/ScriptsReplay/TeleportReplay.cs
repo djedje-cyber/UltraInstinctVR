@@ -19,7 +19,7 @@ public class TeleportReplay : MonoBehaviour
     private TextAsset positionFile; // Allows assignment of the position file in the inspector
     [SerializeField] 
     private float teleportDelay = 2f; // Time delay between teleports
-    private List<Vector3> positions = new List<Vector3>();
+    private readonly List<Vector3> positions = new List<Vector3>();
     private int currentPositionIndex = 0;
 
 
@@ -76,7 +76,7 @@ public class TeleportReplay : MonoBehaviour
     /// Tries to parse a line into a Vector3 position.
     /// Returns false if parsing fails or the format is invalid.
     /// </summary>
-    private bool TryParsePosition(string line, out Vector3 position)
+    private static bool TryParsePosition(string line, out Vector3 position)
     {
         position = default;
 

@@ -8,7 +8,7 @@ namespace GenerateReportSpace
 
     public class GenerateReport
     {
-        public static void Main()
+        protected static void Main()
         {
             string filePath = "Assets/Scripts/game_logs.txt";
             CountTestGeneratedLogs(filePath);

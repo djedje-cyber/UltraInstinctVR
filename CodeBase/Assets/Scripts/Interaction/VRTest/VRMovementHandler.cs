@@ -9,11 +9,11 @@ using UnityEngine;
 /// </summary>
 public class VRMovementHandler
 {
-    Transform transform;
-    float moveStep, turnStep;
-    Vector3 moveUpperBound, moveLowerBound;
+    readonly Transform  transform;
+    readonly float moveStep, turnStep;
+    readonly Vector3 moveUpperBound, moveLowerBound;
     Vector3 turnUpperBound, turnLowerBound;
-    Vector3[] moveOpts, turnOpts;
+    readonly Vector3[] moveOpts, turnOpts;
 
 
     /// <summary>

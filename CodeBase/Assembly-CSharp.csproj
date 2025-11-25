@@ -145,6 +145,7 @@
     <None Include="Assets\VRTemplateAssets\Shaders\TexturedStableFresnelCommon.cginc" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile.shader" />
     <None Include="Assets\VRTemplateAssets\Materials\Skybox\Horizontal Skybox.shader" />
+    <None Include="Assets\TESTREPLAY\TEST_REPLAY_ObjectFound_abf53cc7-38d3-43f9-87fd-1e9e9444b511_2025-11-25.txt" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_Sprite.shader" />
   </ItemGroup>
   <ItemGroup>
