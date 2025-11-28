@@ -35,7 +35,7 @@ public class TeleportPlayer : MonoBehaviour
         string uuid = Guid.NewGuid().ToString();
         string Date = DateTime.Now.ToString("yyyy-MM-dd");
 
-        string folderPath =  "Assets/TESTREPLAY";
+        string folderPath =  "Logs/TESTREPLAY";
         
         if (!Directory.Exists(folderPath))
         {

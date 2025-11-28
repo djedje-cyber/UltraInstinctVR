@@ -35,7 +35,7 @@ public class VRTriggerHandler
     public void FetchControls(ref int objectsFound, ref float lastInteractionTime)
     {
         EnsureDirectoryExists("Logs/CoveredObjects");
-        EnsureDirectoryExists("Assets/TESTREPLAY");
+        EnsureDirectoryExists("Logs/TESTREPLAY");
 
         string replayFilePath = GetReplayFilePath();
         string coveredObjectsFilePath = "Logs/FoundObject.txt";
@@ -67,7 +67,7 @@ public class VRTriggerHandler
     /// <returns></returns>
     private string GetReplayFilePath()
     {
-        string replayFolderPath = "Assets/TESTREPLAY";
+        string replayFolderPath = "Logs/TESTREPLAY";
         string uuid = Guid.NewGuid().ToString();
         string date = DateTime.Now.ToString("yyyy-MM-dd");
         return Path.Combine(replayFolderPath, $"TEST_REPLAY_ObjectFound_{uuid}_{date}.txt");

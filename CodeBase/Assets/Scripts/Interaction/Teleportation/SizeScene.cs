@@ -29,11 +29,9 @@ namespace SizeSceneSpace
 
         [Header("Scene Bounds")]
         [SerializeField]
-
         private Bounds sceneBounds;
 
         [Header("Replay Logging")]
-        [SerializeField]
         private string replayFolder = "Logs/TESTREPLAY";
 
         private string replayFilePath;
