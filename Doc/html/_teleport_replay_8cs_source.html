@@ -111,7 +111,7 @@ $(function(){initNavTree('_teleport_replay_8cs_source.html','',''); });
 <div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span>    <span class="keyword">private</span> TextAsset positionFile; <span class="comment">// Allows assignment of the position file in the inspector</span></div>
 <div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>    [SerializeField] </div>
 <div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>    <span class="keyword">private</span> <span class="keywordtype">float</span> teleportDelay = 2f; <span class="comment">// Time delay between teleports</span></div>
-<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>    <span class="keyword">private</span> List&lt;Vector3&gt; positions = <span class="keyword">new</span> List&lt;Vector3&gt;();</div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>    <span class="keyword">private</span> readonly List&lt;Vector3&gt; positions = <span class="keyword">new</span> List&lt;Vector3&gt;();</div>
 <div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>    <span class="keyword">private</span> <span class="keywordtype">int</span> currentPositionIndex = 0;</div>
 <div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span> </div>
 <div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span> </div>
@@ -158,7 +158,7 @@ $(function(){initNavTree('_teleport_replay_8cs_source.html','',''); });
 <div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span>        Debug.Log($<span class="stringliteral">&quot;✅ Loading terminated: {positions.Count} positions registered!&quot;</span>);</div>
 <div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span>    }</div>
 <div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span></div>
-<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span>    <span class="keyword">private</span> <span class="keywordtype">bool</span> TryParsePosition(<span class="keywordtype">string</span> line, out Vector3 position)</div>
+<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span>    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keywordtype">bool</span> TryParsePosition(<span class="keywordtype">string</span> line, out Vector3 position)</div>
 <div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span>    {</div>
 <div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span>        position = <span class="keywordflow">default</span>;</div>
 <div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span> </div>

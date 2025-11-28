@@ -139,7 +139,7 @@ $(function(){initNavTree('_child_behavior_8cs_source.html','',''); });
 <div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>            Debug.Log($<span class="stringliteral">&quot;✅ {gameObject.name} has terminated his execution !&quot;</span>);</div>
 <div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span> </div>
 <div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>            <span class="comment">// Inform the parent that this child has finished</span></div>
-<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>            parentController.ChildFinished();</div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>            parentController.<a class="code hl_function" href="class_parent_controller.html#a18468660e7e6092f0128505c0cec32b1">ChildFinished</a>();</div>
 <div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>        }</div>
 <div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span>    }</div>
 </div>
@@ -147,7 +147,8 @@ $(function(){initNavTree('_child_behavior_8cs_source.html','',''); });
 </div>
 <div class="ttc" id="aclass_child_bahavior_space_1_1_child_behavior_html"><div class="ttname"><a href="class_child_bahavior_space_1_1_child_behavior.html">ChildBahaviorSpace.ChildBehavior</a></div><div class="ttdoc">Class ChildBehaviorRepresents a child behavior in a Unity scene that interacts with a parent controll...</div><div class="ttdef"><b>Definition</b> <a href="#l00018">ChildBehavior.cs:19</a></div></div>
 <div class="ttc" id="aclass_child_bahavior_space_1_1_child_behavior_html_a76bbe7578a3921bed5683cfbd049cfc5"><div class="ttname"><a href="class_child_bahavior_space_1_1_child_behavior.html#a76bbe7578a3921bed5683cfbd049cfc5">ChildBahaviorSpace.ChildBehavior.Initialize</a></div><div class="ttdeci">void Initialize(ParentController controller)</div><div class="ttdoc">Method Initialize Initializes the child behavior with a reference to its parent controller.</div><div class="ttdef"><b>Definition</b> <a href="#l00030">ChildBehavior.cs:30</a></div></div>
-<div class="ttc" id="aclass_parent_controller_html"><div class="ttname"><a href="class_parent_controller.html">ParentController</a></div><div class="ttdef"><b>Definition</b> <a href="_parent_controller_8cs_source.html#l00005">ParentController.cs:6</a></div></div>
+<div class="ttc" id="aclass_parent_controller_html"><div class="ttname"><a href="class_parent_controller.html">ParentController</a></div><div class="ttdoc">Class ParentController manages the sequential activation and deactivation of child GameObjects in a U...</div><div class="ttdef"><b>Definition</b> <a href="_parent_controller_8cs_source.html#l00010">ParentController.cs:11</a></div></div>
+<div class="ttc" id="aclass_parent_controller_html_a18468660e7e6092f0128505c0cec32b1"><div class="ttname"><a href="class_parent_controller.html#a18468660e7e6092f0128505c0cec32b1">ParentController.ChildFinished</a></div><div class="ttdeci">void ChildFinished()</div><div class="ttdoc">Class ChildFinished handles the completion of a child GameObject&#39;s behavior, deactivates it,...</div><div class="ttdef"><b>Definition</b> <a href="_parent_controller_8cs_source.html#l00070">ParentController.cs:70</a></div></div>
 <div class="ttc" id="anamespace_child_bahavior_space_html"><div class="ttname"><a href="namespace_child_bahavior_space.html">ChildBahaviorSpace</a></div><div class="ttdef"><b>Definition</b> <a href="#l00007">ChildBehavior.cs:8</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->

@@ -1,22 +1,4 @@
 var searchData=
 [
-  ['unity_0',['Unity',['../namespace_unity.html',1,'']]],
-  ['unity_3a_3avrtemplate_1',['VRTemplate',['../namespace_unity_1_1_v_r_template.html',1,'Unity']]],
-  ['unityeditor_2',['UnityEditor',['../namespace_unity_editor.html',1,'']]],
-  ['unityeditor_3a_3axr_3',['XR',['../namespace_unity_editor_1_1_x_r.html',1,'UnityEditor']]],
-  ['unityeditor_3a_3axr_3a_3ainteraction_4',['Interaction',['../namespace_unity_editor_1_1_x_r_1_1_interaction.html',1,'UnityEditor::XR']]],
-  ['unityeditor_3a_3axr_3a_3ainteraction_3a_3atoolkit_5',['Toolkit',['../namespace_unity_editor_1_1_x_r_1_1_interaction_1_1_toolkit.html',1,'UnityEditor::XR::Interaction']]],
-  ['unityeditor_3a_3axr_3a_3ainteraction_3a_3atoolkit_3a_3asamples_6',['Samples',['../namespace_unity_editor_1_1_x_r_1_1_interaction_1_1_toolkit_1_1_samples.html',1,'UnityEditor::XR::Interaction::Toolkit']]],
-  ['unityeditor_3a_3axr_3a_3ainteraction_3a_3atoolkit_3a_3asamples_3a_3ahands_7',['Hands',['../namespace_unity_editor_1_1_x_r_1_1_interaction_1_1_toolkit_1_1_samples_1_1_hands.html',1,'UnityEditor::XR::Interaction::Toolkit::Samples']]],
-  ['unityeditor_3a_3axr_3a_3ainteraction_3a_3atoolkit_3a_3asamples_3a_3ahands_3a_3aeditor_8',['Editor',['../namespace_unity_editor_1_1_x_r_1_1_interaction_1_1_toolkit_1_1_samples_1_1_hands_1_1_editor.html',1,'UnityEditor::XR::Interaction::Toolkit::Samples::Hands']]],
-  ['unityengine_9',['UnityEngine',['../namespace_unity_engine.html',1,'']]],
-  ['unityengine_3a_3axr_10',['XR',['../namespace_unity_engine_1_1_x_r.html',1,'UnityEngine']]],
-  ['unityengine_3a_3axr_3a_3ahands_11',['Hands',['../namespace_unity_engine_1_1_x_r_1_1_hands.html',1,'UnityEngine::XR']]],
-  ['unityengine_3a_3axr_3a_3ahands_3a_3asamples_12',['Samples',['../namespace_unity_engine_1_1_x_r_1_1_hands_1_1_samples.html',1,'UnityEngine::XR::Hands']]],
-  ['unityengine_3a_3axr_3a_3ahands_3a_3asamples_3a_3avisualizersample_13',['VisualizerSample',['../namespace_unity_engine_1_1_x_r_1_1_hands_1_1_samples_1_1_visualizer_sample.html',1,'UnityEngine::XR::Hands::Samples']]],
-  ['unityengine_3a_3axr_3a_3ainteraction_14',['Interaction',['../namespace_unity_engine_1_1_x_r_1_1_interaction.html',1,'UnityEngine::XR']]],
-  ['unityengine_3a_3axr_3a_3ainteraction_3a_3atoolkit_15',['Toolkit',['../namespace_unity_engine_1_1_x_r_1_1_interaction_1_1_toolkit.html',1,'UnityEngine::XR::Interaction']]],
-  ['unityengine_3a_3axr_3a_3ainteraction_3a_3atoolkit_3a_3asamples_16',['Samples',['../namespace_unity_engine_1_1_x_r_1_1_interaction_1_1_toolkit_1_1_samples.html',1,'UnityEngine::XR::Interaction::Toolkit']]],
-  ['unityengine_3a_3axr_3a_3ainteraction_3a_3atoolkit_3a_3asamples_3a_3ahands_17',['Hands',['../namespace_unity_engine_1_1_x_r_1_1_interaction_1_1_toolkit_1_1_samples_1_1_hands.html',1,'UnityEngine::XR::Interaction::Toolkit::Samples']]],
-  ['unityengine_3a_3axr_3a_3ainteraction_3a_3atoolkit_3a_3asamples_3a_3astarterassets_18',['StarterAssets',['../namespace_unity_engine_1_1_x_r_1_1_interaction_1_1_toolkit_1_1_samples_1_1_starter_assets.html',1,'UnityEngine::XR::Interaction::Toolkit::Samples']]]
+  ['teleportationeffectorspace_0',['TeleportationEffectorSpace',['../namespace_teleportation_effector_space.html',1,'']]]
 ];

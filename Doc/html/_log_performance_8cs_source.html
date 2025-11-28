@@ -108,42 +108,42 @@ $(function(){initNavTree('_log_performance_8cs_source.html','',''); });
 <div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span>        <span class="comment">// Initialize startTime</span></div>
 <div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span>        startTime = Time.time;</div>
 <div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span> </div>
-<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span> </div>
-<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span>        <span class="comment">// Define the path to the &quot;Logs/result&quot; folder at project root</span></div>
-<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span>        <span class="keywordtype">string</span> projectRoot = Directory.GetParent(Application.dataPath).FullName;</div>
-<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span>        <span class="keywordtype">string</span> resultDirectory = Path.Combine(projectRoot, <span class="stringliteral">&quot;Logs&quot;</span>, <span class="stringliteral">&quot;result&quot;</span>);</div>
-<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span> </div>
-<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>        <span class="comment">// Check if the folder exists, otherwise create it</span></div>
-<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>        <span class="keywordflow">if</span> (!Directory.Exists(resultDirectory))</div>
-<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>        {</div>
-<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>            Directory.CreateDirectory(resultDirectory);</div>
-<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>        }</div>
-<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span> </div>
-<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>        <span class="comment">// Generate the CSV file name</span></div>
-<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>        <span class="keywordtype">string</span> fileName = GenerateFileName();</div>
-<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>        logFilePath = Path.Combine(resultDirectory, fileName);</div>
-<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span> </div>
-<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>        <span class="comment">// Create or clear the CSV file</span></div>
-<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>        <span class="keyword">using</span> (StreamWriter writer = <span class="keyword">new</span> StreamWriter(logFilePath, <span class="keyword">false</span>))</div>
-<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>        {</div>
-<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>            writer.WriteLine(<span class="stringliteral">&quot;ERROR_NUMBER, ERROR, TIMESTAMP (s)&quot;</span>);</div>
-<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>        }</div>
-<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span> </div>
-<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>        <span class="comment">// Listen to Unity log messages</span></div>
-<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>        Application.logMessageReceived += LogToCsvMethod;</div>
-<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>    }</div>
-<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span> </div>
-<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>    <span class="keywordtype">void</span> OnDestroy()</div>
-<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>    {</div>
-<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>        Application.logMessageReceived -= LogToCsvMethod;</div>
-<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>    }</div>
-<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span> </div>
-<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>    <span class="keyword">private</span> <span class="keywordtype">void</span> LogToCsvMethod(<span class="keywordtype">string</span> logString, <span class="keywordtype">string</span> stackTrace, LogType type)</div>
-<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>    {</div>
-<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>        <span class="comment">// Log only errors, exceptions or asserts</span></div>
-<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>        <span class="keywordflow">if</span> (type == LogType.Error || type == LogType.Exception || type == LogType.Assert)</div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span>        <span class="comment">// Define the path to the &quot;Logs/result&quot; folder at project root</span></div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span>        <span class="keywordtype">string</span> projectRoot = Directory.GetParent(Application.dataPath).FullName;</div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span>        <span class="keywordtype">string</span> resultDirectory = Path.Combine(projectRoot, <span class="stringliteral">&quot;Logs&quot;</span>, <span class="stringliteral">&quot;result&quot;</span>);</div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span> </div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>        <span class="comment">// Check if the folder exists, otherwise create it</span></div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>        <span class="keywordflow">if</span> (!Directory.Exists(resultDirectory))</div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>        {</div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>            Directory.CreateDirectory(resultDirectory);</div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>        }</div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span> </div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>        <span class="comment">// Generate the CSV file name</span></div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>        <span class="keywordtype">string</span> fileName = GenerateFileName();</div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>        logFilePath = Path.Combine(resultDirectory, fileName);</div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span> </div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>        <span class="comment">// Create or clear the CSV file with new header</span></div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>        <span class="keyword">using</span> (StreamWriter writer = <span class="keyword">new</span> StreamWriter(logFilePath, <span class="keyword">false</span>))</div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>        {</div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>            writer.WriteLine(<span class="stringliteral">&quot;ERROR_NUMBER, ERROR, TIMESTAMP (s), STACKTRACE&quot;</span>);</div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>        }</div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span> </div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>        <span class="comment">// Listen to Unity log messages</span></div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>        Application.logMessageReceived += LogToCsvMethod;</div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>    }</div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span> </div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>    <span class="keywordtype">void</span> OnDestroy()</div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>    {</div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>        Application.logMessageReceived -= LogToCsvMethod;</div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>    }</div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span> </div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>    <span class="keyword">private</span> <span class="keywordtype">void</span> LogToCsvMethod(<span class="keywordtype">string</span> logString, <span class="keywordtype">string</span> stackTrace, LogType type)</div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>    {</div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>        <span class="comment">// Log only errors, exceptions or asserts</span></div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>        <span class="keywordflow">if</span> (type == LogType.Error || type == LogType.Exception || type == LogType.Assert</div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>            || (type == LogType.Log &amp;&amp; logString.Contains(<span class="stringliteral">&quot;NullReferenceException&quot;</span>)))</div>
 <div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>        {</div>
-<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>            <span class="comment">// Check if the error message contains &quot;NullReferenceException&quot;</span></div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>            <span class="comment">// Optional: prefix for NullReferenceException logs</span></div>
 <div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>            <span class="keywordflow">if</span> (logString.Contains(<span class="stringliteral">&quot;NullReferenceException&quot;</span>))</div>
 <div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>            {</div>
 <div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>                logString = <span class="stringliteral">&quot;NullReferenceException: &quot;</span> + logString;</div>
@@ -153,37 +153,25 @@ $(function(){initNavTree('_log_performance_8cs_source.html','',''); });
 <div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>            errorCount++;</div>
 <div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>            <span class="keywordtype">float</span> timestamp = Time.time - startTime; <span class="comment">// Timestamp in seconds</span></div>
 <div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span> </div>
-<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span>            <span class="comment">// Format the error message (replace commas to not break CSV)</span></div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span>            <span class="comment">// Format the error message and stacktrace for CSV</span></div>
 <div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span>            <span class="keywordtype">string</span> errorMessage = logString.Replace(<span class="stringliteral">&quot;,&quot;</span>, <span class="stringliteral">&quot; &quot;</span>);</div>
-<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span> </div>
-<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span>            <span class="comment">// Write the error to the CSV file</span></div>
-<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span>            <span class="keyword">using</span> (StreamWriter writer = <span class="keyword">new</span> StreamWriter(logFilePath, <span class="keyword">true</span>))</div>
-<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span>            {</div>
-<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span>                writer.WriteLine($<span class="stringliteral">&quot;{errorCount}, \&quot;{errorMessage}\&quot;, {timestamp:F2}&quot;</span>);</div>
-<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span>            }</div>
-<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span>        }</div>
-<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span>        <span class="keywordflow">else</span> <span class="keywordflow">if</span> (type == LogType.Log &amp;&amp; logString.Contains(<span class="stringliteral">&quot;NullReferenceException&quot;</span>))</div>
-<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span>        {</div>
-<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span>            <span class="comment">// Treat NullReferenceException logs as errors</span></div>
-<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span>            errorCount++;</div>
-<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span>            <span class="keywordtype">float</span> timestamp = Time.time - startTime;</div>
-<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span> </div>
-<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span>            <span class="keywordtype">string</span> errorMessage = logString.Replace(<span class="stringliteral">&quot;,&quot;</span>, <span class="stringliteral">&quot; &quot;</span>);</div>
-<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span> </div>
-<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span>            <span class="keyword">using</span> (StreamWriter writer = <span class="keyword">new</span> StreamWriter(logFilePath, <span class="keyword">true</span>))</div>
-<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span>            {</div>
-<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span>                writer.WriteLine($<span class="stringliteral">&quot;{errorCount}, \&quot;{errorMessage}\&quot;, {timestamp:F2}&quot;</span>);</div>
-<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span>            }</div>
-<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span>        }</div>
-<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span>    }</div>
-<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span> </div>
-<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span>    <span class="keywordtype">string</span> GenerateFileName()</div>
-<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span>    {</div>
-<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span>        <span class="keywordtype">string</span> uuid = Guid.NewGuid().ToString().Substring(0, 5);  <span class="comment">// Generate 5-character UUID</span></div>
-<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span>        <span class="keywordtype">string</span> date = DateTime.Now.ToString(<span class="stringliteral">&quot;ddMMyyyy&quot;</span>);  <span class="comment">// Date in format DDMMYYYY</span></div>
-<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span>        <span class="keywordflow">return</span> $<span class="stringliteral">&quot;result_{uuid}_{date}.csv&quot;</span>;  <span class="comment">// Return CSV file name</span></div>
-<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span>    }</div>
-<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span>}</div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span>            <span class="keywordtype">string</span> stack = stackTrace.Replace(<span class="stringliteral">&quot;,&quot;</span>, <span class="stringliteral">&quot; &quot;</span>).Replace(<span class="stringliteral">&quot;\n&quot;</span>, <span class="stringliteral">&quot; &quot;</span>).Replace(<span class="stringliteral">&quot;\r&quot;</span>, <span class="stringliteral">&quot; &quot;</span>);</div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span> </div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span>            <span class="comment">// Write the error to the CSV file</span></div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span>            <span class="keyword">using</span> (StreamWriter writer = <span class="keyword">new</span> StreamWriter(logFilePath, <span class="keyword">true</span>))</div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span>            {</div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span>                writer.WriteLine($<span class="stringliteral">&quot;{errorCount}, \&quot;{errorMessage}\&quot;, {timestamp:F2}, \&quot;{stack}\&quot;&quot;</span>);</div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span>            }</div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span>        }</div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span>    }</div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span> </div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span>    <span class="keywordtype">string</span> GenerateFileName()</div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span>    {</div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span>        <span class="keywordtype">string</span> uuid = Guid.NewGuid().ToString().Substring(0, 5);  </div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span>        <span class="keywordtype">string</span> date = DateTime.Now.ToString(<span class="stringliteral">&quot;ddMMyyyy&quot;</span>);          </div>
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span>        <span class="keywordflow">return</span> $<span class="stringliteral">&quot;result_{uuid}_{date}.csv&quot;</span>;                        </div>
+<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span>    }</div>
+<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span>}</div>
 </div>
 <div class="ttc" id="aclass_log_performance_html"><div class="ttname"><a href="class_log_performance.html">LogPerformance</a></div><div class="ttdef"><b>Definition</b> <a href="#l00005">LogPerformance.cs:6</a></div></div>
 </div><!-- fragment --></div><!-- contents -->

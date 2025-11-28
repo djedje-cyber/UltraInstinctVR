@@ -7,5 +7,7 @@ var namespaces_dup =
     [ "InObjectSceneEffectorSpace", "namespace_in_object_scene_effector_space.html", "namespace_in_object_scene_effector_space" ],
     [ "MoveObjectToOriginEffectorSpace", "namespace_move_object_to_origin_effector_space.html", "namespace_move_object_to_origin_effector_space" ],
     [ "OutsideSceneEffectorSpace", "namespace_outside_scene_effector_space.html", "namespace_outside_scene_effector_space" ],
-    [ "TeleportationEffectorSpace", "namespace_teleportation_effector_space.html", "namespace_teleportation_effector_space" ]
+    [ "SizeSceneSpace", "namespace_size_scene_space.html", "namespace_size_scene_space" ],
+    [ "TeleportationEffectorSpace", "namespace_teleportation_effector_space.html", "namespace_teleportation_effector_space" ],
+    [ "VRLoggerSpace", "namespace_v_r_logger_space.html", "namespace_v_r_logger_space" ]
 ];

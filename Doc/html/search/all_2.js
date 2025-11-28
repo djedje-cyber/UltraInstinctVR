@@ -1,8 +1,5 @@
 var searchData=
 [
-  ['generatereport_0',['GenerateReport',['../class_generate_report_space_1_1_generate_report.html',1,'GenerateReportSpace']]],
-  ['generatereportspace_1',['GenerateReportSpace',['../namespace_generate_report_space.html',1,'']]],
-  ['getscenebounds_2',['GetSceneBounds',['../class_outside_scene_effector_space_1_1_outside_scene_effector.html#a0c10ad87c55e1be1715106f8c53abe06',1,'OutsideSceneEffectorSpace::OutsideSceneEffector']]],
-  ['getstarttime_3',['GetStartTime',['../class_get_start_time_space_1_1_get_start_time.html',1,'GetStartTimeSpace']]],
-  ['getstarttimespace_4',['GetStartTimeSpace',['../namespace_get_start_time_space.html',1,'']]]
+  ['fetchcontrols_0',['FetchControls',['../class_v_r_trigger_handler.html#adf3aadfa0b6e0314ab114e8bfa6e1912',1,'VRTriggerHandler']]],
+  ['file_5fstructure_1',['file_structure',['../md__c_1_2_users_2glongfil_2_documents_2_git_hub_2_ultra_instinct_v_r_2_code_base_2_assets_2_scripts_2file__structure.html',1,'']]]
 ];

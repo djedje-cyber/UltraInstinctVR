@@ -1,7 +1,8 @@
 var searchData=
 [
-  ['unitystepsensorcheck_0',['UnityStepSensorCheck',['../class_selection_sensor.html#a8f3cea0df5da53165977dc34d04a7124',1,'SelectionSensor.UnityStepSensorCheck()'],['../class_teleportation_sensor.html#a2ce413765d512d8c455157a3f2b835aa',1,'TeleportationSensor.UnityStepSensorCheck()']]],
-  ['updatemoves_1',['UpdateMoves',['../class_v_r_movement_handler.html#a955627acf6facdf31ed7486153c0ffcf',1,'VRMovementHandler.UpdateMoves()'],['../class_v_r_test.html#a857aff995b3722fe20bf12db5496ed79',1,'VRTest.UpdateMoves()']]],
-  ['updatetrigger_2',['UpdateTrigger',['../class_v_r_test.html#ace183c7a7e698cbdd492cad1989ac6a9',1,'VRTest']]],
-  ['updateturns_3',['UpdateTurns',['../class_v_r_movement_handler.html#ab23dd233fb4ba3506a4993dc2b0582a2',1,'VRMovementHandler.UpdateTurns()'],['../class_v_r_test.html#a1a44d4a7f95e16d9f63df27da09981db',1,'VRTest.UpdateTurns()']]]
+  ['teleportationeffector_0',['TeleportationEffector',['../class_teleportation_effector_space_1_1_teleportation_effector.html#a18f978f051e4fec46bfb5ad7c8445e6e',1,'TeleportationEffectorSpace::TeleportationEffector']]],
+  ['teleportationsensor_1',['TeleportationSensor',['../class_teleportation_sensor.html#ad9b3d612ad51fbcc6c955587554ea8da',1,'TeleportationSensor']]],
+  ['trigger_2',['Trigger',['../class_v_r_test.html#a3a0723300c5bfa3c727f97df10dc3a0c',1,'VRTest']]],
+  ['turn_3',['Turn',['../class_v_r_greed.html#a92260c697a53467c639a04d92f533ad6',1,'VRGreed.Turn()'],['../class_v_r_test.html#a8489832de28ceb5d629f3e46ec9774f7',1,'VRTest.Turn()']]],
+  ['turnable_4',['Turnable',['../class_v_r_movement_handler.html#ac83377dbdfb604823174628209cb0f77',1,'VRMovementHandler.Turnable()'],['../class_v_r_test.html#ab468dcb3145d8093f7dd061c9dd075db',1,'VRTest.Turnable()']]]
 ];

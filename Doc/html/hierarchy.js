@@ -24,7 +24,7 @@ var hierarchy =
       [ "LogToFile", "class_log_to_file.html", null ],
       [ "ParentController", "class_parent_controller.html", null ],
       [ "SelectAndMoveToOrigin", "class_select_and_move_to_origin.html", null ],
-      [ "SizeScene", "class_size_scene.html", null ],
+      [ "SizeSceneSpace.SizeScene", "class_size_scene_space_1_1_size_scene.html", null ],
       [ "TeleportAtObject", "class_teleport_at_object.html", null ],
       [ "TeleportPlayer", "class_teleport_player.html", null ],
       [ "TeleportReplay", "class_teleport_replay.html", null ],
@@ -35,7 +35,7 @@ var hierarchy =
     [ "MouseOperations", "class_mouse_operations.html", null ],
     [ "MouseOperations.MousePoint", "struct_mouse_operations_1_1_mouse_point.html", null ],
     [ "OracleData", "class_oracle_data.html", null ],
-    [ "VRLogger", "class_v_r_logger.html", null ],
+    [ "VRLoggerSpace.VRLogger", "class_v_r_logger_space_1_1_v_r_logger.html", null ],
     [ "VRMovementHandler", "class_v_r_movement_handler.html", null ],
     [ "VRTriggerHandler", "class_v_r_trigger_handler.html", null ]
 ];

@@ -115,47 +115,43 @@ $(function(){initNavTree('_v_r_greed_8cs_source.html','',''); });
 <div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>            <a class="code hl_function" href="class_v_r_test.html#a857aff995b3722fe20bf12db5496ed79">UpdateMoves</a>();</div>
 <div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>            System.Random rnd = <span class="keyword">new</span> System.Random();</div>
 <div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>            <span class="keywordtype">int</span> n = rnd.Next(0, moves.Count);</div>
-<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>            Debug.Log(n);</div>
-<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>            Debug.Log(moves);</div>
-<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>            <span class="keywordflow">return</span> transform.position + moves[n] * moveStep;</div>
-<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>        }</div>
-<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>        <span class="keywordflow">else</span></div>
-<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>        {</div>
-<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>            <span class="keywordflow">return</span> transform.position;</div>
-<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>        }</div>
-<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>    }</div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>            Debug.Log(moves);</div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>            <span class="keywordflow">return</span> transform.position + moves[n] * moveStep;</div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>        }</div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>        <span class="keywordflow">else</span></div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>        {</div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>            <span class="keywordflow">return</span> transform.position;</div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>        }</div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>    }</div>
 </div>
-<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span></div>
-<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span> </div>
-<div class="foldopen" id="foldopen00045" data-start="{" data-end="}">
-<div class="line"><a id="l00045" name="l00045"></a><span class="lineno"><a class="line" href="class_v_r_greed.html#a92260c697a53467c639a04d92f533ad6">   45</a></span>    <span class="keyword">public</span> <span class="keyword">override</span> Quaternion <a class="code hl_function" href="class_v_r_greed.html#a92260c697a53467c639a04d92f533ad6">Turn</a>()</div>
-<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>    {</div>
-<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>        System.Random rnd = <span class="keyword">new</span> System.Random();</div>
-<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>        <span class="keywordtype">int</span> r = rnd.Next(0, 2);</div>
-<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>        <span class="keywordflow">if</span> (r == 0)</div>
-<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>        {</div>
-<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>            move = <span class="keyword">false</span>;</div>
-<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>            <a class="code hl_function" href="class_v_r_test.html#a1a44d4a7f95e16d9f63df27da09981db">UpdateTurns</a>();</div>
-<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>            <span class="keywordtype">int</span> n = rnd.Next(0, turns.Count);</div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span></div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span> </div>
+<div class="foldopen" id="foldopen00044" data-start="{" data-end="}">
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno"><a class="line" href="class_v_r_greed.html#a92260c697a53467c639a04d92f533ad6">   44</a></span>    <span class="keyword">public</span> <span class="keyword">override</span> Quaternion <a class="code hl_function" href="class_v_r_greed.html#a92260c697a53467c639a04d92f533ad6">Turn</a>()</div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>    {</div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>        System.Random rnd = <span class="keyword">new</span> System.Random();</div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>        <span class="keywordtype">int</span> r = rnd.Next(0, 2);</div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>        <span class="keywordflow">if</span> (r == 0)</div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>        {</div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>            move = <span class="keyword">false</span>;</div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>            <a class="code hl_function" href="class_v_r_test.html#a1a44d4a7f95e16d9f63df27da09981db">UpdateTurns</a>();</div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>            <span class="keywordtype">int</span> n = rnd.Next(0, turns.Count);</div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>            internalangle = internalangle + turns[n] * turnStep;</div>
 <div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span> </div>
-<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>            Debug.Log(n);</div>
-<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>            Debug.Log(turns.Count);</div>
-<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>            internalangle = internalangle + turns[n] * turnStep;</div>
-<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span> </div>
-<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>            <span class="keywordflow">return</span> Quaternion.Euler(internalangle);</div>
-<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>        }</div>
-<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span>        <span class="keywordflow">else</span></div>
-<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span>        {</div>
-<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span>            move = <span class="keyword">true</span>;</div>
-<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span>            <span class="keywordflow">return</span> transform.rotation;</div>
-<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span>        }</div>
-<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span>    }</div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>            <span class="keywordflow">return</span> Quaternion.Euler(internalangle);</div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>        }</div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>        <span class="keywordflow">else</span></div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>        {</div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>            move = <span class="keyword">true</span>;</div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>            <span class="keywordflow">return</span> transform.rotation;</div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span>        }</div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span>    }</div>
 </div>
-<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span>}</div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span>}</div>
 </div>
 <div class="ttc" id="aclass_v_r_greed_html"><div class="ttname"><a href="class_v_r_greed.html">VRGreed</a></div><div class="ttdoc">Class VRGreed implements a greedy movement strategy for VR interaction tests in Unity.</div><div class="ttdef"><b>Definition</b> <a href="#l00006">VRGreed.cs:7</a></div></div>
 <div class="ttc" id="aclass_v_r_greed_html_a5225cb5a480b7ab371bbdbf753bf9766"><div class="ttname"><a href="class_v_r_greed.html#a5225cb5a480b7ab371bbdbf753bf9766">VRGreed.Initialize</a></div><div class="ttdeci">override void Initialize()</div><div class="ttdoc">Method Initialize initializes the VRGreed movement state.</div><div class="ttdef"><b>Definition</b> <a href="#l00014">VRGreed.cs:14</a></div></div>
-<div class="ttc" id="aclass_v_r_greed_html_a92260c697a53467c639a04d92f533ad6"><div class="ttname"><a href="class_v_r_greed.html#a92260c697a53467c639a04d92f533ad6">VRGreed.Turn</a></div><div class="ttdeci">override Quaternion Turn()</div><div class="ttdoc">Method Turn determines the next rotation, potentially changing the movement state.</div><div class="ttdef"><b>Definition</b> <a href="#l00045">VRGreed.cs:45</a></div></div>
+<div class="ttc" id="aclass_v_r_greed_html_a92260c697a53467c639a04d92f533ad6"><div class="ttname"><a href="class_v_r_greed.html#a92260c697a53467c639a04d92f533ad6">VRGreed.Turn</a></div><div class="ttdeci">override Quaternion Turn()</div><div class="ttdoc">Method Turn determines the next rotation, potentially changing the movement state.</div><div class="ttdef"><b>Definition</b> <a href="#l00044">VRGreed.cs:44</a></div></div>
 <div class="ttc" id="aclass_v_r_greed_html_aa2a26671fb862720238a60e3ae935f77"><div class="ttname"><a href="class_v_r_greed.html#aa2a26671fb862720238a60e3ae935f77">VRGreed.Move</a></div><div class="ttdeci">override Vector3 Move()</div><div class="ttdoc">Method Move determines the next position based on the current movement state.</div><div class="ttdef"><b>Definition</b> <a href="#l00023">VRGreed.cs:23</a></div></div>
 <div class="ttc" id="aclass_v_r_test_html"><div class="ttname"><a href="class_v_r_test.html">VRTest</a></div><div class="ttdoc">Class VRTest is a base class for VR interaction tests in Unity.</div><div class="ttdef"><b>Definition</b> <a href="_v_r_test_8cs_source.html#l00010">VRTest.cs:11</a></div></div>
 <div class="ttc" id="aclass_v_r_test_html_a1a44d4a7f95e16d9f63df27da09981db"><div class="ttname"><a href="class_v_r_test.html#a1a44d4a7f95e16d9f63df27da09981db">VRTest.UpdateTurns</a></div><div class="ttdeci">virtual void UpdateTurns()</div><div class="ttdoc">Method UpdateTurns updates the list of possible rotations.</div></div>

@@ -1,5 +1,6 @@
 var searchData=
 [
-  ['movable_0',['Movable',['../class_v_r_movement_handler.html#abe5c5fcb86e1a50bdc7ff0c15d353f05',1,'VRMovementHandler.Movable()'],['../class_v_r_test.html#af4a3cfacc8d241ad049f12244c436b95',1,'VRTest.Movable()']]],
-  ['move_1',['Move',['../class_v_r_greed.html#aa2a26671fb862720238a60e3ae935f77',1,'VRGreed.Move()'],['../class_v_r_test.html#a78775a8dbfff2d2581a992b3b0456996',1,'VRTest.Move()']]]
+  ['initialize_0',['Initialize',['../class_v_r_greed.html#a5225cb5a480b7ab371bbdbf753bf9766',1,'VRGreed.Initialize()'],['../class_v_r_test.html#a00fd1e19b7227a507930f003d653bfc8',1,'VRTest.Initialize()'],['../class_child_bahavior_space_1_1_child_behavior.html#a76bbe7578a3921bed5683cfbd049cfc5',1,'ChildBahaviorSpace.ChildBehavior.Initialize()']]],
+  ['initmoveturnoptions_1',['InitMoveTurnOptions',['../class_v_r_movement_handler.html#a460a643e5a72843e9a2a44a5755ca0c0',1,'VRMovementHandler']]],
+  ['inobjectsceneeffector_2',['InObjectSceneEffector',['../class_in_object_scene_effector_space_1_1_in_object_scene_effector.html#a787f50c54a6aad13fee9fcc8f1f250de',1,'InObjectSceneEffectorSpace::InObjectSceneEffector']]]
 ];

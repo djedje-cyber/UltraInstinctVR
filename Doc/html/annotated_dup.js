@@ -21,8 +21,14 @@ var annotated_dup =
     [ "OutsideSceneEffectorSpace", "namespace_outside_scene_effector_space.html", [
       [ "OutsideSceneEffector", "class_outside_scene_effector_space_1_1_outside_scene_effector.html", "class_outside_scene_effector_space_1_1_outside_scene_effector" ]
     ] ],
+    [ "SizeSceneSpace", "namespace_size_scene_space.html", [
+      [ "SizeScene", "class_size_scene_space_1_1_size_scene.html", null ]
+    ] ],
     [ "TeleportationEffectorSpace", "namespace_teleportation_effector_space.html", [
       [ "TeleportationEffector", "class_teleportation_effector_space_1_1_teleportation_effector.html", "class_teleportation_effector_space_1_1_teleportation_effector" ]
+    ] ],
+    [ "VRLoggerSpace", "namespace_v_r_logger_space.html", [
+      [ "VRLogger", "class_v_r_logger_space_1_1_v_r_logger.html", "class_v_r_logger_space_1_1_v_r_logger" ]
     ] ],
     [ "Collision", "class_collision.html", null ],
     [ "ITeleportable", "class_i_teleportable.html", null ],
@@ -32,16 +38,14 @@ var annotated_dup =
     [ "MouseOperations", "class_mouse_operations.html", "class_mouse_operations" ],
     [ "ObjectSelectionEffector", "class_object_selection_effector.html", null ],
     [ "OracleData", "class_oracle_data.html", null ],
-    [ "ParentController", "class_parent_controller.html", null ],
+    [ "ParentController", "class_parent_controller.html", "class_parent_controller" ],
     [ "SelectAndMoveToOrigin", "class_select_and_move_to_origin.html", null ],
     [ "SelectionSensor", "class_selection_sensor.html", "class_selection_sensor" ],
-    [ "SizeScene", "class_size_scene.html", null ],
     [ "TeleportationSensor", "class_teleportation_sensor.html", "class_teleportation_sensor" ],
     [ "TeleportAtObject", "class_teleport_at_object.html", null ],
     [ "TeleportPlayer", "class_teleport_player.html", null ],
     [ "TeleportReplay", "class_teleport_replay.html", null ],
     [ "VRGreed", "class_v_r_greed.html", "class_v_r_greed" ],
-    [ "VRLogger", "class_v_r_logger.html", "class_v_r_logger" ],
     [ "VRMovementHandler", "class_v_r_movement_handler.html", "class_v_r_movement_handler" ],
     [ "VRTest", "class_v_r_test.html", "class_v_r_test" ],
     [ "VRTriggerHandler", "class_v_r_trigger_handler.html", "class_v_r_trigger_handler" ]
