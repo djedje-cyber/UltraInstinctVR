@@ -5,21 +5,35 @@ using System.Text;
 using System.Text.RegularExpressions;
 using UnityEngine;
 
+
+
+/// <summary>
+/// /// Class <c>LogAnalyzer</c> analyzes Unity log files and generates an HTML report summarizing test results.
+/// </summary>
 public class LogAnalyzer : MonoBehaviour
 {
     [SerializeField]
     private string  filePath = Path.GetFullPath(Path.Combine(Application.dataPath, "Logs/game_logs.txt"));
 
+
+    /// <summary>
+    /// Method <c>Start</c> initiates the log analysis process when the script is first run.
+    /// </summary>
     void Start()
     {
         AnalyzeLogs();
     }
 
+
+    /// <summary>
+    /// Method <c>AnalyzeLogs</c> reads the log file, analyzes test results, and generates an HTML report.
+    /// </summary>
+
     void AnalyzeLogs()
     {
         if (!File.Exists(filePath))
         {
-            Debug.LogError("Le fichier game_logs.txt n'existe pas !");
+            Debug.LogError("gamelogs.txt doesn't exist!");
             return;
         }
 
@@ -73,10 +87,10 @@ public class LogAnalyzer : MonoBehaviour
         htmlReport.AppendLine("</style></head><body>");
         htmlReport.AppendLine("<h1>Unity Log Analysis Report</h1>");
         htmlReport.AppendLine("<h2>Summary</h2>");
-        htmlReport.AppendLine($"<p><strong>Nombre de logs contenant 'TestGenerated':</strong> {testCasesCount}</p>");
-        htmlReport.AppendLine($"<p><strong>Nombre de logs contenant 'TestFailed':</strong> {testFailedCount}</p>");
-        htmlReport.AppendLine($"<p><strong>Nombre de logs contenant 'TestPassed':</strong> {testPassedCount}</p>");
-        
+        htmlReport.AppendLine($"<p><strong>Number of logs containing 'TestGenerated':</strong> {testCasesCount}</p>");
+        htmlReport.AppendLine($"<p><strong>Number of logs containing 'TestFailed':</strong> {testFailedCount}</p>");
+        htmlReport.AppendLine($"<p><strong>Number of logs containing 'TestPassed':</strong> {testPassedCount}</p>");
+
         htmlReport.AppendLine("<h2>ORACLE Test Results</h2>");
         htmlReport.AppendLine("<table>");
         htmlReport.AppendLine("<tr><th>ORACLE</th><th>Instances</th><th>Test Passed</th><th>Test Failed</th></tr>");
@@ -89,10 +103,10 @@ public class LogAnalyzer : MonoBehaviour
         
         foreach (var entry in oracleData)
         {
-            htmlReport.AppendLine($"<h2>Logs pour ORACLE: {entry.Key}</h2>");
+            htmlReport.AppendLine($"<h2>Logs for ORACLE: {entry.Key}</h2>");
             if (entry.Value.LogsPassed.Count > 0)
             {
-                htmlReport.AppendLine("<h3 style='color: green;'>Tests Réussis</h3>");
+                htmlReport.AppendLine("<h3 style='color: green;'>Tests succeed</h3>");
                 foreach (string log in entry.Value.LogsPassed)
                 {
                     htmlReport.AppendLine($"<div class='log-box log-passed'>{log}</div>");
@@ -100,7 +114,7 @@ public class LogAnalyzer : MonoBehaviour
             }
             if (entry.Value.LogsFailed.Count > 0)
             {
-                htmlReport.AppendLine("<h3 style='color: red;'>Tests Échoués</h3>");
+                htmlReport.AppendLine("<h3 style='color: red;'>Tests failed</h3>");
                 foreach (string log in entry.Value.LogsFailed)
                 {
                     htmlReport.AppendLine($"<div class='log-box log-failed'>{log}</div>");
@@ -114,6 +128,10 @@ public class LogAnalyzer : MonoBehaviour
     }
 }
 
+
+/// <summary>
+/// Struct <c>OracleData</c> holds test result data for a specific oracle.
+/// </summary>
 public class OracleData
 {
     public int Count { get; set; } = 0;

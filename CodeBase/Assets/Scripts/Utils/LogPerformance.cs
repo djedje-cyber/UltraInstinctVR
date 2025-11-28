@@ -13,7 +13,6 @@ public class LogPerformance : MonoBehaviour
         // Initialize startTime
         startTime = Time.time;
 
-
         // Define the path to the "Logs/result" folder at project root
         string projectRoot = Directory.GetParent(Application.dataPath).FullName;
         string resultDirectory = Path.Combine(projectRoot, "Logs", "result");
@@ -28,10 +27,10 @@ public class LogPerformance : MonoBehaviour
         string fileName = GenerateFileName();
         logFilePath = Path.Combine(resultDirectory, fileName);
 
-        // Create or clear the CSV file
+        // Create or clear the CSV file with new header
         using (StreamWriter writer = new StreamWriter(logFilePath, false))
         {
-            writer.WriteLine("ERROR_NUMBER, ERROR, TIMESTAMP (s)");
+            writer.WriteLine("ERROR_NUMBER, ERROR, TIMESTAMP (s), STACKTRACE");
         }
 
         // Listen to Unity log messages
@@ -46,9 +45,10 @@ public class LogPerformance : MonoBehaviour
     private void LogToCsvMethod(string logString, string stackTrace, LogType type)
     {
         // Log only errors, exceptions or asserts
-        if (type == LogType.Error || type == LogType.Exception || type == LogType.Assert)
+        if (type == LogType.Error || type == LogType.Exception || type == LogType.Assert
+            || (type == LogType.Log && logString.Contains("NullReferenceException")))
         {
-            // Check if the error message contains "NullReferenceException"
+            // Optional: prefix for NullReferenceException logs
             if (logString.Contains("NullReferenceException"))
             {
                 logString = "NullReferenceException: " + logString;
@@ -58,34 +58,22 @@ public class LogPerformance : MonoBehaviour
             errorCount++;
             float timestamp = Time.time - startTime; // Timestamp in seconds
 
-            // Format the error message (replace commas to not break CSV)
+            // Format the error message and stacktrace for CSV
             string errorMessage = logString.Replace(",", " ");
+            string stack = stackTrace.Replace(",", " ").Replace("\n", " ").Replace("\r", " ");
 
             // Write the error to the CSV file
             using (StreamWriter writer = new StreamWriter(logFilePath, true))
             {
-                writer.WriteLine($"{errorCount}, \"{errorMessage}\", {timestamp:F2}");
-            }
-        }
-        else if (type == LogType.Log && logString.Contains("NullReferenceException"))
-        {
-            // Treat NullReferenceException logs as errors
-            errorCount++;
-            float timestamp = Time.time - startTime;
-
-            string errorMessage = logString.Replace(",", " ");
-
-            using (StreamWriter writer = new StreamWriter(logFilePath, true))
-            {
-                writer.WriteLine($"{errorCount}, \"{errorMessage}\", {timestamp:F2}");
+                writer.WriteLine($"{errorCount}, \"{errorMessage}\", {timestamp:F2}, \"{stack}\"");
             }
         }
     }
 
     string GenerateFileName()
     {
-        string uuid = Guid.NewGuid().ToString().Substring(0, 5);  // Generate 5-character UUID
-        string date = DateTime.Now.ToString("ddMMyyyy");  // Date in format DDMMYYYY
-        return $"result_{uuid}_{date}.csv";  // Return CSV file name
+        string uuid = Guid.NewGuid().ToString().Substring(0, 5);  
+        string date = DateTime.Now.ToString("ddMMyyyy");          
+        return $"result_{uuid}_{date}.csv";                        
     }
 }
