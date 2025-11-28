@@ -27,7 +27,6 @@ public class VRGreed : VRTest
             UpdateMoves();
             System.Random rnd = new System.Random();
             int n = rnd.Next(0, moves.Count);
-            Debug.Log(moves);
             return transform.position + moves[n] * moveStep;
         }
         else

@@ -120,11 +120,11 @@ public class VRTest : MonoBehaviour
         if (timeElapsed >= reportInterval)
         {
             float objectsPerMinute = (objectsFound / timeElapsed) * 60f;
-            Debug.Log($"Taux d'objets trouvés : {objectsPerMinute:F2} objets/minute.");
+            Debug.Log($"Amount of object found : {objectsPerMinute:F2} objects/minutes.");
 
             if (objectsPerMinute == 0)
             {
-                Debug.Log("Le taux d'objets trouvés est tombé à 0. Arrêt du script.");
+                Debug.Log("The amount of objects found drop to zero, stop the scanning");
                 isRunning = false;
             }
 
