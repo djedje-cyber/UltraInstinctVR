@@ -48,12 +48,12 @@ Unity is used to build applications, and build automation is handled through **`
 ---
 
 ## Release
-- *To be completed.*
+- We are using Github to publish important release
 
 ---
 
 ## Deploy
-- *To be completed.*
+- We are using Unity custom package to deploy our tool
 
 ---
 
