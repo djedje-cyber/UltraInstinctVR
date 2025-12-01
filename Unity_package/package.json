@@ -1,0 +1,16 @@
+{
+  "name": "be.unamur.ultrainstinctvr",
+  "version": "1.0.7",
+  "displayName": "UltraInstinctVR",
+  "description": "VR Framework for automating generation of test cases",
+  "unity": "6000.0.62f1",
+  "keywords": ["tools", "utility","Software testing"],
+  "license": "MIT",
+  "dependencies": {
+    "fr.insa.xareus": "3.2.0"
+  },
+  "author": {
+    "name": "Gerry Longfils",
+    "email": "gerry.longfils@unamur.be"
+  }
+}
