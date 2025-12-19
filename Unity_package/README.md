@@ -141,7 +141,6 @@ Unlike traditional assertions at the end of test cases, oracles in VR are contin
 
 | Name    | Purpose  
 |---------|------------ 
-|`UltraInstinctVR_V1.0.7.unitypackage`| it's the version for Unity6 |  
+|`UltraInstinctVR_V1.0.7.unitypackage`| it's the version for Unity6 and for benchmarking purpose in Unity6|  
 |`UltraInstinct_V2022.3_experimentVersionV1.2.unitypackage` | it's the version for benchmarking purposes against other automated VR testing tool for Unity 2022.X |
-|`UltraInstinct_experimentVersion_6V1.0.unitypackage` | it's the version for benchmarking purposes against other automated VR testing tool for Unity6 |
 
