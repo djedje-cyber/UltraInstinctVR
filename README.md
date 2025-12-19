@@ -19,5 +19,10 @@ We strongly recomand to use the **Unity Package** to install **UltraInstinctVR**
 
 It also contains video demo under the file **demo.zip**
 
+## How to put UltraInstinctVR?
+
+Activate the components LogPerformance in *TestManager*, the result will be in Logs/result
+
+
 
 
