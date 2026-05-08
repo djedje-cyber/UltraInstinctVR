@@ -2,6 +2,7 @@
   "dependencies": {
     "com.henrylab.vrexplorer": "https://github.com/TsingPig/VRExplorer_Release.git",
     "com.meta.xr.sdk.all": "201.0.0",
+    "com.unity.ai.inference": "2.2.2",
     "com.unity.ai.navigation": "2.0.11",
     "com.unity.feature.development": "1.0.2",
     "com.unity.inputsystem": "1.14.2",
