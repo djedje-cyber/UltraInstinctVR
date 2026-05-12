@@ -54,3 +54,8 @@ UnityCloudBuild/
 
 # Addressables auto files
 [Aa]ssets/[Ss]treamingAssets/Unity_*
+
+
+
+bert.onnx
+bert.onnx.data
