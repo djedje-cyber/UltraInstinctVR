@@ -16,7 +16,7 @@
     <sequence xsi:type="State" id="State_0" label="State_0">
       <extendedInfo>
         <unityEditor xmlns="">
-          <position x="360" y="480" />
+          <position x="340" y="480" />
         </unityEditor>
       </extendedInfo>
     </sequence>

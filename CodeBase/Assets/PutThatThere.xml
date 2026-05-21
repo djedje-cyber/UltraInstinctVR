@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="utf-8"?>
+<scenario xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" id="MyScenario" label="MyScenario" version="5.16.0.0" xmlns="http://www.insa-rennes.fr/Xareus.Scenarios">
+  <extendedInfo>
+    <unityEditor xmlns="">
+      <version>1.2</version>
+    </unityEditor>
+  </extendedInfo>
+  <sequence xsi:type="SafePetriNet" id="Root" label="Root">
+    <extendedInfo>
+      <unityEditor xmlns="">
+        <viewData x="0" y="0" zoom="1" />
+        <comments />
+        <sections />
+      </unityEditor>
+    </extendedInfo>
+    <sequence xsi:type="Place" id="Place_0" label="Place_0">
+      <extendedInfo>
+        <unityEditor xmlns="">
+          <position x="40" y="90" />
+        </unityEditor>
+      </extendedInfo>
+    </sequence>
+    <sequence xsi:type="Place" id="Place_1" label="Place_1">
+      <extendedInfo>
+        <unityEditor xmlns="">
+          <position x="200" y="330" />
+        </unityEditor>
+      </extendedInfo>
+    </sequence>
+    <sequence xsi:type="Place" id="Place_2" label="Place_2">
+      <extendedInfo>
+        <unityEditor xmlns="">
+          <position x="280" y="80" />
+        </unityEditor>
+      </extendedInfo>
+    </sequence>
+    <sequence xsi:type="Place" id="Place_3" label="Place_3">
+      <extendedInfo>
+        <unityEditor xmlns="">
+          <position x="460" y="80" />
+        </unityEditor>
+      </extendedInfo>
+    </sequence>
+    <sequence xsi:type="Place" id="Place_4" label="Place_4">
+      <extendedInfo>
+        <unityEditor xmlns="">
+          <position x="700" y="80" />
+        </unityEditor>
+      </extendedInfo>
+    </sequence>
+    <sequence xsi:type="Place" id="Place_5" label="Place_5">
+      <extendedInfo>
+        <unityEditor xmlns="">
+          <position x="1160" y="80" />
+        </unityEditor>
+      </extendedInfo>
+    </sequence>
+    <sequence xsi:type="Place" id="Place_6" label="Place_6">
+      <extendedInfo>
+        <unityEditor xmlns="">
+          <position x="800" y="200" />
+        </unityEditor>
+      </extendedInfo>
+    </sequence>
+    <transition id="Transition_0" label="Transition_0">
+      <extendedInfo>
+        <unityEditor xmlns="">
+          <position x="180" y="80" />
+        </unityEditor>
+      </extendedInfo>
+      <event id="Transition_0" label="Transition_0" />
+      <upstreamSequence idref="Place_0" />
+      <downstreamSequence idref="Place_2" />
+    </transition>
+    <transition id="Transition_1" label="Transition_1">
+      <extendedInfo>
+        <unityEditor xmlns="">
+          <position x="370" y="80" />
+        </unityEditor>
+      </extendedInfo>
+      <event id="Transition_1" label="Transition_1" />
+      <upstreamSequence idref="Place_2" />
+      <downstreamSequence idref="Place_3" />
+    </transition>
+    <transition id="Transition_2" label="Transition_2">
+      <extendedInfo>
+        <unityEditor xmlns="">
+          <position x="550" y="80" />
+        </unityEditor>
+      </extendedInfo>
+      <event id="Transition_2" label="Transition_2" />
+      <upstreamSequence idref="Place_3" />
+      <downstreamSequence idref="Place_4" />
+    </transition>
+    <transition id="Transition_3" label="Transition_3">
+      <extendedInfo>
+        <unityEditor xmlns="">
+          <position x="120" y="200" />
+        </unityEditor>
+      </extendedInfo>
+      <event id="Transition_3" label="Transition_3" />
+      <upstreamSequence idref="Place_0" />
+      <downstreamSequence idref="Place_1" />
+    </transition>
+    <transition id="Transition_4" label="Transition_4">
+      <extendedInfo>
+        <unityEditor xmlns="">
+          <position x="380" y="200" />
+        </unityEditor>
+      </extendedInfo>
+      <event id="Transition_4" label="Transition_4" />
+      <upstreamSequence idref="Place_1" />
+      <downstreamSequence idref="Place_3" />
+    </transition>
+    <transition id="Transition_5" label="Transition_5">
+      <extendedInfo>
+        <unityEditor xmlns="">
+          <position x="880" y="80" />
+        </unityEditor>
+      </extendedInfo>
+      <event id="Transition_5" label="Transition_5" />
+      <upstreamSequence idref="Place_4" />
+      <downstreamSequence idref="Place_5" />
+    </transition>
+    <transition id="Transition_6" label="Transition_6">
+      <extendedInfo>
+        <unityEditor xmlns="">
+          <position x="620" y="200" />
+        </unityEditor>
+      </extendedInfo>
+      <event id="Transition_6" label="Transition_6" />
+      <upstreamSequence idref="Place_3" />
+      <downstreamSequence idref="Place_6" />
+    </transition>
+    <transition id="Transition_7" label="Transition_7">
+      <extendedInfo>
+        <unityEditor xmlns="">
+          <position x="960" y="160" />
+        </unityEditor>
+      </extendedInfo>
+      <event id="Transition_7" label="Transition_7" />
+      <upstreamSequence idref="Place_6" />
+      <downstreamSequence idref="Place_5" />
+    </transition>
+    <initialSequence idref="Place_0">
+      <tokenInit classname="Xareus.Scenarios.TokenInit.EmptyTokenInit,Xareus.Scenarios" />
+    </initialSequence>
+    <finalSequence idref="Place_5" />
+  </sequence>
+</scenario>

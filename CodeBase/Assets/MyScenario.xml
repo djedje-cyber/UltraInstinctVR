@@ -111,12 +111,13 @@
               </unityEditor>
             </extendedInfo>
           </param>
-          <param type="System.String,mscorlib" name="gameObjectToObserve">
+          <param type="UnityEngine.GameObject,UnityEngine.CoreModule" name="gameObjectToObserve">
             <extendedInfo>
               <unityEditor xmlns="">
-                <field type="Xareus.Unity.Editor.Scenarios.UI.Fields.StringField,Xareus.Unity.Editor" />
+                <field type="Xareus.Unity.Editor.Scenarios.UI.Fields.ObjectDropField`1[[UnityEngine.GameObject,UnityEngine.CoreModule]],Xareus.Unity.Editor" />
               </unityEditor>
             </extendedInfo>
+            <param value="" type="System.Guid,mscorlib" name="UFID" />
           </param>
         </effectorUpdate>
       </event>
@@ -136,12 +137,13 @@
               <editBox type="Xareus.Unity.Editor.Scenarios.UI.DefaultEditBox,Xareus.Unity.Editor" />
             </unityEditor>
           </extendedInfo>
-          <param type="System.String,mscorlib" name="gameObjectToObserve">
+          <param type="UnityEngine.GameObject,UnityEngine.CoreModule" name="gameObjectToObserve">
             <extendedInfo>
               <unityEditor xmlns="">
-                <field type="Xareus.Unity.Editor.Scenarios.UI.Fields.StringField,Xareus.Unity.Editor" />
+                <field type="Xareus.Unity.Editor.Scenarios.UI.Fields.ObjectDropField`1[[UnityEngine.GameObject,UnityEngine.CoreModule]],Xareus.Unity.Editor" />
               </unityEditor>
             </extendedInfo>
+            <param value="" type="System.Guid,mscorlib" name="UFID" />
           </param>
           <param type="System.String,mscorlib" name="ControllerHand">
             <extendedInfo>
@@ -165,7 +167,7 @@
     <transition id="Transition_2" label="Transition_2">
       <extendedInfo>
         <unityEditor xmlns="">
-          <position x="845.5" y="189" />
+          <position x="840" y="180" />
         </unityEditor>
       </extendedInfo>
       <event id="Transition_2" label="Transition_2">
@@ -197,7 +199,7 @@
     <transition id="Transition_4" label="Transition_4">
       <extendedInfo>
         <unityEditor xmlns="">
-          <position x="613.5" y="489" />
+          <position x="620" y="490" />
         </unityEditor>
       </extendedInfo>
       <event id="Transition_4" label="Transition_4" />
@@ -214,6 +216,19 @@
       <upstreamSequence idref="Place_3" />
       <downstreamSequence idref="Place_1" />
     </transition>
+    <transition id="Transition_5" label="Transition_5">
+      <extendedInfo>
+        <unityEditor xmlns="">
+          <position x="820" y="240" />
+        </unityEditor>
+      </extendedInfo>
+      <event id="Transition_5" label="Transition_5" />
+      <upstreamSequence idref="Place_2" />
+      <downstreamSequence idref="Place_3" />
+    </transition>
+    <initialSequence idref="Place_0">
+      <tokenInit classname="Xareus.Scenarios.TokenInit.EmptyTokenInit,Xareus.Scenarios" />
+    </initialSequence>
     <finalSequence idref="Place_3" />
   </sequence>
 </scenario>
