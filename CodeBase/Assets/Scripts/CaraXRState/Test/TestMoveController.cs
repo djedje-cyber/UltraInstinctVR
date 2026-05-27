@@ -4,9 +4,9 @@ using UnityEngine.XR.ARFoundation;
 [TestInteractionClass]
 public class MoveControllerAndSelect
 {
-    [InitialState]
+    [InitialState] [Place(0)]
     protected GameObject gameObject;
-    [InitialState]
+    [InitialState] [Place(0)]
     protected GameObject targetGameObject;
 
     [Transition(1)] [Place(1)]

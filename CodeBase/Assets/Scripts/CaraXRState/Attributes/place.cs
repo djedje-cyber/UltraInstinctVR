@@ -1,12 +1,14 @@
 using System;
 
-[AttributeUsage(AttributeTargets.Method | AttributeTargets.Field, AllowMultiple = true)]
+[AttributeUsage(
+    AttributeTargets.Method |   // [Transition] methods
+    AttributeTargets.Class |   // class-level places
+    AttributeTargets.Field |   // field-level places
+    AttributeTargets.Property,   // property-level places
+    AllowMultiple = true
+)]
 public class PlaceAttribute : Attribute
 {
-    public object Value { get; }
-
-    public PlaceAttribute(object value)
-    {
-        Value = value;
-    }
+    public int Id { get; }
+    public PlaceAttribute(int id) { Id = id; }
 }

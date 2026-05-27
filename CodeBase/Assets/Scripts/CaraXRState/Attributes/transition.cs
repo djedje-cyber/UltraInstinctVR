@@ -1,15 +1,15 @@
 using System;
 
-[AttributeUsage(AttributeTargets.Method | AttributeTargets.Field, AllowMultiple = true)]
+[AttributeUsage(AttributeTargets.Method)]
 public class TransitionAttribute : Attribute
 {
-
-
-     public object Value { get; }
-
-    public TransitionAttribute(object value)
+    public int Id { get; }
+    public int UpstreamPlace { get; }
+    public TransitionAttribute(int id, int upstreamPlace = 0)
     {
-        Value = value;
+        Id = id;
+        UpstreamPlace = upstreamPlace;
     }
-
 }
+
+
