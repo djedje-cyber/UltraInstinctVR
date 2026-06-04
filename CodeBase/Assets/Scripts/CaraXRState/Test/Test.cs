@@ -5,7 +5,8 @@ using UnityEngine.XR.Interaction.Toolkit.Interactables;
 [TestInteractionClass]
 public class TestUndoRedoCube
 {
-    [InitialState] [Place(0)] 
+    [InitialState] [Place(0)]
+    [SerializeField]
     private GameObject controller;
 
     [InitialState]

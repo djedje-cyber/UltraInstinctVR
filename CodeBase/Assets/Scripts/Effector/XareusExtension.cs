@@ -1,23 +1,22 @@
 using UnityEngine;
 using System;
 
+/// <summary>
+/// Extension methods for DetectInteraction and Expect.
+/// </summary>
 public static class XareusExtensions
 {
     // -------------------------------------------------------
-    // DetectInteraction — Sensor
-    // Evaluates the condition and logs whether the interaction
-    // was detected or not.
+    // GameObject extensions
     // -------------------------------------------------------
 
     public static void DetectInteraction(this GameObject go, Func<GameObject, bool> condition)
     {
-        if (go == null)
-        {
-            Debug.LogError("DetectInteraction: GameObject is null.");
-            return;
-        }
+        if (go == null) return;
 
         bool result = condition(go);
+
+        DetectInteractionInterceptor.Record(result); // ← capture for TestSuiteRunner
 
         if (result)
             Debug.Log($"SENSOR {go.name} - Interaction detected.");
@@ -25,25 +24,13 @@ public static class XareusExtensions
             Debug.LogWarning($"SENSOR {go.name} - No interaction detected.");
     }
 
-    public static void DetectInteraction(this Component component, Func<GameObject, bool> condition)
-    {
-        component.gameObject.DetectInteraction(condition);
-    }
-
-    // -------------------------------------------------------
-    // Expect — Effector / Oracle
-    // Evaluates the expected condition and logs pass or fail.
-    // -------------------------------------------------------
-
     public static void Expect(this GameObject go, Func<GameObject, bool> condition)
     {
-        if (go == null)
-        {
-            Debug.LogError("Expect: GameObject is null.");
-            return;
-        }
+        if (go == null) return;
 
         bool result = condition(go);
+
+        ExpectInterceptor.Record(result); // ← capture for TestSuiteRunner
 
         if (result)
             Debug.Log($"ORACLE {go.name} - TestPassed - Expectation met.");
@@ -51,8 +38,13 @@ public static class XareusExtensions
             Debug.LogError($"ORACLE {go.name} - TestFailed - Expectation not met.");
     }
 
-    public static void Expect(this Component component, Func<GameObject, bool> condition)
-    {
-        component.gameObject.Expect(condition);
-    }
+    // -------------------------------------------------------
+    // Component extensions (Button, Slider, etc.)
+    // -------------------------------------------------------
+
+    public static void DetectInteraction(this Component c, Func<GameObject, bool> condition)
+        => c.gameObject.DetectInteraction(condition);
+
+    public static void Expect(this Component c, Func<GameObject, bool> condition)
+        => c.gameObject.Expect(condition);
 }

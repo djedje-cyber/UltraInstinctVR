@@ -54,6 +54,7 @@
     <Compile Include="Assets\Scripts\Interaction\VRTest\VRGuide.cs" />
     <Compile Include="Assets\Scripts\Effector\UnclickEffector.cs" />
     <Compile Include="Assets\Scripts\Utils\GetCPUTime.cs" />
+    <Compile Include="Assets\Scripts\CaraXRState\utils\TestBootstrap.cs" />
     <Compile Include="Assets\VRTemplateAssets\Scripts\VideoPlayerRenderTexture.cs" />
     <Compile Include="Assets\Scripts\CaraXRState\Test\TestMoveController.cs" />
     <Compile Include="Assets\VRTemplateAssets\Scripts\Rotator.cs" />
@@ -70,11 +71,13 @@
     <Compile Include="Assets\Scripts\Utils\CoverageToCSV.cs" />
     <Compile Include="Assets\VRTemplateAssets\Scripts\XRPokeFollowAffordanceFill.cs" />
     <Compile Include="Assets\Scripts\CaraXRState\Gaze.cs" />
+    <Compile Include="Assets\Scripts\CaraXRState\utils\ScenarioLoader.cs" />
     <Compile Include="Assets\Scripts\CaraXRState\Attributes\TestInteractionClass.cs" />
     <Compile Include="Assets\Scripts\CaraXRState\Attributes\place.cs" />
     <Compile Include="Assets\Scripts\CaraXRState\Interaction\ObjectTeleporter.cs" />
     <Compile Include="Assets\Scripts\Interaction\Teleportation\TeleportPlayer.cs" />
     <Compile Include="Assets\Scripts\Effector\OutsideSceneEffector.cs" />
+    <Compile Include="Assets\Scripts\CaraXRState\utils\GameObjectBindings.cs" />
     <Compile Include="Assets\Scripts\CaraXRState\CaraMachine\settings.cs" />
     <Compile Include="Assets\Scripts\CaraXRState\VoiceRecognizer.cs" />
     <Compile Include="Assets\Scripts\CaraXRState\launchBert.cs" />

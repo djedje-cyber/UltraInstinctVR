@@ -1,33 +1,23 @@
 using System;
 using System.Collections;
+
 using System.Collections.Generic;
 using System.Reflection;
 using UnityEngine;
 
-/// <summary>
-/// Runs multiple [TestInteractionClass] tests sequentially or in parallel.
-/// </summary>
 public class TestSuiteRunner : MonoBehaviour
 {
-    // -------------------------------------------------------
-    // Inspector
-    // -------------------------------------------------------
-
     [Header("Test Suite Configuration")]
-    [SerializeField] private ExecutionMode executionMode = ExecutionMode.Sequential;
-    [SerializeField] private float pollInterval = 0.1f;
-    [SerializeField] private float delayBetween = 0.5f;
-    [SerializeField] private bool autoDiscover = true;
-    [SerializeField] private bool runOnStart = true;
+    [SerializeField] protected ExecutionMode executionMode = ExecutionMode.Sequential;
+    [SerializeField] protected float pollInterval = 0.1f;
+    [SerializeField] protected float delayBetween = 0.5f;
+    [SerializeField] protected bool autoDiscover = true;
+    [SerializeField] protected bool runOnStart = true;
 
     [Header("Manual Test List (if autoDiscover = false)")]
-    [SerializeField] private List<SerializableType> testClasses = new List<SerializableType>();
-    [Header("Scene GameObjects — matched by field name")]
-    [SerializeField] private List<GameObjectBinding> bindings = new List<GameObjectBinding>();
+    [SerializeField] protected List<UnityEngine.Object> testClasses = new List<UnityEngine.Object>();
 
-    // -------------------------------------------------------
-    // State
-    // -------------------------------------------------------
+    // ← bindings removed entirely
 
     private List<TestResult> results = new List<TestResult>();
     private int totalTests = 0;
@@ -37,29 +27,13 @@ public class TestSuiteRunner : MonoBehaviour
 
     public bool IsRunning => isRunning;
 
-    // -------------------------------------------------------
-    // Execution mode
-    // -------------------------------------------------------
-
-    public enum ExecutionMode
-    {
-        Sequential, // One test at a time
-        Parallel    // All tests at the same time
-    }
-
-    // -------------------------------------------------------
-    // Unity
-    // -------------------------------------------------------
+    public enum ExecutionMode { Sequential, Parallel }
 
     private void Start()
     {
         if (runOnStart)
             StartSuite();
     }
-
-    // -------------------------------------------------------
-    // Public API
-    // -------------------------------------------------------
 
     public void StartSuite()
     {
@@ -71,7 +45,7 @@ public class TestSuiteRunner : MonoBehaviour
 
         List<Type> testTypes = autoDiscover
             ? DiscoverAllTestClasses()
-            : ResolveTestClasses(testClasses); // Updated
+            : ResolveTestClasses(testClasses);
 
         if (testTypes.Count == 0)
         {
@@ -99,10 +73,6 @@ public class TestSuiteRunner : MonoBehaviour
         Debug.Log("[TestSuite] Stopped.");
     }
 
-    // -------------------------------------------------------
-    // Sequential execution
-    // -------------------------------------------------------
-
     private IEnumerator RunSequential(List<Type> testTypes)
     {
         isRunning = true;
@@ -112,26 +82,19 @@ public class TestSuiteRunner : MonoBehaviour
             Debug.Log($"[TestSuite] ▶ [{testType.Name}] Starting...");
 
             TestResult result = new TestResult(testType.Name);
-
             yield return StartCoroutine(RunTest(testType, result));
 
             results.Add(result);
-
             if (result.Success) passed++;
             else failed++;
 
             LogResult(result);
-
             yield return new WaitForSeconds(delayBetween);
         }
 
         isRunning = false;
         LogSummary();
     }
-
-    // -------------------------------------------------------
-    // Parallel execution
-    // -------------------------------------------------------
 
     private IEnumerator RunParallel(List<Type> testTypes)
     {
@@ -147,16 +110,13 @@ public class TestSuiteRunner : MonoBehaviour
             parallelRoutines.Add(RunTest(testType, result));
         }
 
-        // Start all coroutines simultaneously
         List<Coroutine> coroutines = new List<Coroutine>();
         foreach (IEnumerator routine in parallelRoutines)
             coroutines.Add(StartCoroutine(routine));
 
-        // Wait for all to finish
         foreach (Coroutine coroutine in coroutines)
             yield return coroutine;
 
-        // Collect results
         foreach (TestResult result in parallelResults)
         {
             results.Add(result);
@@ -169,16 +129,12 @@ public class TestSuiteRunner : MonoBehaviour
         LogSummary();
     }
 
-    // -------------------------------------------------------
-    // Single test execution
-    // -------------------------------------------------------
-
     private IEnumerator RunTest(Type testType, TestResult result)
     {
-        object instance = Activator.CreateInstance(testType);
-        int currentPlace = 0;
+        // Get or create instance — Awake() handles field assignment
+        object instance = GetOrCreateInstance(testType);
 
-        InjectInitialStates(instance);
+        int currentPlace = 0;
 
         result.StartTime = Time.time;
 
@@ -193,9 +149,8 @@ public class TestSuiteRunner : MonoBehaviour
                 break;
             }
 
-            // Wait for sensor
             bool detected = false;
-            float timeout = 10f; // Timeout per transition
+            float timeout = 10f;
             float elapsed = 0f;
 
             while (!detected && elapsed < timeout)
@@ -208,11 +163,10 @@ public class TestSuiteRunner : MonoBehaviour
             if (!detected)
             {
                 result.Success = false;
-                result.Message = $"Timeout on transition: {transition.Name} at Place_{currentPlace}";
+                result.Message = $"Timeout on: {transition.Name} at Place_{currentPlace}";
                 break;
             }
 
-            // Fire transition
             try
             {
                 transition.Invoke(instance, null);
@@ -224,7 +178,6 @@ public class TestSuiteRunner : MonoBehaviour
                 break;
             }
 
-            // Advance place
             PlaceAttribute nextPlace = transition.GetCustomAttribute<PlaceAttribute>();
             if (nextPlace == null)
             {
@@ -240,17 +193,42 @@ public class TestSuiteRunner : MonoBehaviour
         result.EndTime = Time.time;
     }
 
-    // -------------------------------------------------------
-    // Sensor evaluation
-    // -------------------------------------------------------
+    private object GetOrCreateInstance(Type testType)
+    {
+        // Reuse existing instance if already in scene
+        MonoBehaviour existing = UnityEngine.Object.FindFirstObjectByType(testType) as MonoBehaviour;
+        if (existing != null)
+        {
+            Debug.Log($"[TestSuite] Using existing instance of {testType.Name}");
+            return existing;
+        }
+
+        // Create new — Awake() will assign GameObjects automatically
+        GameObject go = new GameObject($"[Test] {testType.Name}");
+        return go.AddComponent(testType);
+    }
 
     private bool EvaluateSensor(object instance, MethodInfo transition)
     {
         SensorAttribute sensorAttr = transition.GetCustomAttribute<SensorAttribute>();
 
-        // No sensor — fire immediately
-        if (sensorAttr == null) return true;
+        // No [Sensor] — use DetectInteraction lambda
+        if (sensorAttr == null)
+        {
+            try
+            {
+                DetectInteractionInterceptor.Reset();
+                transition.Invoke(instance, null);
+                return DetectInteractionInterceptor.LastResult;
+            }
+            catch (Exception e)
+            {
+                Debug.LogError($"[TestSuite] DetectInteraction error: {e.Message}");
+                return false;
+            }
+        }
 
+        // [Sensor] attribute approach
         try
         {
             foreach (FieldInfo field in GetInitialStateFields(instance.GetType()))
@@ -283,36 +261,6 @@ public class TestSuiteRunner : MonoBehaviour
         return false;
     }
 
-    // -------------------------------------------------------
-    // Field injection
-    // -------------------------------------------------------
-
-    private void InjectInitialStates(object instance)
-    {
-        foreach (FieldInfo field in GetInitialStateFields(instance.GetType()))
-        {
-            GameObjectBinding binding = bindings.Find(b =>
-                string.Equals(b.FieldName, field.Name, StringComparison.OrdinalIgnoreCase)
-            );
-
-            GameObject go = binding?.GameObject ?? GameObject.Find(field.Name);
-
-            if (go != null)
-            {
-                field.SetValue(instance, go);
-                Debug.Log($"[TestSuite] Injected '{field.Name}' → {go.name}");
-            }
-            else
-            {
-                Debug.LogWarning($"[TestSuite] Could not inject field: '{field.Name}'");
-            }
-        }
-    }
-
-    // -------------------------------------------------------
-    // Discovery
-    // -------------------------------------------------------
-
     private List<Type> DiscoverAllTestClasses()
     {
         List<Type> types = new List<Type>();
@@ -325,24 +273,46 @@ public class TestSuiteRunner : MonoBehaviour
         return types;
     }
 
-    private List<Type> ResolveTestClasses(List<SerializableType> serializableTypes)
+    private List<Type> ResolveTestClasses(List<UnityEngine.Object> objects)
     {
         List<Type> types = new List<Type>();
 
-        foreach (SerializableType st in serializableTypes)
+        foreach (UnityEngine.Object obj in objects)
         {
-            Type type = st.Resolve();
+            if (obj == null)
+            {
+                Debug.LogWarning("[TestSuite] Null entry — skipping.");
+                continue;
+            }
 
-            if (type != null)
-                types.Add(type);
+            Type type = null;
+
+            if (obj is MonoBehaviour mb)
+                type = mb.GetType();
+
+#if UNITY_EDITOR
+            else if (obj is UnityEditor.MonoScript script)
+                type = script.GetClass();
+#endif
+
+            if (type == null)
+            {
+                Debug.LogWarning($"[TestSuite] Could not resolve type from: {obj.name} — skipping.");
+                continue;
+            }
+
+            if (type.GetCustomAttribute<TestInteractionClassAttribute>() == null)
+            {
+                Debug.LogWarning($"[TestSuite] {type.Name} missing [TestInteractionClass] — skipping.");
+                continue;
+            }
+
+            Debug.Log($"[TestSuite] Resolved: {type.Name}");
+            types.Add(type);
         }
 
         return types;
     }
-
-    // -------------------------------------------------------
-    // Helpers
-    // -------------------------------------------------------
 
     private MethodInfo FindEnabledTransition(Type type, int place)
     {
@@ -357,14 +327,10 @@ public class TestSuiteRunner : MonoBehaviour
 
     private IEnumerable<FieldInfo> GetInitialStateFields(Type type)
     {
-        foreach (FieldInfo field in type.GetFields(BindingFlags.NonPublic | BindingFlags.Instance))
+        foreach (FieldInfo field in type.GetFields(BindingFlags.NonPublic | BindingFlags.Public | BindingFlags.Instance))
             if (field.GetCustomAttribute<InitialStateAttribute>() != null)
                 yield return field;
     }
-
-    // -------------------------------------------------------
-    // Logging
-    // -------------------------------------------------------
 
     private void LogResult(TestResult result)
     {
@@ -384,10 +350,6 @@ public class TestSuiteRunner : MonoBehaviour
     }
 }
 
-// -------------------------------------------------------
-// Test Result
-// -------------------------------------------------------
-
 public class TestResult
 {
     public string TestName { get; }
@@ -404,13 +366,35 @@ public class TestResult
     }
 }
 
-// -------------------------------------------------------
-// GameObject Binding
-// -------------------------------------------------------
 
-[Serializable]
-public class GameObjectBinding
+
+
+public static class DetectInteractionInterceptor
 {
-    public string FieldName;
-    public GameObject GameObject;
+    public static bool LastResult { get; private set; }
+
+    public static void Reset()
+    {
+        LastResult = false;
+    }
+
+    public static void Record(bool result)
+    {
+        LastResult = result;
+    }
+}
+
+public static class ExpectInterceptor
+{
+    public static bool LastResult { get; private set; }
+
+    public static void Reset()
+    {
+        LastResult = true; // Default true — pass unless explicitly failed
+    }
+
+    public static void Record(bool result)
+    {
+        LastResult = result;
+    }
 }

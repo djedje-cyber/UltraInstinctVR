@@ -1,6 +1,6 @@
 
 === Nouvelle Session ===
-[5/27/2026 2:20:23 PM] Exception: UnassignedReferenceException: The variable m_Target of LazyFollow has not been assigned.
+[5/29/2026 10:48:19 AM] Exception: UnassignedReferenceException: The variable m_Target of LazyFollow has not been assigned.
 You probably need to assign the m_Target variable of the LazyFollow script in the inspector.
 UnityEngine.Object+MarshalledUnityObject.TryThrowEditorNullExceptionObject (UnityEngine.Object unityObj, System.String parameterName) (at <b1b6e137fed94ac1a54aeeb4e5f26168>:0)
 UnityEngine.Bindings.ThrowHelper.ThrowNullReferenceException (System.Object obj) (at <b1b6e137fed94ac1a54aeeb4e5f26168>:0)
@@ -8,7 +8,39 @@ UnityEngine.Transform.get_position () (at <b1b6e137fed94ac1a54aeeb4e5f26168>:0)
 UnityEngine.XR.Interaction.Toolkit.UI.LazyFollow.TryGetThresholdTargetRotation (UnityEngine.Quaternion& newTarget) (at ./Library/PackageCache/com.unity.xr.interaction.toolkit@76258c00be3e/Runtime/UI/LazyFollow.cs:503)
 UnityEngine.XR.Interaction.Toolkit.UI.LazyFollow.OnEnable () (at ./Library/PackageCache/com.unity.xr.interaction.toolkit@76258c00be3e/Runtime/UI/LazyFollow.cs:384)
 
-[5/27/2026 2:20:23 PM] Exception: UnassignedReferenceException: The variable m_Target of LazyFollow has not been assigned.
+[5/29/2026 10:48:19 AM] Exception: UnassignedReferenceException: The variable m_Target of LazyFollow has not been assigned.
+You probably need to assign the m_Target variable of the LazyFollow script in the inspector.
+UnityEngine.Object+MarshalledUnityObject.TryThrowEditorNullExceptionObject (UnityEngine.Object unityObj, System.String parameterName) (at <b1b6e137fed94ac1a54aeeb4e5f26168>:0)
+UnityEngine.Bindings.ThrowHelper.ThrowNullReferenceException (System.Object obj) (at <b1b6e137fed94ac1a54aeeb4e5f26168>:0)
+UnityEngine.Transform.get_rotation () (at <b1b6e137fed94ac1a54aeeb4e5f26168>:0)
+UnityEngine.XR.Interaction.Toolkit.UI.LazyFollow.TryGetThresholdTargetRotation (UnityEngine.Quaternion& newTarget) (at ./Library/PackageCache/com.unity.xr.interaction.toolkit@76258c00be3e/Runtime/UI/LazyFollow.cs:516)
+UnityEngine.XR.Interaction.Toolkit.UI.LazyFollow.OnEnable () (at ./Library/PackageCache/com.unity.xr.interaction.toolkit@76258c00be3e/Runtime/UI/LazyFollow.cs:384)
+
+[5/29/2026 10:48:19 AM] Exception: UnassignedReferenceException: The variable m_Target of LazyFollow has not been assigned.
+You probably need to assign the m_Target variable of the LazyFollow script in the inspector.
+UnityEngine.Object+MarshalledUnityObject.TryThrowEditorNullExceptionObject (UnityEngine.Object unityObj, System.String parameterName) (at <b1b6e137fed94ac1a54aeeb4e5f26168>:0)
+UnityEngine.Bindings.ThrowHelper.ThrowNullReferenceException (System.Object obj) (at <b1b6e137fed94ac1a54aeeb4e5f26168>:0)
+UnityEngine.Transform.get_rotation () (at <b1b6e137fed94ac1a54aeeb4e5f26168>:0)
+UnityEngine.XR.Interaction.Toolkit.UI.LazyFollow.TryGetThresholdTargetRotation (UnityEngine.Quaternion& newTarget) (at ./Library/PackageCache/com.unity.xr.interaction.toolkit@76258c00be3e/Runtime/UI/LazyFollow.cs:516)
+UnityEngine.XR.Interaction.Toolkit.UI.LazyFollow.OnEnable () (at ./Library/PackageCache/com.unity.xr.interaction.toolkit@76258c00be3e/Runtime/UI/LazyFollow.cs:384)
+
+[5/29/2026 10:48:19 AM] Exception: UnassignedReferenceException: The variable m_Target of LazyFollow has not been assigned.
+You probably need to assign the m_Target variable of the LazyFollow script in the inspector.
+UnityEngine.Object+MarshalledUnityObject.TryThrowEditorNullExceptionObject (UnityEngine.Object unityObj, System.String parameterName) (at <b1b6e137fed94ac1a54aeeb4e5f26168>:0)
+UnityEngine.Bindings.ThrowHelper.ThrowNullReferenceException (System.Object obj) (at <b1b6e137fed94ac1a54aeeb4e5f26168>:0)
+UnityEngine.Transform.get_rotation () (at <b1b6e137fed94ac1a54aeeb4e5f26168>:0)
+UnityEngine.XR.Interaction.Toolkit.UI.LazyFollow.TryGetThresholdTargetRotation (UnityEngine.Quaternion& newTarget) (at ./Library/PackageCache/com.unity.xr.interaction.toolkit@76258c00be3e/Runtime/UI/LazyFollow.cs:516)
+UnityEngine.XR.Interaction.Toolkit.UI.LazyFollow.OnEnable () (at ./Library/PackageCache/com.unity.xr.interaction.toolkit@76258c00be3e/Runtime/UI/LazyFollow.cs:384)
+
+[5/29/2026 10:48:19 AM] Exception: UnassignedReferenceException: The variable m_Target of LazyFollow has not been assigned.
+You probably need to assign the m_Target variable of the LazyFollow script in the inspector.
+UnityEngine.Object+MarshalledUnityObject.TryThrowEditorNullExceptionObject (UnityEngine.Object unityObj, System.String parameterName) (at <b1b6e137fed94ac1a54aeeb4e5f26168>:0)
+UnityEngine.Bindings.ThrowHelper.ThrowNullReferenceException (System.Object obj) (at <b1b6e137fed94ac1a54aeeb4e5f26168>:0)
+UnityEngine.Transform.get_rotation () (at <b1b6e137fed94ac1a54aeeb4e5f26168>:0)
+UnityEngine.XR.Interaction.Toolkit.UI.LazyFollow.TryGetThresholdTargetRotation (UnityEngine.Quaternion& newTarget) (at ./Library/PackageCache/com.unity.xr.interaction.toolkit@76258c00be3e/Runtime/UI/LazyFollow.cs:516)
+UnityEngine.XR.Interaction.Toolkit.UI.LazyFollow.OnEnable () (at ./Library/PackageCache/com.unity.xr.interaction.toolkit@76258c00be3e/Runtime/UI/LazyFollow.cs:384)
+
+[5/29/2026 10:48:19 AM] Exception: UnassignedReferenceException: The variable m_Target of LazyFollow has not been assigned.
 You probably need to assign the m_Target variable of the LazyFollow script in the inspector.
 UnityEngine.Object+MarshalledUnityObject.TryThrowEditorNullExceptionObject (UnityEngine.Object unityObj, System.String parameterName) (at <b1b6e137fed94ac1a54aeeb4e5f26168>:0)
 UnityEngine.Bindings.ThrowHelper.ThrowNullReferenceException (System.Object obj) (at <b1b6e137fed94ac1a54aeeb4e5f26168>:0)
@@ -16,7 +48,7 @@ UnityEngine.Transform.get_position () (at <b1b6e137fed94ac1a54aeeb4e5f26168>:0)
 UnityEngine.XR.Interaction.Toolkit.UI.LazyFollow.TryGetThresholdTargetRotation (UnityEngine.Quaternion& newTarget) (at ./Library/PackageCache/com.unity.xr.interaction.toolkit@76258c00be3e/Runtime/UI/LazyFollow.cs:510)
 UnityEngine.XR.Interaction.Toolkit.UI.LazyFollow.OnEnable () (at ./Library/PackageCache/com.unity.xr.interaction.toolkit@76258c00be3e/Runtime/UI/LazyFollow.cs:384)
 
-[5/27/2026 2:20:23 PM] Exception: UnassignedReferenceException: The variable m_Target of LazyFollow has not been assigned.
+[5/29/2026 10:48:19 AM] Exception: UnassignedReferenceException: The variable m_Target of LazyFollow has not been assigned.
 You probably need to assign the m_Target variable of the LazyFollow script in the inspector.
 UnityEngine.Object+MarshalledUnityObject.TryThrowEditorNullExceptionObject (UnityEngine.Object unityObj, System.String parameterName) (at <b1b6e137fed94ac1a54aeeb4e5f26168>:0)
 UnityEngine.Bindings.ThrowHelper.ThrowNullReferenceException (System.Object obj) (at <b1b6e137fed94ac1a54aeeb4e5f26168>:0)
@@ -24,15 +56,7 @@ UnityEngine.Transform.get_position () (at <b1b6e137fed94ac1a54aeeb4e5f26168>:0)
 UnityEngine.XR.Interaction.Toolkit.UI.LazyFollow.TryGetThresholdTargetRotation (UnityEngine.Quaternion& newTarget) (at ./Library/PackageCache/com.unity.xr.interaction.toolkit@76258c00be3e/Runtime/UI/LazyFollow.cs:510)
 UnityEngine.XR.Interaction.Toolkit.UI.LazyFollow.OnEnable () (at ./Library/PackageCache/com.unity.xr.interaction.toolkit@76258c00be3e/Runtime/UI/LazyFollow.cs:384)
 
-[5/27/2026 2:20:23 PM] Exception: UnassignedReferenceException: The variable m_Target of LazyFollow has not been assigned.
-You probably need to assign the m_Target variable of the LazyFollow script in the inspector.
-UnityEngine.Object+MarshalledUnityObject.TryThrowEditorNullExceptionObject (UnityEngine.Object unityObj, System.String parameterName) (at <b1b6e137fed94ac1a54aeeb4e5f26168>:0)
-UnityEngine.Bindings.ThrowHelper.ThrowNullReferenceException (System.Object obj) (at <b1b6e137fed94ac1a54aeeb4e5f26168>:0)
-UnityEngine.Transform.get_position () (at <b1b6e137fed94ac1a54aeeb4e5f26168>:0)
-UnityEngine.XR.Interaction.Toolkit.UI.LazyFollow.TryGetThresholdTargetRotation (UnityEngine.Quaternion& newTarget) (at ./Library/PackageCache/com.unity.xr.interaction.toolkit@76258c00be3e/Runtime/UI/LazyFollow.cs:510)
-UnityEngine.XR.Interaction.Toolkit.UI.LazyFollow.OnEnable () (at ./Library/PackageCache/com.unity.xr.interaction.toolkit@76258c00be3e/Runtime/UI/LazyFollow.cs:384)
-
-[5/27/2026 2:20:23 PM] Log: Scenario files used in the scene SampleScene and added to the build: 
+[5/29/2026 10:48:20 AM] Log: Scenario files used in the scene SampleScene and added to the build: 
 Assets/Oracle_InObjectScene.xml
 Assets/Oracle_Colission.xml
 Assets/Oracle_MoveObjectToOrigin.xml
@@ -40,21 +64,69 @@ Assets/MyScenario.xml
 Assets/Oracle_Teleportation.xml
 Assets/Oracle_OutSceneTeleportation.xml
 Assets/Oracle_Selection.xml
-[5/27/2026 2:20:24 PM] Warning: Mesh 'Plane' has more materials (2) than submeshes (1)
-[5/27/2026 2:20:24 PM] Log: [UnitySingleton] An instance of InriaTools.UnityThreadExecute is needed in the scene, so '(singleton) InriaTools.UnityThreadExecute (UnityEngine.GameObject)' was created with DontDestroyOnLoad.
-[5/27/2026 2:20:24 PM] Log: No Meta XR Audio Room found, setting default room
-[5/27/2026 2:20:24 PM] Log: Meta XR Audio Native Interface initialized with Unity plugin
-[5/27/2026 2:20:24 PM] Log: UFSevenNetworkManager will parse the command line connect to the specified remote server
+[5/29/2026 10:48:20 AM] Warning: Mesh 'Plane' has more materials (2) than submeshes (1)
+[5/29/2026 10:48:21 AM] Log: [UnitySingleton] An instance of InriaTools.UnityThreadExecute is needed in the scene, so '(singleton) InriaTools.UnityThreadExecute (UnityEngine.GameObject)' was created with DontDestroyOnLoad.
+[5/29/2026 10:48:21 AM] Log: No Meta XR Audio Room found, setting default room
+[5/29/2026 10:48:21 AM] Log: Meta XR Audio Native Interface initialized with Unity plugin
+[5/29/2026 10:48:21 AM] Log: UFSevenNetworkManager will parse the command line connect to the specified remote server
 	 Use --sevenserverremoteadress (or -ssra) "address[:remoteport]" to connect to the given remote server (default remoteport : 7777)
-[5/27/2026 2:20:25 PM] Log: 🚀 Initialisation of the test suite
-[5/27/2026 2:20:25 PM] Log: 📢 StartNextChild() called - Actual Index : 0
-[5/27/2026 2:20:25 PM] Log: ▶ Activation of Right Controller (1)
-[5/27/2026 2:20:25 PM] Log: Total Interactable objects in scene: 16
-[5/27/2026 2:20:25 PM] Warning: Event Camera must be set on World Space Canvas to perform ray casts with tracked device. UI events will not function correctly until it is set.
-[5/27/2026 2:20:25 PM] Warning: Event Camera must be set on World Space Canvas to perform ray casts with tracked device. UI events will not function correctly until it is set.
-[5/27/2026 2:20:25 PM] Warning: Event Camera must be set on World Space Canvas to perform ray casts with tracked device. UI events will not function correctly until it is set.
-[5/27/2026 2:20:25 PM] Warning: Event Camera must be set on World Space Canvas to perform ray casts with tracked device. UI events will not function correctly until it is set.
-[5/27/2026 2:20:29 PM] Exception: UnassignedReferenceException: The variable m_Target of LazyFollow has not been assigned.
+[5/29/2026 10:48:21 AM] Exception: NullReferenceException: Object reference not set to an instance of an object
+ScenarioLoader.LogAllFields () (at Assets/Scripts/CaraXRState/utils/ScenarioLoader.cs:70)
+ScenarioLoader.Start () (at Assets/Scripts/CaraXRState/utils/ScenarioLoader.cs:12)
+
+[5/29/2026 10:48:21 AM] Log: 🚀 Initialisation of the test suite
+[5/29/2026 10:48:21 AM] Log: 📢 StartNextChild() called - Actual Index : 0
+[5/29/2026 10:48:21 AM] Exception: UnassignedReferenceException: The variable m_Target of LazyFollow has not been assigned.
+You probably need to assign the m_Target variable of the LazyFollow script in the inspector.
+UnityEngine.Object+MarshalledUnityObject.TryThrowEditorNullExceptionObject (UnityEngine.Object unityObj, System.String parameterName) (at <b1b6e137fed94ac1a54aeeb4e5f26168>:0)
+UnityEngine.Bindings.ThrowHelper.ThrowNullReferenceException (System.Object obj) (at <b1b6e137fed94ac1a54aeeb4e5f26168>:0)
+UnityEngine.Transform.get_rotation () (at <b1b6e137fed94ac1a54aeeb4e5f26168>:0)
+UnityEngine.XR.Interaction.Toolkit.UI.LazyFollow.TryGetThresholdTargetRotation (UnityEngine.Quaternion& newTarget) (at ./Library/PackageCache/com.unity.xr.interaction.toolkit@76258c00be3e/Runtime/UI/LazyFollow.cs:516)
+UnityEngine.XR.Interaction.Toolkit.UI.LazyFollow.OnEnable () (at ./Library/PackageCache/com.unity.xr.interaction.toolkit@76258c00be3e/Runtime/UI/LazyFollow.cs:384)
+UnityEngine.GameObject:SetActive(Boolean)
+ParentController:StartNextChild() (at Assets/Scripts/Utils/ParentController.cs:49)
+ParentController:Start() (at Assets/Scripts/Utils/ParentController.cs:31)
+
+[5/29/2026 10:48:21 AM] Exception: UnassignedReferenceException: The variable m_Target of LazyFollow has not been assigned.
+You probably need to assign the m_Target variable of the LazyFollow script in the inspector.
+UnityEngine.Object+MarshalledUnityObject.TryThrowEditorNullExceptionObject (UnityEngine.Object unityObj, System.String parameterName) (at <b1b6e137fed94ac1a54aeeb4e5f26168>:0)
+UnityEngine.Bindings.ThrowHelper.ThrowNullReferenceException (System.Object obj) (at <b1b6e137fed94ac1a54aeeb4e5f26168>:0)
+UnityEngine.Transform.get_rotation () (at <b1b6e137fed94ac1a54aeeb4e5f26168>:0)
+UnityEngine.XR.Interaction.Toolkit.UI.LazyFollow.TryGetThresholdTargetRotation (UnityEngine.Quaternion& newTarget) (at ./Library/PackageCache/com.unity.xr.interaction.toolkit@76258c00be3e/Runtime/UI/LazyFollow.cs:516)
+UnityEngine.XR.Interaction.Toolkit.UI.LazyFollow.OnEnable () (at ./Library/PackageCache/com.unity.xr.interaction.toolkit@76258c00be3e/Runtime/UI/LazyFollow.cs:384)
+UnityEngine.GameObject:SetActive(Boolean)
+ParentController:StartNextChild() (at Assets/Scripts/Utils/ParentController.cs:49)
+ParentController:Start() (at Assets/Scripts/Utils/ParentController.cs:31)
+
+[5/29/2026 10:48:21 AM] Exception: UnassignedReferenceException: The variable m_Target of LazyFollow has not been assigned.
+You probably need to assign the m_Target variable of the LazyFollow script in the inspector.
+UnityEngine.Object+MarshalledUnityObject.TryThrowEditorNullExceptionObject (UnityEngine.Object unityObj, System.String parameterName) (at <b1b6e137fed94ac1a54aeeb4e5f26168>:0)
+UnityEngine.Bindings.ThrowHelper.ThrowNullReferenceException (System.Object obj) (at <b1b6e137fed94ac1a54aeeb4e5f26168>:0)
+UnityEngine.Transform.get_rotation () (at <b1b6e137fed94ac1a54aeeb4e5f26168>:0)
+UnityEngine.XR.Interaction.Toolkit.UI.LazyFollow.TryGetThresholdTargetRotation (UnityEngine.Quaternion& newTarget) (at ./Library/PackageCache/com.unity.xr.interaction.toolkit@76258c00be3e/Runtime/UI/LazyFollow.cs:516)
+UnityEngine.XR.Interaction.Toolkit.UI.LazyFollow.OnEnable () (at ./Library/PackageCache/com.unity.xr.interaction.toolkit@76258c00be3e/Runtime/UI/LazyFollow.cs:384)
+UnityEngine.GameObject:SetActive(Boolean)
+ParentController:StartNextChild() (at Assets/Scripts/Utils/ParentController.cs:49)
+ParentController:Start() (at Assets/Scripts/Utils/ParentController.cs:31)
+
+[5/29/2026 10:48:21 AM] Exception: UnassignedReferenceException: The variable m_Target of LazyFollow has not been assigned.
+You probably need to assign the m_Target variable of the LazyFollow script in the inspector.
+UnityEngine.Object+MarshalledUnityObject.TryThrowEditorNullExceptionObject (UnityEngine.Object unityObj, System.String parameterName) (at <b1b6e137fed94ac1a54aeeb4e5f26168>:0)
+UnityEngine.Bindings.ThrowHelper.ThrowNullReferenceException (System.Object obj) (at <b1b6e137fed94ac1a54aeeb4e5f26168>:0)
+UnityEngine.Transform.get_rotation () (at <b1b6e137fed94ac1a54aeeb4e5f26168>:0)
+UnityEngine.XR.Interaction.Toolkit.UI.LazyFollow.TryGetThresholdTargetRotation (UnityEngine.Quaternion& newTarget) (at ./Library/PackageCache/com.unity.xr.interaction.toolkit@76258c00be3e/Runtime/UI/LazyFollow.cs:516)
+UnityEngine.XR.Interaction.Toolkit.UI.LazyFollow.OnEnable () (at ./Library/PackageCache/com.unity.xr.interaction.toolkit@76258c00be3e/Runtime/UI/LazyFollow.cs:384)
+UnityEngine.GameObject:SetActive(Boolean)
+ParentController:StartNextChild() (at Assets/Scripts/Utils/ParentController.cs:49)
+ParentController:Start() (at Assets/Scripts/Utils/ParentController.cs:31)
+
+[5/29/2026 10:48:21 AM] Log: ▶ Activation of RightControllerTest
+[5/29/2026 10:48:21 AM] Log: Total Interactable objects in scene: 16
+[5/29/2026 10:48:21 AM] Warning: Event Camera must be set on World Space Canvas to perform ray casts with tracked device. UI events will not function correctly until it is set.
+[5/29/2026 10:48:21 AM] Warning: Event Camera must be set on World Space Canvas to perform ray casts with tracked device. UI events will not function correctly until it is set.
+[5/29/2026 10:48:21 AM] Warning: Event Camera must be set on World Space Canvas to perform ray casts with tracked device. UI events will not function correctly until it is set.
+[5/29/2026 10:48:21 AM] Warning: Event Camera must be set on World Space Canvas to perform ray casts with tracked device. UI events will not function correctly until it is set.
+[5/29/2026 10:48:24 AM] Exception: UnassignedReferenceException: The variable m_Target of LazyFollow has not been assigned.
 You probably need to assign the m_Target variable of the LazyFollow script in the inspector.
 UnityEngine.Object+MarshalledUnityObject.TryThrowEditorNullExceptionObject (UnityEngine.Object unityObj, System.String parameterName) (at <b1b6e137fed94ac1a54aeeb4e5f26168>:0)
 UnityEngine.Bindings.ThrowHelper.ThrowNullReferenceException (System.Object obj) (at <b1b6e137fed94ac1a54aeeb4e5f26168>:0)
@@ -66,7 +138,7 @@ Unity.VRTemplate.Callout:TurnOnStuff() (at Assets/VRTemplateAssets/Scripts/Callo
 Unity.VRTemplate.<StartDelay>d__11:MoveNext() (at Assets/VRTemplateAssets/Scripts/Callout.cs:73)
 UnityEngine.SetupCoroutine:InvokeMoveNext(IEnumerator, IntPtr)
 
-[5/27/2026 2:20:29 PM] Exception: UnassignedReferenceException: The variable m_Target of LazyFollow has not been assigned.
+[5/29/2026 10:48:24 AM] Exception: UnassignedReferenceException: The variable m_Target of LazyFollow has not been assigned.
 You probably need to assign the m_Target variable of the LazyFollow script in the inspector.
 UnityEngine.Object+MarshalledUnityObject.TryThrowEditorNullExceptionObject (UnityEngine.Object unityObj, System.String parameterName) (at <b1b6e137fed94ac1a54aeeb4e5f26168>:0)
 UnityEngine.Bindings.ThrowHelper.ThrowNullReferenceException (System.Object obj) (at <b1b6e137fed94ac1a54aeeb4e5f26168>:0)
@@ -78,7 +150,7 @@ Unity.VRTemplate.Callout:TurnOnStuff() (at Assets/VRTemplateAssets/Scripts/Callo
 Unity.VRTemplate.<StartDelay>d__11:MoveNext() (at Assets/VRTemplateAssets/Scripts/Callout.cs:73)
 UnityEngine.SetupCoroutine:InvokeMoveNext(IEnumerator, IntPtr)
 
-[5/27/2026 2:20:29 PM] Exception: UnassignedReferenceException: The variable m_Target of LazyFollow has not been assigned.
+[5/29/2026 10:48:24 AM] Exception: UnassignedReferenceException: The variable m_Target of LazyFollow has not been assigned.
 You probably need to assign the m_Target variable of the LazyFollow script in the inspector.
 UnityEngine.Object+MarshalledUnityObject.TryThrowEditorNullExceptionObject (UnityEngine.Object unityObj, System.String parameterName) (at <b1b6e137fed94ac1a54aeeb4e5f26168>:0)
 UnityEngine.Bindings.ThrowHelper.ThrowNullReferenceException (System.Object obj) (at <b1b6e137fed94ac1a54aeeb4e5f26168>:0)
@@ -90,7 +162,7 @@ Unity.VRTemplate.Callout:TurnOnStuff() (at Assets/VRTemplateAssets/Scripts/Callo
 Unity.VRTemplate.<StartDelay>d__11:MoveNext() (at Assets/VRTemplateAssets/Scripts/Callout.cs:73)
 UnityEngine.SetupCoroutine:InvokeMoveNext(IEnumerator, IntPtr)
 
-[5/27/2026 2:20:29 PM] Exception: UnassignedReferenceException: The variable m_Target of LazyFollow has not been assigned.
+[5/29/2026 10:48:24 AM] Exception: UnassignedReferenceException: The variable m_Target of LazyFollow has not been assigned.
 You probably need to assign the m_Target variable of the LazyFollow script in the inspector.
 UnityEngine.Object+MarshalledUnityObject.TryThrowEditorNullExceptionObject (UnityEngine.Object unityObj, System.String parameterName) (at <b1b6e137fed94ac1a54aeeb4e5f26168>:0)
 UnityEngine.Bindings.ThrowHelper.ThrowNullReferenceException (System.Object obj) (at <b1b6e137fed94ac1a54aeeb4e5f26168>:0)
@@ -102,3 +174,4 @@ Unity.VRTemplate.Callout:TurnOnStuff() (at Assets/VRTemplateAssets/Scripts/Callo
 Unity.VRTemplate.<StartDelay>d__11:MoveNext() (at Assets/VRTemplateAssets/Scripts/Callout.cs:73)
 UnityEngine.SetupCoroutine:InvokeMoveNext(IEnumerator, IntPtr)
 
+[5/29/2026 10:48:25 AM] Log: [UnitySingleton] An instance of InriaTools.SeparateThread is needed in the scene, so '(singleton) InriaTools.SeparateThread (UnityEngine.GameObject)' was created with DontDestroyOnLoad.

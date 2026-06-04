@@ -1,16 +1,27 @@
 using UnityEngine;
 
 [TestInteractionClass]
-public class TestMoveController
+public class TestMoveController : MonoBehaviour
 {
-    [InitialState]
-    private GameObject controller;
+    [InitialState][SerializeField][Place(0)]
+    protected GameObject controller;
 
     // Threshold to consider the controller has moved
     private const float MOVE_THRESHOLD = 0.1f;
 
     // Last known position of the controller
     private Vector3 lastPosition;
+
+
+
+    private void Awake()
+    {
+        // Auto-assign if not set in Inspector
+        if (controller == null)
+            controller = GameObject.Find("RightControllerTest");
+    }
+
+
 
     // -------------------------------------------------------
     // Transition 1 — Controller starts moving
