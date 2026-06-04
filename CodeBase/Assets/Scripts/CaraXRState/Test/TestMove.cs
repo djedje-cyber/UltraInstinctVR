@@ -1,4 +1,6 @@
 using UnityEngine;
+using Xareus.Relations.Unity;
+using FIVE.Unity;
 
 [TestInteractionClass]
 public class TestMoveController : MonoBehaviour
@@ -16,11 +18,23 @@ public class TestMoveController : MonoBehaviour
 
     private void Awake()
     {
-        // Auto-assign if not set in Inspector
-        if (controller == null)
-            controller = GameObject.Find("RightControllerTest");
+        controller = GameObject.Find("RightControllerTest");
+
+        // Ensure Xareus can find the GameObject by UFID
+        EnsureIdentifiable(controller);
     }
 
+    private void EnsureIdentifiable(GameObject go)
+    {
+        if (go == null) return;
+
+        IdentifiableBehaviour ib = go.GetComponent<IdentifiableBehaviour>();
+        if (ib == null)
+            ib = go.AddComponent<IdentifiableBehaviour>();
+
+        // Use Id instead of UFID
+        Debug.Log($"[TestMoveController] {go.name} Id: {ib.Id}");
+    }
 
 
     // -------------------------------------------------------
