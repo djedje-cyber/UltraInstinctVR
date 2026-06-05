@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<scenario xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          id="TestMoveController"
+          label="TestMoveController"
+          version="5.12.0.0"
+          xmlns="http://www.insa-rennes.fr/Xareus.Scenarios">
+  <sequence xsi:type="SafePetriNet" id="Root" label="Root">
+    <sequence xsi:type="Place" id="Place_1" label="Place_1">
+      <extendedInfo><unityEditor xmlns=""><position x="342" y="78" /></unityEditor></extendedInfo>
+    </sequence>
+    <sequence xsi:type="Place" id="Place_0" label="Place_0">
+      <extendedInfo><unityEditor xmlns=""><position x="342" y="178" /></unityEditor></extendedInfo>
+    </sequence>
+    <transition id="Transition_1" label="MoveController">
+      <extendedInfo><unityEditor xmlns=""><position x="520" y="200" /></unityEditor></extendedInfo>
+      <event id="Transition_1" label="MoveController">
+      </event>
+      <upstreamSequence idref="Place_0" />
+      <downstreamSequence idref="Place_1" />
+    </transition>
+    <transition id="Transition_2" label="ControllerMovedAgain">
+      <extendedInfo><unityEditor xmlns=""><position x="520" y="300" /></unityEditor></extendedInfo>
+      <event id="Transition_2" label="ControllerMovedAgain">
+      </event>
+      <upstreamSequence idref="Place_1" />
+      <downstreamSequence idref="Place_0" />
+    </transition>
+    <initialSequence idref="Place_0">
+      <tokenInit classname="Xareus.Scenarios.TokenInit.EmptyTokenInit,Xareus.Scenarios" />
+    </initialSequence>
+    <finalSequence idref="Place_0" />
+  </sequence>
+</scenario>

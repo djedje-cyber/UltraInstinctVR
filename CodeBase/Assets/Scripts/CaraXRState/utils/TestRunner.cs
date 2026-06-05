@@ -11,7 +11,7 @@ public class TestSuiteRunner : MonoBehaviour
     [SerializeField] protected ExecutionMode executionMode = ExecutionMode.Sequential;
     [SerializeField] protected float pollInterval = 0.1f;
     [SerializeField] protected float delayBetween = 0.5f;
-    [SerializeField] protected bool autoDiscover = true;
+    [SerializeField] protected bool autoDiscover = false;
     [SerializeField] protected bool runOnStart = true;
 
     [Header("Manual Test List (if autoDiscover = false)")]

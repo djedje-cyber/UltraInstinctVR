@@ -5,7 +5,7 @@ using Xareus.Scenarios.Unity;
 
 public class ScenarioLoader : MonoBehaviour
 {
-    [SerializeField] private ScenarioEngineKernel scenarioEngineKernel;
+    [SerializeField] public ScenarioEngineKernel scenarioEngineKernel;
 
     private void Start()
     {
