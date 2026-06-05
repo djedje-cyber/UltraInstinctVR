@@ -1,9 +1,10 @@
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Reflection;
 using System.Text;
-using System.IO;
 using UnityEngine;
+using Xareus.Relations.Unity;
 
 /// <summary>
 /// Generates a Xareus-compatible scenario XML from a [TestInteractionClass] annotated class.
@@ -16,21 +17,19 @@ public class PetriNetXmlGenerator
     // -------------------------------------------------------
     // Entry point
     // -------------------------------------------------------
-
     public static string Generate<T>(string scenarioId = null, string scenarioLabel = null) where T : class
     {
         Type type = typeof(T);
         scenarioId = scenarioId ?? type.Name;
         scenarioLabel = scenarioLabel ?? type.Name;
 
-        // Collect all methods with [Transition] and [Place]
         MethodInfo[] methods = type.GetMethods(BindingFlags.Public | BindingFlags.Instance);
 
         List<TransitionData> transitions = new List<TransitionData>();
         HashSet<int> placeIds = new HashSet<int>();
 
-        int? initialPlaceId = null;
-        int? finalPlaceId = null;
+        // Get [InitialState] GameObjects from existing scene instance
+        List<ParamData> gameObjectParams = GetGameObjectParams(type);
 
         foreach (MethodInfo method in methods)
         {
@@ -49,8 +48,8 @@ public class PetriNetXmlGenerator
                 DownstreamPlaces = new List<int>(),
                 SensorClass = sensorAttr?.ClassName,
                 EffectorClass = effectorAttr?.ClassName,
-                SensorParams = sensorAttr?.Params ?? new List<ParamData>(),
-                EffectorParams = effectorAttr?.Params ?? new List<ParamData>()
+                SensorParams = new List<ParamData>(gameObjectParams), // ← inject GameObjects
+                EffectorParams = new List<ParamData>(gameObjectParams)  // ← inject GameObjects
             };
 
             foreach (PlaceAttribute p in placeAttrs)
@@ -63,11 +62,46 @@ public class PetriNetXmlGenerator
             transitions.Add(td);
         }
 
-        // First upstream place = initial, last downstream place = final
-        initialPlaceId = transitions.Count > 0 ? transitions[0].UpstreamPlace : 0;
-        finalPlaceId = transitions.Count > 0 ? transitions[transitions.Count - 1].DownstreamPlaces[0] : 1;
+        int initialPlaceId = transitions.Count > 0 ? transitions[0].UpstreamPlace : 0;
+        int finalPlaceId = transitions.Count > 0 ? transitions[transitions.Count - 1].DownstreamPlaces[0] : 1;
 
-        return BuildXml(scenarioId, scenarioLabel, placeIds, transitions, initialPlaceId.Value, finalPlaceId.Value);
+        return BuildXml(scenarioId, scenarioLabel, placeIds, transitions, initialPlaceId, finalPlaceId);
+    }
+
+    // -------------------------------------------------------
+    // Read [InitialState] GameObjects from the scene instance
+    // -------------------------------------------------------
+    private static List<ParamData> GetGameObjectParams(Type type)
+    {
+        List<ParamData> result = new List<ParamData>();
+
+        // Find existing instance in scene
+        MonoBehaviour instance = UnityEngine.Object.FindFirstObjectByType(type) as MonoBehaviour;
+        if (instance == null) return result;
+
+        foreach (FieldInfo field in type.GetFields(BindingFlags.NonPublic | BindingFlags.Public | BindingFlags.Instance))
+        {
+            if (field.GetCustomAttribute<InitialStateAttribute>() == null) continue;
+            if (field.FieldType != typeof(GameObject)) continue;
+
+            GameObject go = field.GetValue(instance) as GameObject;
+            if (go == null) continue;
+
+            // Ensure IdentifiableBehaviour
+            if (go.GetComponent<IdentifiableBehaviour>() == null)
+                go.AddComponent<IdentifiableBehaviour>();
+
+            result.Add(new ParamData
+            {
+                Name = field.Name,
+                Type = "UnityEngine.GameObject,UnityEngine.CoreModule",
+                GameObject = go
+            });
+
+            Debug.Log($"[PetriNetXmlGenerator] Found GameObject: {field.Name} → {go.name}");
+        }
+
+        return result;
     }
 
     // -------------------------------------------------------
@@ -120,7 +154,12 @@ public class PetriNetXmlGenerator
             {
                 sb.AppendLine($"        <sensorCheck classname=\"{td.SensorClass}\">");
                 foreach (ParamData p in td.SensorParams)
-                    sb.AppendLine(BuildParam(p));
+                {
+                    if (p.Type.Contains("GameObject"))
+                        sb.AppendLine(BuildGameObjectParam(p.Name, p.GameObject)); // ← GameObject
+                    else
+                        sb.AppendLine(BuildParam(p));                              // ← primitive
+                }
                 sb.AppendLine($"        </sensorCheck>");
             }
 
@@ -129,10 +168,14 @@ public class PetriNetXmlGenerator
             {
                 sb.AppendLine($"        <effectorUpdate classname=\"{td.EffectorClass}\">");
                 foreach (ParamData p in td.EffectorParams)
-                    sb.AppendLine(BuildParam(p));
+                {
+                    if (p.Type.Contains("GameObject"))
+                        sb.AppendLine(BuildGameObjectParam(p.Name, p.GameObject)); // ← GameObject
+                    else
+                        sb.AppendLine(BuildParam(p));                              // ← primitive
+                }
                 sb.AppendLine($"        </effectorUpdate>");
             }
-
             sb.AppendLine($"      </event>");
 
             // Upstream
@@ -184,4 +227,18 @@ public class PetriNetXmlGenerator
 
         Debug.Log($"PetriNetXmlGenerator: Scenario saved to {file}");
     }
+
+
+    private static string BuildGameObjectParam(string paramName, GameObject go)
+    {
+        IdentifiableBehaviour ib = go?.GetComponent<IdentifiableBehaviour>();
+        string id = ib != null ? ib.Id.ToString() : Guid.NewGuid().ToString();
+
+        return $@"          <param type=""UnityEngine.GameObject,UnityEngine.CoreModule"" name=""{paramName}"">
+              <param value=""{id}"" type=""System.Guid,mscorlib"" name=""UFID"" />
+          </param>";
+    }
+
+
+
 }

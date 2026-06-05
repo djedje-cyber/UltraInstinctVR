@@ -1,4 +1,7 @@
 using System.Collections.Generic;
+using UnityEngine;
+
+
 
 public class TransitionData
 {
@@ -10,12 +13,13 @@ public class TransitionData
     public string EffectorClass;
     public List<ParamData> SensorParams;
     public List<ParamData> EffectorParams;
+    public List<GameObject> GameObjects; 
 }
-
 public class ParamData
 {
     public string Name;
     public string Value;
     public string Type;
     public bool IsGuid;
+    public GameObject GameObject; 
 }
