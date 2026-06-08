@@ -1,6 +1,7 @@
 using System.IO;
 using System.Reflection;
 using UnityEngine;
+using Xareus.Relations.Unity;
 using Xareus.Scenarios.Unity;
 
 public class ScenarioLoader : MonoBehaviour
@@ -36,6 +37,13 @@ public class ScenarioLoader : MonoBehaviour
 
         Directory.CreateDirectory(Path.GetDirectoryName(path));
         File.WriteAllText(path, xml);
+
+        // Print XML
+        Debug.Log($"[ScenarioLoader] XML:\n{xml}");
+
+        // Verify all IdentifiableBehaviours in scene
+        foreach (IdentifiableBehaviour ib in FindObjectsByType<IdentifiableBehaviour>(FindObjectsSortMode.None))
+            Debug.Log($"[ScenarioLoader] Scene UFID: {ib.Id} → {ib.gameObject.name}");
 
         LoadFromPath(path);
     }
