@@ -4,6 +4,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Reflection;
 using UnityEngine;
+using Xareus.Scenarios.Unity;
 
 public class TestSuiteRunner : MonoBehaviour
 {
@@ -334,7 +335,33 @@ public class TestSuiteRunner : MonoBehaviour
         Debug.Log($"[TestSuite] ══════════════════════════════════");
         Debug.Log($"[TestSuite] Results: {passed}/{totalTests} passed, {failed} failed.");
         Debug.Log($"[TestSuite] ══════════════════════════════════");
+
+        StopXareus();
+
+
     }
+
+
+
+
+    private void StopXareus()
+    {
+        ScenarioEngineKernel kernel = FindFirstObjectByType<ScenarioEngineKernel>();
+
+        if (kernel != null)
+        {
+            kernel.enabled = false;
+            Debug.Log("[TestSuite] Xareus engine stopped.");
+        }
+        else
+        {
+            Debug.LogWarning("[TestSuite] ScenarioEngineKernel not found in scene.");
+        }
+    }
+
+
+
+
 }
 
 public class TestResult
