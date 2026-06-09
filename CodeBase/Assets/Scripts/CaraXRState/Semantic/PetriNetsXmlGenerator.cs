@@ -14,6 +14,29 @@ public class PetriNetXmlGenerator
     private const string XMLNS = "http://www.insa-rennes.fr/Xareus.Scenarios";
     private const string VERSION = "5.12.0.0";
 
+
+
+
+
+    // In PetriNetXmlGenerator — always add a default sensor
+    private static string BuildDefaultSensor()
+    {
+        return $@"        <sensorCheck classname=""LambdaSensor,Assembly-CSharp"">
+        </sensorCheck>";
+    }
+
+    private static string BuildDefaultEffector()
+    {
+        return $@"        <effectorUpdate classname=""LambdaEffector,Assembly-CSharp"">
+        </effectorUpdate>";
+    }
+
+
+
+
+
+
+
     // -------------------------------------------------------
     // Entry point
     // -------------------------------------------------------
@@ -141,8 +164,8 @@ public class PetriNetXmlGenerator
         // Transitions
         int posX = 520;
         int tPosY = 200;
-        foreach (TransitionData td in transitions)
-        {
+        foreach(TransitionData td in transitions)
+{
             string tId = $"Transition_{td.TransitionId}";
 
             sb.AppendLine($"    <transition id=\"{tId}\" label=\"{td.Label}\">");
@@ -156,10 +179,16 @@ public class PetriNetXmlGenerator
                 foreach (ParamData p in td.SensorParams)
                 {
                     if (p.Type.Contains("GameObject"))
-                        sb.AppendLine(BuildGameObjectParam(p.Name, p.GameObject)); // ← GameObject
+                        sb.AppendLine(BuildGameObjectParam(p.Name, p.GameObject));
                     else
-                        sb.AppendLine(BuildParam(p));                              // ← primitive
+                        sb.AppendLine(BuildParam(p));
                 }
+                sb.AppendLine($"        </sensorCheck>");
+            }
+            else
+            {
+                // ← No [Sensor] attribute — add default sensor
+                sb.AppendLine($"        <sensorCheck classname=\"LambdaSensor,Assembly-CSharp\">");
                 sb.AppendLine($"        </sensorCheck>");
             }
 
@@ -170,12 +199,19 @@ public class PetriNetXmlGenerator
                 foreach (ParamData p in td.EffectorParams)
                 {
                     if (p.Type.Contains("GameObject"))
-                        sb.AppendLine(BuildGameObjectParam(p.Name, p.GameObject)); // ← GameObject
+                        sb.AppendLine(BuildGameObjectParam(p.Name, p.GameObject));
                     else
-                        sb.AppendLine(BuildParam(p));                              // ← primitive
+                        sb.AppendLine(BuildParam(p));
                 }
                 sb.AppendLine($"        </effectorUpdate>");
             }
+            else
+            {
+                // ← No [Effector] attribute — add default effector
+                sb.AppendLine($"        <effectorUpdate classname=\"LambdaEffector,Assembly-CSharp\">");
+                sb.AppendLine($"        </effectorUpdate>");
+            }
+
             sb.AppendLine($"      </event>");
 
             // Upstream

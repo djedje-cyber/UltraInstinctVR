@@ -131,9 +131,7 @@ public class TestSuiteRunner : MonoBehaviour
 
     private IEnumerator RunTest(Type testType, TestResult result)
     {
-        // Get or create instance — Awake() handles field assignment
         object instance = GetOrCreateInstance(testType);
-
         int currentPlace = 0;
 
         result.StartTime = Time.time;
@@ -149,6 +147,9 @@ public class TestSuiteRunner : MonoBehaviour
                 break;
             }
 
+            // -------------------------------------------------------
+            // Poll sensor only — Expect is ignored
+            // -------------------------------------------------------
             bool detected = false;
             float timeout = 10f;
             float elapsed = 0f;
@@ -167,9 +168,21 @@ public class TestSuiteRunner : MonoBehaviour
                 break;
             }
 
+            // -------------------------------------------------------
+            // Fire transition — now Expect runs for real
+            // -------------------------------------------------------
             try
             {
-                transition.Invoke(instance, null);
+                ExpectInterceptor.Reset();              // ← enable Expect
+                DetectInteractionInterceptor.Reset();
+                transition.Invoke(instance, null);      // ← Expect fires here
+
+                if (!ExpectInterceptor.LastResult)
+                {
+                    result.Success = false;
+                    result.Message = $"Expect failed on: {transition.Name}";
+                    break;
+                }
             }
             catch (Exception e)
             {
@@ -212,54 +225,28 @@ public class TestSuiteRunner : MonoBehaviour
     {
         SensorAttribute sensorAttr = transition.GetCustomAttribute<SensorAttribute>();
 
-        // No [Sensor] — use DetectInteraction lambda
         if (sensorAttr == null)
         {
             try
             {
+                // Only capture DetectInteraction — ignore Expect
                 DetectInteractionInterceptor.Reset();
+                ExpectInterceptor.SetIgnore(true); // ← ignore Expect during polling
                 transition.Invoke(instance, null);
+                ExpectInterceptor.SetIgnore(false);
                 return DetectInteractionInterceptor.LastResult;
             }
             catch (Exception e)
             {
+                ExpectInterceptor.SetIgnore(false);
                 Debug.LogError($"[TestSuite] DetectInteraction error: {e.Message}");
                 return false;
             }
         }
 
-        // [Sensor] attribute approach
-        try
-        {
-            foreach (FieldInfo field in GetInitialStateFields(instance.GetType()))
-            {
-                GameObject go = field.GetValue(instance) as GameObject;
-                if (go == null) continue;
-
-                Component sensor = go.GetComponent(sensorAttr.ClassName.Split(',')[0]);
-                if (sensor == null) continue;
-
-                MethodInfo runCheck = sensor.GetType().GetMethod(
-                    "RunCheck",
-                    BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Instance
-                );
-
-                if (runCheck != null)
-                {
-                    object result = runCheck.Invoke(sensor, null);
-                    PropertyInfo successProp = result?.GetType().GetProperty("Success");
-                    if (successProp != null)
-                        return (bool)successProp.GetValue(result);
-                }
-            }
-        }
-        catch (Exception e)
-        {
-            Debug.LogError($"[TestSuite] Sensor error: {e.Message}");
-        }
-
         return false;
     }
+
 
     private List<Type> DiscoverAllTestClasses()
     {
@@ -384,17 +371,27 @@ public static class DetectInteractionInterceptor
     }
 }
 
+
 public static class ExpectInterceptor
 {
     public static bool LastResult { get; private set; }
+    private static bool _ignore = false;
+    public static bool IsIgnored => _ignore;
 
     public static void Reset()
     {
-        LastResult = true; // Default true — pass unless explicitly failed
+        LastResult = true;
+        _ignore = false;
+    }
+
+    public static void SetIgnore(bool ignore)
+    {
+        _ignore = ignore;
     }
 
     public static void Record(bool result)
     {
+        if (_ignore) return; // ← skip during sensor polling
         LastResult = result;
     }
 }

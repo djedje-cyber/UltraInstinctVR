@@ -16,7 +16,8 @@ public class MoveControllerAndSelect
     }
 
 
-    [Transition(2)] [Place(2)]
+    [Transition(2)]
+    [Place(2)]
     public void select() {
 
     }

@@ -68,7 +68,7 @@ public class TestMoveController : MonoBehaviour
     }
 
     [Transition(2, upstreamPlace: 1)]
-    [Place(0)]
+    [FinalState]
     public void ControllerMovedAgain()
     {
         controller.DetectInteraction(go =>

@@ -83,6 +83,7 @@
     <Compile Include="Assets\Scripts\CaraXRState\launchBert.cs" />
     <Compile Include="Assets\Scripts\Interaction\VRTest\MouseOperation.cs" />
     <Compile Include="Assets\Scripts\CaraXRState\Attributes\petriNets.cs" />
+    <Compile Include="Assets\Scripts\CaraXRState\Interaction\SmoothRandomMover.cs" />
     <Compile Include="Assets\Scripts\CaraXRState\Semantic\PetriNetsXmlGenerator.cs" />
     <Compile Include="Assets\Scripts\Effector\TeleportationEffector.cs" />
     <Compile Include="Assets\Scripts\Interaction\VRTest\VRSmart.cs" />
