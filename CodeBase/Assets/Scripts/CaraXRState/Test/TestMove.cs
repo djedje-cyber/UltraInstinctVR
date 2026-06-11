@@ -8,61 +8,59 @@ public class TestMoveController : MonoBehaviour
     [Place(0)]
     protected GameObject controller;
 
+    private const float MOVE_THRESHOLD = 1f;
+
+    private Vector3 sensorPosition; // ← used by DetectInteraction
+    private Vector3 expectPosition; // ← used by Expect
     [SerializeField] public ScenarioLoader scenarioLoader;
-
-    private const float MOVE_THRESHOLD = 0.1f;
-    private Vector3 lastPosition;
-
     private void Awake()
     {
         controller = GameObject.Find("RightControllerTest");
 
-        // Auto-find — no Inspector drag needed
+        if (controller != null)
+        {
+            // ← Initialize both to current position
+            sensorPosition = controller.transform.position;
+            expectPosition = controller.transform.position;
+            Debug.Log($"[TestMoveController] Initial position: {sensorPosition}");
+        }
+
         scenarioLoader = FindFirstObjectByType<ScenarioLoader>();
-
-        if (scenarioLoader == null)
-            Debug.LogError("[TestMoveController] ScenarioLoader not found in scene!");
-        else
-            Debug.Log($"[TestMoveController] ScenarioLoader found: {scenarioLoader.name}");
-
         EnsureIdentifiable(controller);
     }
 
     private void Start()
     {
-        if (scenarioLoader == null)
-        {
-            Debug.LogError("[TestMoveController] ScenarioLoader is null — drag it in the Inspector!");
-            return;
-        }
-
-        scenarioLoader.GenerateAndLoad<TestMoveController>();
+        scenarioLoader?.GenerateAndLoad<TestMoveController>();
     }
-
-
-
-
 
     private void EnsureIdentifiable(GameObject go)
     {
+        if (go == null) return;
         if (go.GetComponent<IdentifiableBehaviour>() == null)
             go.AddComponent<IdentifiableBehaviour>();
-
-        Debug.Log($"[TestMoveController] {go.name} Id: {go.GetComponent<IdentifiableBehaviour>().Id}");
     }
 
     [Transition(1, upstreamPlace: 0)]
     [Place(1)]
     public void MoveController()
     {
+        // Sensor — checks against sensorPosition (never updated during polling)
         controller.DetectInteraction(go =>
-            Vector3.Distance(go.transform.position, lastPosition) > MOVE_THRESHOLD
-        );
+        {
+            bool moved = Vector3.Distance(go.transform.position, sensorPosition) > MOVE_THRESHOLD;
+            return moved;
+        });
 
+        // Expect — only runs when transition fires, updates expectPosition
         controller.Expect(go =>
         {
-            bool moved = Vector3.Distance(go.transform.position, lastPosition) > MOVE_THRESHOLD;
-            lastPosition = go.transform.position;
+            bool moved = Vector3.Distance(go.transform.position, expectPosition) > MOVE_THRESHOLD;
+            if (moved)
+            {
+                sensorPosition = go.transform.position; // ← update for next transition
+                expectPosition = go.transform.position;
+            }
             return moved;
         });
     }
@@ -71,14 +69,22 @@ public class TestMoveController : MonoBehaviour
     [FinalState]
     public void ControllerMovedAgain()
     {
+        // Sensor — checks against sensorPosition
         controller.DetectInteraction(go =>
-            Vector3.Distance(go.transform.position, lastPosition) > MOVE_THRESHOLD
-        );
+        {
+            bool moved = Vector3.Distance(go.transform.position, sensorPosition) > MOVE_THRESHOLD;
+            return moved;
+        });
 
+        // Expect — updates positions after second move
         controller.Expect(go =>
         {
-            bool moved = Vector3.Distance(go.transform.position, lastPosition) > MOVE_THRESHOLD;
-            lastPosition = go.transform.position;
+            bool moved = Vector3.Distance(go.transform.position, expectPosition) > MOVE_THRESHOLD;
+            if (moved)
+            {
+                sensorPosition = go.transform.position;
+                expectPosition = go.transform.position;
+            }
             return moved;
         });
     }

@@ -12,16 +12,18 @@ public static class XareusExtensions
 
     public static void DetectInteraction(this GameObject go, Func<GameObject, bool> condition)
     {
-        if (go == null) return;
+        if (go == null)
+        {
+            Debug.LogError("DetectInteraction: GameObject is null.");
+            return;
+        }
 
         bool result = condition(go);
 
-        DetectInteractionInterceptor.Record(result); // ← capture for TestSuiteRunner
+        DetectInteractionInterceptor.Record(result);
 
-        if (result)
-            Debug.Log($"SENSOR {go.name} - Interaction detected.");
-        else
-            Debug.LogWarning($"SENSOR {go.name} - No interaction detected.");
+        // ← Log every call with position info
+        Debug.Log($"SENSOR {go.name} - DetectInteraction called - Result: {result} - Position: {go.transform.position}");
     }
 
     public static void Expect(this GameObject go, Func<GameObject, bool> condition)

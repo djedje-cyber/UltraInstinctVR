@@ -1,3 +1,4 @@
+using NUnit.Framework;
 using System;
 using System.Collections;
 
@@ -143,48 +144,46 @@ public class TestSuiteRunner : MonoBehaviour
 
             if (transition == null)
             {
-                // No more transitions — test completed successfully
                 result.Success = true;
                 result.Message = $"Completed at Place_{currentPlace}";
                 break;
             }
 
+            Debug.Log($"[TestSuite] ⏳ Waiting for {transition.Name}...");
+
             // -------------------------------------------------------
-            // Poll sensor — Expect ignored during polling
+            // Poll sensor indefinitely until detected
             // -------------------------------------------------------
             bool detected = false;
-            float timeout = 10f;
-            float elapsed = 0f;
 
-            while (!detected && elapsed < timeout)
+            while (!detected)
             {
-                ExpectInterceptor.SetIgnore(true);      // ← ignore Expect
+                ExpectInterceptor.SetIgnore(true);
                 DetectInteractionInterceptor.Reset();
                 transition.Invoke(instance, null);
                 ExpectInterceptor.SetIgnore(false);
 
                 detected = DetectInteractionInterceptor.LastResult;
-                elapsed += pollInterval;
 
                 if (!detected)
                     yield return new WaitForSeconds(pollInterval);
             }
 
-            if (!detected)
-            {
-                result.Success = false;
-                result.Message = $"Timeout on: {transition.Name} at Place_{currentPlace}";
-                break;
-            }
+            Debug.Log($"[TestSuite] ✔ Detection fired: {transition.Name}");
+
+            // -------------------------------------------------------
+            // Wait one frame before firing Expect
+            // -------------------------------------------------------
+            yield return null;
 
             // -------------------------------------------------------
             // Fire transition — Expect runs for real
             // -------------------------------------------------------
             try
             {
-                ExpectInterceptor.Reset();              // ← enable Expect
+                ExpectInterceptor.Reset();
                 DetectInteractionInterceptor.Reset();
-                transition.Invoke(instance, null);      // ← Expect fires here
+                transition.Invoke(instance, null);
 
                 if (!ExpectInterceptor.LastResult)
                 {
@@ -200,20 +199,20 @@ public class TestSuiteRunner : MonoBehaviour
                 break;
             }
 
+            Debug.Log($"[TestSuite] ✔ Expect passed: {transition.Name}");
+
             // -------------------------------------------------------
             // Advance place
             // -------------------------------------------------------
-            PlaceAttribute nextPlace = transition.GetCustomAttribute<PlaceAttribute>();
             FinalStateAttribute finalAttr = transition.GetCustomAttribute<FinalStateAttribute>();
-
             if (finalAttr != null)
             {
-                // [FinalState] reached — test passed
                 result.Success = true;
                 result.Message = $"[FinalState] reached at {transition.Name}";
                 break;
             }
 
+            PlaceAttribute nextPlace = transition.GetCustomAttribute<PlaceAttribute>();
             if (nextPlace == null)
             {
                 result.Success = true;
