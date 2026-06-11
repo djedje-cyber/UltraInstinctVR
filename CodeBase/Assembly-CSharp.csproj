@@ -117,6 +117,7 @@
     <Compile Include="Assets\Scripts\Interaction\GameObjectMovement\SelectAndMoveToOrigin.cs" />
     <Compile Include="Assets\Scripts\Effector\CollisionEffector.cs" />
     <Compile Include="Assets\Scripts\CaraXRState\Attributes\InitialState.cs" />
+    <Compile Include="Assets\Scripts\CaraXRState\Test\TestMoveSimplified.cs" />
     <Compile Include="Assets\Scripts\CaraXRState\Interaction\SelectionPointing.cs" />
     <Compile Include="Assets\Scripts\Sensors\GeneralSensor.cs" />
     <Compile Include="Assets\Scripts\Effector\ClickEffector.cs" />

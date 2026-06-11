@@ -22,12 +22,13 @@ public class ScenarioLoader : MonoBehaviour
     public void GenerateAndLoad<T>() where T : class
     {
         string xml = PetriNetXmlGenerator.Generate<T>();
-        string path = Path.Combine(Application.dataPath, "Scenarios", $"{typeof(T).Name}.xml");
+        string fileName = $"{typeof(T).Name}.xml";  // ← unique per test class
+        string path = Path.Combine(Application.dataPath, "Scenarios", fileName);
 
         Directory.CreateDirectory(Path.GetDirectoryName(path));
         File.WriteAllText(path, xml);
 
-        Debug.Log($"[ScenarioLoader] Generated XML:\n{xml}");
+        Debug.Log($"[ScenarioLoader] Generated: {fileName}");
 
         LoadFromPath(path);
     }
