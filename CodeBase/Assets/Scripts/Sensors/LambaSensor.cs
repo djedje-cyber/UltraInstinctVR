@@ -1,13 +1,9 @@
-using Xareus.Scenarios.Context;
-using Xareus.Scenarios.Utilities;
-using Xareus.Scenarios.Unity;
 using System.Collections.Generic;
+using Xareus.Scenarios.Context;
+using Xareus.Scenarios.Unity;
+using Xareus.Scenarios.Utilities;
 
-/// <summary>
-/// Default sensor used when test uses DetectInteraction lambdas.
-/// Always returns true — TestSuiteRunner handles the actual check.
-/// </summary>
-[FunctionDescription("Lambda Sensor")]
+[FunctionDescription("Lambda Sensor — driven by DetectInteraction")]
 public class LambdaSensor : AInUnityStepSensor
 {
     public LambdaSensor(Xareus.Scenarios.Event @event,
@@ -22,7 +18,7 @@ public class LambdaSensor : AInUnityStepSensor
 
     public override Result UnityStepSensorCheck()
     {
-        // Always true — TestSuiteRunner drives the actual logic
-        return new Result(true, new SimpleDictionary());
+        // Result already captured by DetectInteraction in XareusExtensions
+        return new Result(DetectInteractionInterceptor.LastResult, new SimpleDictionary());
     }
 }

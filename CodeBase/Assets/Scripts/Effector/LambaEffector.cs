@@ -1,13 +1,9 @@
-using Xareus.Scenarios.Context;
-using Xareus.Scenarios.Utilities;
-using Xareus.Scenarios.Unity;
 using System.Collections.Generic;
+using Xareus.Scenarios.Context;
+using Xareus.Scenarios.Unity;
+using Xareus.Scenarios.Utilities;
 
-/// <summary>
-/// Default effector used when test uses Expect lambdas.
-/// Does nothing — TestSuiteRunner handles the actual check.
-/// </summary>
-[FunctionDescription("Lambda Effector")]
+[FunctionDescription("Lambda Effector — driven by Expect")]
 public class LambdaEffector : AUnityEffector
 {
     public LambdaEffector(Xareus.Scenarios.Event @event,
@@ -23,5 +19,6 @@ public class LambdaEffector : AUnityEffector
 
     public override void SafeEffectorUpdate()
     {
+        // Logging already handled by Expect() in XareusExtensions
     }
 }
