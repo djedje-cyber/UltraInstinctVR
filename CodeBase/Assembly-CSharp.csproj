@@ -148,6 +148,7 @@
     <Compile Include="Assets\Scripts\CaraXRState\utils\TestRunner.cs" />
     <Compile Include="Assets\Scripts\Interaction\Teleportation\TeleportAtObject.cs" />
     <Compile Include="Assets\Scripts\Interaction\Teleportation\ITeleportable.cs" />
+    <Compile Include="Assets\Scripts\Sensors\MovementEffector.cs" />
     <Compile Include="Assets\Scripts\Utils\LogPerformance.cs" />
     <Compile Include="Assets\VRTemplateAssets\Scripts\AnchorVisuals.cs" />
     <Compile Include="Assets\Scripts\CaraXRState\Attributes\finalState.cs" />
@@ -167,6 +168,7 @@
     <None Include="Assets\TextMesh Pro\Shaders\TMPro_Mobile.cginc" />
     <None Include="Assets\MyScenario.xml" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF SSD.shader" />
+    <None Include="Assets\Test.xml" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Surface-Mobile.shader" />
     <None Include="Assets\movearm.xml" />
     <None Include="Assets\Oracle_MoveObjectToOrigin.xml" />
@@ -182,6 +184,7 @@
     <None Include="Assets\Oracle_Colission.xml" />
     <None Include="Assets\TextMesh Pro\Shaders\TMPro_Surface.cginc" />
     <None Include="Assets\Oracle_Teleportation.xml" />
+    <None Include="Assets\ArmMovementTest.xml" />
     <None Include="Assets\TextMesh Pro\Resources\LineBreaking Following Characters.txt" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile Masking.shader" />
     <None Include="Assets\Oracle_OutSceneTeleportation.xml" />

@@ -143,13 +143,14 @@ public class TestSuiteRunner : MonoBehaviour
 
             if (transition == null)
             {
+                // No more transitions — test completed successfully
                 result.Success = true;
                 result.Message = $"Completed at Place_{currentPlace}";
                 break;
             }
 
             // -------------------------------------------------------
-            // Poll sensor only — Expect is ignored
+            // Poll sensor — Expect ignored during polling
             // -------------------------------------------------------
             bool detected = false;
             float timeout = 10f;
@@ -157,9 +158,16 @@ public class TestSuiteRunner : MonoBehaviour
 
             while (!detected && elapsed < timeout)
             {
-                detected = EvaluateSensor(instance, transition);
+                ExpectInterceptor.SetIgnore(true);      // ← ignore Expect
+                DetectInteractionInterceptor.Reset();
+                transition.Invoke(instance, null);
+                ExpectInterceptor.SetIgnore(false);
+
+                detected = DetectInteractionInterceptor.LastResult;
                 elapsed += pollInterval;
-                yield return new WaitForSeconds(pollInterval);
+
+                if (!detected)
+                    yield return new WaitForSeconds(pollInterval);
             }
 
             if (!detected)
@@ -170,7 +178,7 @@ public class TestSuiteRunner : MonoBehaviour
             }
 
             // -------------------------------------------------------
-            // Fire transition — now Expect runs for real
+            // Fire transition — Expect runs for real
             // -------------------------------------------------------
             try
             {
@@ -181,7 +189,7 @@ public class TestSuiteRunner : MonoBehaviour
                 if (!ExpectInterceptor.LastResult)
                 {
                     result.Success = false;
-                    result.Message = $"Expect failed on: {transition.Name}";
+                    result.Message = $"Expect failed on: {transition.Name} at Place_{currentPlace}";
                     break;
                 }
             }
@@ -192,7 +200,20 @@ public class TestSuiteRunner : MonoBehaviour
                 break;
             }
 
+            // -------------------------------------------------------
+            // Advance place
+            // -------------------------------------------------------
             PlaceAttribute nextPlace = transition.GetCustomAttribute<PlaceAttribute>();
+            FinalStateAttribute finalAttr = transition.GetCustomAttribute<FinalStateAttribute>();
+
+            if (finalAttr != null)
+            {
+                // [FinalState] reached — test passed
+                result.Success = true;
+                result.Message = $"[FinalState] reached at {transition.Name}";
+                break;
+            }
+
             if (nextPlace == null)
             {
                 result.Success = true;
@@ -403,11 +424,12 @@ public static class ExpectInterceptor
 {
     public static bool LastResult { get; private set; }
     private static bool _ignore = false;
+
     public static bool IsIgnored => _ignore;
 
     public static void Reset()
     {
-        LastResult = true;
+        LastResult = false; // ← default false — must be explicitly set to true
         _ignore = false;
     }
 
@@ -418,7 +440,7 @@ public static class ExpectInterceptor
 
     public static void Record(bool result)
     {
-        if (_ignore) return; // ← skip during sensor polling
+        if (_ignore) return;
         LastResult = result;
     }
 }

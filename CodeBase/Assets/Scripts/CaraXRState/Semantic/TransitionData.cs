@@ -9,11 +9,12 @@ public class TransitionData
     public string Label;
     public int UpstreamPlace;
     public List<int> DownstreamPlaces;
+    public bool IsFinal;
+    public int FinalPlaceId;   
     public string SensorClass;
     public string EffectorClass;
     public List<ParamData> SensorParams;
     public List<ParamData> EffectorParams;
-    public List<GameObject> GameObjects; 
 }
 public class ParamData
 {

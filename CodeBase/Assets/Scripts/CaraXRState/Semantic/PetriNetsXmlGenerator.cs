@@ -15,7 +15,7 @@ public class PetriNetXmlGenerator
     private const string VERSION = "5.12.0.0";
 
 
-
+   
 
 
     // In PetriNetXmlGenerator — always add a default sensor
@@ -48,12 +48,30 @@ public class PetriNetXmlGenerator
 
         MethodInfo[] methods = type.GetMethods(BindingFlags.Public | BindingFlags.Instance);
 
+        Debug.Log($"[PetriNetXmlGenerator] Scanning {type.Name} — {methods.Length} methods found");
+        foreach (MethodInfo m in methods)
+            Debug.Log($"  → {m.Name} has Transition: {m.GetCustomAttribute<TransitionAttribute>() != null}");
+
         List<TransitionData> transitions = new List<TransitionData>();
         HashSet<int> placeIds = new HashSet<int>();
-
-        // Get [InitialState] GameObjects from existing scene instance
         List<ParamData> gameObjectParams = GetGameObjectParams(type);
 
+        // -------------------------------------------------------
+        // Find [FinalState] method
+        // -------------------------------------------------------
+        MethodInfo finalMethod = null;
+        foreach (MethodInfo method in methods)
+        {
+            if (method.GetCustomAttribute<FinalStateAttribute>() != null)
+            {
+                finalMethod = method;
+                break;
+            }
+        }
+
+        // -------------------------------------------------------
+        // Build transitions
+        // -------------------------------------------------------
         foreach (MethodInfo method in methods)
         {
             TransitionAttribute transAttr = method.GetCustomAttribute<TransitionAttribute>();
@@ -62,6 +80,7 @@ public class PetriNetXmlGenerator
             PlaceAttribute[] placeAttrs = (PlaceAttribute[])method.GetCustomAttributes(typeof(PlaceAttribute), false);
             SensorAttribute sensorAttr = method.GetCustomAttribute<SensorAttribute>();
             EffectorAttribute effectorAttr = method.GetCustomAttribute<EffectorAttribute>();
+            FinalStateAttribute finalAttr = method.GetCustomAttribute<FinalStateAttribute>();
 
             TransitionData td = new TransitionData
             {
@@ -69,10 +88,11 @@ public class PetriNetXmlGenerator
                 Label = method.Name,
                 UpstreamPlace = transAttr.UpstreamPlace,
                 DownstreamPlaces = new List<int>(),
+                IsFinal = finalAttr != null,
                 SensorClass = sensorAttr?.ClassName,
                 EffectorClass = effectorAttr?.ClassName,
-                SensorParams = new List<ParamData>(gameObjectParams), // ← inject GameObjects
-                EffectorParams = new List<ParamData>(gameObjectParams)  // ← inject GameObjects
+                SensorParams = new List<ParamData>(gameObjectParams),
+                EffectorParams = new List<ParamData>(gameObjectParams)
             };
 
             foreach (PlaceAttribute p in placeAttrs)
@@ -81,12 +101,51 @@ public class PetriNetXmlGenerator
                 placeIds.Add(p.Id);
             }
 
+            // If [FinalState] — create a dedicated final place
+            if (finalAttr != null)
+            {
+                int finalPlace = transAttr.Id + 100; // Unique final place ID
+                td.DownstreamPlaces.Add(finalPlace);
+                td.FinalPlaceId = finalPlace;
+                placeIds.Add(finalPlace);
+                Debug.Log($"[PetriNetXmlGenerator] Created final place: Place_{finalPlace}");
+            }
+
             placeIds.Add(transAttr.UpstreamPlace);
             transitions.Add(td);
+
+            Debug.Log($"[PetriNetXmlGenerator] Added transition: {method.Name} (id:{transAttr.Id}) isFinal:{td.IsFinal}");
         }
 
-        int initialPlaceId = transitions.Count > 0 ? transitions[0].UpstreamPlace : 0;
-        int finalPlaceId = transitions.Count > 0 ? transitions[transitions.Count - 1].DownstreamPlaces[0] : 1;
+        if (transitions.Count == 0)
+        {
+            Debug.LogError($"[PetriNetXmlGenerator] No transitions found on {type.Name} — check [Transition] attributes!");
+            return string.Empty;
+        }
+
+        // -------------------------------------------------------
+        // Determine initial and final place
+        // -------------------------------------------------------
+        int initialPlaceId = transitions[0].UpstreamPlace;
+        int finalPlaceId;
+
+        // Find the transition marked [FinalState]
+        TransitionData finalTransition = transitions.Find(t => t.IsFinal);
+
+        if (finalTransition != null)
+        {
+            // Use the dedicated final place we created
+            finalPlaceId = finalTransition.FinalPlaceId;
+            Debug.Log($"[PetriNetXmlGenerator] Final place: Place_{finalPlaceId}");
+        }
+        else
+        {
+            // Fallback — use last downstream place
+            TransitionData lastTransition = transitions[transitions.Count - 1];
+            finalPlaceId = lastTransition.DownstreamPlaces.Count > 0
+                ? lastTransition.DownstreamPlaces[0]
+                : lastTransition.UpstreamPlace;
+        }
 
         return BuildXml(scenarioId, scenarioLabel, placeIds, transitions, initialPlaceId, finalPlaceId);
     }
@@ -141,6 +200,8 @@ public class PetriNetXmlGenerator
     {
         StringBuilder sb = new StringBuilder();
 
+        Debug.Log("[PetriNetXmlGenerator] BuildXml called");
+
         sb.AppendLine("<?xml version=\"1.0\" encoding=\"utf-8\"?>");
         sb.AppendLine($"<scenario xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\"");
         sb.AppendLine($"          xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"");
@@ -151,7 +212,9 @@ public class PetriNetXmlGenerator
 
         sb.AppendLine("  <sequence xsi:type=\"SafePetriNet\" id=\"Root\" label=\"Root\">");
 
+        // -------------------------------------------------------
         // Places
+        // -------------------------------------------------------
         int posY = 78;
         foreach (int placeId in placeIds)
         {
@@ -161,11 +224,14 @@ public class PetriNetXmlGenerator
             posY += 100;
         }
 
+        // -------------------------------------------------------
         // Transitions
+        // -------------------------------------------------------
         int posX = 520;
         int tPosY = 200;
-        foreach(TransitionData td in transitions)
-{
+
+        foreach (TransitionData td in transitions)
+        {
             string tId = $"Transition_{td.TransitionId}";
 
             sb.AppendLine($"    <transition id=\"{tId}\" label=\"{td.Label}\">");
@@ -187,7 +253,6 @@ public class PetriNetXmlGenerator
             }
             else
             {
-                // ← No [Sensor] attribute — add default sensor
                 sb.AppendLine($"        <sensorCheck classname=\"LambdaSensor,Assembly-CSharp\">");
                 sb.AppendLine($"        </sensorCheck>");
             }
@@ -207,17 +272,15 @@ public class PetriNetXmlGenerator
             }
             else
             {
-                // ← No [Effector] attribute — add default effector
                 sb.AppendLine($"        <effectorUpdate classname=\"LambdaEffector,Assembly-CSharp\">");
                 sb.AppendLine($"        </effectorUpdate>");
             }
 
             sb.AppendLine($"      </event>");
-
             // Upstream
             sb.AppendLine($"      <upstreamSequence idref=\"Place_{td.UpstreamPlace}\" />");
 
-            // Downstream (one per [Place] annotation)
+            // Downstream — always write, FinalState now has its own place
             foreach (int downId in td.DownstreamPlaces)
                 sb.AppendLine($"      <downstreamSequence idref=\"Place_{downId}\" />");
 
@@ -225,7 +288,9 @@ public class PetriNetXmlGenerator
             tPosY += 100;
         }
 
+        // -------------------------------------------------------
         // Initial and final
+        // -------------------------------------------------------
         sb.AppendLine($"    <initialSequence idref=\"Place_{initialPlaceId}\">");
         sb.AppendLine($"      <tokenInit classname=\"Xareus.Scenarios.TokenInit.EmptyTokenInit,Xareus.Scenarios\" />");
         sb.AppendLine($"    </initialSequence>");
@@ -234,6 +299,7 @@ public class PetriNetXmlGenerator
         sb.AppendLine("  </sequence>");
         sb.AppendLine("</scenario>");
 
+        Debug.Log($"[PetriNetXmlGenerator] XML:\n{sb}");
         return sb.ToString();
     }
 

@@ -12,9 +12,16 @@
     <sequence xsi:type="Place" id="Place_0" label="Place_0">
       <extendedInfo><unityEditor xmlns=""><position x="342" y="178" /></unityEditor></extendedInfo>
     </sequence>
+    <sequence xsi:type="Place" id="Place_102" label="Place_102">
+      <extendedInfo><unityEditor xmlns=""><position x="342" y="278" /></unityEditor></extendedInfo>
+    </sequence>
     <transition id="Transition_1" label="MoveController">
       <extendedInfo><unityEditor xmlns=""><position x="520" y="200" /></unityEditor></extendedInfo>
       <event id="Transition_1" label="MoveController">
+        <sensorCheck classname="LambdaSensor,Assembly-CSharp">
+        </sensorCheck>
+        <effectorUpdate classname="LambdaEffector,Assembly-CSharp">
+        </effectorUpdate>
       </event>
       <upstreamSequence idref="Place_0" />
       <downstreamSequence idref="Place_1" />
@@ -22,13 +29,17 @@
     <transition id="Transition_2" label="ControllerMovedAgain">
       <extendedInfo><unityEditor xmlns=""><position x="520" y="300" /></unityEditor></extendedInfo>
       <event id="Transition_2" label="ControllerMovedAgain">
+        <sensorCheck classname="LambdaSensor,Assembly-CSharp">
+        </sensorCheck>
+        <effectorUpdate classname="LambdaEffector,Assembly-CSharp">
+        </effectorUpdate>
       </event>
       <upstreamSequence idref="Place_1" />
-      <downstreamSequence idref="Place_0" />
+      <downstreamSequence idref="Place_102" />
     </transition>
     <initialSequence idref="Place_0">
       <tokenInit classname="Xareus.Scenarios.TokenInit.EmptyTokenInit,Xareus.Scenarios" />
     </initialSequence>
-    <finalSequence idref="Place_0" />
+    <finalSequence idref="Place_102" />
   </sequence>
 </scenario>

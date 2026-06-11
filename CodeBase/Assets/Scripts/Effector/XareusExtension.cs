@@ -30,9 +30,9 @@ public static class XareusExtensions
 
         bool result = condition(go);
 
-        ExpectInterceptor.Record(result); // ← ignored during polling
+        ExpectInterceptor.Record(result); // ignored during polling
 
-        if (!ExpectInterceptor.IsIgnored) // ← only log when not polling
+        if (!ExpectInterceptor.IsIgnored) //  only log when not polling
         {
             if (result)
                 Debug.Log($"ORACLE {go.name} - TestPassed - Expectation met.");
