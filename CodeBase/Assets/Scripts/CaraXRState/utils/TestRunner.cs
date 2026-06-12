@@ -1,7 +1,7 @@
 using NUnit.Framework;
 using System;
 using System.Collections;
-
+using System.Globalization;
 using System.Collections.Generic;
 using System.Reflection;
 using UnityEngine;
@@ -13,13 +13,14 @@ public class TestSuiteRunner : MonoBehaviour
     [SerializeField] protected ExecutionMode executionMode = ExecutionMode.Sequential;
     [SerializeField] protected float pollInterval = 0.1f;
     [SerializeField] protected float delayBetween = 0.5f;
+    [SerializeField] protected float defaultTimeout = 30f;
+
     [SerializeField] protected bool autoDiscover = false;
     [SerializeField] protected bool runOnStart = true;
 
     [Header("Manual Test List (if autoDiscover = false)")]
     [SerializeField] protected List<UnityEngine.Object> testClasses = new List<UnityEngine.Object>();
 
-    // ← bindings removed entirely
 
     private List<TestResult> results = new List<TestResult>();
     private int totalTests = 0;
@@ -149,24 +150,39 @@ public class TestSuiteRunner : MonoBehaviour
                 break;
             }
 
+            // ← Read timeout from [Timeout] attribute or use global default
+            TimeoutAttribute timeoutAttr = transition.GetCustomAttribute<TimeoutAttribute>();
+            float timeout = timeoutAttr != null ? timeoutAttr.Seconds : defaultTimeout;
+            float elapsed = 0f;
+
+
             Debug.Log($"[TestSuite] ⏳ Waiting for {transition.Name}...");
 
             // -------------------------------------------------------
             // Poll sensor indefinitely until detected
             // -------------------------------------------------------
             bool detected = false;
-
-            while (!detected)
+            while (!detected && elapsed < timeout)
             {
-                ExpectInterceptor.SetIgnore(true);
                 DetectInteractionInterceptor.Reset();
+                ExpectInterceptor.SetIgnore(true);
                 transition.Invoke(instance, null);
                 ExpectInterceptor.SetIgnore(false);
 
                 detected = DetectInteractionInterceptor.LastResult;
+                elapsed += pollInterval;
+
+                Debug.Log($"[TestSuite] elapsed: {elapsed:F2} / timeout: {timeout}"); // ← add this
 
                 if (!detected)
                     yield return new WaitForSeconds(pollInterval);
+            }
+
+            if (!detected)
+            {
+                result.Success = false;
+                result.Message = $"Timeout ({timeout}s) on: {transition.Name} at Place_{currentPlace}";
+                break;
             }
 
             Debug.Log($"[TestSuite] ✔ Detection fired: {transition.Name}");

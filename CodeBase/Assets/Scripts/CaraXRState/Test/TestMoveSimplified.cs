@@ -8,7 +8,7 @@ public class TestMoveSimplified : MonoBehaviour
     [Place(0)]
     protected GameObject controller;
 
-    private const float MOVE_THRESHOLD = 1f;
+    private const float MOVE_THRESHOLD = 100000f;
 
     private Vector3 sensorPosition; // ← used by DetectInteraction
     private Vector3 expectPosition; // ← used by Expect
@@ -31,7 +31,7 @@ public class TestMoveSimplified : MonoBehaviour
 
     private void Start()
     {
-        scenarioLoader?.GenerateAndLoad<TestMoveController>();
+        scenarioLoader?.GenerateAndLoad<TestMoveSimplified>();
     }
 
     private void EnsureIdentifiable(GameObject go)
@@ -42,6 +42,7 @@ public class TestMoveSimplified : MonoBehaviour
     }
 
     [Transition(1, upstreamPlace: 0)]
+    [Timeout(30f)]
     [FinalState]
     public void MoveController()
     {

@@ -143,6 +143,7 @@
     <Compile Include="Assets\Scripts\CaraXRState\CaraMachine\Modalities.cs" />
     <Compile Include="Assets\Scripts\Sensors\LambaSensor.cs" />
     <Compile Include="Assets\VRTemplateAssets\Scripts\StepManager.cs" />
+    <Compile Include="Assets\Scripts\CaraXRState\Attributes\TimeOutAttribute.cs" />
     <Compile Include="Assets\Scripts\CaraXRState\Interaction\Translation.cs" />
     <Compile Include="Assets\Scripts\Sensors\TeleportationSensor.cs" />
     <Compile Include="Assets\Scripts\Interaction\GameObjectMovement\Collision.cs" />
@@ -178,6 +179,7 @@
     <None Include="Assets\VRTemplateAssets\Shaders\Grid.shader" />
     <None Include="Assets\TextMesh Pro\Sprites\EmojiOne Attribution.txt" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_Bitmap-Custom-Atlas.shader" />
+    <None Include="Assets\Scenarios\TestMoveSimplified.xml" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF.shader" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile SSD.shader" />
     <None Include="Assets\TextMesh Pro\Resources\LineBreaking Leading Characters.txt" />

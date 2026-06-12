@@ -8,7 +8,7 @@ public class TestMoveController : MonoBehaviour
     [Place(0)]
     protected GameObject controller;
 
-    private const float MOVE_THRESHOLD = 1f;
+    private const float MOVE_THRESHOLD = 1000000f;
 
     private Vector3 sensorPosition; // ← used by DetectInteraction
     private Vector3 expectPosition; // ← used by Expect
@@ -42,6 +42,7 @@ public class TestMoveController : MonoBehaviour
     }
 
     [Transition(1, upstreamPlace: 0)]
+    [Timeout(30f)]
     [Place(1)]
     public void MoveController()
     {
@@ -66,6 +67,7 @@ public class TestMoveController : MonoBehaviour
     }
 
     [Transition(2, upstreamPlace: 1)]
+    [Timeout(30f)]
     [FinalState]
     public void ControllerMovedAgain()
     {
