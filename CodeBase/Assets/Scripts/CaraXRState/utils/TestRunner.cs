@@ -138,6 +138,7 @@ public class TestSuiteRunner : MonoBehaviour
         int currentPlace = 0;
 
         result.StartTime = Time.time;
+        result.RecordPlaceVisit(currentPlace); // ← record initial place
 
         while (true)
         {
@@ -200,7 +201,7 @@ public class TestSuiteRunner : MonoBehaviour
                 result.Message = $"Exception in {transition.Name}: {e.InnerException?.Message ?? e.Message}";
             }
 
-            // ← Record this transition regardless of pass/fail
+            // Record this transition regardless of pass/fail
             result.TransitionHistory.Add(new TransitionRecord
             {
                 Name = transition.Name,
@@ -229,6 +230,8 @@ public class TestSuiteRunner : MonoBehaviour
             }
 
             currentPlace = nextPlace.Id;
+            result.RecordPlaceVisit(currentPlace); // ← record each new place
+
             yield return new WaitForSeconds(pollInterval);
         }
 
@@ -356,14 +359,23 @@ public class TestSuiteRunner : MonoBehaviour
         else
             Debug.LogError($"[TestSuite] ✘ FAIL [{result.TestName}] ({duration:F2}s) — {result.Message}");
 
-        // ← Print transition history
+        // Transition history
         Debug.Log($"[TestSuite] Transition history for {result.TestName} ({result.TransitionHistory.Count} fired):");
         foreach (TransitionRecord t in result.TransitionHistory)
         {
             string status = t.ExpectPassed ? "✔" : "✘";
             Debug.Log($"  {status} {t.Name} — detected after {t.ElapsedToDetect:F2}s, at t={t.Timestamp:F2}s");
         }
+
+        // ← Place visit counts
+        Debug.Log($"[TestSuite] Place visits for {result.TestName}:");
+        foreach (var kvp in result.PlaceVisitCounts)
+        {
+            Debug.Log($"  Place_{kvp.Key} → visited {kvp.Value} time(s)");
+        }
     }
+
+
 
     private void LogSummary()
     {
@@ -419,16 +431,24 @@ public class TestResult
 
     public List<TransitionRecord> TransitionHistory { get; } = new List<TransitionRecord>();
 
+    //Counts how many times each place was visited
+    public Dictionary<int, int> PlaceVisitCounts { get; } = new Dictionary<int, int>();
+
     public TestResult(string testName)
     {
         TestName = testName;
         Success = false;
         Message = string.Empty;
     }
+
+    public void RecordPlaceVisit(int placeId)
+    {
+        if (!PlaceVisitCounts.ContainsKey(placeId))
+            PlaceVisitCounts[placeId] = 0;
+
+        PlaceVisitCounts[placeId]++;
+    }
 }
-
-
-
 
 public static class DetectInteractionInterceptor
 {
