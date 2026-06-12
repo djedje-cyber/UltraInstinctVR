@@ -53,6 +53,14 @@ public class TestMoveSimplified : MonoBehaviour
             return moved;
         });
 
+        controller.Action(go =>
+        {
+            var tp = go.GetComponent<TeleportPlayerAPI>();
+
+            tp.TeleportTo(new Vector3(5, 1, 3));
+        });
+
+
         // Expect — only runs when transition fires, updates expectPosition
         controller.Expect(go =>
         {

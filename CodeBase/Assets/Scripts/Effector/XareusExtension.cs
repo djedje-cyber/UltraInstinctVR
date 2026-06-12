@@ -61,7 +61,8 @@ public static class XareusExtensions
 
     public static void DetectInteraction(this Component c, Func<GameObject, bool> condition)
         => c.gameObject.DetectInteraction(condition);
-
+    public static void Action(this Component c, System.Action<GameObject> action)
+    => c.gameObject.Action(action);
     public static void Expect(this Component c, Func<GameObject, bool> condition)
         => c.gameObject.Expect(condition);
 }
