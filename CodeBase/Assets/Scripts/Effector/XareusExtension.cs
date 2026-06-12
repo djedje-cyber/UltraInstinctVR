@@ -24,6 +24,20 @@ public static class XareusExtensions
 
     }
 
+
+
+    public static void Action(this GameObject go, Action<GameObject> action)
+    {
+        if (go == null)
+        {
+            Debug.LogError("Action: GameObject is null.");
+            return;
+        }
+        action(go);
+    }
+
+
+
     public static void Expect(this GameObject go, Func<GameObject, bool> condition)
     {
         if (go == null) return;
