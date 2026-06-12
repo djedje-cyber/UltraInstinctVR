@@ -48,9 +48,7 @@ public class PetriNetXmlGenerator
 
         MethodInfo[] methods = type.GetMethods(BindingFlags.Public | BindingFlags.Instance);
 
-        Debug.Log($"[PetriNetXmlGenerator] Scanning {type.Name} — {methods.Length} methods found");
-        foreach (MethodInfo m in methods)
-            Debug.Log($"  → {m.Name} has Transition: {m.GetCustomAttribute<TransitionAttribute>() != null}");
+
 
         List<TransitionData> transitions = new List<TransitionData>();
         HashSet<int> placeIds = new HashSet<int>();

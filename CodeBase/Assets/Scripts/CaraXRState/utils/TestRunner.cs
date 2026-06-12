@@ -150,18 +150,12 @@ public class TestSuiteRunner : MonoBehaviour
                 break;
             }
 
-            // ← Read timeout from [Timeout] attribute or use global default
             TimeoutAttribute timeoutAttr = transition.GetCustomAttribute<TimeoutAttribute>();
             float timeout = timeoutAttr != null ? timeoutAttr.Seconds : defaultTimeout;
             float elapsed = 0f;
 
-
-            Debug.Log($"[TestSuite] ⏳ Waiting for {transition.Name}...");
-
-            // -------------------------------------------------------
-            // Poll sensor indefinitely until detected
-            // -------------------------------------------------------
             bool detected = false;
+
             while (!detected && elapsed < timeout)
             {
                 DetectInteractionInterceptor.Reset();
@@ -171,8 +165,6 @@ public class TestSuiteRunner : MonoBehaviour
 
                 detected = DetectInteractionInterceptor.LastResult;
                 elapsed += pollInterval;
-
-                Debug.Log($"[TestSuite] elapsed: {elapsed:F2} / timeout: {timeout}"); // ← add this
 
                 if (!detected)
                     yield return new WaitForSeconds(pollInterval);
@@ -185,41 +177,41 @@ public class TestSuiteRunner : MonoBehaviour
                 break;
             }
 
-            Debug.Log($"[TestSuite] ✔ Detection fired: {transition.Name}");
-
-            // -------------------------------------------------------
-            // Wait one frame before firing Expect
-            // -------------------------------------------------------
             yield return null;
 
-            // -------------------------------------------------------
-            // Fire transition — Expect runs for real
-            // -------------------------------------------------------
+            bool expectPassed = false;
             try
             {
                 ExpectInterceptor.Reset();
                 DetectInteractionInterceptor.Reset();
                 transition.Invoke(instance, null);
 
-                if (!ExpectInterceptor.LastResult)
+                expectPassed = ExpectInterceptor.LastResult;
+
+                if (!expectPassed)
                 {
                     result.Success = false;
                     result.Message = $"Expect failed on: {transition.Name} at Place_{currentPlace}";
-                    break;
                 }
             }
             catch (Exception e)
             {
                 result.Success = false;
                 result.Message = $"Exception in {transition.Name}: {e.InnerException?.Message ?? e.Message}";
-                break;
             }
 
-            Debug.Log($"[TestSuite] ✔ Expect passed: {transition.Name}");
+            // ← Record this transition regardless of pass/fail
+            result.TransitionHistory.Add(new TransitionRecord
+            {
+                Name = transition.Name,
+                ElapsedToDetect = elapsed,
+                Timestamp = Time.time - result.StartTime,
+                ExpectPassed = expectPassed
+            });
 
-            // -------------------------------------------------------
-            // Advance place
-            // -------------------------------------------------------
+            if (!expectPassed)
+                break;
+
             FinalStateAttribute finalAttr = transition.GetCustomAttribute<FinalStateAttribute>();
             if (finalAttr != null)
             {
@@ -242,7 +234,6 @@ public class TestSuiteRunner : MonoBehaviour
 
         result.EndTime = Time.time;
     }
-
     private object GetOrCreateInstance(Type testType)
     {
         // Reuse existing instance if already in scene
@@ -364,6 +355,14 @@ public class TestSuiteRunner : MonoBehaviour
             Debug.Log($"[TestSuite] ✔ PASS [{result.TestName}] ({duration:F2}s) — {result.Message}");
         else
             Debug.LogError($"[TestSuite] ✘ FAIL [{result.TestName}] ({duration:F2}s) — {result.Message}");
+
+        // ← Print transition history
+        Debug.Log($"[TestSuite] Transition history for {result.TestName} ({result.TransitionHistory.Count} fired):");
+        foreach (TransitionRecord t in result.TransitionHistory)
+        {
+            string status = t.ExpectPassed ? "✔" : "✘";
+            Debug.Log($"  {status} {t.Name} — detected after {t.ElapsedToDetect:F2}s, at t={t.Timestamp:F2}s");
+        }
     }
 
     private void LogSummary()
@@ -400,6 +399,16 @@ public class TestSuiteRunner : MonoBehaviour
 
 }
 
+
+public class TransitionRecord
+{
+    public string Name;
+    public float ElapsedToDetect;  // time spent waiting for sensor
+    public float Timestamp;        // when it fired
+    public bool ExpectPassed;
+}
+
+
 public class TestResult
 {
     public string TestName { get; }
@@ -407,6 +416,8 @@ public class TestResult
     public string Message { get; set; }
     public float StartTime { get; set; }
     public float EndTime { get; set; }
+
+    public List<TransitionRecord> TransitionHistory { get; } = new List<TransitionRecord>();
 
     public TestResult(string testName)
     {

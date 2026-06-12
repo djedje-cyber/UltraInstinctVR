@@ -22,8 +22,6 @@ public static class XareusExtensions
 
         DetectInteractionInterceptor.Record(result);
 
-        // ← Log every call with position info
-        Debug.Log($"SENSOR {go.name} - DetectInteraction called - Result: {result} - Position: {go.transform.position}");
     }
 
     public static void Expect(this GameObject go, Func<GameObject, bool> condition)
