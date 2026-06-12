@@ -12,7 +12,7 @@ public class TestMoveController : MonoBehaviour
 
     private Vector3 sensorPosition; // ← used by DetectInteraction
     private Vector3 expectPosition; // ← used by Expect
-    [SerializeField] public ScenarioLoader scenarioLoader;
+    //[SerializeField] public ScenarioLoader scenarioLoader;
     private void Awake()
     {
         controller = GameObject.Find("RightControllerTest");
@@ -25,13 +25,13 @@ public class TestMoveController : MonoBehaviour
             Debug.Log($"[TestMoveController] Initial position: {sensorPosition}");
         }
 
-        scenarioLoader = FindFirstObjectByType<ScenarioLoader>();
+      //  scenarioLoader = FindFirstObjectByType<ScenarioLoader>();
         EnsureIdentifiable(controller);
     }
 
     private void Start()
     {
-        scenarioLoader?.GenerateAndLoad<TestMoveController>();
+        //scenarioLoader?.GenerateAndLoad<TestMoveController>();
     }
 
     private void EnsureIdentifiable(GameObject go)

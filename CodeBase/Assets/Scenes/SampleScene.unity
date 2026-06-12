@@ -3053,7 +3053,7 @@ MonoBehaviour:
   LoadFromFile: 0
   ScenarioFileToLoad: 
   RunInSeparateThread: 1
-  UnityExecutionSteps: 3
+  UnityExecutionSteps: -1
   ScenarioUpdateTime: 250
   RunScenarioAfterLoad: 1
 --- !u!114 &417388340
@@ -3141,10 +3141,10 @@ MonoBehaviour:
   executionMode: 0
   pollInterval: 0.1
   delayBetween: 0.5
+  defaultTimeout: 30
   autoDiscover: 0
   runOnStart: 1
   testClasses:
-  - {fileID: 11500000, guid: 6c68530b7d8d86b4d9c09035323f4862, type: 3}
   - {fileID: 11500000, guid: 3f2f8bdd2c86a174884ac1dd84407891, type: 3}
 --- !u!1 &419629167
 GameObject:
@@ -13324,7 +13324,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 688738d31ed5d20449ec495f6218926f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  teleportCount: 10
+  teleportCount: 30
   teleportRange: {x: 10, y: 10}
   delayBetweenTeleports: 0.1
 --- !u!1 &1624025054
