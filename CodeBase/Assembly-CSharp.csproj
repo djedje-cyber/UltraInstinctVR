@@ -64,9 +64,11 @@
     <Compile Include="Assets\Scripts\CaraXRState\Attributes\transition.cs" />
     <Compile Include="Assets\Scripts\Interaction\VRTest\Logs.cs" />
     <Compile Include="Assets\VRTemplateAssets\Scripts\RayAttachModifier.cs" />
+    <Compile Include="Assets\Scripts\CaraXRState\Interaction\GrabAPI.cs" />
     <Compile Include="Assets\Scripts\CaraXRState\utils\SerializableType.cs" />
     <Compile Include="Assets\Scripts\Effector\GeneralEffector.cs" />
     <Compile Include="Assets\Scripts\CaraXRState\Head.cs" />
+    <Compile Include="Assets\Scripts\CaraXRState\Interaction\SelectAPI.cs" />
     <Compile Include="Assets\Scripts\CaraXRState\CaraMachine\State.cs" />
     <Compile Include="Assets\Scripts\Utils\CoverageToCSV.cs" />
     <Compile Include="Assets\VRTemplateAssets\Scripts\XRPokeFollowAffordanceFill.cs" />

@@ -13140,7 +13140,6 @@ GameObject:
   - component: {fileID: 1611807846}
   - component: {fileID: 1611807844}
   - component: {fileID: 1611807845}
-  - component: {fileID: 1611807848}
   m_Layer: 0
   m_Name: RightControllerTest
   m_TagString: Untagged
@@ -13312,21 +13311,6 @@ MonoBehaviour:
   m_RayInteractorChanged:
     m_PersistentCalls:
       m_Calls: []
---- !u!114 &1611807848
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1611807842}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 688738d31ed5d20449ec495f6218926f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  teleportCount: 30
-  teleportRange: {x: 10, y: 10}
-  delayBetweenTeleports: 0.1
 --- !u!1 &1624025054
 GameObject:
   m_ObjectHideFlags: 0
@@ -19053,7 +19037,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2002952770890432201, guid: 387501bbeae45274985b9d9b105f4ef5, type: 3}
       propertyPath: childrenPrefabs.Array.size
-      value: 1
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 2002952770890432201, guid: 387501bbeae45274985b9d9b105f4ef5, type: 3}
       propertyPath: 'childrenPrefabs.Array.data[0]'
@@ -19062,15 +19046,15 @@ PrefabInstance:
     - target: {fileID: 2002952770890432201, guid: 387501bbeae45274985b9d9b105f4ef5, type: 3}
       propertyPath: 'childrenPrefabs.Array.data[1]'
       value: 
-      objectReference: {fileID: 1611807842}
+      objectReference: {fileID: 217447826}
     - target: {fileID: 2002952770890432201, guid: 387501bbeae45274985b9d9b105f4ef5, type: 3}
       propertyPath: 'childrenPrefabs.Array.data[2]'
       value: 
-      objectReference: {fileID: 217447826}
+      objectReference: {fileID: 217447824}
     - target: {fileID: 2002952770890432201, guid: 387501bbeae45274985b9d9b105f4ef5, type: 3}
       propertyPath: 'childrenPrefabs.Array.data[3]'
       value: 
-      objectReference: {fileID: 217447825}
+      objectReference: {fileID: 7262856367770688547}
     - target: {fileID: 2002952770890432201, guid: 387501bbeae45274985b9d9b105f4ef5, type: 3}
       propertyPath: 'childrenPrefabs.Array.data[4]'
       value: 
