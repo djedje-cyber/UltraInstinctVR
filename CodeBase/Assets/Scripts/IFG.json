@@ -1,0 +1,96 @@
+[
+  {
+    "interactable": "Cube Interactable",
+    "interaction": [
+      [
+        "grab",
+        ""
+      ]
+    ]
+  },
+  {
+    "interactable": "Cylinder Interactable",
+    "interaction": [
+      [
+        "grab",
+        ""
+      ]
+    ]
+  },
+  {
+    "interactable": "Torus Interactable",
+    "interaction": [
+      [
+        "grab",
+        ""
+      ]
+    ]
+  },
+  {
+    "interactable": "Tapered Interactable 1",
+    "interaction": [
+      [
+        "grab",
+        ""
+      ]
+    ]
+  },
+  {
+    "interactable": "Tapered Interactable 2",
+    "interaction": [
+      [
+        "grab",
+        ""
+      ]
+    ]
+  },
+  {
+    "interactable": "Sphere Interactable",
+    "interaction": [
+      [
+        "grab",
+        ""
+      ]
+    ]
+  },
+  {
+    "interactable": "Arch_Interactable",
+    "interaction": [
+      [
+        "grab",
+        ""
+      ]
+    ]
+  },
+  {
+    "interactable": "Blaster",
+    "interaction": [
+      [
+        "grab",
+        ""
+      ],
+      [
+        "trigger",
+        "grab"
+      ]
+    ]
+  },
+  {
+    "interactable": "Spatial Panel Manipulator Model",
+    "interaction": [
+      [
+        "grab",
+        ""
+      ]
+    ]
+  },
+  {
+    "interactable": "Spatial Panel Manipulator UI Examples",
+    "interaction": [
+      [
+        "grab",
+        ""
+      ]
+    ]
+  }
+]

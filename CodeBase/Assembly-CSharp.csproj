@@ -59,6 +59,7 @@
     <Compile Include="Assets\Scripts\Interaction\VRTest\Logs.cs" />
     <Compile Include="Assets\VRTemplateAssets\Scripts\RayAttachModifier.cs" />
     <Compile Include="Assets\Scripts\Utils\CoverageToCSV.cs" />
+    <Compile Include="Assets\Scripts\RandomBaseline.cs" />
     <Compile Include="Assets\VRTemplateAssets\Scripts\XRPokeFollowAffordanceFill.cs" />
     <Compile Include="Assets\Scripts\Interaction\Teleportation\TeleportPlayer.cs" />
     <Compile Include="Assets\Scripts\Effector\OutsideSceneEffector.cs" />
@@ -72,6 +73,7 @@
     <Compile Include="Assets\VRTemplateAssets\Scripts\LaunchProjectile.cs" />
     <Compile Include="Assets\Scripts\Interaction\VRTest\VRGreed.cs" />
     <Compile Include="Assets\VRTemplateAssets\Scripts\HandSubsystemManager.cs" />
+    <Compile Include="Assets\Scripts\XRintTestCore\XRInputManager.cs" />
     <Compile Include="Assets\Scripts\Utils\GenerateReport.cs" />
     <Compile Include="Assets\Scripts\Effector\InObjectSceneEffector.cs" />
     <Compile Include="Assets\Scripts\Effector\ObjectSelectionEffector.cs" />
@@ -82,13 +84,18 @@
     <Compile Include="Assets\Scripts\Interaction\VRTest\VRLogger.cs" />
     <Compile Include="Assets\Scripts\Sensors\SelectionSensor.cs" />
     <Compile Include="Assets\Scripts\Interaction\GameObjectMovement\SelectAndMoveToOrigin.cs" />
+    <Compile Include="Assets\Scripts\XRintTestCore\SceneConfigurator.cs" />
     <Compile Include="Assets\Scripts\Effector\CollisionEffector.cs" />
+    <Compile Include="Assets\Scripts\XRIntTest.cs" />
+    <Compile Include="Assets\Scripts\XRintTestCore\Utils.cs" />
     <Compile Include="Assets\Scripts\Effector\MoveObjectToOriginEffector.cs" />
     <Compile Include="Assets\VRTemplateAssets\Scripts\Callout.cs" />
     <Compile Include="Assets\VRTemplateAssets\Scripts\CalloutGazeController.cs" />
+    <Compile Include="Assets\Scripts\XRintTestCore\IFGGenerator.cs" />
     <Compile Include="Assets\Scripts\Interaction\Teleportation\SizeScene.cs" />
     <Compile Include="Assets\Scripts\Utils\ParentController.cs" />
     <Compile Include="Assets\Scripts\ScriptsReplay\TeleportReplay.cs" />
+    <Compile Include="Assets\Scripts\XRintTestCore\XRInteractionStrategies.cs" />
     <Compile Include="Assets\Scripts\Interaction\VRTest\VRMovementHandler.cs" />
     <Compile Include="Assets\VRTemplateAssets\Scripts\StepManager.cs" />
     <Compile Include="Assets\Scripts\Sensors\TeleportationSensor.cs" />
@@ -674,6 +681,10 @@
     </Reference>
     <Reference Include="Xareus.Relations.Extra">
       <HintPath>Library\PackageCache\fr.insa.xareus@f7e910e7c558\Plugins\Xareus.Relations.Extra.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>Library\PackageCache\com.unity.nuget.newtonsoft-json@74deb55db2a0\Runtime\Newtonsoft.Json.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="Mono.Cecil">
