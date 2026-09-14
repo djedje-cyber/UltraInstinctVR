@@ -5,7 +5,10 @@
   <Project Path="Unity.XR.Interaction.Toolkit.Samples.Hands.csproj" />
   <Project Path="Tests.csproj" />
   <Project Path="Unity.XR.Hands.Samples.VisualizerSample.csproj" />
+<<<<<<< HEAD
   <Project Path="Unity.XR.Interaction.Toolkit.Samples.InteractionSimulator.Editor.csproj" />
   <Project Path="Unity.XR.Interaction.Toolkit.Samples.InteractionSimulator.csproj" />
+=======
+>>>>>>> main
   <Project Path="Unity.XR.Interaction.Toolkit.Samples.Hands.Editor.csproj" />
 </Solution>
