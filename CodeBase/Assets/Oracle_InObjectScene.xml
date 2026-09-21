@@ -30,7 +30,7 @@
     <transition id="Transition_0" label="Transition_0">
       <extendedInfo>
         <unityEditor xmlns="">
-          <position x="651" y="193" />
+          <position x="652" y="194" />
         </unityEditor>
       </extendedInfo>
       <event id="Transition_0" label="Transition_0">
@@ -53,7 +53,7 @@
                 <field type="Xareus.Unity.Editor.Scenarios.UI.Fields.ObjectDropField`1[[UnityEngine.GameObject,UnityEngine.CoreModule]],Xareus.Unity.Editor" />
               </unityEditor>
             </extendedInfo>
-            <param value="fe4b3cec-9099-4f04-b5cd-291cc5d93666" type="System.Guid,mscorlib" name="UFID" />
+            <param value="dc0449a6-1d0c-49fd-a19a-6d81ddbfe7bc" type="System.Guid,mscorlib" name="UFID" />
           </param>
         </sensorCheck>
         <effectorUpdate classname="InObjectSceneEffectorSpace.InObjectSceneEffector,Assembly-CSharp">
@@ -75,7 +75,7 @@
                 <field type="Xareus.Unity.Editor.Scenarios.UI.Fields.ObjectDropField`1[[UnityEngine.GameObject,UnityEngine.CoreModule]],Xareus.Unity.Editor" />
               </unityEditor>
             </extendedInfo>
-            <param value="fe4b3cec-9099-4f04-b5cd-291cc5d93666" type="System.Guid,mscorlib" name="UFID" />
+            <param value="dc0449a6-1d0c-49fd-a19a-6d81ddbfe7bc" type="System.Guid,mscorlib" name="UFID" />
           </param>
         </effectorUpdate>
       </event>

@@ -14,8 +14,14 @@ public class LaunchTest
     {
         yield return SceneManager.LoadSceneAsync("SampleScene");
 
+
+        Debug.Log($"[TEST] Start wait at {Time.realtimeSinceStartup}, timeScale={Time.timeScale}");
+
         // laisse ton expérience tourner
         yield return new WaitForSeconds(300f);
+
+
+        Debug.Log($"[TEST] End wait at {Time.realtimeSinceStartup}");
 
         Assert.Pass();
     }

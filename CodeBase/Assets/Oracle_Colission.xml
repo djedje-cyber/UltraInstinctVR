@@ -53,7 +53,7 @@
                 <field type="Xareus.Unity.Editor.Scenarios.UI.Fields.ObjectDropField`1[[UnityEngine.GameObject,UnityEngine.CoreModule]],Xareus.Unity.Editor" />
               </unityEditor>
             </extendedInfo>
-            <param value="2ca489e1-aacc-4d2b-964f-102522b22e36" type="System.Guid,mscorlib" name="UFID" />
+            <param value="fc89bd8f-f570-4597-bfc5-8b56cc9e5a61" type="System.Guid,mscorlib" name="UFID" />
           </param>
         </sensorCheck>
         <effectorUpdate classname="ColissionEffectorSpace.CollisionEffector,Assembly-CSharp">
@@ -68,7 +68,7 @@
                 <field type="Xareus.Unity.Editor.Scenarios.UI.Fields.ObjectDropField`1[[UnityEngine.GameObject,UnityEngine.CoreModule]],Xareus.Unity.Editor" />
               </unityEditor>
             </extendedInfo>
-            <param value="2ca489e1-aacc-4d2b-964f-102522b22e36" type="System.Guid,mscorlib" name="UFID" />
+            <param value="fc89bd8f-f570-4597-bfc5-8b56cc9e5a61" type="System.Guid,mscorlib" name="UFID" />
           </param>
           <param value="0" type="System.Single,mscorlib" name="Collision Detection Radius">
             <extendedInfo>
