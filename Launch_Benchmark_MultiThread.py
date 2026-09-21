@@ -5,7 +5,10 @@ from multiprocessing import Pool
 import csv
 import psutil
 import uuid
+import shutil
 from datetime import datetime
+
+
 
 # Chemins vers les éditeurs Unity
 UNITY_PATHS = [
@@ -19,8 +22,8 @@ PROJECT_PATHS = [
 
 
 BATCH_SIZE = 1 
-REPEAT_COUNT = 1
-TIMEOUT = 500  # 5 minutes
+REPEAT_COUNT = 2
+TIMEOUT = 200  # 3 minutes
 
 
 # =========================
@@ -161,9 +164,12 @@ def run_unity_once(project_path, unity_path, index, iteration):
 
     process.wait()
 
+    if success:
+        copy_coverage_summary(project_path, run_number=iteration + 1)
+
     cpu_used = max(0.0, end_cpu - start_cpu)
 
-    # ⏱️ end time réel
+    #  end time réel
     end_dt = datetime.utcnow().isoformat()
 
     return (index, iteration, success, cpu_used, start_dt, end_dt)
@@ -233,6 +239,30 @@ def run_projects_in_parallel():
         fail_count = results.count(False)
         print(f"\n📊 Résumé du projet {idx+1} : {success_count} succès / {REPEAT_COUNT} | {fail_count} échecs")
 
+
+# =========================
+# Copie du rapport de couverture
+# =========================
+def copy_coverage_summary(project_path, run_number):
+    src_path = os.path.join(project_path, "CodeCoverage", "Report","Summary.json")
+
+    if not os.path.exists(src_path):
+        print(f"⚠️ Summary.json introuvable à {src_path}")
+        return None
+
+    dest_dir = os.path.join(project_path, "Logs", "coverage_raw")
+    os.makedirs(dest_dir, exist_ok=True)
+
+    short_uuid = str(uuid.uuid4())[:6]
+    date_str = datetime.now().strftime("%Y%m%d")
+
+    dest_name = f"raw_coverage_log_{short_uuid}_{date_str}_Run_{run_number}.json"
+    dest_path = os.path.join(dest_dir, dest_name)
+
+    shutil.copy2(src_path, dest_path)
+    print(f"📄 Coverage summary copié vers {dest_path}")
+
+    return dest_path
 
 # =========================
 # Main

@@ -1,24 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
 <CoverageReport scope="Summary">
   <Summary>
-    <Generatedon>9/21/2026 - 11:13:45 AM</Generatedon>
+    <Generatedon>9/21/2026 - 2:22:23 PM</Generatedon>
     <Parser>MultiReportParser (5x OpenCoverParser)</Parser>
     <Assemblies>1</Assemblies>
     <Classes>57</Classes>
     <Files>53</Files>
-    <Coveredlines>1277</Coveredlines>
-    <Uncoveredlines>2009</Uncoveredlines>
-    <Coverablelines>3286</Coverablelines>
-    <Totallines>6691</Totallines>
-    <Linecoverage>38.8</Linecoverage>
+    <Coveredlines>1835</Coveredlines>
+    <Uncoveredlines>1459</Uncoveredlines>
+    <Coverablelines>3294</Coverablelines>
+    <Totallines>6701</Totallines>
+    <Linecoverage>55.7</Linecoverage>
     <Coveredbranches>0</Coveredbranches>
     <Totalbranches>0</Totalbranches>
-    <Coveredmethods>189</Coveredmethods>
+    <Coveredmethods>260</Coveredmethods>
     <Totalmethods>404</Totalmethods>
-    <Methodcoverage>46.7</Methodcoverage>
+    <Methodcoverage>64.3</Methodcoverage>
   </Summary>
   <Coverage>
-    <Assembly name="Assembly-CSharp" classes="57" coverage="38.8" coveredlines="1277" coverablelines="3286" totallines="7319" branchcoverage="" coveredbranches="0" totalbranches="0" coveredmethods="189" totalmethods="404" methodcoverage="46.7">
+    <Assembly name="Assembly-CSharp" classes="57" coverage="55.7" coveredlines="1835" coverablelines="3294" totallines="7329" branchcoverage="" coveredbranches="0" totalbranches="0" coveredmethods="260" totalmethods="404" methodcoverage="64.3">
       <Class name="ChildBahaviorSpace.ChildBehavior" coverage="81.2" coveredlines="13" coverablelines="16" totallines="62" branchcoverage="" coveredbranches="0" totalbranches="0" coveredmethods="3" totalmethods="3" methodcoverage="100" />
       <Class name="ColissionEffectorSpace.CollisionEffector" coverage="79.1" coveredlines="19" coverablelines="24" totallines="96" branchcoverage="" coveredbranches="0" totalbranches="0" coveredmethods="3" totalmethods="3" methodcoverage="100" />
       <Class name="Collision" coverage="0" coveredlines="0" coverablelines="81" totallines="114" branchcoverage="" coveredbranches="0" totalbranches="0" coveredmethods="0" totalmethods="7" methodcoverage="0" />
@@ -27,20 +27,20 @@
       <Class name="GenerateReportSpace.GenerateReport" coverage="64.4" coveredlines="49" coverablelines="76" totallines="147" branchcoverage="" coveredbranches="0" totalbranches="0" coveredmethods="5" totalmethods="6" methodcoverage="83.3" />
       <Class name="GetCPUTime" coverage="61.5" coveredlines="8" coverablelines="13" totallines="35" branchcoverage="" coveredbranches="0" totalbranches="0" coveredmethods="2" totalmethods="3" methodcoverage="66.6" />
       <Class name="GetStartTimeSpace.GetStartTime" coverage="62.5" coveredlines="10" coverablelines="16" totallines="37" branchcoverage="" coveredbranches="0" totalbranches="0" coveredmethods="4" totalmethods="5" methodcoverage="80" />
-      <Class name="GrabInteractionStrategy" coverage="0" coveredlines="0" coverablelines="24" totallines="162" branchcoverage="" coveredbranches="0" totalbranches="0" coveredmethods="0" totalmethods="2" methodcoverage="0" />
+      <Class name="GrabInteractionStrategy" coverage="87.5" coveredlines="21" coverablelines="24" totallines="162" branchcoverage="" coveredbranches="0" totalbranches="0" coveredmethods="2" totalmethods="2" methodcoverage="100" />
       <Class name="IFGGenerator" coverage="0" coveredlines="0" coverablelines="87" totallines="139" branchcoverage="" coveredbranches="0" totalbranches="0" coveredmethods="0" totalmethods="4" methodcoverage="0" />
       <Class name="InObjectSceneEffectorSpace.InObjectSceneEffector" coverage="76.4" coveredlines="52" coverablelines="68" totallines="165" branchcoverage="" coveredbranches="0" totalbranches="0" coveredmethods="7" totalmethods="7" methodcoverage="100" />
-      <Class name="InteractionStrategyFactory" coverage="0" coveredlines="0" coverablelines="7" totallines="162" branchcoverage="" coveredbranches="0" totalbranches="0" coveredmethods="0" totalmethods="1" methodcoverage="0" />
+      <Class name="InteractionStrategyFactory" coverage="71.4" coveredlines="5" coverablelines="7" totallines="162" branchcoverage="" coveredbranches="0" totalbranches="0" coveredmethods="1" totalmethods="1" methodcoverage="100" />
       <Class name="LogAnalyzer" coverage="96.6" coveredlines="87" coverablelines="90" totallines="142" branchcoverage="" coveredbranches="0" totalbranches="0" coveredmethods="3" totalmethods="3" methodcoverage="100" />
-      <Class name="LogPerformance" coverage="83" coveredlines="49" coverablelines="59" totallines="80" branchcoverage="" coveredbranches="0" totalbranches="0" coveredmethods="8" totalmethods="10" methodcoverage="80" />
-      <Class name="LogToFile" coverage="70" coveredlines="35" coverablelines="50" totallines="61" branchcoverage="" coveredbranches="0" totalbranches="0" coveredmethods="3" totalmethods="5" methodcoverage="60" />
+      <Class name="LogPerformance" coverage="89.5" coveredlines="60" coverablelines="67" totallines="90" branchcoverage="" coveredbranches="0" totalbranches="0" coveredmethods="8" totalmethods="10" methodcoverage="80" />
+      <Class name="LogToFile" coverage="78" coveredlines="39" coverablelines="50" totallines="61" branchcoverage="" coveredbranches="0" totalbranches="0" coveredmethods="3" totalmethods="5" methodcoverage="60" />
       <Class name="MouseOperations" coverage="0" coveredlines="0" coverablelines="19" totallines="73" branchcoverage="" coveredbranches="0" totalbranches="0" coveredmethods="0" totalmethods="5" methodcoverage="0" />
       <Class name="MoveObjectToOriginEffectorSpace.MoveObjectToOriginEffector" coverage="67.5" coveredlines="54" coverablelines="80" totallines="215" branchcoverage="" coveredbranches="0" totalbranches="0" coveredmethods="10" totalmethods="10" methodcoverage="100" />
       <Class name="ObjectSelectionEffector" coverage="0" coveredlines="0" coverablelines="37" totallines="89" branchcoverage="" coveredbranches="0" totalbranches="0" coveredmethods="0" totalmethods="3" methodcoverage="0" />
       <Class name="OracleData" coverage="100" coveredlines="5" coverablelines="5" totallines="142" branchcoverage="" coveredbranches="0" totalbranches="0" coveredmethods="11" totalmethods="11" methodcoverage="100" />
       <Class name="OutsideSceneEffectorSpace.OutsideSceneEffector" coverage="82.3" coveredlines="28" coverablelines="34" totallines="107" branchcoverage="" coveredbranches="0" totalbranches="0" coveredmethods="5" totalmethods="5" methodcoverage="100" />
       <Class name="ParentController" coverage="94" coveredlines="47" coverablelines="50" totallines="102" branchcoverage="" coveredbranches="0" totalbranches="0" coveredmethods="5" totalmethods="5" methodcoverage="100" />
-      <Class name="RandomBaseline" coverage="7.7" coveredlines="13" coverablelines="167" totallines="283" branchcoverage="" coveredbranches="0" totalbranches="0" coveredmethods="1" totalmethods="12" methodcoverage="8.3" />
+      <Class name="RandomBaseline" coverage="73.6" coveredlines="123" coverablelines="167" totallines="283" branchcoverage="" coveredbranches="0" totalbranches="0" coveredmethods="8" totalmethods="12" methodcoverage="66.6" />
       <Class name="SceneConfigurator" coverage="0" coveredlines="0" coverablelines="134" totallines="187" branchcoverage="" coveredbranches="0" totalbranches="0" coveredmethods="0" totalmethods="2" methodcoverage="0" />
       <Class name="SelectAndMoveToOrigin" coverage="0" coveredlines="0" coverablelines="116" totallines="165" branchcoverage="" coveredbranches="0" totalbranches="0" coveredmethods="0" totalmethods="7" methodcoverage="0" />
       <Class name="SelectionSensor" coverage="100" coveredlines="22" coverablelines="22" totallines="86" branchcoverage="" coveredbranches="0" totalbranches="0" coveredmethods="5" totalmethods="5" methodcoverage="100" />
@@ -51,7 +51,7 @@
       <Class name="TeleportAtObject" coverage="73.7" coveredlines="45" coverablelines="61" totallines="139" branchcoverage="" coveredbranches="0" totalbranches="0" coveredmethods="6" totalmethods="6" methodcoverage="100" />
       <Class name="TeleportPlayer" coverage="91.1" coveredlines="31" coverablelines="34" totallines="92" branchcoverage="" coveredbranches="0" totalbranches="0" coveredmethods="5" totalmethods="5" methodcoverage="100" />
       <Class name="TeleportReplay" coverage="5.4" coveredlines="3" coverablelines="55" totallines="124" branchcoverage="" coveredbranches="0" totalbranches="0" coveredmethods="1" totalmethods="5" methodcoverage="20" />
-      <Class name="TriggerInteractionStrategy" coverage="0" coveredlines="0" coverablelines="33" totallines="162" branchcoverage="" coveredbranches="0" totalbranches="0" coveredmethods="0" totalmethods="1" methodcoverage="0" />
+      <Class name="TriggerInteractionStrategy" coverage="63.6" coveredlines="21" coverablelines="33" totallines="162" branchcoverage="" coveredbranches="0" totalbranches="0" coveredmethods="1" totalmethods="1" methodcoverage="100" />
       <Class name="Unity.VRTemplate.AnchorVisuals" coverage="33.3" coveredlines="16" coverablelines="48" totallines="108" branchcoverage="" coveredbranches="0" totalbranches="0" coveredmethods="3" totalmethods="6" methodcoverage="50" />
       <Class name="Unity.VRTemplate.BezierCurve" coverage="94.3" coveredlines="83" coverablelines="88" totallines="202" branchcoverage="" coveredbranches="0" totalbranches="0" coveredmethods="9" totalmethods="9" methodcoverage="100" />
       <Class name="Unity.VRTemplate.BooleanToggleVisualsController" coverage="40.9" coveredlines="18" coverablelines="44" totallines="91" branchcoverage="" coveredbranches="0" totalbranches="0" coveredmethods="4" totalmethods="8" methodcoverage="50" />
@@ -64,18 +64,18 @@
       <Class name="Unity.VRTemplate.Rotator" coverage="100" coveredlines="3" coverablelines="3" totallines="18" branchcoverage="" coveredbranches="0" totalbranches="0" coveredmethods="1" totalmethods="1" methodcoverage="100" />
       <Class name="Unity.VRTemplate.StepManager" coverage="25" coveredlines="2" coverablelines="8" totallines="39" branchcoverage="" coveredbranches="0" totalbranches="0" coveredmethods="1" totalmethods="2" methodcoverage="50" />
       <Class name="Unity.VRTemplate.VideoPlayerRenderTexture" coverage="100" coveredlines="10" coverablelines="10" totallines="40" branchcoverage="" coveredbranches="0" totalbranches="0" coveredmethods="2" totalmethods="2" methodcoverage="100" />
-      <Class name="Unity.VRTemplate.VideoTimeScrubControl" coverage="45.5" coveredlines="46" coverablelines="101" totallines="192" branchcoverage="" coveredbranches="0" totalbranches="0" coveredmethods="6" totalmethods="13" methodcoverage="46.1" />
+      <Class name="Unity.VRTemplate.VideoTimeScrubControl" coverage="60.3" coveredlines="61" coverablelines="101" totallines="192" branchcoverage="" coveredbranches="0" totalbranches="0" coveredmethods="8" totalmethods="13" methodcoverage="61.5" />
       <Class name="Unity.VRTemplate.XRKnob" coverage="25.3" coveredlines="53" coverablelines="209" totallines="441" branchcoverage="" coveredbranches="0" totalbranches="0" coveredmethods="9" totalmethods="33" methodcoverage="27.2" />
       <Class name="Unity.VRTemplate.XRPokeFollowAffordanceFill" coverage="46.3" coveredlines="38" coverablelines="82" totallines="246" branchcoverage="" coveredbranches="0" totalbranches="0" coveredmethods="6" totalmethods="24" methodcoverage="25" />
-      <Class name="Utils" coverage="0" coveredlines="0" coverablelines="171" totallines="273" branchcoverage="" coveredbranches="0" totalbranches="0" coveredmethods="0" totalmethods="34" methodcoverage="0" />
+      <Class name="Utils" coverage="78.3" coveredlines="134" coverablelines="171" totallines="273" branchcoverage="" coveredbranches="0" totalbranches="0" coveredmethods="30" totalmethods="34" methodcoverage="88.2" />
       <Class name="VRGreed" coverage="0" coveredlines="0" coverablelines="27" totallines="62" branchcoverage="" coveredbranches="0" totalbranches="0" coveredmethods="0" totalmethods="3" methodcoverage="0" />
       <Class name="VRGuide" coverage="73.2" coveredlines="115" coverablelines="157" totallines="256" branchcoverage="" coveredbranches="0" totalbranches="0" coveredmethods="11" totalmethods="17" methodcoverage="64.7" />
       <Class name="VRLoggerSpace.VRLogger" coverage="94.1" coveredlines="16" coverablelines="17" totallines="31" branchcoverage="" coveredbranches="0" totalbranches="0" coveredmethods="2" totalmethods="2" methodcoverage="100" />
       <Class name="VRMovementHandler" coverage="96.2" coveredlines="52" coverablelines="54" totallines="127" branchcoverage="" coveredbranches="0" totalbranches="0" coveredmethods="6" totalmethods="6" methodcoverage="100" />
-      <Class name="VRTest" coverage="73.4" coveredlines="72" coverablelines="98" totallines="227" branchcoverage="" coveredbranches="0" totalbranches="0" coveredmethods="10" totalmethods="18" methodcoverage="55.5" />
+      <Class name="VRTest" coverage="75.5" coveredlines="74" coverablelines="98" totallines="227" branchcoverage="" coveredbranches="0" totalbranches="0" coveredmethods="11" totalmethods="18" methodcoverage="61.1" />
       <Class name="VRTriggerHandler" coverage="97.7" coveredlines="44" coverablelines="45" totallines="109" branchcoverage="" coveredbranches="0" totalbranches="0" coveredmethods="5" totalmethods="5" methodcoverage="100" />
-      <Class name="XRInputManager" coverage="0" coveredlines="0" coverablelines="104" totallines="180" branchcoverage="" coveredbranches="0" totalbranches="0" coveredmethods="0" totalmethods="10" methodcoverage="0" />
-      <Class name="XRIntTest" coverage="2.9" coveredlines="7" coverablelines="239" totallines="361" branchcoverage="" coveredbranches="0" totalbranches="0" coveredmethods="1" totalmethods="22" methodcoverage="4.5" />
+      <Class name="XRInputManager" coverage="70.1" coveredlines="73" coverablelines="104" totallines="180" branchcoverage="" coveredbranches="0" totalbranches="0" coveredmethods="9" totalmethods="10" methodcoverage="90" />
+      <Class name="XRIntTest" coverage="70.7" coveredlines="169" coverablelines="239" totallines="361" branchcoverage="" coveredbranches="0" totalbranches="0" coveredmethods="19" totalmethods="22" methodcoverage="86.3" />
     </Assembly>
   </Coverage>
 </CoverageReport>

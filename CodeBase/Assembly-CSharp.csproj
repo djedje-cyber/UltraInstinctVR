@@ -137,7 +137,6 @@
     <None Include="Assets\VRTemplateAssets\Shaders\TexturedFresnelStandard.shader" />
     <None Include="Assets\TextMesh Pro\Fonts\LiberationSans - OFL.txt" />
     <None Include="Assets\VRTemplateAssets\Shaders\TexturedStableFresnelCommon.cginc" />
-    <None Include="Assets\Scripts\game_logs.txt" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile.shader" />
     <None Include="Assets\VRTemplateAssets\Materials\Skybox\Horizontal Skybox.shader" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_Sprite.shader" />
