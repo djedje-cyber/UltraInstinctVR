@@ -23,7 +23,7 @@ PROJECT_PATHS = [
 
 BATCH_SIZE = 1 
 REPEAT_COUNT = 2
-TIMEOUT = 200  # 3 minutes
+TIMEOUT = 300  # 5 minutes
 
 
 # =========================
@@ -164,8 +164,9 @@ def run_unity_once(project_path, unity_path, index, iteration):
 
     process.wait()
 
-    if success:
-        copy_coverage_summary(project_path, run_number=iteration + 1)
+    # Copie du coverage, que le run ait réussi ou non
+    copy_coverage_summary(project_path, run_number=iteration + 1)
+    copy_full_coverage_folder(project_path, run_number=iteration + 1)
 
     cpu_used = max(0.0, end_cpu - start_cpu)
 
@@ -173,7 +174,6 @@ def run_unity_once(project_path, unity_path, index, iteration):
     end_dt = datetime.utcnow().isoformat()
 
     return (index, iteration, success, cpu_used, start_dt, end_dt)
-
 
 # =========================
 # Iterations par projet
@@ -263,6 +263,33 @@ def copy_coverage_summary(project_path, run_number):
     print(f"📄 Coverage summary copié vers {dest_path}")
 
     return dest_path
+
+
+# =========================
+# Copie complète du dossier CodeCoverage
+# =========================
+def copy_full_coverage_folder(project_path, run_number):
+    src_dir = os.path.join(project_path, "CodeCoverage")
+
+    if not os.path.exists(src_dir):
+        print(f"⚠️ Dossier CodeCoverage introuvable à {src_dir}")
+        return None
+
+    all_coverage_dir = os.path.join(project_path, "Logs", "ALL_Coverage")
+    os.makedirs(all_coverage_dir, exist_ok=True)
+
+    dest_dir = os.path.join(all_coverage_dir, f"CodeCoverage_RUN_{run_number}")
+
+    if os.path.exists(dest_dir):
+        shutil.rmtree(dest_dir)
+
+    shutil.copytree(src_dir, dest_dir)
+    print(f"📁 Dossier CodeCoverage copié vers {dest_dir}")
+
+    return dest_dir
+
+
+
 
 # =========================
 # Main

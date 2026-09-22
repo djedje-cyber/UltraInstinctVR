@@ -134,6 +134,9 @@ PrefabInstance:
       addedObject: {fileID: 139490990019501126}
     - targetCorrespondingSourceObject: {fileID: 6392042628781809302, guid: 8dadf41b18daea0498b92a1d91a30ccd, type: 3}
       insertIndex: -1
+      addedObject: {fileID: 4202240331160564288}
+    - targetCorrespondingSourceObject: {fileID: 6392042628781809302, guid: 8dadf41b18daea0498b92a1d91a30ccd, type: 3}
+      insertIndex: -1
       addedObject: {fileID: 1654939110914975331}
   m_SourcePrefab: {fileID: 100100000, guid: 8dadf41b18daea0498b92a1d91a30ccd, type: 3}
 --- !u!4 &1530703138560497916 stripped
@@ -537,6 +540,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b12fc0ce133279b47897286de7f9e65c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &4202240331160564288
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7095405207557052717}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9e6d9b91fec265842a24f2a2baa33bb0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!114 &1654939110914975331
@@ -1005,6 +1020,7 @@ MonoBehaviour:
   m_ReinitializeDynamicAttachEverySingleGrab: 1
   m_AttachEaseInTime: 0.15
   m_MovementType: 2
+  m_PredictedVisualsTransform: {fileID: 0}
   m_VelocityDamping: 1
   m_VelocityScale: 1
   m_AngularVelocityDamping: 1
@@ -1046,6 +1062,10 @@ MonoBehaviour:
   m_StartingMultipleGrabTransformers: []
   m_AddDefaultGrabTransformers: 1
   m_FarAttachMode: 0
+  m_LimitLinearVelocity: 0
+  m_LimitAngularVelocity: 0
+  m_MaxLinearVelocityDelta: 10
+  m_MaxAngularVelocityDelta: 20
 --- !u!54 &6979080089442892069
 Rigidbody:
   m_ObjectHideFlags: 0

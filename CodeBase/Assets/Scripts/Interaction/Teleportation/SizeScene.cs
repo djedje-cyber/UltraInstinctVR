@@ -32,7 +32,7 @@ namespace SizeSceneSpace
         private Bounds sceneBounds;
 
         [Header("Replay Logging")]
-        private string replayFolder = "Logs/TESTREPLAY";
+        private string replayFolder = "Logs/TESTREPLAY/SizeScene";
 
         private string replayFilePath;
         private List<string> teleportLogs = new List<string>();
@@ -166,9 +166,11 @@ namespace SizeSceneSpace
             if (!Directory.Exists(replayFolder))
                 Directory.CreateDirectory(replayFolder);
 
-            string uuid = Guid.NewGuid().ToString();
-            string date = DateTime.Now.ToString("yyyy-MM-dd");
-            replayFilePath = Path.Combine(replayFolder, $"TESTREPLAY_SizeScene_{uuid}_{date}.txt");
+            string uuid = Guid.NewGuid().ToString().Substring(0, 4);
+            string date = DateTime.Now.ToString("ddMMyyyy");
+            int runNumber = Directory.GetFiles(replayFolder, "TESTREPLAY_SizeScene_*.txt").Length + 1;
+
+            replayFilePath = Path.Combine(replayFolder, $"TESTREPLAY_SizeScene_{uuid}_{date}_RUN_{runNumber}.txt");
 
             // Create and clear the file
             File.WriteAllText(replayFilePath, string.Empty);

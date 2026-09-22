@@ -132,16 +132,20 @@ namespace GenerateReportSpace
         }
 
 
-        private static string GenerateFileName(string resultDirectory)
+        private static string GenerateFileName()
         {
             string uuid = Guid.NewGuid().ToString().Substring(0, 5);
             string date = DateTime.Now.ToString("ddMMyyyy");
-
+            string resultDirectory = Path.Combine(Application.dataPath, "..", "Logs", "coverage");
             int runNumber = 1;
-            if (Directory.Exists(resultDirectory))
+            
+            if (!Directory.Exists(resultDirectory))
             {
-                runNumber = Directory.GetFiles(resultDirectory, "coverage_*.csv").Length + 1;
+                Directory.CreateDirectory(resultDirectory);
             }
+
+            runNumber = Directory.GetFiles(resultDirectory, "coverage_*.csv").Length + 1;
+           
 
             return $"coverage_{uuid}_{date}_Run_{runNumber}.csv";
         }

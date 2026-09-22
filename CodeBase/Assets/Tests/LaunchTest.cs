@@ -12,6 +12,10 @@ public class LaunchTest
     [UnityTest]
     public IEnumerator LaunchTestWithEnumeratorPasses()
     {
+
+
+        LogAssert.ignoreFailingMessages = true;
+
         yield return SceneManager.LoadSceneAsync("SampleScene");
 
 

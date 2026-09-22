@@ -15,7 +15,7 @@ namespace VRLoggerSpace
             if (!Directory.Exists(dir))
                 Directory.CreateDirectory(dir);
 
-            // ⭐ version safe
+            //  version safe
             using (FileStream fs = new FileStream(
                 logFilePath,
                 FileMode.Create,

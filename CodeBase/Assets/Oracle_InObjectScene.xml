@@ -53,7 +53,7 @@
                 <field type="Xareus.Unity.Editor.Scenarios.UI.Fields.ObjectDropField`1[[UnityEngine.GameObject,UnityEngine.CoreModule]],Xareus.Unity.Editor" />
               </unityEditor>
             </extendedInfo>
-            <param value="dc0449a6-1d0c-49fd-a19a-6d81ddbfe7bc" type="System.Guid,mscorlib" name="UFID" />
+            <param value="fe4b3cec-9099-4f04-b5cd-291cc5d93666" type="System.Guid,mscorlib" name="UFID" />
           </param>
         </sensorCheck>
         <effectorUpdate classname="InObjectSceneEffectorSpace.InObjectSceneEffector,Assembly-CSharp">
@@ -75,7 +75,7 @@
                 <field type="Xareus.Unity.Editor.Scenarios.UI.Fields.ObjectDropField`1[[UnityEngine.GameObject,UnityEngine.CoreModule]],Xareus.Unity.Editor" />
               </unityEditor>
             </extendedInfo>
-            <param value="dc0449a6-1d0c-49fd-a19a-6d81ddbfe7bc" type="System.Guid,mscorlib" name="UFID" />
+            <param value="fe4b3cec-9099-4f04-b5cd-291cc5d93666" type="System.Guid,mscorlib" name="UFID" />
           </param>
         </effectorUpdate>
       </event>

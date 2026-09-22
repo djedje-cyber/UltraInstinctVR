@@ -63,7 +63,7 @@
                 <field type="Xareus.Unity.Editor.Scenarios.UI.Fields.ObjectDropField`1[[UnityEngine.GameObject,UnityEngine.CoreModule]],Xareus.Unity.Editor" />
               </unityEditor>
             </extendedInfo>
-            <param value="315efe9b-df9d-4ddc-af4d-c34813cbc79e" type="System.Guid,mscorlib" name="UFID" />
+            <param value="fafeaf69-9f6a-45ea-8847-ad7c15907398" type="System.Guid,mscorlib" name="UFID" />
           </param>
         </sensorCheck>
         <effectorUpdate classname="TeleportationEffectorSpace.TeleportationEffector,Assembly-CSharp">
@@ -85,7 +85,7 @@
                 <field type="Xareus.Unity.Editor.Scenarios.UI.Fields.ObjectDropField`1[[UnityEngine.GameObject,UnityEngine.CoreModule]],Xareus.Unity.Editor" />
               </unityEditor>
             </extendedInfo>
-            <param value="315efe9b-df9d-4ddc-af4d-c34813cbc79e" type="System.Guid,mscorlib" name="UFID" />
+            <param value="fafeaf69-9f6a-45ea-8847-ad7c15907398" type="System.Guid,mscorlib" name="UFID" />
           </param>
         </effectorUpdate>
       </event>
