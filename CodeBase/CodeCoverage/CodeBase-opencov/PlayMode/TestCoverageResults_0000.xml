@@ -1011,9 +1011,9 @@
               <Name>VRGuide::VRGuide()</Name>
               <FileRef uid="9" />
               <SequencePoints>
-                <SequencePoint vc="0" uspid="523" ordinal="0" offset="0" sl="7" sc="0" el="7" ec="0" bec="0" bev="0" fileid="9" />
-                <SequencePoint vc="0" uspid="524" ordinal="0" offset="11" sl="8" sc="0" el="8" ec="0" bec="0" bev="0" fileid="9" />
-                <SequencePoint vc="0" uspid="525" ordinal="0" offset="22" sl="9" sc="0" el="9" ec="0" bec="0" bev="0" fileid="9" />
+                <SequencePoint vc="0" uspid="523" ordinal="0" offset="0" sl="7" sc="5" el="7" ec="5" bec="0" bev="0" fileid="9" />
+                <SequencePoint vc="0" uspid="524" ordinal="0" offset="11" sl="8" sc="5" el="8" ec="5" bec="0" bev="0" fileid="9" />
+                <SequencePoint vc="0" uspid="525" ordinal="0" offset="22" sl="9" sc="5" el="9" ec="5" bec="0" bev="0" fileid="9" />
               </SequencePoints>
               <BranchPoints />
             </Method>

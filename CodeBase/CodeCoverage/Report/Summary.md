@@ -1,31 +1,31 @@
 ﻿# Summary
 |||
 |:---|:---|
-| Generated on: | 9/21/2026 - 4:55:28 PM |
+| Generated on: | 9/22/2026 - 4:43:16 PM |
 | Parser: | MultiReportParser (5x OpenCoverParser) |
 | Assemblies: | 1 |
 | Classes: | 57 |
 | Files: | 53 |
-| Covered lines: | 1296 |
-| Uncovered lines: | 2005 |
-| Coverable lines: | 3301 |
-| Total lines: | 6712 |
-| Line coverage: | 39.2% (1296 of 3301) |
+| Covered lines: | 1330 |
+| Uncovered lines: | 1998 |
+| Coverable lines: | 3328 |
+| Total lines: | 6723 |
+| Line coverage: | 39.9% (1330 of 3328) |
 | Covered branches: | 0 |
 | Total branches: | 0 |
-| Covered methods: | 189 |
-| Total methods: | 404 |
-| Method coverage: | 46.7% (189 of 404) |
+| Covered methods: | 193 |
+| Total methods: | 408 |
+| Method coverage: | 47.3% (193 of 408) |
 
 |**Name**|**Covered**|**Uncovered**|**Coverable**|**Total**|**Line coverage**|**Covered**|**Total**|**Branch coverage**|**Covered**|**Total**|**Method coverage**|
 |:---|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|
-|**Assembly-CSharp**|**1296**|**2005**|**3301**|**7340**|**39.2%**|**0**|**0**|****|**189**|**404**|**46.7%**|
+|**Assembly-CSharp**|**1330**|**1998**|**3328**|**7351**|**39.9%**|**0**|**0**|****|**193**|**408**|**47.3%**|
 |ChildBahaviorSpace.ChildBehavior|13|3|16|62|81.2%|0|0||3|3|100%|
 |ColissionEffectorSpace.CollisionEffector|21|3|24|96|87.5%|0|0||3|3|100%|
 |Collision|0|81|81|114|0%|0|0||0|7|0%|
 |CountInteractablesObject|9|0|9|26|100%|0|0||2|2|100%|
 |CoverageToCSV|0|31|31|54|0%|0|0||0|1|0%|
-|GenerateReportSpace.GenerateReport|53|30|83|158|63.8%|0|0||5|6|83.3%|
+|GenerateReportSpace.GenerateReport|56|27|83|158|67.4%|0|0||5|6|83.3%|
 |GetCPUTime|8|5|13|35|61.5%|0|0||2|3|66.6%|
 |GetStartTimeSpace.GetStartTime|10|6|16|37|62.5%|0|0||4|5|80%|
 |GrabInteractionStrategy|0|24|24|162|0%|0|0||0|2|0%|
@@ -34,7 +34,7 @@
 |InteractionStrategyFactory|0|7|7|162|0%|0|0||0|1|0%|
 |LogAnalyzer|87|3|90|142|96.6%|0|0||3|3|100%|
 |LogPerformance|57|10|67|90|85%|0|0||8|10|80%|
-|LogToFile|35|15|50|61|70%|0|0||3|5|60%|
+|LogToFile|39|11|50|61|78%|0|0||3|5|60%|
 |MouseOperations|0|19|19|73|0%|0|0||0|5|0%|
 |MoveObjectToOriginEffectorSpace.MoveObjectToOriginEffector|54|26|80|215|67.5%|0|0||10|10|100%|
 |ObjectSelectionEffector|0|37|37|89|0%|0|0||0|3|0%|
@@ -45,12 +45,12 @@
 |SceneConfigurator|0|134|134|187|0%|0|0||0|2|0%|
 |SelectAndMoveToOrigin|0|116|116|165|0%|0|0||0|7|0%|
 |SelectionSensor|22|0|22|86|100%|0|0||5|5|100%|
-|SizeSceneSpace.SizeScene|62|4|66|177|93.9%|0|0||11|11|100%|
+|SizeSceneSpace.SizeScene|65|4|69|179|94.2%|0|0||11|11|100%|
 |SocketInteractionStrategy|0|20|20|162|0%|0|0||0|1|0%|
 |TeleportationEffectorSpace.TeleportationEffector|15|3|18|77|83.3%|0|0||3|3|100%|
 |TeleportationSensor|21|0|21|98|100%|0|0||5|5|100%|
 |TeleportAtObject|45|16|61|139|73.7%|0|0||6|6|100%|
-|TeleportPlayer|31|3|34|92|91.1%|0|0||5|5|100%|
+|TeleportPlayer|42|3|45|94|93.3%|0|0||8|8|100%|
 |TeleportReplay|3|52|55|124|5.4%|0|0||1|5|20%|
 |TriggerInteractionStrategy|0|33|33|162|0%|0|0||0|1|0%|
 |Unity.VRTemplate.AnchorVisuals|16|32|48|108|33.3%|0|0||3|6|50%|
@@ -74,6 +74,6 @@
 |VRLoggerSpace.VRLogger|16|1|17|31|94.1%|0|0||2|2|100%|
 |VRMovementHandler|52|2|54|127|96.2%|0|0||6|6|100%|
 |VRTest|72|26|98|227|73.4%|0|0||10|18|55.5%|
-|VRTriggerHandler|44|1|45|109|97.7%|0|0||5|5|100%|
+|VRTriggerHandler|57|1|58|116|98.2%|0|0||6|6|100%|
 |XRInputManager|0|104|104|180|0%|0|0||0|10|0%|
 |XRIntTest|7|232|239|361|2.9%|0|0||1|22|4.5%|

@@ -97,28 +97,48 @@ def write_csv_row(csv_path, project_index, iteration, success, cpu_time, start_t
 # =========================
 # Wait for ACTION_DONE
 # =========================
-def wait_for_action_done(log_file_path, timeout=TIMEOUT, process=None):
+def wait_for_action_done(log_file_path, timeout=TIMEOUT, process=None, ps_proc=None):
     start_time = time.time()
+    last_cpu = 0.0
 
     while time.time() - start_time < timeout:
+        if ps_proc:
+            try:
+                last_cpu = get_total_cpu_time(ps_proc)
+            except Exception:
+                pass
+
         if os.path.exists(log_file_path):
             try:
                 with open(log_file_path, "r", encoding="utf-8") as f:
                     if "ACTION_DONE" in f.read():
                         print("✅ ACTION_DONE détecté.")
+                        end_dt = datetime.utcnow().isoformat()
+                        if ps_proc:
+                            try:
+                                last_cpu = get_total_cpu_time(ps_proc)
+                            except Exception:
+                                pass
                         time.sleep(100)
                         if process:
                             process.terminate()
-                        return True
+                        return True, last_cpu, end_dt
             except Exception:
                 pass
 
         time.sleep(1)
 
     print("⚠️ Timeout atteint sans ACTION_DONE.")
+    end_dt = datetime.utcnow().isoformat()
+    if ps_proc:
+        try:
+            last_cpu = get_total_cpu_time(ps_proc)
+        except Exception:
+            pass
     if process:
         process.terminate()
-    return False
+    return False, last_cpu, end_dt
+
 
 
 # =========================
@@ -154,13 +174,11 @@ def run_unity_once(project_path, unity_path, index, iteration):
     # CPU début
     start_cpu = get_total_cpu_time(ps_proc)
 
-    success = wait_for_action_done(
+    success, end_cpu, end_dt = wait_for_action_done(
         log_file_path=log_file_path,
-        process=process
+        process=process,
+        ps_proc=ps_proc
     )
-
-    # CPU fin (avant disparition)
-    end_cpu = get_total_cpu_time(ps_proc)
 
     process.wait()
 
@@ -170,10 +188,9 @@ def run_unity_once(project_path, unity_path, index, iteration):
 
     cpu_used = max(0.0, end_cpu - start_cpu)
 
-    #  end time réel
-    end_dt = datetime.utcnow().isoformat()
-
     return (index, iteration, success, cpu_used, start_dt, end_dt)
+
+
 
 # =========================
 # Iterations par projet
