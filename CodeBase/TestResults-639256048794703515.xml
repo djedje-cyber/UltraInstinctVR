@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<test-run id="2" testcasecount="1" result="Failed(Child)" total="1" passed="0" failed="1" inconclusive="0" skipped="0" asserts="0" engine-version="3.5.0.0" clr-version="4.0.30319.42000" start-time="2026-09-21 14:27:54Z" end-time="2026-09-21 14:27:55Z" duration="0.8220523">
+  <test-suite type="TestSuite" id="1007" name="My project" fullname="My project" runstate="Runnable" testcasecount="1" result="Failed" site="Child" start-time="2026-09-21 14:27:54Z" end-time="2026-09-21 14:27:55Z" duration="0.822052" total="1" passed="0" failed="1" inconclusive="0" skipped="0" asserts="0">
+    <properties>
+      <property name="platform" value="PlayMode" />
+    </properties>
+    <failure>
+      <message><![CDATA[One or more child tests had errors]]></message>
+    </failure>
+    <test-suite type="Assembly" id="1003" name="Tests.dll" fullname="C:/Users/glongfil/Documents/GitHub/UltraInstinctVR/CodeBase/Library/ScriptAssemblies/Tests.dll" runstate="Runnable" testcasecount="1" result="Failed" site="Child" start-time="2026-09-21 14:27:54Z" end-time="2026-09-21 14:27:55Z" duration="0.812483" total="1" passed="0" failed="1" inconclusive="0" skipped="0" asserts="0">
+      <properties>
+        <property name="_PID" value="39076" />
+        <property name="_APPDOMAIN" value="Unity Child Domain" />
+        <property name="platform" value="PlayMode" />
+        <property name="EditorOnly" value="False" />
+      </properties>
+      <failure>
+        <message><![CDATA[One or more child tests had errors]]></message>
+      </failure>
+      <test-suite type="TestFixture" id="1001" name="LaunchTest" fullname="LaunchTest" classname="LaunchTest" runstate="Runnable" testcasecount="1" result="Failed" site="Child" start-time="2026-09-21 14:27:54Z" end-time="2026-09-21 14:27:55Z" duration="0.803043" total="1" passed="0" failed="1" inconclusive="0" skipped="0" asserts="0">
+        <properties />
+        <failure>
+          <message><![CDATA[One or more child tests had errors]]></message>
+        </failure>
+        <test-case id="1002" name="LaunchTestWithEnumeratorPasses" fullname="LaunchTest.LaunchTestWithEnumeratorPasses" methodname="LaunchTestWithEnumeratorPasses" classname="LaunchTest" runstate="Runnable" seed="845272684" result="Failed" start-time="2026-09-21 14:27:54Z" end-time="2026-09-21 14:27:55Z" duration="0.692957" asserts="0">
+          <properties>
+            <property name="_JOINTYPE" value="UnityCombinatorial" />
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+          <failure>
+            <message><![CDATA[Unhandled log message: '[Exception] UnassignedReferenceException: The variable m_Target of LazyFollow has not been assigned.
+You probably need to assign the m_Target variable of the LazyFollow script in the inspector.'. Use UnityEngine.TestTools.LogAssert.Expect]]></message>
+            <stack-trace><![CDATA[UnityEngine.Object+MarshalledUnityObject.TryThrowEditorNullExceptionObject (UnityEngine.Object unityObj, System.String parameterName) (at <b1b6e137fed94ac1a54aeeb4e5f26168>:0)
+UnityEngine.Bindings.ThrowHelper.ThrowNullReferenceException (System.Object obj) (at <b1b6e137fed94ac1a54aeeb4e5f26168>:0)
+UnityEngine.Transform.get_position () (at <b1b6e137fed94ac1a54aeeb4e5f26168>:0)
+UnityEngine.XR.Interaction.Toolkit.UI.LazyFollow.TryGetThresholdTargetRotation (UnityEngine.Quaternion& newTarget) (at ./Library/PackageCache/com.unity.xr.interaction.toolkit@76258c00be3e/Runtime/UI/LazyFollow.cs:510)
+UnityEngine.XR.Interaction.Toolkit.UI.LazyFollow.OnEnable () (at ./Library/PackageCache/com.unity.xr.interaction.toolkit@76258c00be3e/Runtime/UI/LazyFollow.cs:384)
+
+]]></stack-trace>
+          </failure>
+          <output><![CDATA[The referenced script on this Behaviour (Game Object '') is missing!
+The referenced script on this Behaviour (Game Object '') is missing!
+The referenced script on this Behaviour (Game Object 'Select GameObject') is missing!
+UnassignedReferenceException: The variable m_Target of LazyFollow has not been assigned.
+You probably need to assign the m_Target variable of the LazyFollow script in the inspector.
+UnityEngine.Object+MarshalledUnityObject.TryThrowEditorNullExceptionObject (UnityEngine.Object unityObj, System.String parameterName) (at <b1b6e137fed94ac1a54aeeb4e5f26168>:0)
+UnityEngine.Bindings.ThrowHelper.ThrowNullReferenceException (System.Object obj) (at <b1b6e137fed94ac1a54aeeb4e5f26168>:0)
+UnityEngine.Transform.get_position () (at <b1b6e137fed94ac1a54aeeb4e5f26168>:0)
+UnityEngine.XR.Interaction.Toolkit.UI.LazyFollow.TryGetThresholdTargetRotation (UnityEngine.Quaternion& newTarget) (at ./Library/PackageCache/com.unity.xr.interaction.toolkit@76258c00be3e/Runtime/UI/LazyFollow.cs:510)
+UnityEngine.XR.Interaction.Toolkit.UI.LazyFollow.OnEnable () (at ./Library/PackageCache/com.unity.xr.interaction.toolkit@76258c00be3e/Runtime/UI/LazyFollow.cs:384)
+
+UnassignedReferenceException: The variable m_Target of LazyFollow has not been assigned.
+You probably need to assign the m_Target variable of the LazyFollow script in the inspector.
+UnityEngine.Object+MarshalledUnityObject.TryThrowEditorNullExceptionObject (UnityEngine.Object unityObj, System.String parameterName) (at <b1b6e137fed94ac1a54aeeb4e5f26168>:0)
+UnityEngine.Bindings.ThrowHelper.ThrowNullReferenceException (System.Object obj) (at <b1b6e137fed94ac1a54aeeb4e5f26168>:0)
+UnityEngine.Transform.get_position () (at <b1b6e137fed94ac1a54aeeb4e5f26168>:0)
+UnityEngine.XR.Interaction.Toolkit.UI.LazyFollow.TryGetThresholdTargetRotation (UnityEngine.Quaternion& newTarget) (at ./Library/PackageCache/com.unity.xr.interaction.toolkit@76258c00be3e/Runtime/UI/LazyFollow.cs:503)
+UnityEngine.XR.Interaction.Toolkit.UI.LazyFollow.OnEnable () (at ./Library/PackageCache/com.unity.xr.interaction.toolkit@76258c00be3e/Runtime/UI/LazyFollow.cs:384)
+
+UnassignedReferenceException: The variable m_Target of LazyFollow has not been assigned.
+You probably need to assign the m_Target variable of the LazyFollow script in the inspector.
+UnityEngine.Object+MarshalledUnityObject.TryThrowEditorNullExceptionObject (UnityEngine.Object unityObj, System.String parameterName) (at <b1b6e137fed94ac1a54aeeb4e5f26168>:0)
+UnityEngine.Bindings.ThrowHelper.ThrowNullReferenceException (System.Object obj) (at <b1b6e137fed94ac1a54aeeb4e5f26168>:0)
+UnityEngine.Transform.get_position () (at <b1b6e137fed94ac1a54aeeb4e5f26168>:0)
+UnityEngine.XR.Interaction.Toolkit.UI.LazyFollow.TryGetThresholdTargetRotation (UnityEngine.Quaternion& newTarget) (at ./Library/PackageCache/com.unity.xr.interaction.toolkit@76258c00be3e/Runtime/UI/LazyFollow.cs:510)
+UnityEngine.XR.Interaction.Toolkit.UI.LazyFollow.OnEnable () (at ./Library/PackageCache/com.unity.xr.interaction.toolkit@76258c00be3e/Runtime/UI/LazyFollow.cs:384)
+
+UnassignedReferenceException: The variable m_Target of LazyFollow has not been assigned.
+You probably need to assign the m_Target variable of the LazyFollow script in the inspector.
+UnityEngine.Object+MarshalledUnityObject.TryThrowEditorNullExceptionObject (UnityEngine.Object unityObj, System.String parameterName) (at <b1b6e137fed94ac1a54aeeb4e5f26168>:0)
+UnityEngine.Bindings.ThrowHelper.ThrowNullReferenceException (System.Object obj) (at <b1b6e137fed94ac1a54aeeb4e5f26168>:0)
+UnityEngine.Transform.get_position () (at <b1b6e137fed94ac1a54aeeb4e5f26168>:0)
+UnityEngine.XR.Interaction.Toolkit.UI.LazyFollow.TryGetThresholdTargetRotation (UnityEngine.Quaternion& newTarget) (at ./Library/PackageCache/com.unity.xr.interaction.toolkit@76258c00be3e/Runtime/UI/LazyFollow.cs:510)
+UnityEngine.XR.Interaction.Toolkit.UI.LazyFollow.OnEnable () (at ./Library/PackageCache/com.unity.xr.interaction.toolkit@76258c00be3e/Runtime/UI/LazyFollow.cs:384)
+
+Scenario files used in the scene SampleScene and added to the build: 
+Assets/Oracle_InObjectScene.xml
+Assets/Oracle_Colission.xml
+Assets/Oracle_MoveObjectToOrigin.xml
+Assets/Oracle_Teleportation.xml
+Assets/Oracle_OutSceneTeleportation.xml
+Assets/Oracle_Selection.xml
+Mesh 'Plane' has more materials (2) than submeshes (1)
+[TEST] Start wait at 6.412361, timeScale=1
+🚀 Initialisation of the test suite
+📢 StartNextChild() called - Actual Index : 0
+No Camera Floor Offset GameObject specified for XR Origin, using attached GameObject.
+No Main Camera is found for XR Origin, please assign the Camera field manually.
+▶ Activation of ScanInteractableObject
+🎬 ScanInteractableObject initialised !
+➡ ScanInteractableObject begins his interaction !
+Total Interactable objects in scene: 16
+The game_logs.txt file has been cleared.
+Arch_Interactable: (2.49, 0.71, -2.13)
+Spatial Panel Manipulator UI Examples: (0.00, 0.00, 0.00)
+Cylinder Interactable: (2.15, 1.16, -2.98)
+Spatial Panel Manipulator Model: (0.00, 0.00, 0.00)
+Sphere Interactable: (3.25, 2.81, 0.50)
+Tapered Interactable 1: (2.51, 0.99, -2.98)
+Torus Interactable: (2.51, 1.19, -2.98)
+Tapered Interactable 2: (2.50, 1.60, -2.98)
+Cube Interactable: (2.51, 1.40, -2.98)
+Blaster: (2.61, 0.95, -0.16)
+[Code Coverage] Code Coverage results for visited sequence points were saved in C:/Users/glongfil/Documents/GitHub/UltraInstinctVR/CodeBase/CodeCoverage/CodeBase-opencov/PlayMode/TestCoverageResults_0001.xml
+[Code Coverage] Code Coverage Report was generated in C:/Users/glongfil/Documents/GitHub/UltraInstinctVR/CodeBase/CodeCoverage/Report
+Included Assemblies: Assembly-CSharp
+Excluded Assemblies: <Not specified>
+Included Paths: C:/Users/glongfil/Documents/GitHub/UltraInstinctVR/CodeBase/Assets/**
+Excluded Paths: C:/Users/glongfil/Documents/GitHub/UltraInstinctVR/CodeBase/Packages/**
+Saving results to: C:/Users/glongfil/AppData/LocalLow/DefaultCompany/My project\TestResults.xml
+]]></output>
+        </test-case>
+      </test-suite>
+    </test-suite>
+  </test-suite>
+</test-run>

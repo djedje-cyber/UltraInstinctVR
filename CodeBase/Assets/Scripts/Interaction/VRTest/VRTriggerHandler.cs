@@ -67,10 +67,17 @@ public class VRTriggerHandler
     /// <returns></returns>
     private string GetReplayFilePath()
     {
-        string replayFolderPath = "Logs/TESTREPLAY";
-        string uuid = Guid.NewGuid().ToString();
-        string date = DateTime.Now.ToString("yyyy-MM-dd");
-        return Path.Combine(replayFolderPath, $"TEST_REPLAY_ObjectFound_{uuid}_{date}.txt");
+        string projectRoot = Directory.GetParent(Application.dataPath).FullName;
+        string replayFolderPath = Path.Combine(projectRoot, "Logs", "TESTREPLAY");
+
+        if (!Directory.Exists(replayFolderPath))
+            Directory.CreateDirectory(replayFolderPath);
+
+        string uuid = Guid.NewGuid().ToString().Substring(0, 4);
+        string date = DateTime.Now.ToString("ddMMyyyy");
+        int runNumber = Directory.GetFiles(replayFolderPath, "TEST_REPLAY_ObjectFound_*.txt").Length + 1;
+
+        return Path.Combine(replayFolderPath, $"TEST_REPLAY_ObjectFound_{uuid}_{date}_RUN_{runNumber}.txt");
     }
 
     /// <summary>

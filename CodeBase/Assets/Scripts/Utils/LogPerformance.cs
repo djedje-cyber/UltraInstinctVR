@@ -73,8 +73,18 @@ public class LogPerformance : MonoBehaviour
 
     string GenerateFileName()
     {
-        string uuid = Guid.NewGuid().ToString().Substring(0, 5);  
-        string date = DateTime.Now.ToString("ddMMyyyy");          
-        return $"result_{uuid}_{date}.csv";                        
+        string uuid = Guid.NewGuid().ToString().Substring(0, 5);
+        string date = DateTime.Now.ToString("ddMMyyyy");
+
+        string projectRoot = Directory.GetParent(Application.dataPath).FullName;
+        string resultDirectory = Path.Combine(projectRoot, "Logs", "result");
+
+        int runNumber = 1;
+        if (Directory.Exists(resultDirectory))
+        {
+            runNumber = Directory.GetFiles(resultDirectory, "result_*.csv").Length + 1;
+        }
+
+        return $"result_{uuid}_{date}_Run_{runNumber}.csv";
     }
 }

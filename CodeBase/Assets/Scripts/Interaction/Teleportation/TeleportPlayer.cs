@@ -30,20 +30,22 @@ public class TeleportPlayer : MonoBehaviour
     /// </summary>
     private void Start()
     {
+        // Generate unique filename with UUID, current date and run number for logging teleportation positions to allow replaying later
+        string uuid = Guid.NewGuid().ToString().Substring(0, 4);
+        string date = DateTime.Now.ToString("ddMMyyyy");
 
-        // Generate unique filename with UUID and current date for logging teleportation positions to allow replaying later
-        string uuid = Guid.NewGuid().ToString();
-        string Date = DateTime.Now.ToString("yyyy-MM-dd");
+        string projectRoot = Directory.GetParent(Application.dataPath).FullName;
+        string folderPath = Path.Combine(projectRoot, "Logs", "TESTREPLAY","TeleportPlayer");
 
-        string folderPath =  "Logs/TESTREPLAY";
-        
         if (!Directory.Exists(folderPath))
         {
             Directory.CreateDirectory(folderPath);
         }
-        
-        logFilePath = Path.Combine(folderPath, $"TESTREPLAY_TeleportPlayer_{uuid}_{Date}.txt");
-        
+
+        int runNumber = Directory.GetFiles(folderPath, "TESTREPLAY_TeleportPlayer_*.txt").Length + 1;
+
+        logFilePath = Path.Combine(folderPath, $"TESTREPLAY_TeleportPlayer_{uuid}_{date}_RUN_{runNumber}.txt");
+
         Debug.Log("🚀 Téléportation of the player");
         StartCoroutine(TeleportRoutine());
     }

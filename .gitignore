@@ -13,7 +13,8 @@ CodeBase/Logs/
 CodeBase/Assets/Scripts/TESTREPLAY/
 CodeBase/Assets/result/
 CodeBase/obj/Debug/
-
+CodeBase/CodeCoverage
+CodeBase/ProjectsSettings
 # Ensure Cache & GI data isn't tracked
 MemoryCaptures/
 Assets/Plugins/Editor/JetBrains*
